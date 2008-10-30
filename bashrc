@@ -62,7 +62,7 @@ if [ "$TERM" != "dumb" ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -l'
+alias ll='ls -lh'
 alias la='ls -A'
 #alias l='ls -CF'
 
@@ -74,26 +74,27 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 # add bin to the path
-#export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/bin
 
-# for Ruby on Rails
-export PATH=$PATH:/var/lib/gems/1.8/bin/
-
-# for kq
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-
-# longer history
-shopt -s histappend
 export HISTSIZE=1000000
+shopt -s histappend
 
 # directory navigating aliases
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias .....='cd ../../../..'
 
-#bind '"\t":menu-complete'
-alias mysql='command mysql -u root -p'
+alias taild='tail -fn100 log/development.log'
+alias tailt='tail -fn100 log/test.log'
+alias tailp='tail -fn100 log/production.log'
+alias taildg="tail -fn100 log/development.log | grep '###'"
+alias tailtg="tail -fn100 log/development.log | grep '###'"
+alias con='ruby script/console'
+alias rss='ruby script/server'
+alias v='vim'
+alias cim='vim'
+alias bim='vim'
+alias atr='autotest -rails'
 alias x='exit'
 alias v='vim'
 

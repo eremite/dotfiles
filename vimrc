@@ -1,14 +1,17 @@
+"256 Colors
 set t_Co=256
-colorscheme desert256
-let ruby_space_errors = 1
-autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
-syntax on
-set nohlsearch
-filetype indent on
-set backspace=start,indent,eol
 
-highlight Folded guifg=purple guibg=black
-highlight MatchParen ctermbg=4
+colorscheme desert256
+
+syntax on
+
+set nohlsearch
+
+filetype indent on
+
+" Fix tabs
+set backspace=start,indent,eol
+au FileType make setlocal noexpandtab
 
 set shiftwidth=2
 set tabstop=2
@@ -17,8 +20,11 @@ set expandtab
 let b:surround_indent = 1
 
 let g:rails_syntax=1
-au FileType make setlocal noexpandtab
 "vnoremap <C-X> <Esc>`.``gvP``P
+
+"Search in a visual range: http://www.vim.org/tips/tip.php?tip_id=796
+vnoremap / <Esc>/\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
+vnoremap ? <Esc>?\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
 
 "http://vim.wikia.com/wiki/VimTip1269 add indent level as text-object
 onoremap <silent>ai :<C-u>cal IndTxtObj(0)<CR>
@@ -52,29 +58,32 @@ function! IndTxtObj(inner)
 endfunction
 
 " My own (semi-lame) text-object for commas
-onoremap <silent>ac :<C-u>silent! normal! F,vt,<CR>
-onoremap <silent>ic :<C-u>silent! normal! T,vf,<CR>
-vnoremap <silent>ac :<C-u>silent! normal! F,vt,<CR><Esc>gv
-vnoremap <silent>ic :<C-u>silent! normal! T,vf,<CR><Esc>gv
+onoremap <silent>a, :<C-u>silent! normal! F,vt,<CR>
+onoremap <silent>i, :<C-u>silent! normal! T,vf,<CR>
+vnoremap <silent>a, :<C-u>silent! normal! F,vt,<CR><Esc>gv
+vnoremap <silent>i, :<C-u>silent! normal! T,vf,<CR><Esc>gv
 
 " My own (semi-lame) text-object for underscored_words
-onoremap <silent>au :<C-u>silent! normal! bvf_<CR>
-onoremap <silent>iu :<C-u>silent! normal! bvt_<CR>
-vnoremap <silent>au :<C-u>silent! normal! bvf_<CR><Esc>gv
-vnoremap <silent>iu :<C-u>silent! normal! bvt_<CR><Esc>gv
+onoremap <silent>a_ :<C-u>silent! normal! T_vf_<CR>
+onoremap <silent>i_ :<C-u>silent! normal! T_vt_<CR>
+vnoremap <silent>a_ :<C-u>silent! normal! T_vf_<CR><Esc>gv
+vnoremap <silent>i_ :<C-u>silent! normal! T_vt_<CR><Esc>gv
 
 "save register between sessions
 "http://www.oreillynet.com/mac/blog/2006/07/more_vim_save_time_with_macros_1.html
 ":set viminfo=%,'50,\"100,n~/.viminfo 
 
-au BufRead,BufNewFile *.html set filetype=php 
-au BufRead,BufNewFile *.htm set filetype=php 
-au BufRead,BufNewFile *.php set filetype=php 
-
 command Q q
 command W w
 command WQ wq
 command Wq wq
+
+au BufRead,BufNewFile *.html set filetype=php 
+au BufRead,BufNewFile *.htm set filetype=php 
+au BufRead,BufNewFile *.php set filetype=php 
+
+"http://www.vim.org/scripts/script.php?script_id=13
+au Filetype html,xml,xsl,eruby source ~/.vim/scripts/closetag.vim
 
 "set surround for #
 let g:surround_35 = "#{\r}"
@@ -89,7 +98,6 @@ autocmd FileType html let b:surround_61 = "<?php echo \r; ?>"
 autocmd FileType php let b:surround_103 = "$_GET[\"\r\"]"
 autocmd FileType php let b:surround_112 = "$_POST[\"\r\"]"
 autocmd FileType php let b:surround_114 = "$row[\"\r\"]"
-
 autocmd FileType js let b:surround_42 = "/*\r*/"
 autocmd FileType css let b:surround_42 = "/*\r*/"
 
@@ -113,17 +121,33 @@ map <F3> :s/^\s*#/\1/e<CR>
 map <F4> :w<CR>:cn<CR>
 map <F6> :set paste!<CR>
 map <F7> :silent setlocal invspell<CR>
+map <F8> ]czz
+map <F11> :wqa<CR>
+map <F12> :1,$+1diffget<CR>:wqa<CR>
 
 ":setlocal spell spelllang=en_us
-":highlight clear SpellBad
-":highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
-":highlight clear SpellCap
-":highlight SpellCap term=underline cterm=underline
-":highlight clear SpellRare
-":highlight SpellRare term=underline cterm=underline
-":highlight clear SpellLocal
-":highlight SpellLocal term=underline cterm=underline
+highlight clear SpellBad
+highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
+highlight clear SpellCap
+highlight SpellCap term=underline cterm=underline
+highlight clear SpellRare
+highlight SpellRare term=underline cterm=underline
+highlight clear SpellLocal
+highlight SpellLocal term=underline cterm=underline
 
+" Highlight spaces at the end of lines.
+highlight link localWhitespaceError Error
+au Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/ display
+
+" Vimdiff preferences
+highlight DiffAdd cterm=underline ctermbg=Black ctermfg=2
+highlight DiffChange cterm=underline ctermbg=Black ctermfg=4
+highlight DiffText cterm=underline ctermbg=4 ctermfg=0
+highlight DiffDelete cterm=underline ctermbg=Black ctermfg=1
+nmap do do]c
+nmap dp dp]c
+
+set fo-=c
 set fo-=o
 set fo-=r
 
