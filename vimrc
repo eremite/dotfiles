@@ -7,6 +7,10 @@ set nohlsearch
 filetype indent on
 set backspace=start,indent,eol
 
+"http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim
+imap jj <esc>
+imap kk <esc>
+
 highlight Folded guifg=purple guibg=black
 highlight MatchParen ctermbg=4
 
