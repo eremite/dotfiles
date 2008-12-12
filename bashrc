@@ -1,6 +1,4 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -9,6 +7,9 @@
 export HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
 export HISTCONTROL=ignoreboth
+# increase size of history
+export HISTSIZE=1000000
+shopt -s histappend
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -44,67 +45,53 @@ xterm*|rxvt*)
     ;;
 esac
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+# add bin to the path
+export PATH=$PATH:$HOME/bin
 
-#if [ -f ~/.bash_aliases ]; then
-#    . ~/.bash_aliases
-#fi
-
-# enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ]; then
-    eval "`dircolors -b`"
-    alias ls='ls --color=auto'
-    #alias dir='ls --color=auto --format=vertical'
-    #alias vdir='ls --color=auto --format=long'
+  eval "`dircolors -b`"
+  alias ls='ls --color=auto'
 fi
 
-# some more ls aliases
+# enable programmable completion features
+if [ -f /etc/bash_completion ]; then
+  . /etc/bash_completion
+fi
+
+# li
 alias ll='ls -lh'
 alias la='ls -A'
 #alias l='ls -CF'
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
-
-# add bin to the path
-export PATH=$PATH:$HOME/bin
-
-export HISTSIZE=1000000
-shopt -s histappend
-
-# directory navigating aliases
+# cd
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+# git
+alias gl='git pull'
+alias gp='git push'
+alias gd='git diff'
+alias ga='git add'
+alias gc='git commit -v -a'
+alias gb='git branch'
+alias gs='git status'
+alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+
+# rails
+alias ss='ruby script/server'
+alias sc='ruby script/console'
 alias taild='tail -fn100 log/development.log'
 alias tailt='tail -fn100 log/test.log'
 alias tailp='tail -fn100 log/production.log'
 alias taildg="tail -fn100 log/development.log | grep '###'"
-alias tailtg="tail -fn100 log/development.log | grep '###'"
-alias con='ruby script/console'
-alias rss='ruby script/server'
+alias tailtg="tail -fn100 log/test.log | grep '###'"
+
+# apache
+alias rsa='sudo /usr/sbin/apache2ctl graceful'
+
+# vim
 alias v='vim'
-alias cim='vim'
-alias bim='vim'
-alias atr='autotest -rails'
+
+# bash
 alias x='exit'
-alias v='vim'
-
-alias rss='ruby script/server'
-
-alias gst='git status'
-alias gc='git commit -v -a'
-alias ga='git add'
-alias gr='git rm'
-alias gb='git branch'
-alias gd='git diff'
-alias gp='git push'
-alias gl='git pull'

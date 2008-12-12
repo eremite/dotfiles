@@ -1,36 +1,40 @@
-"256 Colors
-set t_Co=256
+" vimrc
 
-colorscheme desert256
-
-syntax on
-
-set nohlsearch
-
+" Tabs and indentation
 filetype indent on
-
-"http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim
-imap jj <esc>
-imap kk <esc>
-
-highlight Folded guifg=purple guibg=black
-highlight MatchParen ctermbg=4
-
-" Fix tabs
 set backspace=start,indent,eol
-au FileType make setlocal noexpandtab
 set shiftwidth=2
 set tabstop=2
 retab
 set expandtab
 let b:surround_indent = 1
+au FileType make setlocal noexpandtab
 
-let g:rails_syntax=1
-"vnoremap <C-X> <Esc>`.``gvP``P
+" Colors
+set t_Co=256
+colorscheme desert256
+syntax on
+set nohlsearch
+highlight Folded guifg=purple guibg=black
+highlight MatchParen ctermbg=4
+" Vimdiff
+highlight DiffAdd cterm=underline ctermbg=Black ctermfg=2
+highlight DiffChange cterm=underline ctermbg=Black ctermfg=4
+highlight DiffText cterm=underline ctermbg=4 ctermfg=0
+highlight DiffDelete cterm=underline ctermbg=Black ctermfg=1
+" Spelling
+highlight clear SpellBad
+highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
+highlight clear SpellCap
+highlight SpellCap term=underline cterm=underline
+highlight clear SpellRare
+highlight SpellRare term=underline cterm=underline
+highlight clear SpellLocal
+highlight SpellLocal term=underline cterm=underline
 
-"Search in a visual range: http://www.vim.org/tips/tip.php?tip_id=796
-vnoremap / <Esc>/\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
-vnoremap ? <Esc>?\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
+" Highlight spaces at the end of lines.
+highlight link localWhitespaceError Error
+au Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/ display
 
 "http://vim.wikia.com/wiki/VimTip1269 add indent level as text-object
 onoremap <silent>ai :<C-u>cal IndTxtObj(0)<CR>
@@ -69,61 +73,69 @@ onoremap <silent>i, :<C-u>silent! normal! T,vf,<CR>
 vnoremap <silent>a, :<C-u>silent! normal! F,vt,<CR><Esc>gv
 vnoremap <silent>i, :<C-u>silent! normal! T,vf,<CR><Esc>gv
 
-" My own (semi-lame) text-object for underscored_words
-onoremap <silent>a_ :<C-u>silent! normal! T_vf_<CR>
-onoremap <silent>i_ :<C-u>silent! normal! T_vt_<CR>
-vnoremap <silent>a_ :<C-u>silent! normal! T_vf_<CR><Esc>gv
-vnoremap <silent>i_ :<C-u>silent! normal! T_vt_<CR><Esc>gv
+" Search in a visual range: http://www.vim.org/tips/tip.php?tip_id=796
+vnoremap / <Esc>/\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
+vnoremap ? <Esc>?\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
 
-"save register between sessions
-"http://www.oreillynet.com/mac/blog/2006/07/more_vim_save_time_with_macros_1.html
-":set viminfo=%,'50,\"100,n~/.viminfo 
+" Inserting just one thing
+nnoremap <cr> o<esc>
+nnoremap - O<esc>
+nnoremap <space> :exec "normal i".nr2char(getchar())."\e"<CR>
 
+" Quitting quickly
 command Q q
 command W w
 command WQ wq
 command Wq wq
 
+" Filetypes
 au BufRead,BufNewFile *.html set filetype=php 
 au BufRead,BufNewFile *.htm set filetype=php 
 au BufRead,BufNewFile *.php set filetype=php 
+au BufRead,BufNewFile *.haml set filetype=haml 
 
-"http://www.vim.org/scripts/script.php?script_id=13
-au Filetype html,xml,xsl,eruby source ~/.vim/scripts/closetag.vim
+" For CTRL-^ in particular
+set autowrite
 
-"set surround for #
-let g:surround_35 = "#{\r}"
-"set surround for d
-let g:surround_100 = "logger.debug(\"###\\n### #{\r}\\n###\") #TODO: remove debug code"
-let g:surround_115 = "logger.debug(\"### #{\r}\") #TODO: remove debug code"
+" Rails
+let g:rails_syntax=1
 
-"set surround for - in php files
-autocmd FileType php let b:surround_45 = "<?php \r ?>"
-autocmd FileType html let b:surround_45 = "<?php \r ?>"
-autocmd FileType html let b:surround_61 = "<?php echo \r; ?>"
-autocmd FileType php let b:surround_103 = "$_GET[\"\r\"]"
-autocmd FileType php let b:surround_112 = "$_POST[\"\r\"]"
-autocmd FileType php let b:surround_114 = "$row[\"\r\"]"
-autocmd FileType js let b:surround_42 = "/*\r*/"
-autocmd FileType css let b:surround_42 = "/*\r*/"
-
-"set surround for ?
-let g:surround_63 = "<? \r ?>"
-"set surround for 1 and !
-let g:surround_49 = "<!-- \r -->"
-let g:surround_33 = "<!-- \r -->"
-"set surround for \
-let g:surround_92 = "\n\r\n"
-
+" Enable undo for CTRL-u and backspace
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
-nnoremap <cr> o<esc>
-nnoremap - O<esc>
-nnoremap + i<cr><esc>
-nnoremap <space> :exec "normal i".nr2char(getchar())."\e"<CR>
 
-map <F2> :s/^/#/e<CR>
-map <F3> :s/^\s*#/\1/e<CR>
+" Vimdiff shortcuts
+nmap do do]c
+nmap dp dp]c
+
+" Surrounds
+"-
+autocmd FileType php let b:surround_45 = "<?php \r ?>"
+autocmd FileType html let b:surround_45 = "<?php \r ?>"
+"1
+let g:surround_49 = "<!-- \r -->"
+"!
+let g:surround_33 = "<!-- \r -->"
+"\
+let g:surround_92 = "\n\r\n"
+"#
+let g:surround_35 = "#{\r}"
+"d
+let g:surround_100 = "logger.debug(\"###\\n### #{\r}\\n###\") #TODO: remove debug code"
+"s
+let g:surround_115 = "logger.debug(\"### #{\r}\") #TODO: remove debug code"
+"t
+let g:surround_116 = "t '\r'"
+"u
+let g:surround_117 = "t('\r')"
+"|
+let g:surround_124 = "{{\r}}"
+
+" http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim
+imap jj <esc>j
+imap kk <esc>k
+
+" Function keys
 map <F4> :w<CR>:cn<CR>
 map <F6> :set paste!<CR>
 map <F7> :silent setlocal invspell<CR>
@@ -131,28 +143,3 @@ map <F8> ]czz
 map <F11> :wqa<CR>
 map <F12> :1,$+1diffget<CR>:wqa<CR>
 
-":setlocal spell spelllang=en_us
-highlight clear SpellBad
-highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
-highlight clear SpellCap
-highlight SpellCap term=underline cterm=underline
-highlight clear SpellRare
-highlight SpellRare term=underline cterm=underline
-highlight clear SpellLocal
-highlight SpellLocal term=underline cterm=underline
-
-" Highlight spaces at the end of lines.
-highlight link localWhitespaceError Error
-au Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/ display
-
-" Vimdiff preferences
-highlight DiffAdd cterm=underline ctermbg=Black ctermfg=2
-highlight DiffChange cterm=underline ctermbg=Black ctermfg=4
-highlight DiffText cterm=underline ctermbg=4 ctermfg=0
-highlight DiffDelete cterm=underline ctermbg=Black ctermfg=1
-nmap do do]c
-nmap dp dp]c
-
-set fo-=c
-set fo-=o
-set fo-=r

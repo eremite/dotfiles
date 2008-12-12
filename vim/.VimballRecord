@@ -1,1 +1,2 @@
 tail-3.0.vba: call delete('/home/daniel/.vim/tail_options.vim')|call delete('/home/daniel/.vim/autoload/tail.vim')|call delete('/home/daniel/.vim/doc/tail.txt')|call delete('/home/daniel/.vim/macros/vim-tail.zsh')|call delete('/home/daniel/.vim/plugin/tail.vim')
+tComment.vba: call delete('/home/daniel/.vim/doc/tComment.txt')|call delete('/home/daniel/.vim/plugin/tComment.vim')|call delete('/home/daniel/.vim/autoload/tcomment.vim')
