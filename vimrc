@@ -93,6 +93,7 @@ au BufRead,BufNewFile *.html set filetype=php
 au BufRead,BufNewFile *.htm set filetype=php 
 au BufRead,BufNewFile *.php set filetype=php 
 au BufRead,BufNewFile *.haml set filetype=haml 
+au FileType ruby setlocal formatoptions-=cro
 
 " For CTRL-^ in particular
 set autowrite
@@ -142,4 +143,3 @@ map <F7> :silent setlocal invspell<CR>
 map <F8> ]czz
 map <F11> :wqa<CR>
 map <F12> :1,$+1diffget<CR>:wqa<CR>
-
