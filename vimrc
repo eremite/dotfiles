@@ -80,6 +80,7 @@ vnoremap ? <Esc>?\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
 " Inserting just one thing
 nnoremap <cr> o<esc>
 nnoremap - O<esc>
+nnoremap + i<cr><esc>
 nnoremap <space> :exec "normal i".nr2char(getchar())."\e"<CR>
 
 " Quitting quickly
