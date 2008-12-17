@@ -58,15 +58,19 @@ if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
 fi
 
-# li
+# ls
 alias ll='ls -lh'
 alias la='ls -A'
-#alias l='ls -CF'
+alias l='ls -1'
 
 # cd
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+
+# svn
+alias svnd='svn diff -r PREV'
+alias svnr='svn resolved'
 
 # git
 alias gl='git pull'

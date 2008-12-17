@@ -1,0 +1,46 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
+# ls
+alias ll='ls -lh'
+alias la='ls -A'
+alias l='ls -1'
+
+# cd
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# svn
+alias svnd='svn diff -r PREV'
+alias svnr='svn resolved'
+
+# git
+alias gl='git pull'
+alias gp='git push'
+alias gd='git diff'
+alias ga='git add'
+alias gc='git commit -v -a'
+alias gb='git branch'
+alias gs='git status'
+alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+
+# rails
+alias sc='ruby script/console production'
+alias tailp='tail -fn150 log/production.log'
+alias down='cp public/system/maintenance.html-- public/system/maintenance.html'
+alias up='mv public/system/maintenance.html public/system/maintenance.html--'
+alias rs='touch tmp/restart.txt'
+
+# apache
+alias rsa='sudo /usr/sbin/apache2ctl graceful'
+
+# vim
+alias v='vim'
+
+# bash
+alias x='exit'

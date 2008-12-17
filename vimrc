@@ -95,6 +95,7 @@ au BufRead,BufNewFile *.htm set filetype=php
 au BufRead,BufNewFile *.php set filetype=php 
 au BufRead,BufNewFile *.haml set filetype=haml 
 au FileType ruby setlocal formatoptions-=cro
+au FileType yaml setlocal formatoptions-=cro
 
 " For CTRL-^ in particular
 set autowrite
