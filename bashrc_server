@@ -11,6 +11,7 @@ alias la='ls -A'
 alias l='ls -1'
 
 # cd
+alias c='cd /var/www/'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
