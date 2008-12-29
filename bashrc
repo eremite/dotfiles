@@ -90,6 +90,7 @@ alias ga='git add'
 alias gc='git commit -v -a'
 alias gb='git branch'
 alias gs='git status'
+alias gco='git checkout'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gps='git svn dcommit'
 alias gls='git svn fetch'
