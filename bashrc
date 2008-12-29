@@ -94,6 +94,8 @@ alias gco='git checkout'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gps='git svn dcommit'
 alias gls='git svn fetch'
+alias glog='git log'
+
 
 # rails
 alias ss='ruby script/server'
