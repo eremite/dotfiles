@@ -65,7 +65,7 @@ function parse_git_dirty {
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
-export PS1='\u@\h \w$(parse_git_branch)$ '
+export PS1='\u@\h:$(parse_git_branch)\w$ '
 
 # ls
 alias ll='ls -lh'
