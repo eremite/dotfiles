@@ -15,7 +15,6 @@ set t_Co=256
 colorscheme desert256
 syntax on
 set nohlsearch
-highlight Folded guifg=purple guibg=black
 highlight MatchParen ctermbg=4
 " Vimdiff
 highlight DiffAdd cterm=underline ctermbg=Black ctermfg=2
@@ -31,6 +30,10 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
+" Rails ?
+highlight link railsMethod Question
+highlight link railsUserMethod MoreMsg
+highlight link railsUserClass Special
 
 " Highlight spaces at the end of lines.
 highlight link localWhitespaceError Error
@@ -90,7 +93,7 @@ command WQ wq
 command Wq wq
 
 " Filetypes
-au BufRead,BufNewFile *.html set filetype=php 
+" au BufRead,BufNewFile *.html set filetype=php
 au BufRead,BufNewFile *.htm set filetype=php 
 au BufRead,BufNewFile *.php set filetype=php 
 au BufRead,BufNewFile *.haml set filetype=haml 

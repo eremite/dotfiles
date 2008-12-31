@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'map_by_method'
 require 'wirble'
 Wirble.init
 Wirble.colorize
