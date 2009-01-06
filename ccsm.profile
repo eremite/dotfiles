@@ -2,7 +2,9 @@
 as_show_switcher = true
 as_miniscreen = false
 as_preview_timeout = 0.400000
+as_preview_scale = 100
 as_edge_radius = 5
+as_border_width = 10
 as_outline_color = #333333d9
 as_background_gradient_base_color = #cccce6d9
 as_background_gradient_highlight_color = #f3f3ffd9
@@ -178,6 +180,13 @@ as_inc_button = <Alt><Super>Button5
 as_animtime = 150
 as_interval = 0.900000
 
+[wallpaper]
+s0_bg_image = 
+s0_bg_image_pos = 
+s0_bg_fill_type = 
+s0_bg_color1 = 
+s0_bg_color2 = 
+
 [loginout]
 s0_in_match = (iclass=^ksplash)
 s0_in_time = 1.000000
@@ -193,9 +202,12 @@ s0_out_opacity = 100.000000
 [place]
 s0_workarounds = true
 s0_mode = 2
+s0_multioutput_mode = 0
+s0_force_placement_match = 
 s0_position_matches = 
 s0_position_x_values = 
 s0_position_y_values = 
+s0_position_constrain_workarea = 
 s0_viewport_matches = 
 s0_viewport_x_values = 
 s0_viewport_y_values = 
@@ -204,28 +216,6 @@ s0_viewport_y_values =
 as_initiate_button = <Super>Button1
 as_directory = Desktop
 as_launch_app = 
-
-[cubecaps]
-as_top_next_key = space
-as_top_next_button = Disabled
-as_top_prev_key = Disabled
-as_top_prev_button = Disabled
-as_bottom_next_key = Disabled
-as_bottom_next_button = Disabled
-as_bottom_prev_key = Disabled
-as_bottom_prev_button = Disabled
-s0_draw_top = true
-s0_draw_bottom = true
-s0_adjust_top = false
-s0_adjust_bottom = false
-s0_scale_top_image = false
-s0_scale_bottom_image = false
-s0_clamp_top_to_border = true
-s0_clamp_bottom_to_border = true
-s0_top_color = #ffffffff
-s0_bottom_color = #ffffffff
-s0_top_images = fusioncap.png;
-s0_bottom_images = compizcap.png;
 
 [resizeinfo]
 as_fade_time = 500
@@ -257,8 +247,31 @@ as_mipmap = false
 as_decoration_match = any
 as_shadow_match = any
 
+[obs]
+as_opacity_increase_key = Disabled
+as_opacity_increase_button = <Alt>Button4
+as_opacity_decrease_key = Disabled
+as_opacity_decrease_button = <Alt>Button5
+as_brightness_increase_key = Disabled
+as_brightness_increase_button = Disabled
+as_brightness_decrease_key = Disabled
+as_brightness_decrease_button = Disabled
+as_saturation_increase_key = Disabled
+as_saturation_increase_button = Disabled
+as_saturation_decrease_key = Disabled
+as_saturation_decrease_button = Disabled
+s0_opacity_step = 5
+s0_opacity_matches = 
+s0_opacity_values = 
+s0_brightness_step = 5
+s0_brightness_matches = 
+s0_brightness_values = 
+s0_saturation_step = 5
+s0_saturation_matches = 
+s0_saturation_values = 
+
 [mousepoll]
-as_mouse_poll_interval = 10
+as_mouse_poll_interval = 40
 
 [showmouse]
 as_initiate = <Super>k
@@ -280,23 +293,61 @@ as_initiate_button = <Shift><Super>Button1
 as_clear_key = <Shift><Super>c
 as_clear_button = <Shift><Super>Button3
 s0_num_particles = 3000
-s0_fire_size = 15.000000
+s0_fire_size = 8.000000
 s0_fire_slowdown = 0.500000
 s0_fire_life = 0.700000
 s0_fire_color = #ff3305ff
 s0_fire_mystical = false
-s0_bg_brightness = 77
+s0_bg_brightness = 90
 
 [maximumize]
 as_ignore_sticky = true
 as_ignore_overlapping = false
 as_trigger_key = <Super>m
 
+[animationaddon]
+s0_airplane_path_length = 1.000000
+s0_airplane_fly_to_taskbar = true
+s0_beam_size = 8.000000
+s0_beam_spacing = 5
+s0_beam_color = #7f7f7fff
+s0_beam_slowdown = 1.000000
+s0_beam_life = 0.700000
+s0_fire_particles = 1000
+s0_fire_size = 5.000000
+s0_fire_slowdown = 0.500000
+s0_fire_life = 0.700000
+s0_fire_color = #ff3305ff
+s0_fire_direction = 0
+s0_fire_constant_speed = false
+s0_fire_smoke = false
+s0_fire_mystical = false
+s0_domino_direction = 5
+s0_explode_gridx = 13
+s0_explode_gridy = 10
+s0_explode_thickness = 15.000000
+s0_explode_tessellation = 0
+s0_fold_gridx = 3
+s0_fold_gridy = 3
+s0_fold_dir = 1
+s0_glide3_away_position = -0.400000
+s0_glide3_away_angle = 45.000000
+s0_glide3_thickness = 0.000000
+s0_razr_direction = 5
+s0_skewer_direction = 8
+s0_skewer_tessellation = 0
+s0_skewer_gridx = 6
+s0_skewer_gridy = 4
+s0_skewer_thickness = 0.000000
+s0_skewer_rotation = 0
+s0_time_step_intense = 30
+
 [ezoom]
 as_zoom_in = <Alt><Super>Button4
 as_zoom_in_key = Disabled
 as_zoom_out = <Alt><Super>Button5
 as_zoom_out_key = Disabled
+as_zoom_box = <Super>Button2
 as_center_mouse = Disabled
 as_zoom_specific_1 = <Super>1
 as_zoom_spec1 = 1.000000
@@ -313,13 +364,15 @@ as_pan_down = Disabled
 as_fit_to_zoom = <Super>v
 as_fit_to_window = <Super>f
 s0_zoom_factor = 1.150000
+s0_minimum_zoom = 0.125000
 s0_sync_mouse = true
 s0_scale_mouse = false
+s0_scale_mouse_dynamic = true
+s0_scale_mouse_static = 0.200000
 s0_hide_original_mouse = false
 s0_restrain_mouse = false
 s0_mouse_pan = false
 s0_restrain_margin = 5
-s0_mouse_poll_interval = 10
 s0_pan_factor = 0.100000
 s0_follow_focus = true
 s0_focus_fit_window = false
@@ -332,27 +385,10 @@ s0_filter_linear = true
 [addhelper]
 as_toggle_key = <Super>p
 as_window_types = Toolbar | Utility | Dialog | ModalDialog | Fullscreen | Normal
+as_ononinit = false
 as_brightness = 30
 as_saturation = 50
 as_opacity = 100
-
-[plane]
-as_plane_left_key = <Control><Alt>Left
-as_plane_right_key = <Control><Alt>Right
-as_plane_down_key = <Control><Alt>Down
-as_plane_up_key = <Control><Alt>Up
-as_plane_to_1_key = <Super>q
-as_plane_to_2_key = <Super>w
-as_plane_to_3_key = <Super>e
-as_plane_to_4_key = <Super>r
-as_plane_to_5_key = Disabled
-as_plane_to_6_key = Disabled
-as_plane_to_7_key = Disabled
-as_plane_to_8_key = Disabled
-as_plane_to_9_key = Disabled
-as_plane_to_10_key = Disabled
-as_plane_to_11_key = Disabled
-as_plane_to_12_key = Disabled
 
 [fadedesktop]
 s0_fadetime = 500
@@ -435,7 +471,7 @@ s0_pad_right = 0
 s0_pad_top = 0
 s0_pad_bottom = 0
 s0_unfocus_window = true
-s0_window_center = false
+s0_window_center = true
 s0_avoid_offscreen = false
 s0_speed = 2.500000
 s0_timestep = 0.500000
@@ -453,6 +489,43 @@ as_enabled = true
 as_directory = /tmp
 as_start_wm = false
 as_wm_cmd = 
+
+[cubeaddon]
+as_top_next_key = space
+as_top_next_button = Disabled
+as_top_prev_key = Disabled
+as_top_prev_button = Disabled
+as_bottom_next_key = Disabled
+as_bottom_next_button = Disabled
+as_bottom_prev_key = Disabled
+as_bottom_prev_button = Disabled
+s0_reflection = true
+s0_ground_color1 = #b3b3b3cc
+s0_ground_color2 = #b3b3b300
+s0_ground_size = 0.500000
+s0_intensity = 0.400000
+s0_auto_zoom = true
+s0_zoom_manual_only = true
+s0_mode = 0
+s0_deformation = 1
+s0_unfold_deformation = true
+s0_cylinder_manual_only = false
+s0_deform_caps = true
+s0_sphere_aspect = 0.000000
+s0_draw_top = true
+s0_draw_bottom = true
+s0_adjust_top = false
+s0_adjust_bottom = false
+s0_top_scale = true
+s0_bottom_scale = true
+s0_top_aspect = true
+s0_bottom_aspect = true
+s0_top_clamp = true
+s0_bottom_clamp = true
+s0_top_color = #ffffffff
+s0_bottom_color = #ffffffff
+s0_top_images = fusioncap.png;
+s0_bottom_images = compizcap.png;
 
 [splash]
 as_initiate_key = <Control>F11
@@ -475,96 +548,62 @@ as_line_width = 3.000000
 as_stroke_width = 1.000000
 
 [animation]
-s0_close_effects = 1;9;9;
-s0_close_durations = 200;150;150;
-s0_close_matches = ((type=Normal | Unknown) | name=sun-awt-X11-XFramePeer | name=sun-awt-X11-XDialogPeer) & !(role=toolTipTip | role=qtooltip_label) & !(type=Normal & override_redirect=1) & !(name=gnome-screensaver);(type=Menu | PopupMenu | DropdownMenu | Dialog | ModalDialog | Normal);(type=Tooltip | Notification | Utility);
-s0_close_options = ;;;
-s0_close_random_effects = 0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;
-s0_open_effects = 1;9;9;
+s0_open_effects = animation:Glide 1;animation:Fade;animation:Fade;
 s0_open_durations = 200;150;150;
-s0_open_matches = ((type=Normal | Unknown) | name=sun-awt-X11-XFramePeer | name=sun-awt-X11-XDialogPeer) & !(role=toolTipTip | role=qtooltip_label) & !(type=Normal & override_redirect=1) & !(name=gnome-screensaver);(type=Menu | PopupMenu | DropdownMenu | Dialog | ModalDialog | Normal);(type=Tooltip | Notification | Utility);
+s0_open_matches = ((type=Normal | Unknown) | name=sun-awt-X11-XFramePeer | name=sun-awt-X11-XDialogPeer) & !(role=toolTipTip | role=qtooltip_label) & !(type=Normal & override_redirect=1) & !(name=gnome-screensaver);(type=Menu | PopupMenu | DropdownMenu | Dialog | ModalDialog | Normal);(type=Tooltip | Notification | Utility) & !(name=compiz);
 s0_open_options = ;;;
-s0_open_random_effects = 0;3;4;5;7;8;9;10;11;12;13;14;15;16;18;19;
-s0_minimize_effects = 1;
+s0_open_random_effects = 
+s0_close_effects = animation:Glide 2;animation:Fade;animation:Fade;
+s0_close_durations = 200;150;150;
+s0_close_matches = ((type=Normal | Unknown) | name=sun-awt-X11-XFramePeer | name=sun-awt-X11-XDialogPeer) & !(role=toolTipTip | role=qtooltip_label) & !(type=Normal & override_redirect=1) & !(name=gnome-screensaver);(type=Menu | PopupMenu | DropdownMenu | Dialog | ModalDialog | Normal);(type=Tooltip | Notification | Utility) & !(name=compiz);
+s0_close_options = ;;;
+s0_close_random_effects = 
+s0_minimize_effects = animation:Zoom;
 s0_minimize_durations = 300;
 s0_minimize_matches = (type=Normal | Dialog | ModalDialog | Unknown);
 s0_minimize_options = ;
-s0_minimize_random_effects = 0;1;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;
-s0_shade_effects = 4;
+s0_minimize_random_effects = 
+s0_shade_effects = animation:Roll Up;
 s0_shade_durations = 300;
 s0_shade_matches = (type=Normal | Dialog | ModalDialog | Utility | Unknown);
 s0_shade_options = ;
-s0_shade_random_effects = 0;1;2;
-s0_focus_effects = 2;
+s0_shade_random_effects = 
+s0_focus_effects = animation:Fade;
 s0_focus_durations = 150;
-s0_focus_matches = (type=Normal | Dialog | ModalDialog | Utility | Unknown);
+s0_focus_matches = (type=Normal | Dialog | ModalDialog | Utility | Unknown) & !(name=compiz);
 s0_focus_options = ;
-s0_airplane_path_length = 1.000000
-s0_airplane_fly_to_taskbar = true
-s0_fire_particles = 1000
-s0_fire_size = 5.000000
-s0_fire_slowdown = 0.500000
-s0_fire_life = 0.700000
-s0_fire_color = #ff3305ff
-s0_fire_direction = 0
-s0_fire_constant_speed = false
-s0_fire_smoke = false
-s0_fire_mystical = false
-s0_beam_size = 8.000000
-s0_beam_spacing = 5
-s0_beam_color = #7f7f7fff
-s0_beam_slowdown = 1.000000
-s0_beam_life = 0.700000
+s0_curved_fold_amp_mult = 1.000000
+s0_curved_fold_zoom_to_taskbar = true
+s0_dodge_gap_ratio = 0.500000
+s0_dream_zoom_to_taskbar = true
 s0_glide1_away_position = 1.000000
 s0_glide1_away_angle = 0.000000
-s0_glide1_thickness = 0.000000
 s0_glide1_zoom_to_taskbar = false
 s0_glide2_away_position = -0.400000
 s0_glide2_away_angle = -45.000000
-s0_glide2_thickness = 0.000000
 s0_glide2_zoom_to_taskbar = true
-s0_zoom_from_center = 0
-s0_zoom_springiness = 0.000000
-s0_rollup_fixed_interior = false
-s0_sidekick_num_rotations = 0.500000
-s0_sidekick_springiness = 0.000000
-s0_sidekick_zoom_from_center = 0
-s0_dodge_gap_ratio = 0.500000
-s0_dream_zoom_to_taskbar = true
-s0_wave_width = 0.700000
-s0_wave_amp = 0.030000
+s0_horizontal_folds_amp_mult = 1.000000
+s0_horizontal_folds_num_folds = 3
+s0_horizontal_folds_zoom_to_taskbar = true
 s0_magic_lamp_moving_end = true
 s0_magic_lamp_grid_res = 100
 s0_magic_lamp_max_waves = 3
 s0_magic_lamp_amp_min = 200.000000
 s0_magic_lamp_amp_max = 300.000000
 s0_magic_lamp_open_start_width = 30
+s0_rollup_fixed_interior = false
+s0_sidekick_num_rotations = 0.500000
+s0_sidekick_springiness = 0.000000
+s0_sidekick_zoom_from_center = 0
 s0_vacuum_moving_end = true
 s0_vacuum_grid_res = 100
 s0_vacuum_open_start_width = 30
-s0_curved_fold_amp = 0.150000
-s0_curved_fold_zoom_to_taskbar = true
-s0_horizontal_folds_amp = 0.070000
-s0_horizontal_folds_num_folds = 3
-s0_horizontal_folds_zoom_to_taskbar = true
-s0_domino_direction = 5
-s0_razr_direction = 5
-s0_explode_gridx = 13
-s0_explode_gridy = 10
-s0_explode_thickness = 15.000000
-s0_explode_tessellation = 0
-s0_fold_gridx = 3
-s0_fold_gridy = 3
-s0_fold_dir = 1
-s0_skewer_direction = 8
-s0_skewer_tessellation = 0
-s0_skewer_gridx = 6
-s0_skewer_gridy = 4
-s0_skewer_thickness = 1.000000
-s0_skewer_rotation = 0
+s0_wave_width = 0.700000
+s0_wave_amp_mult = 1.000000
+s0_zoom_from_center = 0
+s0_zoom_springiness = 0.000000
 s0_all_random = false
 s0_time_step = 10
-s0_time_step_intense = 30
 
 [group]
 as_select_button = Disabled
@@ -623,15 +662,11 @@ s0_drag_friction = 35.000000
 s0_drag_y_distance = 400
 s0_drag_speed_limit = 800
 s0_glow = true
-s0_glow_size = 64
+s0_glow_size = 50
 s0_glow_type = 0
 
 [fs]
 as_mount_point = compiz
-
-[notification]
-as_timeout = -1
-as_max_log_level = 1
 
 [zoom]
 as_initiate_button = <Super>Button3
@@ -663,7 +698,6 @@ s0_acceleration = 4.000000
 s0_speed = 1.500000
 s0_timestep = 1.200000
 s0_mipmap = true
-s0_backgrounds = 
 s0_adjust_image = false
 s0_active_opacity = 66.987999
 s0_inactive_opacity = 100.000000
@@ -672,14 +706,14 @@ s0_multioutput_mode = 2
 
 [water]
 as_initiate_key = <Control><Super>
-as_toggle_rain_key = <Shift>F9
-as_toggle_wiper_key = <Shift>F8
+as_toggle_rain_key = <Control><Super>r
+as_toggle_wiper_key = <Control><Super>w
 as_offset_scale = 1.000000
 as_rain_delay = 250
 as_title_wave = false
 
 [core]
-as_active_plugins = svg;vpswitch;place;dbus;regex;ezoom;png;session;text;put;water;core;workarounds;imgjpeg;neg;resize;video;extrawm;move;shift;resizeinfo;decoration;snap;animation;wobbly;fade;group;cube;scale;rotate;switcher;scalefilter;scaleaddon;
+as_active_plugins = core;svg;vpswitch;place;dbus;mousepoll;firepaint;regex;ezoom;png;session;text;put;water;workarounds;imgjpeg;neg;resize;video;extrawm;shift;resizeinfo;decoration;snap;animation;wobbly;fade;group;cube;scale;rotate;move;switcher;scalefilter;scaleaddon;
 as_texture_filter = 1
 as_click_to_focus = true
 as_autoraise = false
@@ -723,9 +757,7 @@ as_minimize_window_key = <Alt>F9
 as_minimize_window_button = Disabled
 as_maximize_window_key = <Alt>F10
 as_maximize_window_horizontally_key = Disabled
-as_maximize_window_vertically_key = Disabled
-as_opacity_increase_button = <Alt>Button4
-as_opacity_decrease_button = <Alt>Button5
+as_maximize_window_vertically_key = <Super>y
 as_command_screenshot = gnome-screenshot
 as_run_command_screenshot_key = Print
 as_command_window_screenshot = gnome-screenshot --window
@@ -753,7 +785,6 @@ s0_lighting = true
 s0_refresh_rate = 50
 s0_hsize = 4
 s0_vsize = 1
-s0_opacity_step = 10
 s0_unredirect_fullscreen_windows = true
 s0_default_icon = icon
 s0_sync_to_vblank = false
@@ -761,10 +792,9 @@ s0_number_of_desktops = 1
 s0_detect_outputs = true
 s0_outputs = 2960x1050+0+0;
 s0_overlapping_outputs = 0
+s0_force_independent_output_painting = false
 s0_focus_prevention_level = 1
 s0_focus_prevention_match = any
-s0_opacity_matches = 
-s0_opacity_values = 
 s0_texture_compression = true
 
 [workarounds]
@@ -774,6 +804,7 @@ as_ooo_menu_fix = true
 as_notification_daemon_fix = true
 as_java_fix = true
 as_qt_fix = true
+as_convert_urgency = false
 as_aiglx_fragment_fix = true
 as_fglrx_xgl_fix = false
 as_sticky_alldesktops = false
@@ -795,6 +826,8 @@ s0_back_color = #00000099
 [scaleaddon]
 as_close_key = Disabled
 as_close_button = Button2
+as_pull_key = Disabled
+as_pull_button = Disabled
 as_zoom_key = Disabled
 as_zoom_button = Button3
 s0_window_title = 1
@@ -806,6 +839,8 @@ s0_back_color = #000000e5
 s0_window_highlight = true
 s0_highlight_color = #ffffff1e
 s0_layout_mode = 0
+s0_constrain_pull_to_screen = true
+s0_exit_after_pull = false
 
 [neg]
 as_window_toggle_key = <Super>n
@@ -868,7 +903,7 @@ as_console_update_time = 5
 as_toggle_window_key = <Super>f
 as_toggle_screen_key = <Super>d
 as_switch_filter_key = <Control><Super>s
-s0_filters = negative;negative-green;blueish-filter;sepia;grayscale;
+s0_filters = negative;negative-green;blueish-filter;sepia;grayscale;deuteranopia;protonopia;
 s0_filter_decorations = false
 s0_filter_match = any
 s0_exclude_match = type=Desktop
@@ -884,22 +919,6 @@ s0_no_delay_change = false
 s0_window_match = Normal | Dialog | ModalDialog | Utility | Toolbar | Fullscreen
 s0_active_opacity = 100
 s0_passive_opacity = 10
-
-[bs]
-as_saturation_increase_key = Disabled
-as_saturation_increase_button = <Control><Alt>Button4
-as_saturation_decrease_key = Disabled
-as_saturation_decrease_button = <Control><Alt>Button5
-as_brightness_increase_key = Disabled
-as_brightness_increase_button = <Shift><Alt>Button4
-as_brightness_decrease_key = Disabled
-as_brightness_decrease_button = <Shift><Alt>Button5
-s0_brightness_step = 5
-s0_saturation_step = 5
-s0_saturation_matches = 
-s0_saturation_values = 
-s0_brightness_matches = 
-s0_brightness_values = 
 
 [expo]
 as_expo_key = <Super>e
@@ -986,15 +1005,7 @@ as_toggle_redirect_key = Disabled
 as_toggle_fullscreen_key = Disabled
 as_toggle_always_on_top_key = Disabled
 as_toggle_sticky_key = Disabled
-
-[cubereflex]
-s0_ground_color1 = #b3b3b3cc
-s0_ground_color2 = #b3b3b300
-s0_ground_size = 0.500000
-s0_intensity = 0.400000
-s0_auto_zoom = true
-s0_zoom_manual_only = true
-s0_mode = 0
+as_activate_demands_attention_key = Disabled
 
 [move]
 as_initiate_button = <Alt>Button1
@@ -1003,6 +1014,45 @@ as_opacity = 70
 as_constrain_y = true
 as_snapoff_maximized = true
 as_lazy_positioning = true
+
+[staticswitcher]
+as_next_button = Disabled
+as_next_key = <Alt>Tab
+as_prev_button = Disabled
+as_prev_key = <Shift><Alt>Tab
+as_next_all_button = Disabled
+as_next_all_key = <Control><Alt>Tab
+as_prev_all_button = Disabled
+as_prev_all_key = <Shift><Control><Alt>Tab
+as_next_group_button = Disabled
+as_next_group_key = Disabled
+as_prev_group_button = Disabled
+as_prev_group_key = Disabled
+as_next_no_popup_button = Disabled
+as_next_no_popup_key = Disabled
+as_prev_no_popup_button = Disabled
+as_prev_no_popup_key = Disabled
+as_next_panel_button = Disabled
+as_next_panel_key = Disabled
+as_prev_panel_button = Disabled
+as_prev_panel_key = Disabled
+s0_speed = 4.000000
+s0_timestep = 1.200000
+s0_window_match = Normal | Dialog | Toolbar | Utility | Unknown
+s0_minimized = true
+s0_auto_change_vp = false
+s0_popup_delay = 0.000000
+s0_saturation = 50
+s0_brightness = 50
+s0_opacity = 100
+s0_icon = true
+s0_mipmap = true
+s0_row_align = 1
+s0_highlight_mode = 1
+s0_highlight_rect_hidden = 1
+s0_highlight_color = #00000096
+s0_highlight_border_color = #000000c8
+s0_highlight_border_inlay_color = #c8c8c8c8
 
 [minimize]
 s0_speed = 1.500000
@@ -1016,16 +1066,22 @@ as_toggle_button = Disabled
 as_toggle_edge = 
 s0_match = 
 s0_end_on_click = true
+s0_focus_widget_layer = false
 s0_fade_time = 0.500000
 s0_bg_brightness = 50
 s0_bg_saturation = 100
 
 [fade]
+s0_fade_mode = 0
 s0_fade_speed = 5.000000
+s0_fade_time = 100
 s0_window_match = any
 s0_visual_bell = true
 s0_fullscreen_visual_bell = false
 s0_minimize_open_close = true
+s0_dim_unresponsive = true
+s0_unresponsive_brightness = 65
+s0_unresponsive_saturation = 0
 
 [blur]
 as_pulse = false
@@ -1055,6 +1111,10 @@ as_next_no_popup_button = <Super>Button7
 as_next_no_popup_key = <Alt>Tab
 as_prev_no_popup_button = <Super>Button6
 as_prev_no_popup_key = <Shift><Alt>Tab
+as_next_panel_button = Disabled
+as_next_panel_key = Disabled
+as_prev_panel_button = Disabled
+as_prev_panel_key = Disabled
 s0_speed = 1.000000
 s0_timestep = 0.800000
 s0_window_match = Toolbar | Utility | Dialog | Normal | Unknown
@@ -1072,7 +1132,6 @@ s0_auto_rotate = false
 s0_window_match = Toolbar | Utility | Dialog | Normal | Unknown
 s0_min_cube_size = 60
 s0_max_window_space = 10
-s0_speed = 0.200000
 s0_manual_only = true
 s0_width = 0.300000
 s0_bevel = 0
@@ -1090,6 +1149,7 @@ s0_above_match =
 s0_below_match = 
 s0_sticky_match = 
 s0_fullscreen_match = 
+s0_maximize_match = 
 s0_no_argb_match = 
 s0_no_move_match = 
 s0_no_resize_match = 
