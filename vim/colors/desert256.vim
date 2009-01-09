@@ -286,6 +286,13 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     "Error
     call <SID>X("Todo", "ff4500", "000000", "")
 
+    " Is there a better way to customize this?
+    call <SID>X("railsUserClass", "ffdead", "", "bold")
+    call <SID>X("railsMethod", "70ff70", "", "")
+    call <SID>X("rubySymbol", "aaccff", "", "")
+    call <SID>X("Comment", "5555ff", "", "")
+
+
     " delete functions {{{
     delf <SID>X
     delf <SID>rgb

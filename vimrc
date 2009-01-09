@@ -30,10 +30,6 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
-" Rails ?
-highlight link railsMethod Question
-highlight link railsUserMethod MoreMsg
-highlight link railsUserClass Special
 
 " Highlight spaces at the end of lines.
 highlight link localWhitespaceError Error
