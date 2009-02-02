@@ -91,11 +91,10 @@ alias gc='git commit -v'
 alias gb='git branch'
 alias gs='git status'
 alias gco='git checkout'
+complete -o default -o nospace -F _git_checkout gco # enable tab completion
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gps='git svn dcommit'
 alias gls='git svn fetch'
-alias glog='git log'
-
 
 # rails
 alias ss='ruby script/server'
