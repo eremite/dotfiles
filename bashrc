@@ -90,13 +90,21 @@ alias ga='git add'
 alias gc='git commit -v'
 alias gb='git branch'
 alias gs='git status'
+alias gr='git rebase'
+alias gm='git merge'
+alias gw='git whatchanged -p --pretty=short @{3}..'
 alias gco='git checkout'
-complete -o default -o nospace -F _git_checkout gco # enable tab completion
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gps='git svn dcommit'
-alias gls='git svn fetch'
+alias gls='git svn rebase'
+
+# enable tab completion
+complete -o default -o nospace -F _git_checkout gm
+complete -o default -o nospace -F _git_checkout gb
+complete -o default -o nospace -F _git_checkout gco
 
 # rails
+alias t='autotest'
 alias ss='ruby script/server'
 alias sc='ruby script/console'
 alias taild='tail -fn100 log/development.log'
