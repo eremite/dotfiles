@@ -130,12 +130,29 @@ let g:surround_115 = "logger.debug(\"### #{\r}\") #TODO: remove debug code"
 let g:surround_116 = "t '\r'"
 "u
 let g:surround_117 = "t('\r')"
+"v
+let g:surround_118 = "\"#{\r}\""
 "|
 let g:surround_124 = "{{\r}}"
 
 " http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim
 imap jj <esc>j
 imap kk <esc>k
+
+"http://github.com/fabiokung/vimfiles/tree
+let g:browser = 'firefox -new-tab '
+" Open the Ruby ApiDock page for the word under cursor, in a new Firefox tab
+function! OpenRubyDoc(keyword)
+  let url = 'http://apidock.com/ruby/'.a:keyword
+  exec '!'.g:browser.' '.url.' &'
+endfunction
+noremap RB :call OpenRubyDoc(expand('<cword>'))<CR>
+" Open the Rails ApiDock page for the word under cursor, in a new Firefox tab
+function! OpenRailsDoc(keyword)
+  let url = 'http://apidock.com/rails/'.a:keyword
+  exec '!'.g:browser.' '.url.' &'
+endfunction
+noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
 
 " Function keys
 map <F4> :w<CR>:cn<CR>
