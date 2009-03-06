@@ -105,6 +105,7 @@ complete -o default -o nospace -F _git_checkout gco
 
 # rails
 alias t='autotest'
+alias rs='touch tmp/restart.txt'
 alias ss='ruby script/server'
 alias sc='ruby script/console'
 alias taild='tail -fn100 log/development.log'
