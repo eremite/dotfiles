@@ -41,6 +41,12 @@ class Integer
   end
 end
 
+# Load Machinist on request
+def maker
+  include Machinist
+  require 'test/blueprints'
+end
+
 # http://dotfiles.org/~lattice/.irbrc
 
 class Object
