@@ -84,15 +84,18 @@ alias svnr='svn resolved'
 
 # git
 alias gl='git pull'
+alias glf='git pull amaps_franchisee master'
 alias gp='git push'
 alias gd='git diff'
+alias gD='git diff --cached'
 alias ga='git add'
 alias gc='git commit -v'
 alias gb='git branch'
 alias gs='git status'
 alias gr='git rebase'
+alias gri='git rebase -i origin/master'
 alias gm='git merge'
-alias gw='git whatchanged -p --pretty=short @{3}..'
+alias gg='git log --pretty=oneline --abbrev-commit'
 alias gco='git checkout'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gps='git svn dcommit'
@@ -105,6 +108,7 @@ complete -o default -o nospace -F _git_checkout gco
 
 # rails
 alias t='autotest'
+alias rr='rake routes | grep'
 alias rs='touch tmp/restart.txt'
 alias ss='ruby script/server'
 alias sc='ruby script/console'
