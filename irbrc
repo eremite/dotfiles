@@ -48,28 +48,17 @@ def maker
 end
 
 # http://dotfiles.org/~lattice/.irbrc
-
 class Object
   def local_methods
     self.methods.sort - self.class.superclass.methods
   end
   alias lm local_methods
-end
 
-# Simple regular expression helper
-# show_regexp - stolen from the pickaxe
-def show_regexp(a, re)
-  if a =~ re
-    "#{$`}<<#{$&}>>#{$'}"
-  else
-    "no match"
+  # aliases don't work because ActiveRecord hasn't been loaded yet
+  def ua(*args)
+    respond_to?(:update_attribute) ? update_attribute(*args) : raise(NoMethodError)
   end
-end
-
-# Convenience method on Regexp so you can do
-# /an/.show_match("banana")
-class Regexp
-  def sm(a)
-    show_regexp(a, self)
+  def uas(*args)
+    respond_to?(:update_attributes) ? update_attribute(*args) : raise(NoMethodError)
   end
 end
