@@ -99,6 +99,24 @@ au FileType yaml setlocal formatoptions-=cro
 " For CTRL-^ in particular
 set autowrite
 
+" Easy Grep Defaults
+let g:EasyGrepFileAssociations='/home/daniel/.vim/plugin/EasyGrepFileAssociations'
+let g:EasyGrepMode=2
+let g:EasyGrepCommand=0
+let g:EasyGrepRecursive=1
+let g:EasyGrepIgnoreCase=0
+let g:EasyGrepHidden=0
+let g:EasyGrepAllOptionsInExplorer=1
+let g:EasyGrepWindow=0
+let g:EasyGrepOpenWindowOnMatch=0
+let g:EasyGrepEveryMatch=0
+let g:EasyGrepJumpToMatch=0
+let g:EasyGrepInvertWholeWord=0
+let g:EasyGrepFileAssociationsInExplorer=1
+let g:EasyGrepOptionPrefix='<leader>vy'
+let g:EasyGrepReplaceWindowMode=0
+let g:EasyGrepReplaceAllPerFile=0
+
 " Rails
 let g:rails_syntax=1
 
