@@ -6,6 +6,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # ls
+alias ls='ls --color=auto'
 alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls -1'
