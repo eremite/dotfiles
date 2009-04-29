@@ -76,6 +76,8 @@ alias l='ls -1'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias s='cd /etc/apache2/sites-available/'
 
 # svn
 alias sd='svn diff'
@@ -95,7 +97,8 @@ alias gs='git status'
 alias gr='git rebase'
 alias gri='git rebase -i origin/master'
 alias gm='git merge'
-alias gg='git log --pretty=oneline --abbrev-commit'
+alias gw='git whatchanged'
+alias gg='git log'
 alias gco='git checkout'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gps='git svn dcommit'
@@ -109,6 +112,7 @@ complete -o default -o nospace -F _git_checkout gco
 # rails
 alias t='autotest'
 alias rr='rake routes | grep'
+alias migrate='rake db:migrate db:test:clone'
 alias rs='touch tmp/restart.txt'
 alias ss='ruby script/server'
 alias sc='ruby script/console'
