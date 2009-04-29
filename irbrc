@@ -59,6 +59,14 @@ class Object
     respond_to?(:update_attribute) ? update_attribute(*args) : raise(NoMethodError)
   end
   def uas(*args)
-    respond_to?(:update_attributes) ? update_attribute(*args) : raise(NoMethodError)
+    respond_to?(:update_attributes) ? update_attributes(*args) : raise(NoMethodError)
   end
+  def f(*args)
+    if args.empty?
+      respond_to?(:first) ? first : raise(NoMethodError)
+    else
+      respond_to?(:find) ? find(*args) : raise(NoMethodError)
+    end
+  end
+
 end
