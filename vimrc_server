@@ -1,0 +1,36 @@
+" Tabs and indentation
+filetype indent on
+set shiftwidth=2
+set tabstop=2
+set expandtab
+au FileType make setlocal noexpandtab
+
+" Colors
+syntax on
+set nohlsearch
+
+" Search in a visual range: http://www.vim.org/tips/tip.php?tip_id=796
+vnoremap / <Esc>/\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
+vnoremap ? <Esc>?\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
+
+" Inserting just one thing
+nnoremap <cr> o<esc>
+nnoremap - O<esc>
+nnoremap + i<cr><esc>
+nnoremap <space> :exec "normal i".nr2char(getchar())."\e"<CR>
+
+" Quitting quickly
+command Q q
+command W w
+command WQ wq
+command Wq wq
+
+" Enable undo for CTRL-u and backspace
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
+
+" http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim
+imap jj <esc>j
+imap kk <esc>k
+
+let mapleader = "'"
