@@ -33,4 +33,7 @@ inoremap <c-w> <c-g>u<c-w>
 imap jj <esc>j
 imap kk <esc>k
 
+" For CTRL-^ in particular
+set autowrite
+
 let mapleader = "'"

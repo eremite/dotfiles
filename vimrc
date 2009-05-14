@@ -99,7 +99,7 @@ au FileType yaml setlocal formatoptions-=cro
 " For CTRL-^ in particular
 set autowrite
 
-" Easy Grep Defaults
+" Easy Grep Settings
 let g:EasyGrepFileAssociations='/home/daniel/.vim/plugin/EasyGrepFileAssociations'
 let g:EasyGrepMode=2
 let g:EasyGrepCommand=0
@@ -117,7 +117,10 @@ let g:EasyGrepOptionPrefix='<leader>vy'
 let g:EasyGrepReplaceWindowMode=0
 let g:EasyGrepReplaceAllPerFile=0
 
-" Rails
+" Supertab Settings
+let g:SuperTabRetainCompletionType=0
+
+" Rails Settings
 let g:rails_syntax=1
 
 " Enable undo for CTRL-u and backspace
