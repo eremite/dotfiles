@@ -13,6 +13,7 @@ alias l='ls -1'
 
 # cd
 alias c='cd /var/www/'
+alias s='cd /etc/apache2/sites-enabled'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -27,13 +28,15 @@ alias gp='git push'
 alias gd='git diff'
 alias gD='git diff --cached'
 alias ga='git add'
-alias gc='git commit -v -a'
+alias gg='git log'
+alias gc='git commit -v'
 alias gb='git branch'
 alias gs='git status'
 alias gco='git checkout'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 
 # rails
+export RAILS_ENV="production"
 alias sc='ruby script/console production'
 alias tailp='tail -fn150 log/production.log'
 alias down='cp public/system/maintenance.html-- public/system/maintenance.html'
