@@ -110,7 +110,7 @@ complete -o default -o nospace -F _git_checkout gb
 complete -o default -o nospace -F _git_checkout gco
 
 # rails
-complete -C $HOME/.rake_tab_completion -o default rake
+complete -C $HOME/.rake/tab_completion -o default rake
 alias t='autotest'
 alias rr='rake routes | grep'
 alias migrate='rake db:migrate db:test:clone'
