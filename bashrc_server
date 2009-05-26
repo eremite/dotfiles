@@ -49,5 +49,6 @@ alias rsa='sudo /usr/sbin/apache2ctl graceful'
 # vim
 alias v='vim'
 
-# bash
+# misc
 alias x='exit'
+alias fixpermissions='sudo chown -R :moki .;sudo chmod -R g+w .'
