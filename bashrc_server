@@ -47,6 +47,7 @@ alias rs='touch tmp/restart.txt'
 alias rsa='sudo /usr/sbin/apache2ctl graceful'
 
 # vim
+export EDITOR=/usr/bin/vim
 alias v='vim'
 
 # misc
