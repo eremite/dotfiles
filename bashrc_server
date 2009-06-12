@@ -5,6 +5,9 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+
 # ls
 alias ls='ls --color=auto'
 alias ll='ls -lh'
