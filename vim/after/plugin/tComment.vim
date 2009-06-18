@@ -1,0 +1,1 @@
+call TCommentDefineType('haml', '-# %s')
