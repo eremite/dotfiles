@@ -1,7 +1,12 @@
 " vimrc
 
-" Tabs and indentation
+let mapleader = "'"
+
+filetype on
 filetype indent on
+filetype plugin on
+
+" Tabs and indentation
 set backspace=start,indent,eol
 set shiftwidth=2
 set tabstop=2
@@ -82,7 +87,10 @@ nnoremap - O<esc>
 nnoremap + i<cr><esc>
 nnoremap <space> :exec "normal i".nr2char(getchar())."\e"<CR>
 
-" Quitting quickly
+" Saving and quitting quickly
+noremap <Leader>s :write<CR>
+noremap <Leader>w :write<CR>
+noremap <Leader>q :quit<CR>
 command Q q
 command W w
 command WQ wq
@@ -90,9 +98,8 @@ command Wq wq
 
 " Filetypes
 " au BufRead,BufNewFile *.html set filetype=php
-au BufRead,BufNewFile *.htm set filetype=php 
-au BufRead,BufNewFile *.php set filetype=php 
-au BufRead,BufNewFile *.haml set filetype=haml 
+" au BufRead,BufNewFile *.htm set filetype=php 
+" au BufRead,BufNewFile *.php set filetype=php 
 au FileType ruby setlocal formatoptions-=cro
 au FileType yaml setlocal formatoptions-=cro
 
@@ -143,10 +150,9 @@ let g:surround_33 = "<!-- \r -->"
 let g:surround_92 = "\n\r\n"
 "#
 let g:surround_35 = "#{\r}"
-"d
-let g:surround_100 = "logger.debug(\"###\\n### #{\r}\\n###\") #TODO: remove debug code"
 "s
 let g:surround_115 = "logger.debug(\"### #{\r}\") #TODO: remove debug code"
+autocmd FileType javascript let g:surround_115 = "console.log(\r); // TODO Remove debug code"
 "t
 let g:surround_116 = "t '\r'"
 "u
@@ -182,5 +188,3 @@ map <F7> :silent setlocal invspell<CR>
 map <F8> ]czz
 map <F11> :wqa<CR>
 map <F12> :1,$+1diffget<CR>:wqa<CR>
-
-let mapleader = "'"
