@@ -1,1 +1,1 @@
-/home/daniel/gits/vim-ruby/ftplugin/ruby.vim
+../../../vim-ruby/ftplugin/ruby.vim
