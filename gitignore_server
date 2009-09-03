@@ -1,0 +1,8 @@
+*.swp
+log/*
+tmp/*
+lib/secure/*
+public/system/*
+db/schema.rb
+config/database.yml
+config/settings.yml

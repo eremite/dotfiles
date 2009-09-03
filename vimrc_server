@@ -1,13 +1,16 @@
+" Set Leader
+let mapleader = "'"
+
+" Colors
+syntax on
+set nohlsearch
+
 " Tabs and indentation
 filetype indent on
 set shiftwidth=2
 set tabstop=2
 set expandtab
 au FileType make setlocal noexpandtab
-
-" Colors
-syntax on
-set nohlsearch
 
 " Search in a visual range: http://www.vim.org/tips/tip.php?tip_id=796
 vnoremap / <Esc>/\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
@@ -36,4 +39,9 @@ imap kk <esc>k
 " For CTRL-^ in particular
 set autowrite
 
-let mapleader = "'"
+" Save
+noremap <Leader>s :write<CR>
+" Write
+noremap <Leader>w :write<CR>
+" Quit
+noremap <Leader>q :quit<CR>
