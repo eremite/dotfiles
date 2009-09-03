@@ -1,19 +1,10 @@
-" vimrc
-
+" Set Leader
 let mapleader = "'"
 
+" Turn on filetype
 filetype on
 filetype indent on
 filetype plugin on
-
-" Tabs and indentation
-set backspace=start,indent,eol
-set shiftwidth=2
-set tabstop=2
-retab
-set expandtab
-let b:surround_indent = 1
-au FileType make setlocal noexpandtab
 
 " Colors
 set t_Co=256
@@ -35,6 +26,15 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
+
+" Tabs and indentation
+set backspace=start,indent,eol
+set shiftwidth=2
+set tabstop=2
+retab
+set expandtab
+let b:surround_indent = 1
+au FileType make setlocal noexpandtab
 
 " Highlight spaces at the end of lines.
 highlight link localWhitespaceError Error
@@ -88,13 +88,13 @@ nnoremap + i<cr><esc>
 nnoremap <space> :exec "normal i".nr2char(getchar())."\e"<CR>
 
 " Saving and quitting quickly
-noremap <Leader>s :write<CR>
-noremap <Leader>w :write<CR>
-noremap <Leader>q :quit<CR>
 command Q q
 command W w
 command WQ wq
 command Wq wq
+" edit most recent file (searching recursively)
+command ER e `find . -type f -not -name *.swp -not -path ./% -printf \"\%TY-\%Tm-\%Td\_\%TT\ \%p\\n\" \| sort \| tail -1 \| awk '{print $NF}'`
+
 
 " Filetypes
 " au BufRead,BufNewFile *.html set filetype=php
@@ -129,6 +129,7 @@ let g:SuperTabRetainCompletionType=0
 
 " Rails Settings
 let g:rails_syntax=1
+" let g:rubycomplete_rails = 1
 
 " Enable undo for CTRL-u and backspace
 inoremap <c-u> <c-g>u<c-u>
@@ -159,15 +160,13 @@ let g:surround_116 = "t '\r'"
 let g:surround_117 = "t('\r')"
 "v
 let g:surround_118 = "\"#{\r}\""
-"|
-let g:surround_124 = "{{\r}}"
 
 " http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim
 imap jj <esc>j
 imap kk <esc>k
 
 "http://github.com/fabiokung/vimfiles/tree
-let g:browser = 'firefox -new-tab '
+let g:browser = 'firefox-3.5 -new-tab '
 " Open the Ruby ApiDock page for the word under cursor, in a new Firefox tab
 function! OpenRubyDoc(keyword)
   let url = 'http://apidock.com/ruby/'.a:keyword
@@ -181,10 +180,19 @@ function! OpenRailsDoc(keyword)
 endfunction
 noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
 
-" Function keys
-map <F4> :w<CR>:cn<CR>
-map <F6> :set paste!<CR>
-map <F7> :silent setlocal invspell<CR>
-map <F8> ]czz
-map <F11> :wqa<CR>
-map <F12> :1,$+1diffget<CR>:wqa<CR>
+" Handy for one-lining a tag or block
+noremap <Leader>j maJxJx`a
+" Remove end of line white space.
+noremap <Leader>r ma:%s/\s\+$//e<CR>`a
+" Save
+noremap <Leader>s :write<CR>
+" Write
+noremap <Leader>w :write<CR>
+" Quit
+noremap <Leader>q :quit<CR>
+" Next in the location list
+noremap <Leader>n :w<CR>:cn<CR>
+" Toggle Spelling
+noremap <Leader>k :silent setlocal invspell<CR>
+" Toggle paste!
+noremap <Leader>p :set paste!<CR>
