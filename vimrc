@@ -190,6 +190,8 @@ noremap <Leader>s :write<CR>
 noremap <Leader>w :write<CR>
 " Quit
 noremap <Leader>q :quit<CR>
+" Edit
+noremap <Leader>e :e 
 " Next in the location list
 noremap <Leader>n :w<CR>:cn<CR>
 " Toggle Spelling
