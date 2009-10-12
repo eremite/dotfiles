@@ -272,8 +272,8 @@ s0_saturation_matches =
 s0_saturation_values = 
 
 [commands]
-as_command0 = 
-as_command1 = 
+as_command0 = snippy
+as_command1 = xdotool click 2
 as_command2 = 
 as_command3 = 
 as_command4 = 
@@ -284,8 +284,8 @@ as_command8 =
 as_command9 = 
 as_command10 = 
 as_command11 = 
-as_run_command0_key = Disabled
-as_run_command1_key = Disabled
+as_run_command0_key = <Control><Alt>c
+as_run_command1_key = <Shift><Super>v
 as_run_command2_key = Disabled
 as_run_command3_key = Disabled
 as_run_command4_key = Disabled
@@ -798,7 +798,7 @@ as_rain_delay = 250
 as_title_wave = true
 
 [core]
-as_active_plugins = core;svg;vpswitch;place;dbus;mousepoll;regex;ezoom;png;session;text;put;workarounds;imgjpeg;neg;resize;video;gnomecompat;extrawm;decoration;snap;animation;wall;wobbly;fade;group;scale;move;staticswitcher;scaleaddon;
+as_active_plugins = core;svg;vpswitch;place;dbus;commands;mousepoll;regex;ezoom;png;session;text;put;workarounds;imgjpeg;neg;resize;video;gnomecompat;extrawm;decoration;snap;animation;wall;wobbly;fade;group;scale;move;staticswitcher;scaleaddon;
 as_audible_bell = false
 as_ignore_hints_when_maximized = true
 as_hide_skip_taskbar_windows = true
@@ -901,10 +901,10 @@ s0_neg_match = any
 s0_exclude_match = type=Desktop
 
 [scale]
-as_key_bindings_toggle = false
+as_key_bindings_toggle = true
 as_button_bindings_toggle = false
 as_initiate_edge = BottomLeft
-as_initiate_key = Menu
+as_initiate_key = <Super>Menu
 as_initiate_button = Disabled
 as_initiate_all_edge = 
 as_initiate_all_button = <Super>Button3
@@ -914,7 +914,7 @@ as_initiate_group_button = <Super>Button2
 as_initiate_group_key = Disabled
 as_initiate_output_edge = 
 as_initiate_output_button = <Super>Button1
-as_initiate_output_key = Disabled
+as_initiate_output_key = Menu
 as_show_desktop = false
 s0_spacing = 10
 s0_speed = 1.500000
