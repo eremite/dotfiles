@@ -1,6 +1,9 @@
 " Set Leader
 let mapleader = "'"
 
+" Linux never crashes. :)
+set noswapfile
+
 " Turn on filetype
 filetype on
 filetype indent on
