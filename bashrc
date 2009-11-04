@@ -115,7 +115,7 @@ complete -o default -o nospace -F _git_checkout gco
 complete -C $HOME/.rake/tab_completion -o default rake
 alias t='autotest'
 alias rr='rake routes | grep'
-alias migrate='rake db:migrate db:test:clone'
+alias mig='rake db:migrate db:test:clone'
 alias rs='touch tmp/restart.txt'
 alias ss='ruby script/server'
 alias sc='ruby script/console'
