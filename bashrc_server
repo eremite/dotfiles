@@ -41,7 +41,8 @@ alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 # rails
 export RAILS_ENV="production"
 alias sc='ruby script/console production'
-alias tailp='tail -fn150 log/production.log'
+alias tlp='tail -fn100 log/production.log'
+alias lsp='less log/production.log'
 alias down='cp public/system/maintenance.html-- public/system/maintenance.html'
 alias up='mv public/system/maintenance.html public/system/maintenance.html--'
 alias rs='touch tmp/restart.txt'

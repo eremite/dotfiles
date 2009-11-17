@@ -97,6 +97,7 @@ alias gs='git status'
 alias gr='git rebase'
 alias gri='git rebase -i origin/master'
 alias grc='git rebase --continue'
+alias grh='git reset HEAD'
 alias gca='git commit --amend'
 alias gm='git merge'
 alias gw='git whatchanged'
@@ -119,13 +120,19 @@ alias mig='rake db:migrate db:test:clone'
 alias rs='touch tmp/restart.txt'
 alias ss='ruby script/server'
 alias sc='ruby script/console'
-alias taild='tail -fn100 log/development.log'
-alias tailt='tail -fn100 log/test.log'
-alias tailp='tail -fn100 log/production.log'
-alias taildg="tail -fn100 log/development.log | grep '###'"
-alias tailtg="tail -fn100 log/test.log | grep '###'"
+
+# logs
+alias tld='tail -fn100 log/development.log'
+alias tlt='tail -fn100 log/test.log'
+alias tlp='tail -fn100 log/production.log'
+alias tldg="tail -fn100 log/development.log | grep '###'"
+alias tltg="tail -fn100 log/test.log | grep '###'"
+alias lsd='less log/development.log'
+alias lst='less log/test.log'
+alias lsp='less log/production.log'
 
 # apache
+alias vhosts='sudo vim /etc/hosts'
 alias rsa='sudo /usr/sbin/apache2ctl graceful'
 
 # vim
