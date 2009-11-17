@@ -57,3 +57,6 @@ alias v='vim'
 # misc
 alias x='exit'
 alias fixpermissions='sudo chown -R :moki .;sudo chmod -R g+w .'
+
+# Initial directory
+cd /var/www
