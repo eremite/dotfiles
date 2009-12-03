@@ -8,6 +8,26 @@ fi
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
+# If this is an xterm set the title
+case "$TERM" in
+xterm*|rxvt*)
+  PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}   $(basename `pwd`)\007"'
+  ;;
+*)
+  ;;
+esac
+
+# Dump the current directory's rails database
+function dbdump {
+  database=`grep -m 1 database config/database.yml | cut -d ":" -f 2`
+  database=${database//[[:space:]]}
+  username=`grep -m 1 username config/database.yml | cut -d ":" -f 2`
+  username=${username//[[:space:]]}
+  password=`grep -m 1 password config/database.yml | cut -d ":" -f 2`
+  password=${password//[[:space:]]}
+  mysqldump -u${username} -p${password} ${database} > "$HOME/db.sql"
+}
+
 # ls
 alias ls='ls --color=auto'
 alias ll='ls -lh'

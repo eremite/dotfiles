@@ -39,7 +39,7 @@ esac
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+    PROMPT_COMMAND='echo -ne "\033]0;$(basename `pwd`)\007"'
     ;;
 *)
     ;;
@@ -66,6 +66,26 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
 export PS1='\u@\h:$(parse_git_branch)\w$ '
+
+# Load a rails database
+function dbload {
+  database=`grep -m 1 database config/database.yml | cut -d ":" -f 2`
+  database=${database//[[:space:]]}
+  mysql -uroot ${database} < db.sql
+}
+
+# Open tomboy note for this directory
+function tb {
+  note=$(basename `pwd`)
+  if [ "$note" = `whoami` ]; then
+    note="tempfile"
+  fi
+  if grep -q "<title>${note}</title>" $HOME/.local/share/tomboy/*; then
+    tomboy --open-note $note
+  else
+    tomboy --new-note $note
+  fi
+}
 
 # ls
 alias ll='ls -lh'
