@@ -183,6 +183,10 @@ function! OpenRailsDoc(keyword)
 endfunction
 noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
 
+" Git
+nnoremap <Leader>gb :GitBlame<Enter>
+nnoremap <Leader>gco :GitCheckout %<Enter>
+
 " Handy for one-lining a tag or block
 noremap <Leader>j maJxJx`a
 " Remove end of line white space.
