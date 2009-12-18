@@ -87,6 +87,15 @@ function tb {
   fi
 }
 
+# Get a new project from git and symlink it to $HOME
+function get {
+  project=${1/.git/}
+  git clone ssh://git.mokisystems.com/var/repos/${project}.git /media/sda7/${project}
+  cd
+  ln -s /media/sda7/${project}
+  cd ${project}
+}
+
 # ls
 alias ll='ls -lh'
 alias la='ls -A'
