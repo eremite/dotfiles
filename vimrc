@@ -199,6 +199,10 @@ noremap <Leader>w :write<CR>
 noremap <Leader>q :quit<CR>
 " Edit
 noremap <Leader>e :e 
+" Flip
+noremap <Leader>f :w<CR>:e #<CR>
+" Clipboard ("+ is awkward)
+noremap <Leader>c "+
 " Next in the location list
 noremap <Leader>n :w<CR>:cn<CR>
 " Toggle Spelling
