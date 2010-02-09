@@ -69,6 +69,9 @@ export PS1='\u@\h:$(parse_git_branch)\w$ '
 
 # Load a rails database
 function dbload {
+  if [ $1 ]; then
+    scp $1:/home/daniel/db.sql .
+  fi
   database=`grep -m 1 database config/database.yml | cut -d ":" -f 2`
   database=${database//[[:space:]]}
   mysql -uroot ${database} < db.sql
