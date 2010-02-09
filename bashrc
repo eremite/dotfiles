@@ -138,6 +138,7 @@ alias gco='git checkout'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gps='git svn dcommit'
 alias gls='git svn rebase'
+alias jg='j `git log -n1 --pretty=format:%s --no-merges`' # Timeclock the last git commit message
 
 # enable tab completion
 complete -o default -o nospace -F _git_checkout gm
