@@ -102,7 +102,7 @@ command ER e `find . -type f -not -name *.swp -not -path ./% -printf \"\%TY-\%Tm
 " Filetypes
 " au BufRead,BufNewFile *.html set filetype=php
 " au BufRead,BufNewFile *.htm set filetype=php 
-" au BufRead,BufNewFile *.php set filetype=php 
+au BufRead,BufNewFile *.prawn set filetype=ruby
 au FileType ruby setlocal formatoptions-=cro
 au FileType yaml setlocal formatoptions-=cro
 
