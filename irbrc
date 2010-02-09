@@ -70,7 +70,7 @@ class Object
   end
 
   def history(n = 10)
-    puts Readline::HISTORY.entries.reject {|h| h =~ /history/i}.last(n)
+    Readline::HISTORY.entries.reject {|h| h =~ /history/i}.last(n)
   end
 
 end
