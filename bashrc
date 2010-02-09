@@ -169,3 +169,4 @@ alias v='vim'
 
 # bash
 alias x='exit'
+alias nh='telnet nethack.alt.org'
