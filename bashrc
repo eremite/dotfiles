@@ -93,10 +93,25 @@ function tb {
 # Get a new project from git and symlink it to $HOME
 function get {
   project=${1/.git/}
-  git clone ssh://git.mokisystems.com/var/repos/${project}.git /media/sda7/${project}
+  git clone ssh://git.mokisystems.com/var/repos/${project}.git /media/sdb1/${project}
   cd
-  ln -s /media/sda7/${project}
+  ln -s /media/sdb1/${project}
   cd ${project}
+  if [ -e "config/database.yml.example" ]; then
+    cp config/database.yml{.example,}
+  fi
+}
+
+# Run autotest or autospec
+function t {
+  if [ -e "spec" ]; then
+    autospec
+  fi
+  if [ -e "test" ]; then
+    autotest
+  else
+    echo "Aborting. No tests found."
+  fi
 }
 
 # ls
@@ -147,7 +162,6 @@ complete -o default -o nospace -F _git_checkout gco
 
 # rails
 complete -C $HOME/.rake/tab_completion -o default rake
-alias t='autotest'
 alias rr='rake routes | grep'
 alias mig='rake db:migrate db:test:clone'
 alias rs='touch tmp/restart.txt'
@@ -174,3 +188,8 @@ alias v='vim'
 # bash
 alias x='exit'
 alias nh='telnet nethack.alt.org'
+
+# Map Caps Lock to ESC
+xmodmap -e "clear lock"
+xmodmap -e "keycode 0x42 = Escape"
+
