@@ -130,10 +130,6 @@ let g:EasyGrepReplaceAllPerFile=0
 " Supertab Settings
 let g:SuperTabRetainCompletionType=0
 
-" Rails Settings
-let g:rails_syntax=1
-" let g:rubycomplete_rails = 1
-
 " Enable undo for CTRL-u and backspace
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
@@ -146,22 +142,22 @@ nmap dp dp]c
 "-
 autocmd FileType php let b:surround_45 = "<?php \r ?>"
 autocmd FileType html let b:surround_45 = "<?php \r ?>"
-"1
-let g:surround_49 = "<!-- \r -->"
 "!
 let g:surround_33 = "<!-- \r -->"
-"\
+"1
+let g:surround_49 = "<!-- \r -->"
+"\ \n
 let g:surround_92 = "\n\r\n"
-"#
+"# #{}
 let g:surround_35 = "#{\r}"
 "s
 let g:surround_115 = "logger.debug(\"### #{\r}\") #TODO: remove debug code"
 autocmd FileType javascript let g:surround_115 = "console.log(\r); // TODO Remove debug code"
-"t
-let g:surround_116 = "t '\r'"
+"t try
+let g:surround_116 = "try(:\r)"
 "u
-let g:surround_117 = "t('\r')"
-"v
+" let g:surround_117 = "t('\r')"
+"v variable
 let g:surround_118 = "\"#{\r}\""
 
 " http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim
@@ -183,11 +179,11 @@ function! OpenRailsDoc(keyword)
 endfunction
 noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
 
-" Git
+" Git Blame
 nnoremap <Leader>gb :GitBlame<Enter>
+" Git Checkout
 nnoremap <Leader>gco :GitCheckout %<Enter>
-
-" Handy for one-lining a tag or block
+" Handy for one-lining a three line tag or block
 noremap <Leader>j maJxJx`a
 " Remove end of line white space.
 noremap <Leader>r ma:%s/\s\+$//e<CR>`a
@@ -198,14 +194,20 @@ noremap <Leader>w :write<CR>
 " Quit
 noremap <Leader>q :quit<CR>
 " Edit
-noremap <Leader>e :e 
-" Flip
+noremap <Leader>e :e<Space>
+" Flip to alternate buffers
 noremap <Leader>f :w<CR>:e #<CR>
 " Clipboard ("+ is awkward)
 noremap <Leader>c "+
-" Next in the location list
-noremap <Leader>n :w<CR>:cn<CR>
+" Like c, but v :) ("0 is awkward)
+noremap <Leader>v "0
 " Toggle Spelling
 noremap <Leader>k :silent setlocal invspell<CR>
 " Toggle paste!
 noremap <Leader>p :set paste!<CR>
+" search for TODO
+" noremap <Leader>t /\<TODO\><CR>
+noremap <Leader>t :TlistToggle<CR>
+
+" Best buffer explorer! (http://vim.wikia.com/wiki/Easier_buffer_switching)
+noremap <Leader>b :buffers<CR>:edit<Space>#
