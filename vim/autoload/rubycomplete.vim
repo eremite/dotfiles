@@ -1,1 +1,1 @@
-/home/daniel/gits/vim-ruby/autoload/rubycomplete.vim
+../../../vim-ruby/autoload/rubycomplete.vim
