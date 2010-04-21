@@ -1,0 +1,12 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[user]
+	name = Daniel Esplin
+	email = daniel.esplin@mokisystems.com
+[core]
+	excludesfile = /home/daniel/.gitignore
+[alias]
+  mergevim= "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  mergedone = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
