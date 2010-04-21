@@ -1,1 +1,1 @@
-../../../git-vim/plugin/git.vim
+../../../git-vim-moteman/plugin/git.vim

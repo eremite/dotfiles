@@ -1,1 +1,1 @@
-../../../git-vim/syntax/git-diff.vim
+../../../git-vim-moteman/syntax/git-diff.vim

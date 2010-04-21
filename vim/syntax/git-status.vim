@@ -1,1 +1,1 @@
-../../../git-vim/syntax/git-status.vim
+../../../git-vim-moteman/syntax/git-status.vim

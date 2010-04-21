@@ -1,1 +1,1 @@
-../../../git-vim/syntax/git-blame.vim
+../../../git-vim-the-kenny/syntax/git-blame.vim
