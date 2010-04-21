@@ -1,3 +1,4 @@
+require 'profiler'
 require 'rubygems'
 require 'map_by_method'
 require 'wirble'
@@ -71,6 +72,13 @@ class Object
 
   def history(n = 10)
     Readline::HISTORY.entries.reject {|h| h =~ /history/i}.last(n)
+  end
+
+  def pi(&block)
+    Profiler__::start_profile
+    yield
+    Profiler__::stop_profile
+    Profiler__::print_profile($stderr)
   end
 
 end
