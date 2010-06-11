@@ -132,8 +132,7 @@ alias svnd='svn diff -r PREV'
 alias svnr='svn resolved'
 
 # git
-alias gl='git pull'
-alias glf='git pull amaps_franchisee master'
+alias gl='git pull --rebase'
 alias gp='git push'
 alias gd='git diff'
 alias gD='git diff --cached'
