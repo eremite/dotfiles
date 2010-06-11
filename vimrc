@@ -206,8 +206,10 @@ noremap <Leader>k :silent setlocal invspell<CR>
 " Toggle paste!
 noremap <Leader>p :set paste!<CR>
 " search for TODO
-" noremap <Leader>t /\<TODO\><CR>
-noremap <Leader>t :TlistToggle<CR>
+noremap <Leader>t /\<TODO\><CR>
+" multi-line an array or hash
+noremap <Leader>m ma:s/, /,<c-v><CR>/g<CR>j=`a
 
 " Best buffer explorer! (http://vim.wikia.com/wiki/Easier_buffer_switching)
-noremap <Leader>b :buffers<CR>:edit<Space>#
+noremap <Leader>b :b<Space>
+noremap <Leader>B :buffers<CR>:edit<Space>#
