@@ -77,17 +77,10 @@ function dbload {
   mysql -uroot ${database} < db.sql
 }
 
-# Open tomboy note for this directory
+# Open tomboy note from menu
 function tb {
-  note=$(basename `pwd`)
-  if [ "$note" = `whoami` ]; then
-    note="tempfile"
-  fi
-  if grep -q "<title>${note}</title>" $HOME/.local/share/tomboy/*; then
-    tomboy --open-note $note
-  else
-    tomboy --new-note $note
-  fi
+  DMENU_ARGS="-i -fn -*-terminal-*-*-*-*-18-*-*-*-*-*-*-*" # xfontsel to select font
+  tomboy --open-note $(grep -ho '<title>\(.*\)</title>' $HOME/.local/share/tomboy/* | sed 's#</\?title>##g' | dmenu $DMENU_ARGS)
 }
 
 # Get a new project from git and symlink it to $HOME
