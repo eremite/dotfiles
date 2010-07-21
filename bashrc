@@ -151,8 +151,6 @@ complete -o default -o nospace -F _git_checkout gm
 complete -o default -o nospace -F _git_checkout gb
 complete -o default -o nospace -F _git_checkout gco
 
-complete -C $HOME/.rake/tab_completion -o default rake
-
 # Map Caps Lock to ESC
 xmodmap -e "clear lock"
 xmodmap -e "keycode 0x42 = Escape"
