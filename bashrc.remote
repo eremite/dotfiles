@@ -11,7 +11,7 @@ fi
 # If this is an xterm set the title
 case "$TERM" in
 xterm*|rxvt*)
-  PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}   $(basename `pwd`)\007"'
+  PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME} $(basename `pwd`)\007"'
   ;;
 *)
   ;;
@@ -77,6 +77,3 @@ alias v='vim'
 # misc
 alias x='exit'
 alias fixpermissions='sudo chown -R :moki .;sudo chmod -R g+w .'
-
-# Initial directory
-cd /var/www

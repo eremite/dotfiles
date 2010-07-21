@@ -4,59 +4,55 @@
 [ -z "$PS1" ] && return
 
 # don't put duplicate lines in the history. See bash(1) for more options
-export HISTCONTROL=ignoredups
-# ... and ignore same sucessive entries.
-export HISTCONTROL=ignoreboth
-# increase size of history
-export HISTSIZE=1000000
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don't overwrite it
 shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=100000
+HISTFILESIZE=20000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+  debian_chroot=$(cat /etc/debian_chroot)
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-xterm-color)
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    ;;
-*)
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    ;;
+  xterm-color) color_prompt=yes;;
 esac
 
-# Comment in the above and uncomment this below for a color prompt
-#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
 
-# If this is an xterm set the title to dir
-case "$TERM" in
-xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;$(basename `pwd`)\007"'
-    ;;
-*)
-    ;;
-esac
-
-# add bin to the path
-export PATH=$PATH:$HOME/bin
-
-if [ "$TERM" != "dumb" ]; then
-  eval "`dircolors -b`"
-  alias ls='ls --color=auto'
+if [ -n "$force_color_prompt" ]; then
+  if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+    color_prompt=yes
+  else
+    color_prompt=
+  fi
 fi
 
-# enable programmable completion features
-if [ -f /etc/bash_completion ]; then
-  . /etc/bash_completion
+if [ "$color_prompt" = yes ]; then
+  PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
+unset color_prompt force_color_prompt
 
 # Shows the current git branch in your shell prompt
 function parse_git_dirty {
@@ -65,7 +61,43 @@ function parse_git_dirty {
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
-export PS1='\u@\h:$(parse_git_branch)\w$ '
+
+# Only show working directory in prompt
+PS1='\w$(parse_git_branch)$ '
+
+# If this is an xterm set the title to the working directory
+case "$TERM" in
+  xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\W\a\]$PS1"
+    ;;
+  *)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+  . /etc/bash_completion
+fi
+
 
 # Load a rails database
 function dbload {
@@ -114,80 +146,13 @@ function jg {
   j $1 $log
 }
 
-# ls
-alias ll='ls -lh'
-alias la='ls -A'
-alias l='ls -1'
-
-# cd
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias s='cd /etc/apache2/sites-available/'
-
-# svn
-alias sd='svn diff'
-alias svnd='svn diff -r PREV'
-alias svnr='svn resolved'
-
-# git
-alias gl='git pull --rebase'
-alias gp='git push'
-alias gd='git diff'
-alias gD='git diff --cached'
-alias ga='git add'
-alias gc='git commit -v'
-alias gb='git branch'
-alias gs='git status'
-alias gr='git rebase'
-alias gri='git rebase -i origin/master'
-alias grc='git rebase --continue'
-alias grh='git reset HEAD'
-alias gca='git commit --amend'
-alias gm='git merge'
-alias gw='git whatchanged'
-alias gg='git log'
-alias gco='git checkout'
-alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
-alias gps='git svn dcommit'
-alias gls='git svn rebase'
-
 # enable tab completion
 complete -o default -o nospace -F _git_checkout gm
 complete -o default -o nospace -F _git_checkout gb
 complete -o default -o nospace -F _git_checkout gco
 
-# rails
 complete -C $HOME/.rake/tab_completion -o default rake
-alias rr='rake routes | grep'
-alias mig='rake db:migrate db:test:clone'
-alias rs='touch tmp/restart.txt'
-alias ss='ruby script/server'
-alias sc='ruby script/console'
-
-# logs
-alias tld='tail -fn100 log/development.log'
-alias tlt='tail -fn100 log/test.log'
-alias tlp='tail -fn100 log/production.log'
-alias tldg="tail -fn100 log/development.log | grep '###'"
-alias tltg="tail -fn100 log/test.log | grep '###'"
-alias lsd='less log/development.log'
-alias lst='less log/test.log'
-alias lsp='less log/production.log'
-
-# apache
-alias vhosts='sudo vim /etc/hosts'
-alias rsa='sudo /usr/sbin/apache2ctl graceful'
-
-# vim
-alias v='vim'
-
-# bash
-alias x='exit'
-alias nh='telnet nethack.alt.org'
 
 # Map Caps Lock to ESC
 xmodmap -e "clear lock"
 xmodmap -e "keycode 0x42 = Escape"
-
