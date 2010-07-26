@@ -32,8 +32,9 @@ highlight SpellLocal term=underline cterm=underline
 
 " Tabs and indentation
 set backspace=start,indent,eol
-set shiftwidth=2
 set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 retab
 set expandtab
 let b:surround_indent = 1
