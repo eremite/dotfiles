@@ -38,11 +38,10 @@ set shiftwidth=2
 retab
 set expandtab
 let b:surround_indent = 1
-au FileType make setlocal noexpandtab
 
 " Highlight spaces at the end of lines.
 highlight link localWhitespaceError Error
-au Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/ display
+autocmd Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/ display
 
 "http://vim.wikia.com/wiki/VimTip1269 add indent level as text-object
 onoremap <silent>ai :<C-u>cal IndTxtObj(0)<CR>
@@ -101,11 +100,12 @@ command ER e `find . -type f -not -name *.swp -not -path ./% -printf \"\%TY-\%Tm
 
 
 " Filetypes
-" au BufRead,BufNewFile *.html set filetype=php
-" au BufRead,BufNewFile *.htm set filetype=php 
-au BufRead,BufNewFile *.prawn set filetype=ruby
-au FileType ruby setlocal formatoptions-=cro
-au FileType yaml setlocal formatoptions-=cro
+" autocmd BufRead,BufNewFile *.html set filetype=php
+" autocmd BufRead,BufNewFile *.htm set filetype=php 
+autocmd FileType make setlocal noexpandtab
+autocmd BufRead,BufNewFile *.prawn set filetype=ruby
+autocmd FileType ruby setlocal formatoptions-=cro
+autocmd FileType yaml setlocal formatoptions-=cro
 
 " For CTRL-^ in particular
 set autowrite
