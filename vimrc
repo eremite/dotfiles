@@ -211,6 +211,21 @@ noremap <Leader>t /\<TODO\><CR>
 " multi-line an array or hash
 noremap <Leader>m ma:s/, /,<c-v><CR>/g<CR>j=`a
 
+" You can use the mouse without gui-vim!
+" y would you want to though? :)
+" wka's comment on http://vimcasts.org/episodes/working-with-windows
+" http://vim.wikia.com/wiki/Managing_set_options
+function! ToggleMouse()
+  if &mouse == 'a'
+    set mouse=
+  else
+    set mouse=a
+  endif
+endfunction
+if has('mouse')
+  noremap <Leader>y :call ToggleMouse()<CR>
+end
+
 " Best buffer explorer! (http://vim.wikia.com/wiki/Easier_buffer_switching)
 noremap <Leader>b :b<Space>
 noremap <Leader>B :buffers<CR>:edit<Space>#
