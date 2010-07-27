@@ -210,6 +210,8 @@ noremap <Leader>p :set paste!<CR>
 noremap <Leader>t /\<TODO\><CR>
 " multi-line an array or hash
 noremap <Leader>m ma:s/, /,<c-v><CR>/g<CR>j=`a
+" Open file in current directory <http://vimcasts.org/episodes/the-edit-command>
+map <leader>d :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " You can use the mouse without gui-vim!
 " y would you want to though? :)
