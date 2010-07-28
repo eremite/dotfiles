@@ -1,6 +1,7 @@
 require 'profiler'
 require 'rubygems'
 require 'map_by_method'
+require 'interactive_editor'
 require 'wirble'
 Wirble.init
 Wirble.colorize
