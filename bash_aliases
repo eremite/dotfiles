@@ -38,6 +38,7 @@ alias gps='git svn dcommit'
 alias gls='git svn rebase'
 
 # rails
+alias r='rails'
 alias rr='rake routes | grep'
 alias mig='rake db:migrate db:test:clone'
 alias rs='touch tmp/restart.txt'
