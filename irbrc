@@ -48,10 +48,11 @@ def maker
   require 'test/blueprints'
 end
 
-# http://dotfiles.org/~lattice/.irbrc
 class Object
+
+  # http://github.com/iain/osx_settings/raw/master/.irbrc
   def local_methods
-    self.methods.sort - self.class.superclass.methods
+    (methods - Object.instance_methods).sort
   end
   alias lm local_methods
 
