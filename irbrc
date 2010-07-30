@@ -51,9 +51,10 @@ end
 
 class Object
 
-  # http://github.com/iain/osx_settings/raw/master/.irbrc
-  def local_methods
-    (methods - Object.instance_methods).sort
+  # http://github.com/ryanb/dotfiles/blob/master/irbrc
+  # list methods which aren't in superclass
+  def local_methods(obj = self)
+    (obj.methods - obj.class.superclass.instance_methods).sort
   end
   alias lm local_methods
 
