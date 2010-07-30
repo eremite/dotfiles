@@ -1,3 +1,5 @@
+#!/usr/bin/ruby
+
 require 'profiler'
 require 'rubygems'
 require 'map_by_method'
