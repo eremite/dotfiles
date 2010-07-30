@@ -1,0 +1,33 @@
+#!/usr/bin/ruby
+
+# http://github.com/ryanb/dotfiles/blob/master/railsrc
+def change_log(stream)
+  ActiveRecord::Base.logger = Logger.new(stream)
+  ActiveRecord::Base.clear_active_connections!
+end
+def show_log
+  change_log(STDOUT)
+end
+def hide_log
+  change_log(nil)
+end
+
+class Object
+
+  # aliases don't work because ActiveRecord hasn't been loaded yet
+  def ua(*args)
+    respond_to?(:update_attribute) ? update_attribute(*args) : raise(NoMethodError)
+  end
+  def uas(*args)
+    respond_to?(:update_attributes) ? update_attributes(*args) : raise(NoMethodError)
+  end
+
+  def f(*args)
+    if args.empty?
+      respond_to?(:first) ? first : raise(NoMethodError)
+    else
+      respond_to?(:find) ? find(*args) : raise(NoMethodError)
+    end
+  end
+
+end
