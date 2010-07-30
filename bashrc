@@ -120,11 +120,22 @@ function get {
   project=${1/.git/}
   git clone ssh://git.mokisystems.com/var/repos/${project}.git /media/sdb1/${project}
   cd
-  ln -s /media/sdb1/${project}
+  ln -sf /media/sdb1/${project}
   cd ${project}
   if [ -e "config/database.yml.example" ]; then
     cp config/database.yml{.example,}
   fi
+  cat > ${project} <<HEREDOC
+<VirtualHost *:80>
+  RailsEnv development
+  ServerName ${project}.daniel.lin
+  ServerAlias ${project:0:3}.daniel.lin
+  DocumentRoot /home/daniel/${project}/public
+</VirtualHost>
+HEREDOC
+  sudo mv ${project} /etc/apache2/sites-available
+  sudo a2ensite ${project}
+  sudo /usr/sbin/apache2ctl graceful
 }
 
 # Run autotest or autospec
