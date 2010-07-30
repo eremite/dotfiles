@@ -58,6 +58,21 @@ class Object
   end
   alias lm local_methods
 
+  # http://github.com/ryanb/dotfiles/blob/master/irbrc
+  # print documentation
+  #
+  # ri 'Array#pop'
+  # Array.ri
+  # Array.ri :pop
+  # arr.ri :pop
+  def ri(method = nil)
+    unless method && method =~ /^[A-Z]/ # if class isn't specified
+      klass = self.kind_of?(Class) ? name : self.class.name
+      method = [klass, method].compact.join('#')
+    end
+    puts `ri '#{method}'`
+  end
+
   # aliases don't work because ActiveRecord hasn't been loaded yet
   def ua(*args)
     respond_to?(:update_attribute) ? update_attribute(*args) : raise(NoMethodError)
