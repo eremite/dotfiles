@@ -45,3 +45,9 @@ noremap <Leader>s :write<CR>
 noremap <Leader>w :write<CR>
 " Quit
 noremap <Leader>q :quit<CR>
+" Open file in current directory <http://vimcasts.org/episodes/the-edit-command>
+map <leader>d :e <C-R>=expand("%:p:h") . "/" <CR>
+" Edit
+noremap <Leader>e :e<Space>
+" Flip to alternate buffers
+noremap <Leader>f :w<CR>:e #<CR>
