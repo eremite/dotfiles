@@ -198,10 +198,10 @@ noremap <Leader>q :quit<CR>
 noremap <Leader>e :e<Space>
 " Flip to alternate buffers
 noremap <Leader>f :w<CR>:e #<CR>
-" Clipboard ("+ is awkward)
+" CLIPBOARD ("+ is awkward)
 noremap <Leader>c "+
-" Like c, but v :) ("0 is awkward)
-noremap <Leader>v "0
+" PRIMARY ("* is awkward)
+noremap <Leader>C "*
 " Toggle Spelling
 noremap <Leader>k :silent setlocal invspell<CR>
 " Toggle paste!
