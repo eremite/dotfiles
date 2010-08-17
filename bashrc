@@ -165,3 +165,8 @@ complete -o default -o nospace -F _git_checkout gco
 # Map Caps Lock to ESC
 xmodmap -e "clear lock"
 xmodmap -e "keycode 0x42 = Escape"
+
+function c {
+  cd ~/code/$1
+}
+complete -W '$(ls /home/daniel/code)' c zvim_rails_ide
