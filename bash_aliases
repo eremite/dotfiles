@@ -23,6 +23,7 @@ alias gD='git diff --cached'
 alias ga='git add'
 alias gc='git commit -v'
 alias gb='git branch'
+complete -o default -o nospace -F _git_checkout gb
 alias gs='git status'
 alias gr='git rebase'
 alias gri='git rebase -i origin/master'
@@ -33,6 +34,7 @@ alias gm='git merge'
 alias gw='git whatchanged'
 alias gg='git log'
 alias gco='git checkout'
+complete -o default -o nospace -F _git_checkout gco
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gps='git svn dcommit'
 alias gls='git svn rebase'
@@ -65,4 +67,3 @@ alias v='vim'
 # bash
 alias x='exit'
 alias nh='telnet nethack.alt.org'
-

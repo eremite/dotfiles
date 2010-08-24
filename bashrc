@@ -115,11 +115,11 @@ function tb {
   tomboy --open-note $(grep -ho '<title>\(.*\)</title>' $HOME/.local/share/tomboy/* | sed 's#</\?title>##g' | dmenu $DMENU_ARGS)
 }
 
-# Get a new project from git and symlink it to $HOME
+# Get a new project from git and symlink it to ~/code
 function get {
   project=${1/.git/}
   git clone ssh://git.mokisystems.com/var/repos/${project}.git /media/sdb1/${project}
-  cd
+  cd ~/code
   ln -sf /media/sdb1/${project}
   cd ${project}
   if [ -e "config/database.yml.example" ]; then
@@ -157,16 +157,26 @@ function jg {
   j $1 $log
 }
 
-# enable tab completion
-complete -o default -o nospace -F _git_checkout gm
-complete -o default -o nospace -F _git_checkout gb
-complete -o default -o nospace -F _git_checkout gco
+# Jump to ~/code from anywhere (with tab completion!)
+function c {
+  cd ~/code/$1
+}
+function _c {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  COMPREPLY=( $(compgen -d -S '/' ~/code/${cur} | cut -d '/' -f 5-) )
+}
+complete -o nospace -F _c c
+
+# Jump to ~/gits from anywhere (with tab completion!)
+function g {
+  cd ~/gits/$1
+}
+function _g {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  COMPREPLY=( $(compgen -d -S '/' ~/gits/${cur} | cut -d '/' -f 5-) )
+}
+complete -o nospace -F _g g
 
 # Map Caps Lock to ESC
 xmodmap -e "clear lock"
 xmodmap -e "keycode 0x42 = Escape"
-
-function c {
-  cd ~/code/$1
-}
-complete -W '$(ls /home/daniel/code)' c zvim_rails_ide
