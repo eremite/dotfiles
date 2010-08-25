@@ -99,64 +99,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-# Load a rails database
-function dbload {
-  if [ $1 ]; then
-    scp $1:/home/daniel/db.sql .
-  fi
-  database=`grep -m 1 database config/database.yml | cut -d ":" -f 2`
-  database=${database//[[:space:]]}
-  mysql -uroot ${database} < db.sql
-}
-
-# Open tomboy note from menu
-function tb {
-  DMENU_ARGS="-i -fn -*-terminal-*-*-*-*-18-*-*-*-*-*-*-*" # xfontsel to select font
-  tomboy --open-note $(grep -ho '<title>\(.*\)</title>' $HOME/.local/share/tomboy/* | sed 's#</\?title>##g' | dmenu $DMENU_ARGS)
-}
-
-# Get a new project from git and symlink it to ~/code
-function get {
-  project=${1/.git/}
-  git clone ssh://git.mokisystems.com/var/repos/${project}.git /media/sdb1/${project}
-  cd ~/code
-  ln -sf /media/sdb1/${project}
-  cd ${project}
-  if [ -e "config/database.yml.example" ]; then
-    cp config/database.yml{.example,}
-  fi
-  cat > ${project} <<HEREDOC
-<VirtualHost *:80>
-  RailsEnv development
-  ServerName ${project}.daniel.lin
-  ServerAlias ${project:0:3}.daniel.lin
-  DocumentRoot /home/daniel/${project}/public
-</VirtualHost>
-HEREDOC
-  sudo mv ${project} /etc/apache2/sites-available
-  sudo a2ensite ${project}
-  sudo /usr/sbin/apache2ctl graceful
-}
-
-# Run autotest or autospec
-function t {
-  if [ -e "spec" ]; then
-    autospec
-  fi
-  if [ -e "test" ]; then
-    autotest
-  else
-    echo "Aborting. No tests found."
-  fi
-}
-
-# Timeclock the last git commit message
-function jg {
-  log=`git log -n1 --pretty=format:%s --no-merges`
-  echo $log
-  j $1 $log
-}
-
 # Jump to ~/code from anywhere (with tab completion!)
 function c {
   cd ~/code/$1
