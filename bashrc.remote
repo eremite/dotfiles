@@ -19,13 +19,13 @@ esac
 
 # Dump the current directory's rails database
 function dbdump {
-  database=`grep -m 1 database config/database.yml | cut -d ":" -f 2`
+  database=`grep -m 1  '^[ ]*database' config/database.yml | cut -d ":" -f 2`
   database=${database//[[:space:]]}
-  username=`grep -m 1 username config/database.yml | cut -d ":" -f 2`
+  username=`grep -m 1 '^[ ]*username' config/database.yml | cut -d ":" -f 2`
   username=${username//[[:space:]]}
-  password=`grep -m 1 password config/database.yml | cut -d ":" -f 2`
+  password=`grep -m 1 '^[ ]*password' config/database.yml | cut -d ":" -f 2`
   password=${password//[[:space:]]}
-  mysqldump -u${username} -p${password} ${database} > "$HOME/db.sql"
+  mysqldump -u${username} -p${password} ${database} | gzip > "$HOME/db.sql.gz"
 }
 
 # ls
