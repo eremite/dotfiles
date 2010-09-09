@@ -52,7 +52,7 @@
   Mod4 + b
 
 #Pandora Hover
-"xdotool mousemove 1350 10; sleep 15; xdotool mousemove 500 300"
+"xdotool mousemove 1725 11; sleep 15; xdotool mousemove 500 300"
   Mod4 + p
 
 #
