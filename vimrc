@@ -106,6 +106,7 @@ autocmd FileType make setlocal noexpandtab
 autocmd BufRead,BufNewFile *.prawn set filetype=ruby
 autocmd FileType ruby setlocal formatoptions-=cro
 autocmd FileType yaml setlocal formatoptions-=cro
+autocmd BufRead *.py set ts=4 et sw=4 sts=4
 
 " For CTRL-^ in particular
 set autowrite
