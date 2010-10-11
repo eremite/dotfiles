@@ -107,7 +107,7 @@ function _c {
   local cur="${COMP_WORDS[COMP_CWORD]}"
   COMPREPLY=( $(compgen -d -S '/' ~/code/${cur} | cut -d '/' -f 5-) )
 }
-complete -o nospace -F _c c
+complete -o nospace -F _c c zvim_rails_ide
 
 # Jump to ~/gits from anywhere (with tab completion!)
 function g {
