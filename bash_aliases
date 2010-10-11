@@ -41,6 +41,7 @@ alias gls='git svn rebase'
 
 # rails
 alias r='rails'
+alias t='autotest'
 alias rr='rake routes | grep'
 alias mig='rake db:migrate db:test:clone'
 alias rs='touch tmp/restart.txt'
