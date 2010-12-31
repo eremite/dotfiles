@@ -1,4 +1,6 @@
-# I've been using vim for about 5 years. I chose vi over emacs because it is
+# For a presentation to the St. George Linux User's Group in December 2010.
+
+# I've been using vim since 2005. I chose vi over emacs because it is
 # installed by default on almost all Linux distros. Learning how to use it was
 # a gradual process, but now that I have tasted it's power I tend to do almost
 # all my text editing in vim.
@@ -60,8 +62,8 @@ class WhyVim
 
   def disadvantages
     complex # easy to get lost
-    scripting
-    file management (tabs, etc.) # may be my fault
+    scripting # ugly and awkward
+    many files at once # I use gnome-terminal tabs
   end
 
   def more_cool_stuff
