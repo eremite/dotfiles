@@ -1,1 +1,0 @@
-/home/daniel/gits/vim-ruby/ftdetect/ruby.vim

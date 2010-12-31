@@ -1,1 +1,0 @@
-/home/daniel/gits/vim-ruby/syntax/eruby.vim
