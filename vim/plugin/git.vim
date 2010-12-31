@@ -1,1 +1,0 @@
-../../../git-vim-moteman/plugin/git.vim
