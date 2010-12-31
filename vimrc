@@ -4,6 +4,8 @@ call pathogen#runtime_append_all_bundles()
 "   git config status.showUntrackedFiles no
 "   alias gd='git diff --ignore-submodules
 call pathogen#helptags()
+" To update all submodules:
+"   git submodule update --init
 
 " Set Leader
 let mapleader = "'"
