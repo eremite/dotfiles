@@ -19,7 +19,7 @@ alias svnr='svn resolved'
 # git
 alias gl='git pull --rebase'
 alias gp='git push'
-alias gd='git diff'
+alias gd='git diff --ignore-submodules'
 alias gD='git diff --cached'
 alias ga='git add'
 alias gc='git commit -v'

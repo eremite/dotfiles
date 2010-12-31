@@ -1,3 +1,10 @@
+" http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
+call pathogen#runtime_append_all_bundles()
+" Generated help tags make the submodules dirty, so you may want to:
+"   git config status.showUntrackedFiles no
+"   alias gd='git diff --ignore-submodules
+call pathogen#helptags()
+
 " Set Leader
 let mapleader = "'"
 
