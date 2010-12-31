@@ -46,6 +46,9 @@ retab
 set expandtab
 let b:surround_indent = 1
 
+" Supertab fix https://github.com/sjbach/lusty/issues/#issue/20
+let g:SuperTabCrMapping = 0
+
 " Highlight spaces at the end of lines.
 highlight link localWhitespaceError Error
 autocmd Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/ display
@@ -92,9 +95,6 @@ vnoremap / <Esc>/\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
 vnoremap ? <Esc>?\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
 
 " Inserting just one thing
-nnoremap <cr> o<esc>
-nnoremap - O<esc>
-nnoremap + i<cr><esc>
 nnoremap <space> :exec "normal i".nr2char(getchar())."\e"<CR>
 
 " Saving and quitting quickly
