@@ -1,1 +1,0 @@
-../../../vim-haml/ftdetect/haml.vim
