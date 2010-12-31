@@ -40,3 +40,6 @@
 [submodule "vim/bundle/matchit"]
 	path = vim/bundle/matchit
 	url = https://github.com/vim-scripts/matchit.zip.git
+[submodule "vim/bundle/desert256"]
+	path = vim/bundle/desert256
+	url = git@github.com:eremite/desert256.vim.git
