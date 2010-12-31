@@ -1,1 +1,0 @@
-../../../vim-abolish/plugin/abolish.vim
