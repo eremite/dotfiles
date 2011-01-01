@@ -190,6 +190,9 @@ function! OpenRailsDoc(keyword)
 endfunction
 noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
 
+" I only want lustyjuggler
+let g:loaded_lustyexplorer = "skip"
+
 " Git Blame
 nnoremap <Leader>gb :GitBlame<Enter>
 " Git Checkout
