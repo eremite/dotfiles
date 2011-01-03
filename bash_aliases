@@ -27,7 +27,7 @@ alias gb='git branch'
 complete -o default -o nospace -F _git_checkout gb
 alias gs='git status'
 alias gr='git rebase'
-alias gri='git rebase -i origin/master'
+alias gri='git rebase --interactive --autosquash origin/master'
 alias grc='git rebase --continue'
 alias grh='git reset HEAD'
 alias gca='git commit --amend'
