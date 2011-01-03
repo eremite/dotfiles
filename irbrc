@@ -2,14 +2,14 @@
 
 require 'profiler'
 require 'rubygems'
-require 'map_by_method'
-require 'interactive_editor'
+# require 'map_by_method'
+# require 'interactive_editor'
+# require 'looksee/shortcuts' # https://github.com/oggy/looksee
 require 'wirble'
 Wirble.init
 Wirble.colorize
 
 alias x exit
-alias q exit
 
 require 'irb/ext/save-history'
 IRB.conf[:AUTO_INDENT] = true
