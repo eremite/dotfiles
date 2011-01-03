@@ -107,7 +107,6 @@ command Wq wq
 " edit most recent file (searching recursively)
 command ER e `find . -type f -not -name *.swp -not -path ./% -printf \"\%TY-\%Tm-\%Td\_\%TT\ \%p\\n\" \| sort \| tail -1 \| awk '{print $NF}'`
 
-
 " Filetypes
 " autocmd BufRead,BufNewFile *.html set filetype=php
 " autocmd BufRead,BufNewFile *.htm set filetype=php 
@@ -201,6 +200,8 @@ nnoremap <Leader>gco :GitCheckout %<Enter>
 noremap <Leader>j maJxJx`a
 " Remove end of line white space.
 noremap <Leader>r ma:%s/\s\+$//e<CR>`a
+" Remove smart quotes (and friends).
+noremap <Leader>R ma:%s/[“”]/"/eg<CR>:%s/’/'/eg<CR>`a
 " Save
 noremap <Leader>s :write<CR>
 " Write
@@ -239,4 +240,4 @@ function! ToggleMouse()
 endfunction
 if has('mouse')
   noremap <Leader>y :call ToggleMouse()<CR>
-end
+endif
