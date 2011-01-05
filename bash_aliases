@@ -33,7 +33,7 @@ alias grh='git reset HEAD'
 alias gca='git commit --amend'
 alias gm='git merge'
 alias gw='git whatchanged'
-alias gg='git log'
+alias gg='git log --pretty=format:"%C(yellow)%h%Creset %s"'
 alias gco='git checkout'
 complete -o default -o nospace -F _git_checkout gco
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
