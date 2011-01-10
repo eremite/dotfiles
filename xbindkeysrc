@@ -39,21 +39,9 @@
 "wmctrl -r :ACTIVE: -e '0,241,177,1198,696'"
   Mod4 + period
 
-#Play/Pause Pandora
-"zpandora_play"
-  Control + Shift + Alt + Return
-
-#Sleep a Pandora Song
-"zpandora_sleep"
-  Control + Shift + Alt + BackSpace
-
 #Tomboy Menu
 "tomboy --open-note $(grep -ho '<title>\(.*\)</title>' $HOME/.local/share/tomboy/* | sed 's#</\?title>##g' | dmenu -i -fn -*-terminal-*-*-*-*-18-*-*-*-*-*-*-*)"
   Mod4 + b
-
-#Pandora Hover
-"xdotool mousemove 1725 11; sleep 15; xdotool mousemove 500 300"
-  Mod4 + p
 
 #
 # End of xbindkeys configuration
