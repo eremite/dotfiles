@@ -219,6 +219,8 @@ noremap <Leader>c "+
 noremap <Leader>C "*
 " Toggle Spelling
 noremap <Leader>k :silent setlocal invspell<CR>
+" Open two lines
+noremap <Leader>o o<CR><Esc>kcc
 " Toggle paste!
 noremap <Leader>p :set paste!<CR>
 " search for TODO
