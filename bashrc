@@ -98,6 +98,10 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
   . /etc/bash_completion
 fi
 
+# Time tracking with done
+if [ -f ~/gits/done/bash_aliases.sh ]; then
+  . ~/gits/done/bash_aliases.sh
+fi
 
 # Jump to ~/code from anywhere (with tab completion!)
 function c {
