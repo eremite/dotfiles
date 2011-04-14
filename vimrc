@@ -48,7 +48,7 @@ retab
 set expandtab
 let b:surround_indent = 1
 
-" Supertab fix https://github.com/sjbach/lusty/issues/#issue/20
+" Supertab CR mapping sometimes conflicts with other plugins.
 let g:SuperTabCrMapping = 0
 
 " Highlight spaces at the end of lines.
@@ -189,9 +189,6 @@ function! OpenRailsDoc(keyword)
   exec '!'.g:browser.' '.url.' &'
 endfunction
 noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
-
-" I only want lustyjuggler
-let g:loaded_lustyexplorer = "skip"
 
 " Git Blame
 nnoremap <Leader>gb :GitBlame<Enter>
