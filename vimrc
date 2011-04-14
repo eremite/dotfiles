@@ -120,6 +120,9 @@ autocmd BufRead *.py set ts=4 et sw=4 sts=4
 " For CTRL-^ in particular
 set autowrite
 
+" You can use the mouse without gui-vim! (I never do though)
+" set mouse=a
+
 " Easy Grep Settings
 let g:EasyGrepFileAssociations='/home/daniel/.vim/plugin/EasyGrepFileAssociations'
 let g:EasyGrepMode=2
@@ -224,20 +227,7 @@ noremap <Leader>p :set paste!<CR>
 noremap <Leader>t /\<TODO\><CR>
 " multi-line an array or hash
 noremap <Leader>m ma:s/, /,<c-v><CR>/g<CR>j=`a
-" Open file in current directory <http://vimcasts.org/episodes/the-edit-command>
+" Open file in current directory http://vimcasts.org/episodes/the-edit-command
 map <leader>d :e %:p:h/
-
-" You can use the mouse without gui-vim!
-" y would you want to though? :)
-" wka's comment on http://vimcasts.org/episodes/working-with-windows
-" http://vim.wikia.com/wiki/Managing_set_options
-function! ToggleMouse()
-  if &mouse == 'a'
-    set mouse=
-  else
-    set mouse=a
-  endif
-endfunction
-if has('mouse')
-  noremap <Leader>y :call ToggleMouse()<CR>
-endif
+" Open YankRing
+noremap <Leader>y :YRShow<CR>
