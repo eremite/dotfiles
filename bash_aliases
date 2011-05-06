@@ -22,6 +22,7 @@ alias gp='git push'
 alias gd='git diff --ignore-submodules'
 alias gD='git diff --cached'
 alias ga='git add'
+alias gai='git add --patch' # i for interactive
 alias gc='git commit -v'
 alias gb='git branch'
 complete -o default -o nospace -F _git_checkout gb
