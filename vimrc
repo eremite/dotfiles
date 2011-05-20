@@ -134,6 +134,10 @@ inoremap <c-w> <c-g>u<c-w>
 nmap do do]c
 nmap dp dp]c
 
+" http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim
+imap jj <esc>j
+imap kk <esc>k
+
 " Surrounds
 "-
 autocmd FileType php let b:surround_45 = "<?php \r ?>"
@@ -155,25 +159,6 @@ let g:surround_116 = "try(:\r)"
 " let g:surround_117 = "t('\r')"
 "v variable
 let g:surround_118 = "\"#{\r}\""
-
-" http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim
-imap jj <esc>j
-imap kk <esc>k
-
-"http://github.com/fabiokung/vimfiles/tree
-let g:browser = 'firefox-3.5 -new-tab '
-" Open the Ruby ApiDock page for the word under cursor, in a new Firefox tab
-function! OpenRubyDoc(keyword)
-  let url = 'http://apidock.com/ruby/'.a:keyword
-  exec '!'.g:browser.' '.url.' &'
-endfunction
-noremap RB :call OpenRubyDoc(expand('<cword>'))<CR>
-" Open the Rails ApiDock page for the word under cursor, in a new Firefox tab
-function! OpenRailsDoc(keyword)
-  let url = 'http://apidock.com/rails/'.a:keyword
-  exec '!'.g:browser.' '.url.' &'
-endfunction
-noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
 
 " Handy for one-lining a three line tag or block
 noremap <Leader>j maJxJx`a
