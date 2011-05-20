@@ -116,6 +116,9 @@ autocmd FileType ruby setlocal formatoptions-=cro
 autocmd FileType ruby setlocal iskeyword+=? "http://stackoverflow.com/questions/4258955
 autocmd FileType yaml setlocal formatoptions-=cro
 autocmd BufRead *.py set ts=4 et sw=4 sts=4
+" http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
+" Remove fugitive buffers (from browsing git objects)
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " For CTRL-^ in particular
 set autowrite
