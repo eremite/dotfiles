@@ -190,7 +190,7 @@ noremap <Leader>o o<CR><Esc>kcc
 " Toggle paste!
 noremap <Leader>p :set paste!<CR>
 " multi-line an array or hash
-noremap <Leader>m ma:s/, /,<c-v><CR>/g<CR>j=`a
+noremap <Leader>m ma:s/, \?/,<c-v><CR>/g<CR>j=`a
 " Open file in current directory http://vimcasts.org/episodes/the-edit-command
 map <leader>d :e %:p:h/
 " Open YankRing
