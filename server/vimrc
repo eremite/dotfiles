@@ -51,3 +51,5 @@ map <leader>d :e <C-R>=expand("%:p:h") . "/" <CR>
 noremap <Leader>e :e<Space>
 " Flip to alternate buffers
 noremap <Leader>f :w<CR>:e #<CR>
+" Close current buffer
+noremap <Leader>x :bd<CR>
