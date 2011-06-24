@@ -18,3 +18,10 @@
     ln -s {~/gits/dotfiles/,.}vim
     ln -s {~/gits/dotfiles/,.}vimrc
     ln -s {~/gits/dotfiles/,.}xbindkeysrc
+
+## Server dotfiles
+
+The files in the server directory are stripped down dotfiles for remote servers.
+
+Rather than using git to sync them (too much hassle) I just scp them over from
+my local machine (with a script in my [binfiles repo][http://github.com/eremite/binfiles]).
