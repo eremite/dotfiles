@@ -1,17 +1,20 @@
-eremite's dotfiles
-==================
+## Installation
 
-Here are some of the dot files I have in my home directory.
-
-Installation
-------------
-
-If something here catches your eye, you'll probably want to just copy and paste those lines into your own dotfile. But on the off chance you want to use an entire file, here's one way to do that:
-
-* Clone the repository somewhere. (Mine is in ~/gits/dotfiles)
-* In your home directory create a symbolic link to the file. e.g. _ln -s ~/gits/dotfiles/bashrc ._
-
-Additional Information
-----------------------
-
-Note that a lot of the stuff in the vim directory is similarly cloned from a git repository and symbolically linked.
+    git clone https://github.com/eremite/dotfiles ~/gits/dotfiles
+    cd !$
+    git submodule init
+    git submodule update
+    cd
+    ln -s {~/gits/dotfiles/,.}bashrc
+    ln -s {~/gits/dotfiles/,.}bash_aliases
+    ln -s {~/gits/dotfiles/,.}bashrc
+    ln -s {~/gits/dotfiles/,.}ccsm.profile
+    ln -s {~/gits/dotfiles/,.}gitignore
+    ln -s {~/gits/dotfiles/,.}inputrc
+    ln -s {~/gits/dotfiles/,.}irbrc
+    ln -s {~/gits/dotfiles/,.}profile
+    ln -s {~/gits/dotfiles/,.}railsrc
+    ln -s {~/gits/dotfiles/,.}server
+    ln -s {~/gits/dotfiles/,.}vim
+    ln -s {~/gits/dotfiles/,.}vimrc
+    ln -s {~/gits/dotfiles/,.}xbindkeysrc
