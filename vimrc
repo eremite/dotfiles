@@ -27,6 +27,7 @@ autocmd FileType yaml setlocal formatoptions-=cro
 autocmd FileType ruby setlocal iskeyword+=?
 " 4 spaces for python indentation
 autocmd BufRead *.py set ts=4 et sw=4 sts=4
+autocmd FileType php set sw=2
 " Remove fugitive buffers (from browsing git objects)
 " (http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database)
 autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -92,16 +93,11 @@ let g:SuperTabRetainCompletionDuration = "completion"
 " Re-indent (=) after surrounding
 let b:surround_indent = 1
 "-
-autocmd FileType php let b:surround_45 = "<?php \r ?>"
-autocmd FileType html let b:surround_45 = "<?php \r ?>"
-"!
-let g:surround_33 = "<!-- \r -->"
-"1
-let g:surround_49 = "<!-- \r -->"
+autocmd FileType php,html let b:surround_45 = "<?php \r ?>"
 "\ \n
 let g:surround_92 = "\n\r\n"
 "# #{}
-let g:surround_35 = "#{\r}"
+autocmd FileType ruby,eruby,haml let g:surround_35 = "#{\r}"
 "d
 autocmd FileType ruby let b:surround_100 = "logger.debug(\"### #{\r}\") #TODO: remove debug code"
 autocmd FileType javascript let g:surround_100 = "console.log(\r); // TODO Remove debug code"
