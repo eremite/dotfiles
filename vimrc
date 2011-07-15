@@ -5,6 +5,9 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+" Linux never crashes. :)
+set noswapfile
+
 " Set Leader
 " \ is too far away!
 let mapleader = "'"
@@ -43,6 +46,7 @@ colorscheme desert256
 syntax on
 set nohlsearch
 highlight MatchParen ctermbg=4
+set synmaxcol=1024 " Give up on uberlong lines
 " Vimdiff
 highlight DiffAdd cterm=underline ctermbg=Black ctermfg=2
 highlight DiffChange cterm=underline ctermbg=Black ctermfg=4
@@ -81,7 +85,7 @@ let g:CommandTCancelMap='<Esc>'
 " The CR mapping sometimes conflicts with other plugins.
 let g:SuperTabCrMapping = 0
 " Always use default completion type
-let g:SuperTabRetainCompletionDuration='completion'
+let g:SuperTabRetainCompletionDuration = "completion"
 
 
 " Surround (https://github.com/tpope/vim-surround)
@@ -107,8 +111,6 @@ let g:surround_116 = "try(:\r)"
 let g:surround_118 = "\"#{\r}\""
 
 
-" Custom Mappings
-
 " Ignore case when saving and quitting
 command Q q
 command W w
@@ -132,6 +134,7 @@ nmap dp dp]c
 
 " Use motion commands to leave insert mode
 " (http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim)
+imap jk <esc>
 imap jj <esc>j
 imap kk <esc>k
 
