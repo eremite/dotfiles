@@ -167,7 +167,5 @@ noremap <Leader>k :silent setlocal invspell<CR>
 noremap <Leader>m ma:s/, \?/,<c-v><CR>/g<CR>j=`a
 " Open file in current directory (http://vimcasts.org/episodes/the-edit-command)
 map <leader>d :e %:p:h/
-" Open YankRing
-noremap <Leader>y :YRShow<CR>
 " Close current Buffer
 noremap <Leader>x :bd<CR>
