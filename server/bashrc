@@ -28,6 +28,11 @@ function dbdump {
   mysqldump -u${username} -p${password} ${database} | gzip > "$HOME/db.sql.gz"
 }
 
+# Load customizations for the local machine.
+if [ -f ~/.bashrc_local ]; then
+  . ~/.bashrc_local
+fi
+
 # ls
 alias ls='ls --color=auto'
 alias ll='ls -lh'

@@ -53,3 +53,8 @@ noremap <Leader>e :e<Space>
 noremap <Leader>f :w<CR>:e #<CR>
 " Close current buffer
 noremap <Leader>x :bd<CR>
+
+" Load customizations for local machine.
+if filereadable(expand("$HOME/.vimrc_local"))
+  source $HOME/.vimrc_local
+endif

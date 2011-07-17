@@ -98,6 +98,11 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
   . /etc/bash_completion
 fi
 
+# Load customizations for the local machine.
+if [ -f ~/.bashrc_local ]; then
+  . ~/.bashrc_local
+fi
+
 # Time tracking with done
 if [ -f ~/gits/done/bash_aliases.sh ]; then
   . ~/gits/done/bash_aliases.sh

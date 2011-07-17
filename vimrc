@@ -168,3 +168,8 @@ noremap <Leader>m ma:s/, \?/,<c-v><CR>/g<CR>j=`a
 map <leader>d :e %:p:h/
 " Close current Buffer
 noremap <Leader>x :bd<CR>
+
+" Load customizations for local machine.
+if filereadable(expand("$HOME/.vimrc_local"))
+  source $HOME/.vimrc_local
+endif
