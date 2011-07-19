@@ -42,8 +42,12 @@ retab
 set expandtab
 
 " Colors
+syntax enable
+set background=dark
+colorscheme solarized
 set t_Co=256
-colorscheme desert256
+
+" Color Customizations
 syntax on
 set nohlsearch
 highlight MatchParen ctermbg=4
