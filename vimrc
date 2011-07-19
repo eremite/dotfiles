@@ -2,6 +2,7 @@
 " (http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen)
 " To update all submodules:
 "   git submodule update --init
+let g:pathogen_disabled = ['supertab']
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
@@ -85,14 +86,6 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 " Close the buffer with <Esc>
 let g:CommandTCancelMap='<Esc>'
 
-
-" Supertab (https://github.com/ervandew/supertab)
-" The CR mapping sometimes conflicts with other plugins.
-let g:SuperTabCrMapping = 0
-" Always use default completion type
-let g:SuperTabRetainCompletionDuration = "completion"
-
-
 " Surround (https://github.com/tpope/vim-surround)
 " Re-indent (=) after surrounding
 let b:surround_indent = 1
@@ -137,6 +130,10 @@ nmap dp dp]c
 imap jk <esc>
 imap jj <esc>j
 imap kk <esc>k
+
+" Map autocomplete to tab
+" (https://github.com/ryanb/dotfiles/blob/master/vimrc)
+imap <Tab> <C-N>
 
 " My own (semi-lame) text-object for commas
 onoremap <silent>a, :<C-u>silent! normal! F,vt,<CR>
