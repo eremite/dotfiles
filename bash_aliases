@@ -69,4 +69,5 @@ alias v='vim'
 
 # bash
 alias x='exit'
+alias a='ack-grep'
 alias nh='telnet nethack.alt.org'
