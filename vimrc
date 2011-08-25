@@ -103,6 +103,8 @@ let g:surround_116 = "try(:\r)"
 "v variable
 let g:surround_118 = "\"#{\r}\""
 
+" vim-ruby (https://github.com/vim-ruby/vim-ruby)
+let g:ruby_hanging_indent = 0
 
 " Ignore case when saving and quitting
 command Q q
