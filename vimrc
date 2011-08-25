@@ -172,6 +172,10 @@ map <leader>d :e %:p:h/
 " Close current Buffer
 noremap <Leader>x :bd<CR>
 
+" Cycle through quickfix without saving buffers
+nmap <silent> [p :bd\|cprevious<CR>
+nmap <silent> ]p :bd\|cnext<CR>
+
 " Load customizations for local machine.
 if filereadable(expand("$HOME/.vimrc_local"))
   source $HOME/.vimrc_local
