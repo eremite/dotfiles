@@ -8,6 +8,9 @@ call pathogen#helptags()
 
 " Linux never crashes. :)
 set noswapfile
+" Autosave when changing buffers (the warnings get annoying)
+set autowriteall
+
 
 " Set Leader
 " \ is too far away!
@@ -72,15 +75,11 @@ highlight SpellLocal term=underline cterm=underline
 highlight link localWhitespaceError Error
 autocmd Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/ display
 
-" Autosave when changing buffers (the warnings get annoying)
-set autowriteall
-
 " Remember last location in file
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
 " Reminder of how to use the mouse without gui-vim! (I never do though)
 " set mouse=a
-
 
 " Command-T (http://git.wincent.com/command-t.git)
 " Close the buffer with <Esc>
@@ -135,7 +134,8 @@ imap kk <esc>k
 
 " Map autocomplete to tab
 " (https://github.com/ryanb/dotfiles/blob/master/vimrc)
-imap <Tab> <C-N>
+imap <Tab> <C-P>
+imap <S-Tab> <C-N>
 
 " My own (semi-lame) text-object for commas
 onoremap <silent>a, :<C-u>silent! normal! F,vt,<CR>
