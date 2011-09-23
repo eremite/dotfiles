@@ -1,8 +1,9 @@
 # Use less to page results
---pager=less -r
+# --pager=less -r
 # Sort the results by file
 --sort-files
 # Add file types
+--type-set=erb=.erb
 --type-set=ruby=.rake
 --type-set=haml=.haml
 --type-set=sass=.sass,.scss

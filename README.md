@@ -7,7 +7,6 @@
     cd
     ln -s {~/gits/dotfiles/,.}bashrc
     ln -s {~/gits/dotfiles/,.}bash_aliases
-    ln -s {~/gits/dotfiles/,.}bashrc
     ln -s {~/gits/dotfiles/,.}ccsm.profile
     ln -s {~/gits/dotfiles/,.}gitignore
     ln -s {~/gits/dotfiles/,.}inputrc

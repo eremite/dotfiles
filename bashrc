@@ -54,6 +54,21 @@ else
 fi
 unset color_prompt force_color_prompt
 
+## Use rbenv for ruby version management (https://github.com/sstephenson/rbenv)
+function rbenv() {
+  command="$1"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+  case "$command" in
+    shell)
+      eval `rbenv "sh-$command" "$@"`;;
+    *)
+      command rbenv "$command" "$@";;
+  esac
+}
+
+
 # Shows the current git branch in your shell prompt
 function parse_git_dirty {
   [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"

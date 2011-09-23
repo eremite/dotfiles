@@ -8,7 +8,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-alias s='cd /etc/apache2/sites-available/'
+alias s='cd /etc/apache2/sites-available'
 alias b='cd /media/sdb1'
 
 # svn
@@ -43,7 +43,8 @@ alias gls='git svn rebase'
 
 # rails
 alias r='rails'
-alias t='autotest'
+alias be='bundle exec'
+alias t='touch test/test_helper.rb'
 alias rr='rake routes | grep'
 alias mig='rake db:migrate db:test:clone'
 alias rs='touch tmp/restart.txt'
@@ -60,9 +61,9 @@ alias lsd='less log/development.log'
 alias lst='less log/test.log'
 alias lsp='less log/production.log'
 
-# apache
+# misc
 alias vhosts='sudo vim /etc/hosts'
-alias rsa='sudo /usr/sbin/apache2ctl graceful'
+alias rss='sudo service apache2 restart'
 
 # vim
 alias v='vim'
