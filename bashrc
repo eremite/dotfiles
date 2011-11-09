@@ -142,7 +142,3 @@ function _g {
   COMPREPLY=( $(compgen -d -S '/' ~/gits/${cur} | cut -d '/' -f 5-) )
 }
 complete -o nospace -F _g g
-
-# Map Caps Lock to ESC
-xmodmap -e "clear lock"
-xmodmap -e "keycode 0x42 = Escape"
