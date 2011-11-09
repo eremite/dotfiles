@@ -1,6 +1,1 @@
 *.swp
-db/*.sqlite3
-log/*
-tmp/*
-coverage/*
-config/database.yml
