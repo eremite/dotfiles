@@ -4,21 +4,26 @@
 [submodule "vim/bundle/abolish"]
 	path = vim/bundle/abolish
 	url = git://github.com/tpope/vim-abolish.git
+  ignore = untracked
 [submodule "vim/bundle/unimpaired"]
 	path = vim/bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
+  ignore = untracked
 [submodule "vim/bundle/rails"]
 	path = vim/bundle/rails
 	url = git://github.com/tpope/vim-rails.git
 [submodule "vim/bundle/ruby"]
 	path = vim/bundle/ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
+  ignore = untracked
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
+  ignore = untracked
 [submodule "vim/bundle/tcomment"]
 	path = vim/bundle/tcomment
 	url = https://github.com/tomtom/tcomment_vim.git
+  ignore = untracked
 [submodule "vim/bundle/endwise"]
 	path = vim/bundle/endwise
 	url = https://github.com/tpope/vim-endwise.git
@@ -37,6 +42,7 @@
 [submodule "vim/bundle/matchit"]
 	path = vim/bundle/matchit
 	url = https://github.com/vim-scripts/matchit.zip.git
+  ignore = untracked
 [submodule "vim/bundle/markdown"]
 	path = vim/bundle/markdown
 	url = https://github.com/tpope/vim-markdown.git
@@ -47,7 +53,7 @@
 	path = vim/bundle/html-enhanced
 	url = https://github.com/vim-scripts/php.vim-html-enhanced.git
 [submodule "vim/bundle/colors-solarized"]
-	path = vim/bundle/colors-solarized/
+	path = vim/bundle/colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/bundle/coffee-script"]
 	path = vim/bundle/coffee-script
