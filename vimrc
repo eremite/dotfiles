@@ -84,6 +84,9 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 " Command-T (http://git.wincent.com/command-t.git)
 " Close the buffer with <Esc>
 let g:CommandTCancelMap='<Esc>'
+" Ignore the following
+set wildignore+=.git,*.jpg,*.png,tmp/**
+
 
 " Surround (https://github.com/tpope/vim-surround)
 " Re-indent (=) after surrounding
