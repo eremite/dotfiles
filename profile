@@ -21,10 +21,16 @@ if [ -d "$HOME/bin" ] ; then
   PATH="$HOME/bin:$PATH"
 fi
 
-## Use rbenv for ruby version management (https://github.com/sstephenson/rbenv)
+# Use rbenv for ruby version management (https://github.com/sstephenson/rbenv)
 if [ -d "$HOME/.rbenv/bin" ] ; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   export PATH="$HOME/.rbenv/shims:${PATH}"
   source "$HOME/.rbenv/libexec/../completions/rbenv.bash"
   rbenv rehash 2>/dev/null
 fi
+
+# Set language env variables.
+export LANGUAGE="en_US:en"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
