@@ -2,7 +2,6 @@
 " (http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen)
 " To update all submodules:
 "   git submodule update --init
-let g:pathogen_disabled = ['supertab']
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
@@ -10,7 +9,6 @@ call pathogen#helptags()
 set noswapfile
 " Autosave when changing buffers (the warnings get annoying)
 set autowriteall
-
 
 " Set Leader
 " \ is too far away!
@@ -24,6 +22,11 @@ filetype plugin on
 autocmd FileType make setlocal noexpandtab
 " .prawn files are just ruby
 autocmd BufRead,BufNewFile *.prawn set filetype=ruby
+" TODO Figure out why these aren't autoloaded.
+" autocmd BufRead,BufNewFile Gemfile set filetype=ruby
+" autocmd BufRead,BufNewFile Guardfile set filetype=ruby
+" autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
+" autocmd BufRead,BufNewFile *.coffee set filetype=coffee
 " Don't assume the line after a comment is still a comment
 autocmd FileType ruby setlocal formatoptions-=cro
 autocmd FileType yaml setlocal formatoptions-=cro
