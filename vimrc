@@ -84,9 +84,6 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 " Reminder of how to use the mouse without gui-vim! (I never do though)
 " set mouse=a
 
-" Command-T (http://git.wincent.com/command-t.git)
-" Close the buffer with <Esc>
-let g:CommandTCancelMap='<Esc>'
 " Ignore the following
 set wildignore+=.git,*.jpg,*.png,tmp/**
 
