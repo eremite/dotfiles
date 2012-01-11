@@ -175,6 +175,11 @@ map <leader>d :e %:p:h/
 " Close current Buffer
 noremap <Leader>x :bd<CR>
 
+" Open CtrlP
+noremap <Leader>a :CtrlP<CR>
+noremap <Leader>b :CtrlPBuffer<CR>
+noremap <Leader>u :CtrlPMRU<CR>
+
 " Cycle through quickfix without saving buffers
 nmap <silent> [p :bd\|cprevious<CR>
 nmap <silent> ]p :bd\|cnext<CR>
