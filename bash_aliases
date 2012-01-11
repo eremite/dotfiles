@@ -45,11 +45,11 @@ alias gh='git stash'
 alias ghp='git stash pop'
 
 # rails
-alias r='rails'
+alias r='bundle exec rails'
 alias be='bundle exec'
 alias t='touch test/test_helper.rb'
 alias rr='rake routes | grep'
-alias mig='rake db:migrate db:test:clone'
+alias mig='bundle exec rake db:migrate db:test:clone'
 alias rs='touch tmp/restart.txt'
 alias ss='ruby script/server'
 alias sc='ruby script/console'
