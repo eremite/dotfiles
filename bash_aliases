@@ -47,7 +47,7 @@ alias ghp='git stash pop'
 # rails
 alias r='bundle exec rails'
 alias be='bundle exec'
-alias t='touch test/test_helper.rb'
+alias beg='bundle exec guard'
 alias rr='rake routes | grep'
 alias mig='bundle exec rake db:migrate db:test:clone'
 alias rs='touch tmp/restart.txt'
