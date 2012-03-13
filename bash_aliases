@@ -54,15 +54,9 @@ alias rs='touch tmp/restart.txt'
 alias ss='ruby script/server'
 alias sc='ruby script/console'
 
-# logs
-alias tld='tail -fn100 log/development.log'
-alias tlt='tail -fn100 log/test.log'
-alias tlp='tail -fn100 log/production.log'
-alias tldg="tail -fn100 log/development.log | grep '###'"
-alias tltg="tail -fn100 log/test.log | grep '###'"
-alias lsd='less log/development.log'
-alias lst='less log/test.log'
-alias lsp='less log/production.log'
+# tailing logs
+alias t='tail -fn100 log/development.log'
+alias td="tail -fn100 log/development.log | grep '###'"
 
 # misc
 alias vhosts='sudo vim /etc/hosts'
