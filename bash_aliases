@@ -46,6 +46,7 @@ alias ghp='git stash pop'
 
 # rails
 alias r='bundle exec rails'
+alias bake='bundle exec rake'
 alias be='bundle exec'
 alias beg='bundle exec guard'
 alias rr='rake routes | grep'
