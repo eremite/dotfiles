@@ -30,8 +30,6 @@ autocmd BufRead,BufNewFile *.prawn set filetype=ruby
 " Don't assume the line after a comment is still a comment
 autocmd FileType ruby setlocal formatoptions-=cro
 autocmd FileType yaml setlocal formatoptions-=cro
-" Autocomplete question? methods (http://stackoverflow.com/questions/4258955)
-autocmd FileType ruby setlocal iskeyword+=?
 " 4 spaces for python indentation
 autocmd BufRead *.py set ts=4 et sw=4 sts=4
 autocmd FileType php set sw=2
