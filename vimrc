@@ -5,6 +5,7 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+
 " Linux never crashes. :)
 set noswapfile
 " Autosave when changing buffers (the warnings get annoying)
@@ -70,6 +71,9 @@ highlight SpellLocal term=underline cterm=underline
 " Highlight spaces at the end of lines
 highlight link localWhitespaceError Error
 autocmd Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/ display
+
+" Highlight 81st column to discourage long lines.
+set colorcolumn=81
 
 " Remember last location in file
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
