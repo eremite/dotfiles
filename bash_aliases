@@ -8,7 +8,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-alias s='cd /etc/apache2/sites-available'
+alias s='cd /etc/apache2/sites-enabled'
 alias b='cd /media/sdb1'
 
 # svn
