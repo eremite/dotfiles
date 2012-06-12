@@ -22,11 +22,6 @@ filetype plugin on
 autocmd FileType make setlocal noexpandtab
 " .prawn files are just ruby
 autocmd BufRead,BufNewFile *.prawn set filetype=ruby
-" TODO Figure out why these aren't autoloaded.
-" autocmd BufRead,BufNewFile Gemfile set filetype=ruby
-" autocmd BufRead,BufNewFile Guardfile set filetype=ruby
-" autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
-" autocmd BufRead,BufNewFile *.coffee set filetype=coffee
 " Don't assume the line after a comment is still a comment
 autocmd FileType ruby setlocal formatoptions-=cro
 autocmd FileType yaml setlocal formatoptions-=cro
