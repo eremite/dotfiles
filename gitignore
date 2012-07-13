@@ -1,3 +1,4 @@
 *.swp
 .rbenv-version
 db/schema.rb
+private/*
