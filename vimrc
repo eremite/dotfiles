@@ -143,39 +143,41 @@ onoremap <silent>i, :<C-u>silent! normal! T,vf,<CR>
 vnoremap <silent>a, :<C-u>silent! normal! F,vt,<CR><Esc>gv
 vnoremap <silent>i, :<C-u>silent! normal! T,vf,<CR><Esc>gv
 
-" Handy for one-lining a three line tag or block
-noremap <Leader>j maJxJx`a
-" Remove end of line white space.
-noremap <Leader>r ma:%s/\s\+$//e<CR>`a
-" Remove smart quotes (and friends).
-noremap <Leader>R ma:%s/[“”]/"/eg<CR>:%s/’/'/eg<CR>`a
-" Save
-noremap <Leader>s :write<CR>
-" Write
-noremap <Leader>w :write<CR>
-" Quit
-noremap <Leader>q :quit<CR>
-" Edit
-noremap <Leader>e :e<Space>
-" Flip to alternate buffers
-noremap <Leader>f :w<CR>:e #<CR>
-" CLIPBOARD ("+ is awkward)
+" Open [a]ny file with CtrlP fuzzy finding.
+noremap <Leader>a :CtrlP<CR>
+" Switch to open [b]uffer with CtrlP fuzzy finding.
+noremap <Leader>b :CtrlPBuffer<CR>
+" [C]lipboard ("+ is awkward)
 noremap <Leader>c "+
-" PRIMARY ("* is awkward)
+" Primary [C]lipboard ("* is awkward)
 noremap <Leader>C "*
+" Open file in current [d]irectory
+" http://vimcasts.org/episodes/the-edit-command
+map <leader>d :e %:p:h/
+" [E]dit
+noremap <Leader>e :e<Space>
+" [F]lip to alternate buffers
+noremap <Leader>f :w<CR>:e #<CR>
+" Convert a three line tag or block to one line. (an overpowered [J])
+noremap <Leader>j maJxJx`a
 " Toggle Spelling
 noremap <Leader>k :silent setlocal invspell<CR>
-" multi-line an array or hash
+" [M]ulti-line an array or hash
 noremap <Leader>m ma:s/, \?/,<c-v><CR>/g<CR>j=`a
-" Open file in current directory (http://vimcasts.org/episodes/the-edit-command)
-map <leader>d :e %:p:h/
-" Close current Buffer
-noremap <Leader>x :bd<CR>
-
-" Open CtrlP
-noremap <Leader>a :CtrlP<CR>
-noremap <Leader>b :CtrlPBuffer<CR>
+" [O]rganize alphabetically (sort)
+noremap <Leader>o :sort<CR>
+" [Q]uit
+noremap <Leader>q :quit<CR>
+" [R]emove end of line white space.
+noremap <Leader>r ma:%s/\s\+$//e<CR>`a
+" [R]emove smart quotes (and friends).
+noremap <Leader>R ma:%s/[“”]/"/eg<CR>:%s/’/'/eg<CR>`a
+" [S]ave
+noremap <Leader>s :write<CR>
+" Open most recently [used] files with CtrlP fuzzy finding.
 noremap <Leader>u :CtrlPMRU<CR>
+" E[x]it current Buffer
+noremap <Leader>x :bd<CR>
 
 " Cycle through quickfix without saving buffers
 nmap <silent> [p :bd\|cprevious<CR>
