@@ -1,5 +1,8 @@
 " Pathogen
-" (http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen)
+" http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen
+" To install a new plugin
+"   git submodule add git://github.com/user/plugin vim/bundle/plugin
+"   git submodule init
 " To update all submodules:
 "   git submodule update --init
 call pathogen#runtime_append_all_bundles()
@@ -30,7 +33,7 @@ autocmd FileType yaml setlocal formatoptions-=cro
 autocmd BufRead *.py set ts=4 et sw=4 sts=4
 autocmd FileType php set sw=2
 " Remove fugitive buffers (from browsing git objects)
-" (http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database)
+" http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " Tabs and indentation
@@ -85,27 +88,7 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 set wildignore+=.git,*.jpg,*.png,tmp/**
 
 
-" Surround (https://github.com/tpope/vim-surround)
-" Re-indent (=) after surrounding
-let b:surround_indent = 1
-"-
-autocmd FileType php,html let b:surround_45 = "<?php \r ?>"
-"\ \n
-let g:surround_92 = "\n\r\n"
-"# #{}
-autocmd FileType ruby,eruby,haml let g:surround_35 = "#{\r}"
-"d
-autocmd FileType ruby let b:surround_100 = "logger.debug(\"### #{\r}\") #TODO: remove debug code"
-autocmd FileType javascript let g:surround_100 = "console.log(\r); // TODO Remove debug code"
-"t try
-let g:surround_116 = "try(:\r)"
-"v variable
-let g:surround_118 = "\"#{\r}\""
-
-" vim-ruby (https://github.com/vim-ruby/vim-ruby)
-let g:ruby_hanging_indent = 0
-
-" Ignore case when saving and quitting
+" Ignore case for fast-typed commands.
 command Q q
 command W w
 command WQ wq
@@ -114,7 +97,8 @@ command Wq wq
 " Insert just one character
 nnoremap <space> :exec "normal i".nr2char(getchar())."\e"<CR>
 
-" Search in a visual range: http://www.vim.org/tips/tip.php?tip_id=796
+" Search in a visual range
+" http://www.vim.org/tips/tip.php?tip_id=796
 vnoremap / <Esc>/\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
 vnoremap ? <Esc>?\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
 
@@ -127,13 +111,13 @@ nmap do do]c
 nmap dp dp]c
 
 " Use motion commands to leave insert mode
-" (http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim)
+" http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim
 imap jk <esc>
 imap jj <esc>j
 imap kk <esc>k
 
 " Map autocomplete to tab
-" (https://github.com/ryanb/dotfiles/blob/master/vimrc)
+" https://github.com/ryanb/dotfiles/blob/master/vimrc
 imap <Tab> <C-P>
 imap <S-Tab> <C-N>
 
@@ -158,6 +142,8 @@ map <leader>d :e %:p:h/
 noremap <Leader>e :e<Space>
 " [F]lip to alternate buffers
 noremap <Leader>f :w<CR>:e #<CR>
+" [G]o to tag in tagbar
+noremap <Leader>g :TagbarOpenAutoClose<CR>
 " Convert a three line tag or block to one line. (an overpowered [J])
 noremap <Leader>j maJxJx`a
 " Toggle Spelling
@@ -174,7 +160,7 @@ noremap <Leader>r ma:%s/\s\+$//e<CR>`a
 noremap <Leader>R ma:%s/[“”]/"/eg<CR>:%s/’/'/eg<CR>`a
 " [S]ave
 noremap <Leader>s :write<CR>
-" Open most recently [used] files with CtrlP fuzzy finding.
+" Open most recently [u]sed files with CtrlP fuzzy finding.
 noremap <Leader>u :CtrlPMRU<CR>
 " E[x]it current Buffer
 noremap <Leader>x :bd<CR>
@@ -182,6 +168,30 @@ noremap <Leader>x :bd<CR>
 " Cycle through quickfix without saving buffers
 nmap <silent> [p :bd\|cprevious<CR>
 nmap <silent> ]p :bd\|cnext<CR>
+
+
+" Configure surround
+" https://github.com/tpope/vim-surround
+" Re-indent (=) after surrounding
+let b:surround_indent = 1
+" -
+autocmd FileType php,html let b:surround_45 = "<?php \r ?>"
+" \ \n
+let g:surround_92 = "\n\r\n"
+" # #{}
+autocmd FileType ruby,eruby,haml let g:surround_35 = "#{\r}"
+" d
+autocmd FileType ruby let b:surround_100 = "logger.debug(\"### #{\r}\") #TODO: remove debug code"
+autocmd FileType javascript let g:surround_100 = "console.log(\r); // TODO Remove debug code"
+" t try
+let g:surround_116 = "try(:\r)"
+" v variable
+let g:surround_118 = "\"#{\r}\""
+
+" Configure vim-ruby
+" https://github.com/vim-ruby/vim-ruby
+let g:ruby_hanging_indent = 0
+
 
 " Load customizations for local machine.
 if filereadable(expand("$HOME/.vimrc_local"))
