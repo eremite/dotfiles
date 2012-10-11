@@ -192,6 +192,8 @@ let g:surround_118 = "\"#{\r}\""
 " https://github.com/vim-ruby/vim-ruby
 let g:ruby_hanging_indent = 0
 
+" Extend fugitive
+cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
 
 " Load customizations for local machine.
 if filereadable(expand("$HOME/.vimrc_local"))

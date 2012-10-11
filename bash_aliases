@@ -34,7 +34,8 @@ alias grc='git rebase --continue'
 alias grh='git reset HEAD'
 alias gca='git commit --amend'
 alias gm='git merge'
-alias gw='git whatchanged'
+# http://www.readysetrails.com/index.php/2111/5-mistakes-that-make-you-look-like-a-rails-n00b/
+alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
 alias gg='git log --no-merges --pretty=format:"%C(yellow)%h%Creset%Cgreen%d%Creset %s"'
 alias gco='git checkout'
 complete -o default -o nospace -F _git_checkout gco
