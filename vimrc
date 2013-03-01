@@ -121,6 +121,9 @@ imap kk <esc>k
 imap <Tab> <C-P>
 imap <S-Tab> <C-N>
 
+" Abbreviations
+ab pa params
+
 " My own (semi-lame) text-object for commas
 onoremap <silent>a, :<C-u>silent! normal! F,vt,<CR>
 onoremap <silent>i, :<C-u>silent! normal! T,vf,<CR>
