@@ -197,3 +197,7 @@ cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
 if filereadable(expand("$HOME/.vimrc_local"))
   source $HOME/.vimrc_local
 endif
+
+" Add statusline
+set statusline=%1*%<%=%f\ %h%m%r\ %-8.(%l,%c%V%)\ %P
+set laststatus=2
