@@ -140,6 +140,8 @@ noremap <Leader>e :e<Space>
 noremap <Leader>f :w<CR>:e #<CR>
 " [G]o to tag in tagbar
 noremap <Leader>G :TagbarOpenAutoClose<CR>
+" Git Grep (G[g]rep) the word under the cursor
+noremap <Leader>g :Ggrep <C-r><C-w><CR>
 " Convert a three line tag or block to one line. (an overpowered [J])
 noremap <Leader>j maJxJx`a
 " Toggle Spelling
