@@ -131,10 +131,6 @@ vnoremap <silent>i, :<C-u>silent! normal! T,vf,<CR><Esc>gv
 noremap <Leader>a :CtrlP<CR>
 " Switch to open [b]uffer with CtrlP fuzzy finding.
 noremap <Leader>b :CtrlPBuffer<CR>
-" [C]lipboard ("+ is awkward)
-noremap <Leader>c "+
-" Primary [C]lipboard ("* is awkward)
-noremap <Leader>C "*
 " Open file in current [d]irectory
 " http://vimcasts.org/episodes/the-edit-command
 map <leader>d :e %:p:h/
