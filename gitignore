@@ -1,4 +1,4 @@
 *.swp
 .rbenv-version
-db/schema.rb
-private/*
+.ruby-version
+/local/*
