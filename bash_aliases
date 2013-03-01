@@ -1,7 +1,7 @@
 # ls
-alias ll='ls -alh'
-alias la='ls -A'
-alias l='ls -1'
+alias ll='ls -GFalh'
+alias la='ls -GFA'
+alias l='ls -GF1'
 
 # cd
 alias ..='cd ..'
@@ -10,6 +10,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 # grep
+alias grep='grep --color=auto'
 alias rgrep='grep -r'
 
 # vim

@@ -54,20 +54,8 @@ else
 fi
 unset color_prompt force_color_prompt
 
-## Use rbenv for ruby version management (https://github.com/sstephenson/rbenv)
-function rbenv() {
-  command="$1"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-  case "$command" in
-    shell)
-      eval `rbenv "sh-$command" "$@"`;;
-    *)
-      command rbenv "$command" "$@";;
-  esac
-}
-
+# Load SCM Breeze (have to do this before setting the branch in the prompt)
+[ -s "$HOME/code/scm_breeze/scm_breeze.sh" ] && source "$HOME/code/scm_breeze/scm_breeze.sh"
 
 # Shows the current git branch in your shell prompt
 function parse_git_dirty {
@@ -89,15 +77,6 @@ case "$TERM" in
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  alias ls='ls --color=auto'
-  # alias grep='grep --color=auto'
-  # alias fgrep='fgrep --color=auto'
-  # alias egrep='egrep --color=auto'
-fi
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -106,39 +85,17 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-  . /etc/bash_completion
-fi
-
-# Load customizations for the local machine.
-if [ -f ~/.bashrc_local ]; then
-  . ~/.bashrc_local
-fi
-
 # Time tracking with done
-if [ -f ~/gits/done/bash_aliases.sh ]; then
-  . ~/gits/done/bash_aliases.sh
+if [ -f ~/code/done/bash_aliases.sh ]; then
+  . ~/code/done/bash_aliases.sh
 fi
 
-# Jump to ~/code from anywhere (with tab completion!)
-function c {
-  cd ~/code/$1
-}
-function _c {
-  local cur="${COMP_WORDS[COMP_CWORD]}"
-  COMPREPLY=( $(compgen -d -S '/' ~/code/${cur} | cut -d '/' -f 5-) )
-}
-complete -o nospace -F _c c zvim_rails_ide
+# For Homebrew
+export PATH=/usr/local/bin:$PATH
 
-# Jump to ~/gits from anywhere (with tab completion!)
-function g {
-  cd ~/gits/$1
-}
-function _g {
-  local cur="${COMP_WORDS[COMP_CWORD]}"
-  COMPREPLY=( $(compgen -d -S '/' ~/gits/${cur} | cut -d '/' -f 5-) )
-}
-complete -o nospace -F _g g
+# For rbenv
+export RBENV_ROOT=/usr/local/opt/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+### Heroku Toolbelt
+export PATH=/usr/local/heroku/bin:$PATH
