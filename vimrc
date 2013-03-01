@@ -171,6 +171,9 @@ nmap <silent> [p :bd\|cprevious<CR>
 nmap <silent> ]p :bd\|cnext<CR>
 
 
+" Configure tagbar
+let g:tagbar_compact = 1
+
 " Configure surround
 " https://github.com/tpope/vim-surround
 " Re-indent (=) after surrounding
