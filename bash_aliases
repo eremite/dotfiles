@@ -1,7 +1,8 @@
 # ls
-alias ll='ls -GFalh'
-alias la='ls -GFA'
-alias l='ls -GF1'
+alias ls='ls -GFh'
+alias ll='ls -al'
+alias la='ls -A'
+alias l='ls -1'
 
 # cd
 alias ..='cd ..'
