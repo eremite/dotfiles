@@ -11,10 +11,6 @@ alias .....='cd ../../../..'
 alias s='cd /etc/apache2/sites-enabled'
 alias b='cd /media/sdb1'
 
-# svn
-alias sd='svn diff'
-alias svnd='svn diff -r PREV'
-alias svnr='svn resolved'
 
 # git
 alias gl='git pull --rebase'
@@ -40,8 +36,6 @@ alias gg='git log --no-merges --pretty=format:"%C(yellow)%h%Creset%Cgreen%d%Cres
 alias gco='git checkout'
 complete -o default -o nospace -F _git_checkout gco
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
-alias gps='git svn dcommit'
-alias gls='git svn rebase'
 alias gh='git stash'
 alias ghp='git stash pop'
 
