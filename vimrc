@@ -141,8 +141,6 @@ map <leader>d :e %:p:h/
 noremap <Leader>e :e<Space>
 " [F]lip to alternate buffers
 noremap <Leader>f :w<CR>:e #<CR>
-" [G]o to tag in tagbar
-noremap <Leader>G :TagbarOpenAutoClose<CR>
 " Git Grep (G[g]rep) the selection
 vnoremap <Leader>g y:Ggrep '<C-r>"'<CR>
 " Git Grep (G[g]rep) the word under the cursor
@@ -163,6 +161,8 @@ noremap <Leader>r ma:%s/\s\+$//e<CR>`a
 noremap <Leader>R ma:%s/[“”]/"/eg<CR>:%s/’/'/eg<CR>`a
 " [S]ave
 noremap <Leader>s :write<CR>
+" Go to [t]ag in tagbar
+noremap <Leader>t :TagbarOpenAutoClose<CR>
 " Open most recently [u]sed files with CtrlP fuzzy finding.
 noremap <Leader>u :CtrlPMRU<CR>
 " E[x]it current Buffer
