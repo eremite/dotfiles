@@ -206,6 +206,10 @@ if filereadable(expand("$HOME/.vimrc_local"))
   source $HOME/.vimrc_local
 endif
 
+" Edit a macro: http://byron.theclarkfamily.name/blog/archive/2007/03/1/
+" Paste it on a blank line: "ap
+" Edit and copy it back: 0"ay$
+
 " Add statusline
 set statusline=%1*%<%=%f\ %h%m%r\ %-8.(%l,%c%V%)\ %P
 set laststatus=2
