@@ -85,7 +85,7 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 " set mouse=a
 
 " Ignore the following
-set wildignore+=.git,*.jpg,*.png,tmp/**
+set wildignore+=.git,*.jpg,*.png,*.zip,*.tar.gz,tmp/**
 
 
 " Ignore case for fast-typed commands.
