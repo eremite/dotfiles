@@ -2,4 +2,4 @@
 *.swp
 .rbenv-version
 .ruby-version
-/local/*
+/gitignore/*
