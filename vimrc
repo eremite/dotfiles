@@ -198,6 +198,9 @@ let g:surround_118 = "\"#{\r}\""
 " https://github.com/vim-ruby/vim-ruby
 let g:ruby_hanging_indent = 0
 
+" Configure vim-markdown
+let g:markdown_fenced_languages = ['ruby', 'javascript']
+
 " Extend fugitive
 cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
 
