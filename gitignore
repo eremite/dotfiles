@@ -1,5 +1,3 @@
 .DS_Store
 *.swp
-.rbenv-version
-.ruby-version
 /gitignore/*
