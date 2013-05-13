@@ -1,10 +1,4 @@
 " Pathogen
-" http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen
-" To install a new plugin
-"   git submodule add git://github.com/user/plugin vim/bundle/plugin
-"   git submodule init
-" To update all submodules:
-"   git submodule update --init
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
@@ -208,10 +202,6 @@ cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
 if filereadable(expand("$HOME/.vimrc_local"))
   source $HOME/.vimrc_local
 endif
-
-" Edit a macro: http://byron.theclarkfamily.name/blog/archive/2007/03/1/
-" Paste it on a blank line: "ap
-" Edit and copy it back: 0"ay$
 
 " Add statusline
 set statusline=%1*%<%=%f\ %h%m%r\ %-8.(%l,%c%V%)\ %P
