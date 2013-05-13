@@ -100,10 +100,6 @@ vnoremap ? <Esc>?\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
-" Go to next change after getting/putting in a Vimdiff
-nmap do do]c
-nmap dp dp]c
-
 " Use motion commands to leave insert mode
 " http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim
 imap jk <esc>
@@ -141,8 +137,6 @@ vnoremap <Leader>g y:Ggrep '<C-r>"'<CR>
 nnoremap <Leader>g :Ggrep <C-r><C-w><CR>
 " Convert a three line tag or block to one line. (an overpowered [J])
 noremap <Leader>j maJxJx`a
-" Toggle Spelling
-noremap <Leader>k :silent setlocal invspell<CR>
 " [M]ulti-line an array or hash
 noremap <Leader>m ma:s/, \?/,<c-v><CR>/g<CR>j=`a
 " [O]rganize alphabetically (sort)
@@ -161,11 +155,6 @@ noremap <Leader>t :TagbarOpenAutoClose<CR>
 noremap <Leader>u :CtrlPMRU<CR>
 " E[x]it current Buffer
 noremap <Leader>x :bd<CR>
-
-" Cycle through quickfix without saving buffers
-nmap <silent> [p :bd\|cprevious<CR>
-nmap <silent> ]p :bd\|cnext<CR>
-
 
 " Configure tagbar
 let g:tagbar_compact = 1
@@ -202,7 +191,3 @@ cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
 if filereadable(expand("$HOME/.vimrc_local"))
   source $HOME/.vimrc_local
 endif
-
-" Add statusline
-set statusline=%1*%<%=%f\ %h%m%r\ %-8.(%l,%c%V%)\ %P
-set laststatus=2
