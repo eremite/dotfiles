@@ -141,6 +141,9 @@ noremap <Leader>j maJxJx`a
 noremap <Leader>m ma:s/, \?/,<c-v><CR>/g<CR>j=`a
 " [O]rganize alphabetically (sort)
 noremap <Leader>o :sort<CR>
+" Swa[p] selection and previous deletion
+" http://vim.wikia.com/wiki/VimTip47#Visual-mode_swapping
+vnoremap <Leader>p <Esc>`.``gvP``P
 " [Q]uit
 noremap <Leader>q :quit<CR>
 " [R]emove end of line white space.
