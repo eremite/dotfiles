@@ -168,16 +168,18 @@ let g:tagbar_compact = 1
 let b:surround_indent = 1
 " -
 autocmd FileType php,html let b:surround_45 = "<?php \r ?>"
-" \ \n
+" \ - \n
 let g:surround_92 = "\n\r\n"
-" # #{}
+" # - #{}
 autocmd FileType ruby,eruby,haml let g:surround_35 = "#{\r}"
-" d
+" c - code block
+autocmd FileType markdown let b:surround_99 = "```ruby\n\r\n```"
+" d - debug
 autocmd FileType ruby let b:surround_100 = "logger.debug(\"### #{\r}\") #TODO: remove debug code"
 autocmd FileType javascript let g:surround_100 = "console.log(\r); // TODO Remove debug code"
-" t try
+" t - try
 let g:surround_116 = "try(:\r)"
-" v variable
+" v - variable
 let g:surround_118 = "\"#{\r}\""
 
 " Configure vim-ruby
