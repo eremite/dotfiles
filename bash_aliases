@@ -14,6 +14,9 @@ alias .....='cd ../../../..'
 alias grep='grep --color=auto'
 alias rgrep='grep -r'
 
+# less
+alias less='less -R'
+
 # vim
 alias v='vim'
 
