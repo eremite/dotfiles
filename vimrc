@@ -130,7 +130,7 @@ map <leader>d :e %:p:h/
 " [E]dit
 noremap <Leader>e :e<Space>
 " [F]lip to alternate buffers
-noremap <Leader>f :w<CR>:e #<CR>
+noremap <Leader>f :e #<CR>
 " Git Grep (G[g]rep) the selection
 vnoremap <Leader>g y:Ggrep '<C-r>"'<CR>
 " Git Grep (G[g]rep) the word under the cursor
