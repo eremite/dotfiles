@@ -114,12 +114,6 @@ imap <S-Tab> <C-N>
 " Abbreviations
 ab pa params
 
-" My own (semi-lame) text-object for commas
-onoremap <silent>a, :<C-u>silent! normal! F,vt,<CR>
-onoremap <silent>i, :<C-u>silent! normal! T,vf,<CR>
-vnoremap <silent>a, :<C-u>silent! normal! F,vt,<CR><Esc>gv
-vnoremap <silent>i, :<C-u>silent! normal! T,vf,<CR><Esc>gv
-
 " Open [a]ny file with CtrlP fuzzy finding.
 noremap <Leader>a :CtrlP<CR>
 " Switch to open [b]uffer with CtrlP fuzzy finding.
