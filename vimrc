@@ -129,6 +129,9 @@ noremap <Leader>f :e #<CR>
 vnoremap <Leader>g y:Ggrep '<C-r>"'<CR>
 " Git Grep (G[g]rep) the word under the cursor
 nnoremap <Leader>g :Ggrep <C-r><C-w><CR>
+" Change string to a symbol (like ruby's [i]ntern method)
+nnoremap <Leader>i 2f'xF'xi:<ESC>
+nnoremap <Leader>I 2f"xF"xi:<ESC>
 " Convert a three line tag or block to one line. (an overpowered [J])
 noremap <Leader>j maJxJx`a
 " [M]ulti-line an array or hash
