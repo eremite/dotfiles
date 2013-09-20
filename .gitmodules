@@ -89,3 +89,7 @@
   path = vim/bundle/speeddating
   url = git://github.com/tpope/vim-speeddating
   ignore = untracked
+[submodule "vim/bundle/sensible"]
+  path = vim/bundle/sensible
+  url = git://github.com/tpope/vim-sensible
+  ignore = untracked
