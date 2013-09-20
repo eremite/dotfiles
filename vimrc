@@ -1,7 +1,6 @@
 " Pathogen
-call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 call pathogen#helptags()
-
 
 " Linux never crashes. :)
 set noswapfile
@@ -87,6 +86,9 @@ command Q q
 command W w
 command WQ wq
 command Wq wq
+
+" Copy to the end of the line (https://github.com/tpope/tpope/blob/master/.vimrc)
+nnoremap Y y$
 
 " Insert just one character
 nnoremap <space> :exec "normal i".nr2char(getchar())."\e"<CR>
