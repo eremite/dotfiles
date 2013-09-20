@@ -20,10 +20,6 @@
 	path = vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
   ignore = untracked
-[submodule "vim/bundle/tcomment"]
-	path = vim/bundle/tcomment
-	url = https://github.com/tomtom/tcomment_vim.git
-  ignore = untracked
 [submodule "vim/bundle/endwise"]
 	path = vim/bundle/endwise
 	url = https://github.com/tpope/vim-endwise.git
@@ -84,4 +80,8 @@
 [submodule "vim/bundle/bundler"]
 	path = vim/bundle/bundler
 	url = git://github.com/tpope/vim-bundler
+  ignore = untracked
+[submodule "vim/bundle/commentary"]
+  path = vim/bundle/commentary
+  url = git://github.com/tpope/vim-commentary
   ignore = untracked
