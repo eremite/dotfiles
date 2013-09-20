@@ -81,3 +81,7 @@
 [submodule "vim/bundle/textobj-parameter"]
 	path = vim/bundle/textobj-parameter
 	url = git://github.com/sgur/vim-textobj-parameter
+[submodule "vim/bundle/bundler"]
+	path = vim/bundle/bundler
+	url = git://github.com/tpope/vim-bundler
+  ignore = untracked
