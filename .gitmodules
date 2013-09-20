@@ -85,3 +85,7 @@
   path = vim/bundle/commentary
   url = git://github.com/tpope/vim-commentary
   ignore = untracked
+[submodule "vim/bundle/speeddating"]
+  path = vim/bundle/speeddating
+  url = git://github.com/tpope/vim-speeddating
+  ignore = untracked
