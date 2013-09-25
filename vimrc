@@ -169,8 +169,6 @@ let g:tagbar_compact = 1
 let b:surround_indent = 1
 " -
 autocmd FileType php,html let b:surround_45 = "<?php \r ?>"
-" \ - \n
-let g:surround_92 = "\n\r\n"
 " # - #{}
 autocmd FileType ruby,eruby,haml let g:surround_35 = "#{\r}"
 " c - code block
