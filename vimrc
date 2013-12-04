@@ -1,6 +1,39 @@
-" Pathogen
-call pathogen#incubate()
-call pathogen#helptags()
+" https://github.com/Shougo/neobundle.vim
+if has('vim_starting')
+  set nocompatible
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'Julian/vim-textobj-variable-segment'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'glts/vim-textobj-comment'
+NeoBundle 'kana/vim-textobj-indent'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'matchit.zip'
+NeoBundle 'php.vim'
+NeoBundle 'php.vim-html-enhanced'
+NeoBundle 'sgur/vim-textobj-parameter'
+NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-bundler'
+NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-sensible'
+NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'vim-ruby/vim-ruby'
 
 " Linux never crashes. :)
 set noswapfile
@@ -195,3 +228,5 @@ cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
 if filereadable(expand("$HOME/.vimrc_local"))
   source $HOME/.vimrc_local
 endif
+
+NeoBundleCheck
