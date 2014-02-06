@@ -9,6 +9,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " General
+NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'matchit.zip'
 NeoBundle 'tommcdo/vim-exchange'
@@ -172,10 +173,6 @@ nnoremap <Leader>g :Ggrep <C-r><C-w><CR>
 " Change string to a symbol (like ruby's [i]ntern method)
 nnoremap <Leader>i 2f'xF'xi:<ESC>
 nnoremap <Leader>I 2f"xF"xi:<ESC>
-" Convert a three line tag or block to one line. (an overpowered [J])
-noremap <Leader>j maJxJx`a
-" [M]ulti-line an array or hash
-noremap <Leader>m ma:s/, \?/,<c-v><CR>/g<CR>j=`a
 " Edit [N]otes file
 noremap <Leader>n :e gitignore/notes.md<CR>
 " [O]rganize alphabetically (sort)
