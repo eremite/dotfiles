@@ -1,4 +1,5 @@
 " https://github.com/Shougo/neobundle.vim
+" :NeoBundleUpdatesLog - list recent changes.
 if has('vim_starting')
   set nocompatible
   set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -7,33 +8,39 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'Julian/vim-textobj-variable-segment'
+" General
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'glts/vim-textobj-comment'
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'majutsushi/tagbar'
 NeoBundle 'matchit.zip'
-NeoBundle 'php.vim'
-NeoBundle 'php.vim-html-enhanced'
-NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-sensible'
 NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
+
+" Text objects
+NeoBundle 'Julian/vim-textobj-variable-segment'
+NeoBundle 'glts/vim-textobj-comment'
+NeoBundle 'kana/vim-textobj-indent'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'sgur/vim-textobj-parameter'
+
+" Languages/frameworks
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'php.vim'
+NeoBundle 'php.vim-html-enhanced'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'tpope/vim-rails'
 NeoBundle 'vim-ruby/vim-ruby'
+
+" Unite
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'Shougo/unite.vim'
 
 " Linux never crashes. :)
 set noswapfile
@@ -107,12 +114,8 @@ set colorcolumn=81
 " Remember last location in file
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-" Reminder of how to use the mouse without gui-vim! (I never do though)
-" set mouse=a
-
 " Ignore the following
 set wildignore+=.git,*.jpg,*.png,*.zip,*.tar.gz,.DS_Store,tmp/**
-
 
 " Ignore case for fast-typed commands.
 command Q q
@@ -149,10 +152,11 @@ imap <S-Tab> <C-N>
 " Abbreviations
 ab pa params
 
-" Open [a]ny file with CtrlP fuzzy finding.
-noremap <Leader>a :CtrlP<CR>
-" Switch to open [b]uffer with CtrlP fuzzy finding.
-noremap <Leader>b :CtrlPBuffer<CR>
+" Open [a]ny file with Unite
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <leader>a :<C-u>Unite -buffer-name=files -start-insert file_rec<CR>
+" Switch to open [b]uffer with Unite
+nnoremap <leader>b :<C-u>Unite -buffer-name=buffer -start-insert buffer<CR>
 " Open file in current [d]irectory
 " http://vimcasts.org/episodes/the-edit-command
 map <leader>d :e %:p:h/
@@ -186,15 +190,16 @@ noremap <Leader>r ma:%s/\s\+$//e<CR>`a
 noremap <Leader>R ma:%s/[“”]/"/eg<CR>:%s/’/'/eg<CR>`a
 " [S]ave
 noremap <Leader>s :write<CR>
-" Go to [t]ag in tagbar
-noremap <Leader>t :TagbarOpenAutoClose<CR>
-" Open most recently [u]sed files with CtrlP fuzzy finding.
-noremap <Leader>u :CtrlPMRU<CR>
+" Show ou[t]line
+nnoremap <leader>t :<C-u>Unite -buffer-name=outline -start-insert outline<CR>
+" Open most recently [u]sed files.
+call unite#custom#source('file_mru', 'matchers', ['matcher_project_files', 'matcher_fuzzy'])
+noremap <leader>u :<C-u>Unite file_mru<CR>
+" [y]ank history
+let g:unite_source_history_yank_enable = 1
+nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<CR>
 " E[x]it current Buffer
 noremap <Leader>x :bd<CR>
-
-" Configure tagbar
-let g:tagbar_compact = 1
 
 " Configure surround
 " https://github.com/tpope/vim-surround
@@ -223,6 +228,19 @@ let g:markdown_fenced_languages = ['ruby', 'javascript']
 
 " Extend fugitive
 cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
+
+" Configure unite
+" http://www.codeography.com/2013/06/17/replacing-all-the-things-with-unite-vim.html
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " Enable navigation with control-j and control-k in insert mode
+  imap <buffer> <C-j> <Plug>(unite_select_next_line)
+  imap <buffer> <C-k> <Plug>(unite_select_previous_line)
+endfunction
+
+" Unite <3 Rails
+command Uview Unite -start-insert file_rec:app/views
+command Ucontroller Unite -start-insert file_rec:app/controllers
 
 " Load customizations for local machine.
 if filereadable(expand("$HOME/.vimrc_local"))
