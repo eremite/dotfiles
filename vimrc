@@ -11,6 +11,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " General
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'matchit.zip'
+NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-commentary'
@@ -179,9 +180,6 @@ noremap <Leader>m ma:s/, \?/,<c-v><CR>/g<CR>j=`a
 noremap <Leader>n :e gitignore/notes.md<CR>
 " [O]rganize alphabetically (sort)
 noremap <Leader>o :sort<CR>
-" Swa[p] selection and previous deletion
-" http://vim.wikia.com/wiki/VimTip47#Visual-mode_swapping
-vnoremap <Leader>p <Esc>`.``gvP``P
 " [Q]uit
 noremap <Leader>q :quit<CR>
 " [R]emove end of line white space.
