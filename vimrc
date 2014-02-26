@@ -6,6 +6,9 @@ if has('vim_starting')
 endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 
+" Configure NeoBundle
+let g:neobundle#types#git#default_protocol = 'git'
+
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " General
@@ -23,6 +26,7 @@ NeoBundle 'tpope/vim-sensible'
 NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'ntpeters/vim-better-whitespace'
 
 " Text objects
 NeoBundle 'Julian/vim-textobj-variable-segment'
@@ -179,8 +183,6 @@ noremap <Leader>n :e gitignore/notes.md<CR>
 noremap <Leader>o :sort<CR>
 " [Q]uit
 noremap <Leader>q :quit<CR>
-" [R]emove end of line white space.
-noremap <Leader>r ma:%s/\s\+$//e<CR>`a
 " [R]emove smart quotes (and friends).
 noremap <Leader>R ma:%s/[“”]/"/eg<CR>:%s/’/'/eg<CR>`a
 " [S]ave
