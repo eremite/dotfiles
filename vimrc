@@ -239,6 +239,7 @@ function! s:unite_settings()
 endfunction
 
 " Unite <3 Rails
+command Umodel Unite -start-insert file_rec:app/models
 command Uview Unite -start-insert file_rec:app/views
 command Ucontroller Unite -start-insert file_rec:app/controllers
 
