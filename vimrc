@@ -14,6 +14,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " General
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'matchit.zip'
+NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-bundler'
@@ -25,7 +26,6 @@ NeoBundle 'tpope/vim-sensible'
 NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'ntpeters/vim-better-whitespace'
 
 " Text objects
 NeoBundle 'Julian/vim-textobj-variable-segment'
@@ -108,10 +108,6 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
-
-" Highlight spaces at the end of lines
-highlight link localWhitespaceError Error
-autocmd Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/ display
 
 " Highlight 81st column to discourage long lines.
 set colorcolumn=81
@@ -214,6 +210,7 @@ autocmd FileType markdown let b:surround_99 = "```ruby\n\r\n```"
 " d - debug
 autocmd FileType ruby let b:surround_100 = "logger.debug(\"### #{\r}\") #TODO: remove debug code"
 autocmd FileType javascript let g:surround_100 = "console.log(\r); // TODO Remove debug code"
+autocmd FileType unite DisableWhitespace
 " t - try
 let g:surround_116 = "try(:\r)"
 " v - variable
