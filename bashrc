@@ -107,3 +107,6 @@ export LANG=en_US.UTF-8
 
 ### Heroku Toolbelt
 export PATH=/usr/local/heroku/bin:$PATH
+
+# http://docs.docker.io/en/latest/installation/mac/
+export DOCKER_HOST=tcp://127.0.0.1:4243

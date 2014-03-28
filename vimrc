@@ -43,6 +43,7 @@ NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'ekalinin/Dockerfile.vim'
 
 " Unite
 NeoBundle 'Shougo/unite-outline'
