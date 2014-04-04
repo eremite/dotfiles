@@ -160,9 +160,6 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <leader>a :<C-u>Unite -buffer-name=files -start-insert file_rec<CR>
 " Switch to open [b]uffer with Unite
 nnoremap <leader>b :<C-u>Unite -buffer-name=buffer -start-insert buffer<CR>
-" Open file in current [d]irectory
-" http://vimcasts.org/episodes/the-edit-command
-map <leader>d :e %:p:h/
 " [E]dit
 noremap <Leader>e :e<Space>
 " [F]lip to alternate buffers
