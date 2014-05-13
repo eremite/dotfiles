@@ -77,11 +77,6 @@ case "$TERM" in
     ;;
 esac
 
-# Enable bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -95,8 +90,6 @@ if [ -f ~/code/done/bash_aliases.sh ]; then
   . ~/code/done/bash_aliases.sh
 fi
 
-# For Homebrew
-export PATH=/usr/local/bin:$PATH
 
 # For rbenv
 export RBENV_ROOT=/usr/local/opt/rbenv
