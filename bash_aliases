@@ -32,3 +32,6 @@ alias taill='tail -fn100 log/development.log | grep -vE "(^$|asset)"'
 alias taillg="tail -fn100 log/development.log | grep '###'"
 alias rs='touch tmp/restart.txt'
 alias dbload='~/code/binfiles/dbload'
+
+# git
+alias g='git'
