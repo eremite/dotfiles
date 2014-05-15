@@ -8,9 +8,11 @@ function parse_git_dirty {
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
-
 # Only show working directory in prompt
 PS1='\w$(parse_git_branch)$ '
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
 
 file=~/z/z.sh && test -f $file && source $file
 file=~/done/bash_aliases.sh && test -f $file && source $file
