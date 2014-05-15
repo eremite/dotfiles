@@ -1,0 +1,19 @@
+HISTSIZE=100000
+HISTFILESIZE=20000
+
+# Shows the current git branch in your shell prompt
+function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "*"
+}
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+}
+
+# Only show working directory in prompt
+PS1='\w$(parse_git_branch)$ '
+
+file=~/z/z.sh && test -f $file && source $file
+file=~/done/bash_aliases.sh && test -f $file && source $file
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
