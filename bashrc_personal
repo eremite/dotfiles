@@ -1,18 +1,15 @@
 HISTSIZE=100000
 HISTFILESIZE=20000
 
-# Shows the current git branch in your shell prompt
-function parse_git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "*"
-}
-function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
-}
-# Only show working directory in prompt
-PS1='\w$(parse_git_branch)$ '
+file=~/z/z.sh && test -f $file && source $file
+file=~/dotfiles/git-prompt.sh && test -f $file && source $file
+file=~/done/bash_aliases.sh && test -f $file && source $file
+
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM="verbose"
+PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-
-file=~/z/z.sh && test -f $file && source $file
-file=~/done/bash_aliases.sh && test -f $file && source $file
