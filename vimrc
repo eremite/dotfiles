@@ -64,8 +64,9 @@ filetype indent on
 filetype plugin on
 " Makefiles need literal tabs
 autocmd FileType make setlocal noexpandtab
-" .prawn files are just ruby
-autocmd BufRead,BufNewFile *.prawn set filetype=ruby
+" Special ruby files
+autocmd BufRead,BufNewFile *.jbuilder set filetype=ruby
+autocmd BufRead,BufNewFile *.rabl set filetype=ruby
 " Don't assume the line after a comment is still a comment
 autocmd FileType ruby setlocal formatoptions-=cro
 autocmd FileType yaml setlocal formatoptions-=cro
