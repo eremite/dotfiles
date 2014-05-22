@@ -1,0 +1,38 @@
+[user]
+	email = daniel@custombit.com
+	name = Daniel Esplin
+[color]
+	ui = true
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[interactive]
+	singlekey = true
+[core]
+	editor = vim
+	excludesfile = /home/vagrant/.gitignore
+[credential]
+	helper = cache --timeout=86400
+[github]
+	user = eremite
+[alias]
+	a = add
+	ap = add --patch
+	c = commit --verbose
+	cm = commit --verbose --amend
+	ctags = !.git/hooks/ctags
+	d = diff --ignore-submodules
+	dc = diff --ignore-submodules --cached
+	s = status --short
+	g = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	l = pull --rebase
+	p = push
+	rb = rebase --interactive --autosquash
+	uncommit = reset --soft HEAD^
+[web]
+	browser = open
+[init]
+	templatedir = ~/.git_template
+[push]
+	default = simple

@@ -1,0 +1,15 @@
+HISTSIZE=100000
+HISTFILESIZE=20000
+
+file=~/z/z.sh && test -f $file && source $file
+file=~/dotfiles/git-prompt.sh && test -f $file && source $file
+file=~/done/bash_aliases.sh && test -f $file && source $file
+
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM="verbose"
+PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
