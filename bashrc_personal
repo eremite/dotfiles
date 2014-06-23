@@ -10,5 +10,5 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM="verbose"
 PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
 
-### Added by the Heroku Toolbelt
+# Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"

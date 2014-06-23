@@ -1,5 +1,5 @@
 # ls
-alias ls='ls -GFh'
+alias ls='ls --color=auto -GFh'
 alias ll='ls -al'
 alias la='ls -A'
 alias l='ls -1'
@@ -12,7 +12,6 @@ alias .....='cd ../../../..'
 
 # grep
 alias grep='grep --color=auto'
-alias rgrep='grep -r'
 
 # less
 alias less='less -R'
