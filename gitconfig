@@ -25,13 +25,17 @@
 	d = diff --ignore-submodules
 	dc = diff --ignore-submodules --cached
 	s = status --short
-	g = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  h = log --graph --date=short --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit
 	l = pull --rebase
 	p = push
 	rb = rebase --interactive --autosquash
 	uncommit = reset --soft HEAD^
-[web]
-	browser = open
+	co = checkout
+	b = branch
+	m = merge
+	sh = show
+	g = log
+	rs = reset
 [init]
 	templatedir = ~/.git_template
 [push]
