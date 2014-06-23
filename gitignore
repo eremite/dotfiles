@@ -1,4 +1,5 @@
 *.swp
 /Dockerfile
+/.env
 /gitignore
 /config/projections.json
