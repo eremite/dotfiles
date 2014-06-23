@@ -23,14 +23,10 @@ alias v='vim'
 alias x='exit'
 
 # rails
-alias r='bundle exec rails'
-alias k='bundle exec rake'
-alias t='bundle exec guard'
-alias sc='ruby script/console'
-alias taill='tail -fn100 log/development.log | grep -vE "(^$|asset)"'
-alias taillg="tail -fn100 log/development.log | grep '###'"
-alias rs='touch tmp/restart.txt'
-alias dbload='~/code/binfiles/dbload'
+alias a='~/docker_rails_app/docker_rails_app.sh'
 
 # git
 alias g='git'
+
+# docker
+alias dockeroff='docker ps -q | xargs docker stop'
