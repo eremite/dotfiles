@@ -1,7 +1,6 @@
 HISTSIZE=100000
 HISTFILESIZE=20000
 
-file=~/z/z.sh && test -f $file && source $file
 file=~/dotfiles/git-prompt.sh && test -f $file && source $file
 file=~/done/bash_aliases.sh && test -f $file && source $file
 
