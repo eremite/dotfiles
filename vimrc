@@ -37,8 +37,9 @@ NeoBundle 'sgur/vim-textobj-parameter'
 
 " Languages/frameworks
 NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'php.vim'
-NeoBundle 'php.vim-html-enhanced'
+" NeoBundle 'php.vim'
+" NeoBundle 'php.vim-html-enhanced'
+NeoBundle 'othree/html5.vim'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-rails'
