@@ -26,7 +26,7 @@
 	dc = diff --ignore-submodules --cached
 	s = status --short
   h = log --graph --date=short --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit
-	l = pull --rebase
+	l = pull
 	p = push
 	rb = rebase --interactive --autosquash
 	uncommit = reset --soft HEAD^
