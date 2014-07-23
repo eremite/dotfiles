@@ -11,7 +11,7 @@
 	singlekey = true
 [core]
 	editor = vim
-	excludesfile = /home/vagrant/.gitignore
+	excludesfile = ~/.gitignore
 [credential]
 	helper = cache --timeout=86400
 [github]
