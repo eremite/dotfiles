@@ -16,6 +16,7 @@ RUN gem install bundler;
 RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 RUN useradd --create-home --groups sudo,docker -p $(openssl passwd -1 dev) dev
+RUN chsh -s /bin/bash dev
 USER dev
 ENV USER dev
 ENV HOME /home/dev
