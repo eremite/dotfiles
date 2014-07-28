@@ -28,7 +28,8 @@ RUN ln -s dotfiles/rcrc .rcrc; rcup
 RUN /home/dev/.vim/bundle/neobundle.vim/bin/neoinstall
 
 RUN git clone https://github.com/eremite/done; cd done; bundle install --path vendor/bundle; ln -s /vagrant/gitignores/done/config.yml; cd /home/dev/bin; ln -s /home/dev/done/done.thor
-# RUN git clone https://github.com/eremite/docker_rails_app
+RUN git clone https://github.com/eremite/docker_rails_app
 
 # docker build --force-rm -t devbox .
-# docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v /vagrant:/vagrant devbox /bin/bash --login
+# docker run -t --name data -v /data busybox /bin/sh
+# docker run -it --volumes_from data -v /var/run/docker.sock:/var/run/docker.sock -v /vagrant/gitignores:/vagrant/gitignores -v /home/vagrant/mysql:/home/vagrant/mysql -v /home/vagrant/postgresql:/home/vagrant/postgresql devbox /bin/bash --login
