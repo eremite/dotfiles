@@ -31,5 +31,5 @@ RUN git clone https://github.com/eremite/done; cd done; bundle install --path ve
 RUN git clone https://github.com/eremite/docker_rails_app
 
 # docker build --force-rm -t devbox .
-# docker run -t --name data -v /data busybox /bin/sh
-# docker run -it --volumes_from data -v /var/run/docker.sock:/var/run/docker.sock -v /vagrant/gitignores:/vagrant/gitignores -v /home/vagrant/mysql:/home/vagrant/mysql -v /home/vagrant/postgresql:/home/vagrant/postgresql devbox /bin/bash --login
+# docker run -v /data --name data busybox true
+# docker run -it --volumes-from data -v /var/run/docker.sock:/var/run/docker.sock -v /vagrant/gitignores:/vagrant/gitignores -v /home/vagrant/mysql:/home/vagrant/mysql -v /home/vagrant/postgresql:/home/vagrant/postgresql eremite/devbox /bin/bash --login
