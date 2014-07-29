@@ -32,4 +32,8 @@ RUN git clone https://github.com/eremite/docker_rails_app
 
 # docker build --force-rm -t devbox .
 # docker run -v /data --name data busybox true
-# docker run -it --volumes-from data -v /var/run/docker.sock:/var/run/docker.sock -v /vagrant/gitignores:/vagrant/gitignores -v /home/vagrant/mysql:/home/vagrant/mysql -v /home/vagrant/postgresql:/home/vagrant/postgresql eremite/devbox /bin/bash --login
+# docker run -it --rm --volumes-from data -v /var/run/docker.sock:/var/run/docker.sock -v /vagrant/gitignores:/vagrant/gitignores -v /home/vagrant/mysql:/home/vagrant/mysql -v /home/vagrant/postgresql:/home/vagrant/postgresql eremite/devbox /bin/bash --login
+#   sudo chsh -s /bin/bash dev
+#   sudo chown dev:dev /data
+#   mkdir -p ~/.ssh; cp /vagrant/gitignores/id_rsa* ~/.ssh
+#   vim ~/docker_rails_app/docker_rails_app.sh # fix permission and add sudo docker
