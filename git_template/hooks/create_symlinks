@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+gitignore_dir='/vagrant/gitignores'
+app=${PWD##*/}
+dir="$gitignore_dir/$app/symlinks/"
+if [ -d "$dir" ]; then
+  for full_path in $(find $dir -type f)
+  do
+    relative_path=${full_path#$dir}
+    if [ -h $relative_path ]; then
+      continue
+    else
+      if [ $relative_path = ".git/config" ]; then
+        rm $relative_path
+      fi
+    fi
+    ln -s $full_path $relative_path
+  done
+fi
