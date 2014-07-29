@@ -2,5 +2,5 @@
 /Dockerfile
 /.docker_environment
 /.dockerignore
-/gitignore
+/notes.md
 /config/projections.json
