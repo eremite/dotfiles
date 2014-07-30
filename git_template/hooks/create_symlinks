@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-gitignore_dir='/vagrant/gitignores'
+gitignore_dir='/private'
 app=${PWD##*/}
 dir="$gitignore_dir/$app/symlinks/"
 if [ -d "$dir" ]; then
