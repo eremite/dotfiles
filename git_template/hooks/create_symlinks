@@ -10,7 +10,7 @@ if [ -d "$dir" ]; then
     if [ -h $relative_path ]; then
       continue
     else
-      if [ $relative_path = ".git/config" ]; then
+      if [ -f $relative_path ]; then
         rm $relative_path
       fi
     fi
