@@ -1,8 +1,10 @@
 #!/bin/sh
-set -e
-gitignore_dir='/private'
+trap 'exit' ERR
+if [ -z "$PRIVATE_APP_CONFIG_DIR" ]; then
+  exit
+fi
 app=${PWD##*/}
-dir="$gitignore_dir/$app/symlinks/"
+dir="$PRIVATE_APP_CONFIG_DIR/$app/symlinks/"
 if [ -d "$dir" ]; then
   for full_path in $(find $dir -type f)
   do
