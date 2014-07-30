@@ -181,7 +181,7 @@ noremap <Leader>j maJxJx`a
 " [M]ulti-line an array or hash
 noremap <Leader>m ma:s/, \?/,<c-v><CR>/g<CR>j=`a
 " Edit [N]otes file
-noremap <Leader>n :e gitignore/notes.md<CR>
+noremap <Leader>n :e notes.md<CR>
 " [O]rganize alphabetically (sort)
 noremap <Leader>o :sort<CR>
 " [Q]uit
