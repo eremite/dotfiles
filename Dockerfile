@@ -26,6 +26,7 @@ RUN mkdir bin
 
 RUN git clone https://github.com/eremite/dotfiles
 RUN ln -s dotfiles/rcrc .rcrc; rcup
+RUN curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 RUN /home/dev/.vim/bundle/neobundle.vim/bin/neoinstall
 
 RUN git clone https://github.com/eremite/done; cd done; bundle install --path vendor/bundle; ln -s /vagrant/gitignores/done/config.yml; cd /home/dev/bin; ln -s /home/dev/done/done.thor

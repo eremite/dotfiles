@@ -1,4 +1,5 @@
 " https://github.com/Shougo/neobundle.vim
+" Install: curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 " :NeoBundleUpdatesLog - list recent changes.
 if has('vim_starting')
   set nocompatible
