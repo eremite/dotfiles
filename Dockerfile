@@ -39,5 +39,4 @@ RUN git clone https://github.com/eremite/docker_rails_app
 # docker run -it --rm --volumes-from data-code --volumes-from data-private -v /var/run/docker.sock:/var/run/docker.sock eremite/devbox /bin/bash --login
 #   sudo chsh -s /bin/bash dev
 #   sudo chown dev:dev /code
-#   mkdir -p ~/.ssh; cp /vagrant/gitignores/id_rsa* ~/.ssh
-#   vim ~/docker_rails_app/docker_rails_app.sh # fix permission and add sudo docker
+#   mkdir -p ~/.ssh; cp /private/id_rsa* ~/.ssh; cp /private/.netrc ~
