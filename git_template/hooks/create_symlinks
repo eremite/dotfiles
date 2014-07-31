@@ -1,10 +1,10 @@
 #!/bin/sh
 trap 'exit' ERR
-if [ -z "$PRIVATE_APP_CONFIG_DIR" ]; then
+if [ -z "$PERSONAL" ]; then
   exit
 fi
 app=${PWD##*/}
-dir="$PRIVATE_APP_CONFIG_DIR/$app/symlinks/"
+dir="$PERSONAL/$app/symlinks/"
 if [ -d "$dir" ]; then
   for full_path in $(find $dir -type f)
   do

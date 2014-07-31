@@ -7,4 +7,4 @@ export LC_CTYPE=en_US.UTF-8
 export LC_COLLATE=en_US.UTF-8
 export TZ='America/Denver'
 
-export PRIVATE_APP_CONFIG_DIR='/private'
+export PERSONAL='/personal'
