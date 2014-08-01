@@ -34,13 +34,21 @@ RUN git clone https://github.com/eremite/docker_rails_app
 
 ADD devbox_init.sh /home/dev/init.sh
 
-# boot2docker init --memory=4096 --disksize=80000
-# docker pull eremite/devbox
+# Build this Dockerfile
 # docker build --force-rm -t eremite/devbox .
+
+# Bootstrap everything
+# boot2docker init --memory=4096 --disksize=80000
 # docker run -v /code --name code busybox true
 # docker run -v /personal --name personal busybox true
 # docker run --rm -v /usr/local/bin/docker:/docker -v /var/run/docker.sock:/docker.sock svendowideit/samba personal
+#   sudo chown dev:dev /code; sudo chown dev:dev /personal # inside the devbox
+
+# Sync /personal to host OS
 # sudo mkdir -p /Volumes/personal; sudo mount_smbfs //guest@192.168.59.104/personal /Volumes/personal
-# docker run -it --rm --volumes-from code --volumes-from personal -v /var/run/docker.sock:/var/run/docker.sock eremite/devbox /bin/bash --login
-#   sudo chown dev:dev /code; sudo chown dev:dev /personal
+
+# Back up personal
 # docker run --volumes-from personal -v $(pwd):/backup busybox tar -C /personal --exclude='**/tmp' -c -f - . | gzip > /backup/personal.tar.gz
+
+# Run the devbox!
+# docker run -it --rm --volumes-from code --volumes-from personal -v /var/run/docker.sock:/var/run/docker.sock eremite/devbox /bin/bash --login
