@@ -13,6 +13,7 @@ let g:neobundle#types#git#default_protocol = 'git'
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " General
+NeoBundle 'Shougo/vimproc.vim', { 'build' : { 'unix' : 'make -f make_unix.mak' } }
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'matchit.zip'
 NeoBundle 'ntpeters/vim-better-whitespace'

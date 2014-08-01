@@ -6,7 +6,7 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y; DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -q
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install vim-nox git-core tmux
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install vim-nox git-core tmux build-essential
 # libterm-readkey-perl is for git singlekey interactive
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install libterm-readkey-perl exuberant-ctags wget curl
 RUN cd /tmp; curl -s https://get.docker.io/ubuntu/ | sh
@@ -32,6 +32,8 @@ RUN /home/dev/.vim/bundle/neobundle.vim/bin/neoinstall
 RUN git clone https://github.com/eremite/done; cd done; bundle install --path vendor/bundle; ln -s /vagrant/gitignores/done/config.yml; cd /home/dev/bin; ln -s /home/dev/done/done.thor
 RUN git clone https://github.com/eremite/docker_rails_app
 
+RUN printf "sudo chsh -s /bin/bash dev\nmkdir -p ~/.ssh\ncp /personal/id_rsa* ~/.ssh\ncp /personal/.netrc ~" > init.sh; chmod +x init.sh
+
 # boot2docker init --memory=4096 --disksize=80000
 # docker pull eremite/devbox
 # docker build --force-rm -t eremite/devbox .
@@ -40,7 +42,5 @@ RUN git clone https://github.com/eremite/docker_rails_app
 # docker run --rm -v /usr/local/bin/docker:/docker -v /var/run/docker.sock:/docker.sock svendowideit/samba personal
 # sudo mkdir -p /Volumes/personal; sudo mount_smbfs //guest@192.168.59.104/personal /Volumes/personal
 # docker run -it --rm --volumes-from code --volumes-from personal -v /var/run/docker.sock:/var/run/docker.sock eremite/devbox /bin/bash --login
-#   sudo chsh -s /bin/bash dev
-#   mkdir -p ~/.ssh; cp /personal/id_rsa* ~/.ssh; cp /personal/.netrc ~
 #   sudo chown dev:dev /code; sudo chown dev:dev /personal
 # docker run --volumes-from personal -v $(pwd):/backup busybox tar -C /personal --exclude='**/tmp' -c -f - . | gzip > /backup/personal.tar.gz
