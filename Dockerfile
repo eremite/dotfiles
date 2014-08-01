@@ -32,7 +32,7 @@ RUN /home/dev/.vim/bundle/neobundle.vim/bin/neoinstall
 RUN git clone https://github.com/eremite/done; cd done; bundle install --path vendor/bundle; cd /home/dev/bin; ln -s /home/dev/done/done.thor
 RUN git clone https://github.com/eremite/docker_rails_app
 
-RUN printf "sudo chsh -s /bin/bash dev\nmkdir -p ~/.ssh\ncp /personal/id_rsa* ~/.ssh\ncp /personal/.netrc ~" > init.sh; chmod +x init.sh
+ADD devbox_init.sh /home/dev/init.sh
 
 # boot2docker init --memory=4096 --disksize=80000
 # docker pull eremite/devbox
