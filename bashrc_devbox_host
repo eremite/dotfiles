@@ -1,0 +1,8 @@
+export DOCKER_HOST=tcp://192.168.59.103:2375
+
+alias v='vim'
+
+alias mnt="sudo mkdir -p /Volumes/personal; sudo mount_smbfs //guest@192.168.59.103/personal /Volumes/personal"
+
+alias on='boot2docker up; docker run -it --rm --volumes-from code --volumes-from personal -v /var/run/docker.sock:/var/run/docker.sock eremite/devbox /bin/bash --login'
+alias off='docker stop $(docker ps -q); boot2docker halt'
