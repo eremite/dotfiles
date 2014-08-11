@@ -3,6 +3,9 @@
 # Docker bug?
 sudo chsh -s /bin/bash dev
 
+# So I can docker without sudo
+sudo chmod o+rw /var/run/docker.sock
+
 # Authentication permissions
 cp /personal/id_rsa* ~/.ssh
 cp /personal/.netrc ~
