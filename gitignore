@@ -1,4 +1,5 @@
 *.swp
+/fig.yml
 /Dockerfile
 /.docker_environment
 /.dockerignore
