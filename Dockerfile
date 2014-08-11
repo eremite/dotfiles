@@ -23,7 +23,8 @@ USER dev
 ENV USER dev
 ENV HOME /home/dev
 WORKDIR /home/dev
-RUN mkdir bin
+RUN mkdir bin; mkdir .ssh
+RUN echo "StrictHostKeyChecking no" >> .ssh/config
 
 RUN git clone https://github.com/eremite/dotfiles
 RUN ln -s dotfiles/rcrc .rcrc; rcup
