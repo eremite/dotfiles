@@ -10,8 +10,8 @@ sudo chmod o+rw /var/run/docker.sock
 sudo chown -R dev:dev /code
 
 # Authentication permissions
-cp /personal/id_rsa* ~/.ssh
-cp /personal/.netrc ~
+cp $PERSONAL/id_rsa* ~/.ssh
+cp $PERSONAL/.netrc ~
 
 # Update and trigger checkout callbacks
 cd ~/dotfiles; git init; git checkout master; git pull
