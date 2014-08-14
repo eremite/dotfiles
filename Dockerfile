@@ -6,9 +6,10 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y; DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -q
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install vim-nox git-core tmux build-essential
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install vim-nox git-core tmux build-essential wget curl
 # libterm-readkey-perl is for git singlekey interactive
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install libterm-readkey-perl exuberant-ctags wget curl
+# cmake and python-dev are for Valloric/YouCompleteMe
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install libterm-readkey-perl exuberant-ctags cmake python-dev
 RUN cd /tmp; curl -s https://get.docker.io/ubuntu/ | sh
 RUN cd /tmp; wget https://thoughtbot.github.io/rcm/debs/rcm_1.2.3-1_all.deb; dpkg -i rcm_1.2.3-1_all.deb
 RUN wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
