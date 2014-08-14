@@ -36,6 +36,7 @@ NeoBundle 'glts/vim-textobj-comment'
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'sgur/vim-textobj-parameter'
+NeoBundle 'nelstrom/vim-textobj-rubyblock'
 
 " Languages/frameworks
 NeoBundle 'kchmck/vim-coffee-script'
