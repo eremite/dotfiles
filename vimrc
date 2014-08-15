@@ -14,7 +14,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " General
 NeoBundle 'Shougo/vimproc.vim', { 'build' : { 'unix' : 'make -f make_unix.mak' } }
-NeoBundle 'Valloric/YouCompleteMe', { 'build' : { 'unix' : './install.sh' } }
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'matchit.zip'
 NeoBundle 'ntpeters/vim-better-whitespace'
@@ -153,6 +152,11 @@ imap jk <esc>
 imap jj <esc>j
 imap kk <esc>k
 
+" Map autocomplete to tab
+" https://github.com/ryanb/dotfiles/blob/master/vimrc
+imap <Tab> <C-P>
+imap <S-Tab> <C-N>
+
 " Abbreviations
 ab pa params
 
@@ -242,11 +246,6 @@ endfunction
 command Umodel Unite -start-insert file_rec:app/models
 command Uview Unite -start-insert file_rec:app/views
 command Ucontroller Unite -start-insert file_rec:app/controllers
-
-" Configure YouCompleteMe
-let g:ycm_seed_identifiers_with_syntax = 0
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_key_invoke_completion = ''
 
 " Load customizations for local machine.
 if filereadable(expand("$HOME/.vimrc_local"))
