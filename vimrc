@@ -71,6 +71,7 @@ autocmd FileType make setlocal noexpandtab
 " Special ruby files
 autocmd BufRead,BufNewFile *.jbuilder set filetype=ruby
 autocmd BufRead,BufNewFile *.rabl set filetype=ruby
+autocmd BufRead,BufNewFile *.prawn set filetype=ruby
 " Don't assume the line after a comment is still a comment
 autocmd FileType ruby setlocal formatoptions-=cro
 autocmd FileType yaml setlocal formatoptions-=cro
