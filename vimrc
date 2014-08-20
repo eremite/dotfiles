@@ -29,6 +29,7 @@ NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-vinegar'
+NeoBundle 'bogado/file-line'
 
 " Text objects
 NeoBundle 'Julian/vim-textobj-variable-segment'
