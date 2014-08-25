@@ -19,24 +19,24 @@
 [alias]
 	a = add
 	ap = add --patch
+	b = branch
 	c = commit --verbose
 	cm = commit --verbose --amend
+	co = checkout
 	ctags = !.git/hooks/ctags
 	d = diff --ignore-submodules
 	dc = diff --ignore-submodules --cached
-	s = status --short
-  h = log --graph --date=short --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit
-	l = pull
-	p = push
-	rb = rebase --interactive --autosquash
-	uncommit = reset --soft HEAD^
-	co = checkout
-	b = branch
-	m = merge
-	sh = show
 	g = log
-	rs = reset
+	l = pull
+	m = merge
+	p = push
 	pb = !git push --set-upstream origin `git symbolic-ref --short HEAD`
+	rb = rebase --interactive --autosquash
+	rs = reset
+	s = status --short
+	sh = show
+	uncommit = reset --soft HEAD^
+	h = log --graph --date=short --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit
 [init]
 	templatedir = ~/.git_template
 [push]
