@@ -36,6 +36,7 @@
 	sh = show
 	g = log
 	rs = reset
+	pb = !git push --set-upstream origin `git symbolic-ref --short HEAD`
 [init]
 	templatedir = ~/.git_template
 [push]
