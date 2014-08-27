@@ -28,7 +28,7 @@
 	dc = diff --ignore-submodules --cached
 	g = log
 	l = pull
-	m = merge
+	m = merge --no-ff
 	p = push
 	pb = !git push --set-upstream origin `git symbolic-ref --short HEAD`
 	rb = rebase --interactive --autosquash
