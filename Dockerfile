@@ -44,6 +44,9 @@ ADD devbox_init.sh /home/dev/init.sh
 # docker run -v /code --name code busybox true
 # docker run --rm -v /usr/local/bin/docker:/docker -v /var/run/docker.sock:/docker.sock svendowideit/samba code
 
+# Upgrade boot2docker
+# boot2docker stop; boot2docker download; boot2docker up
+
 # Sync /code to host OS
 # sudo mkdir -p /Volumes/personal; sudo mount_smbfs //guest@192.168.59.103/code /Volumes/code
 
