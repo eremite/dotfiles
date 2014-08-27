@@ -48,7 +48,7 @@ ADD devbox_init.sh /home/dev/init.sh
 # sudo mkdir -p /Volumes/personal; sudo mount_smbfs //guest@192.168.59.103/code /Volumes/code
 
 # Back up personal
-# docker run --volumes-from code -v $(pwd):/backup busybox tar -C /code/personal --exclude='**/tmp' -c -f - . | gzip > /backup/personal.tar.gz
+# docker run --rm --volumes-from code -v $(pwd):/backup busybox tar -C /code/personal --exclude='**/tmp' -c -f - . | gzip > personal.tar.gz
 
 # Run the devbox!
 # docker run -it --rm --volumes-from code -v /var/run/docker.sock:/var/run/docker.sock eremite/devbox /bin/bash --login
