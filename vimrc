@@ -30,6 +30,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'bogado/file-line'
+NeoBundle 'jeetsukumaran/vim-buffergator'
 
 " Text objects
 NeoBundle 'Julian/vim-textobj-variable-segment'
@@ -165,8 +166,8 @@ ab pa params
 " Open [a]ny file with Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <leader>a :<C-u>Unite -buffer-name=files -start-insert file_rec<CR>
-" Switch to open [b]uffer with Unite
-nnoremap <leader>b :<C-u>Unite -buffer-name=buffer -start-insert buffer<CR>
+" [b]uffergator
+nnoremap <leader>b :BuffergatorOpen<CR>
 " Open file in current [d]irectory
 " http://vimcasts.org/episodes/the-edit-command
 map <leader>d :e %:p:h/
@@ -231,6 +232,9 @@ let g:ruby_hanging_indent = 0
 
 " Configure vim-markdown
 let g:markdown_fenced_languages = ['ruby', 'javascript']
+
+" Configure vim-buffergator
+let g:buffergator_suppress_keymaps = 1
 
 " Extend fugitive
 cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
