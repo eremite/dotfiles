@@ -168,6 +168,8 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <leader>a :<C-u>Unite -buffer-name=files -start-insert file_rec<CR>
 " [b]uffergator
 nnoremap <leader>b :BuffergatorOpen<CR>
+" Close all but current [B]uffer
+nnoremap <leader>B :1,999bd<CR><C-^>
 " Open file in current [d]irectory
 " http://vimcasts.org/episodes/the-edit-command
 map <leader>d :e %:p:h/
