@@ -11,7 +11,7 @@ GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM="verbose"
-PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
+PROMPT_COMMAND='__git_ps1 "\w" "\\\$ "'
 
 # Done
 file=~/done/bash_aliases.sh && test -f $file && source $file
