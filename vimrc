@@ -237,6 +237,7 @@ let g:markdown_fenced_languages = ['ruby', 'javascript']
 
 " Configure vim-buffergator
 let g:buffergator_suppress_keymaps = 1
+let g:buffergator_sort_regime = 'mru'
 
 " Extend fugitive
 cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
