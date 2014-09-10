@@ -40,17 +40,17 @@ ADD devbox_init.sh /home/dev/init.sh
 
 # Bootstrap everything
 # boot2docker init --memory=4096 --disksize=80000
-# docker run -v /code --name code busybox true
-# docker run --rm -v /usr/local/bin/docker:/docker -v /var/run/docker.sock:/docker.sock svendowideit/samba code
+# docker run -v /data --name data busybox true
+# docker run --rm -v /usr/local/bin/docker:/docker -v /var/run/docker.sock:/docker.sock svendowideit/samba data
 
 # Upgrade boot2docker
 # boot2docker stop; boot2docker download; boot2docker up
 
-# Sync /code to host OS
-# sudo mkdir -p /Volumes/personal; sudo mount_smbfs //guest@192.168.59.103/code /Volumes/code
+# Sync /data to host OS
+# sudo mkdir -p /Volumes/personal; sudo mount_smbfs //guest@192.168.59.103/data /Volumes/data
 
 # Back up personal
-# docker run --rm --volumes-from code -v $(pwd):/backup busybox tar -C /code/personal --exclude='**/tmp' -c -f - . | gzip > personal.tar.gz
+# docker run --rm --volumes-from data -v $(pwd):/backup busybox tar -C /data/personal --exclude='**/tmp' -c -f - . | gzip > personal.tar.gz
 
 # Run the devbox!
-# docker run -it --rm --volumes-from code -v /var/run/docker.sock:/var/run/docker.sock eremite/devbox /bin/bash --login
+# docker run -it --rm --volumes-from data -v /var/run/docker.sock:/var/run/docker.sock eremite/devbox /bin/bash --login

@@ -4,7 +4,7 @@
 sudo chmod o+rw /var/run/docker.sock
 
 # Fix permissions of attached volumes
-sudo chown -R dev:dev /code
+sudo chown -R dev:dev $DATA
 
 # Authentication permissions
 cp $PERSONAL/id_rsa* ~/.ssh
@@ -14,4 +14,4 @@ cp $PERSONAL/.netrc ~
 cd ~/dotfiles; git init; git checkout master; git pull
 cd ~/done; git checkout master; git pull
 
-cd ~/bin; ln -s /code/done/done.thor; ln -s /code/docker_rails_app/docker_rails_app.sh
+cd ~/bin; ln -s $DATA/done/done.thor; ln -s $DATA/docker_rails_app/docker_rails_app.sh
