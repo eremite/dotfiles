@@ -1,2 +1,2 @@
 DOTFILES_DIRS="$HOME/dotfiles"
-EXCLUDES="chrome_secure_shell_settings.js git-prompt.sh git-completion.bash Vagrantfile Dockerfile README.md server whyvim.rb devbox_init.sh bashrc_devbox_host"
+EXCLUDES="chrome_secure_shell_settings.js git-prompt.sh git-completion.bash Dockerfile README.md server whyvim.rb devbox_init.sh bashrc_devbox_host"
