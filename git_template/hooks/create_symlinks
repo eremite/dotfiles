@@ -1,9 +1,9 @@
 #!/bin/sh
-if [ -z "$PERSONAL" ]; then
+if [ -z "$META" ]; then
   exit
 fi
 app=${PWD##*/}
-symlinks_path="$PERSONAL/$app/symlinks"
+symlinks_path="$META/$app/symlinks"
 if [ -d "$symlinks_path" ]; then
   for full_path in $(find $symlinks_path -name '*')
   do

@@ -7,8 +7,8 @@ sudo chmod o+rw /var/run/docker.sock
 sudo chown -R dev:dev $DATA
 
 # Authentication permissions
-cp $PERSONAL/id_rsa* ~/.ssh
-cp $PERSONAL/.netrc ~
+cp $META/id_rsa* ~/.ssh
+cp $META/.netrc ~
 
 # Update and trigger checkout callbacks
 cd ~/dotfiles; git init; git checkout master; git pull
