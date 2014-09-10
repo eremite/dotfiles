@@ -14,4 +14,4 @@ cp $META/.netrc ~
 cd ~/dotfiles; git init; git checkout master; git pull
 cd ~/done; git checkout master; git pull
 
-cd ~/bin; ln -s $DATA/done/done.thor; ln -s $DATA/docker_rails_app/docker_rails_app.sh
+cd ~/bin; ln -s ~/done/done.thor; ln -s $DATA/docker_rails_app/docker_rails_app.sh
