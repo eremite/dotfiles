@@ -9,6 +9,7 @@ sudo chown -R dev:dev $DATA
 # Authentication permissions
 cp $META/id_rsa* ~/.ssh
 cp $META/.netrc ~
+cd ~/.ssh; rm config; ln -s $META/ssh_config config
 
 # Update and trigger checkout callbacks
 cd ~/dotfiles; git init; git checkout master; git pull
