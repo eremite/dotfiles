@@ -26,14 +26,14 @@ WORKDIR /home/dev
 RUN mkdir bin; mkdir .ssh
 RUN echo "StrictHostKeyChecking no" >> .ssh/config
 
+ADD devbox_init.sh /home/dev/init.sh
+
 RUN git clone https://github.com/eremite/dotfiles
 RUN ln -s dotfiles/rcrc .rcrc; rcup
 RUN curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 RUN /home/dev/.vim/bundle/neobundle.vim/bin/neoinstall
 
 RUN git clone https://github.com/eremite/done; cd done; bundle install --path vendor/bundle
-
-ADD devbox_init.sh /home/dev/init.sh
 
 # Build this Dockerfile
 # docker build --force-rm -t eremite/devbox .
