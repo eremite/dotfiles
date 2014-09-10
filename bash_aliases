@@ -22,11 +22,8 @@ alias v='vim'
 # bash
 alias x='exit'
 
-# rails/fig
-alias f='fig'
-alias k='fig run web rake'
-alias k='fig run web rails'
-alias a='~/docker_rails_app/docker_rails_app.sh'
+# rails
+alias a='docker_rails_app.sh'
 
 # git
 alias g='git'

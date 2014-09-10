@@ -13,4 +13,5 @@ cp $PERSONAL/.netrc ~
 # Update and trigger checkout callbacks
 cd ~/dotfiles; git init; git checkout master; git pull
 cd ~/done; git checkout master; git pull
-cd ~/docker_rails_app; git checkout master; git pull
+
+cd ~/bin; ln -s /code/done/done.thor; ln -s /code/docker_rails_app/docker_rails_app.sh

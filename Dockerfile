@@ -31,8 +31,7 @@ RUN ln -s dotfiles/rcrc .rcrc; rcup
 RUN curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 RUN /home/dev/.vim/bundle/neobundle.vim/bin/neoinstall
 
-RUN git clone https://github.com/eremite/done; cd done; bundle install --path vendor/bundle; cd /home/dev/bin; ln -s /home/dev/done/done.thor
-RUN git clone https://github.com/eremite/docker_rails_app
+RUN git clone https://github.com/eremite/done; cd done; bundle install --path vendor/bundle
 
 ADD devbox_init.sh /home/dev/init.sh
 
