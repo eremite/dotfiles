@@ -8,6 +8,7 @@ Use [rcm](https://github.com/thoughtbot/rcm)
 
 ```bash
 boot2docker init --memory=4096 --disksize=80000
+VBoxManage sharedfolder add boot2docker-vm -name /Users -hostpath /Users
 ```
 
 ### Build the Dockerfile
@@ -28,13 +29,6 @@ docker run -v /data --name data busybox true
 boot2docker stop; boot2docker download; boot2docker up
 ```
 
-### Sync /data to host OS
-
-```bash
-docker run --rm -v /usr/local/bin/docker:/docker -v /var/run/docker.sock:/docker.sock svendowideit/samba data
-sudo mkdir -p /Volumes/personal; sudo mount_smbfs //guest@192.168.59.103/data /Volumes/data
-```
-
 ### Back up meta
 
 ```bash
@@ -50,5 +44,5 @@ curl -L https://raw.githubusercontent.com/eremite/dotfiles/master/bashrc_devbox_
 ### Run the devbox!
 
 ```bash
-docker run -it --rm --volumes-from data -v /var/run/docker.sock:/var/run/docker.sock eremite/devbox /bin/bash --login
+docker run -it --rm --name=devbox -v /Users/daniel:/data -v /var/run/docker.sock:/var/run/docker.sock eremite/devbox /bin/bash --login
 ```
