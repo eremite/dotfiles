@@ -8,7 +8,6 @@ Use [rcm](https://github.com/thoughtbot/rcm)
 
 ```bash
 boot2docker init --memory=4096 --disksize=80000
-VBoxManage sharedfolder add boot2docker-vm -name /Users -hostpath /Users
 ```
 
 ### Build the Dockerfile
