@@ -29,6 +29,7 @@ NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-vinegar'
+NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'bogado/file-line'
 NeoBundle 'jeetsukumaran/vim-buffergator'
 
