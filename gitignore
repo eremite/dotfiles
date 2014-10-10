@@ -1,7 +1,3 @@
 *.swp
-/fig.yml
-/Dockerfile
-/.docker_environment
-/.dockerignore
 /notes.md
 /config/projections.json
