@@ -27,6 +27,3 @@ alias a='docker_rails_app.sh'
 
 # git
 alias g='git'
-
-# docker
-alias dockeroff='docker ps -q | xargs docker stop'
