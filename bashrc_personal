@@ -16,5 +16,14 @@ PROMPT_COMMAND='__git_ps1 "\w" "\\\$ "'
 # Done
 file=~/done/bash_aliases.sh && test -f $file && source $file
 
+meta() {
+  current_directory=`basename $(pwd)`
+  if [ -d "$META/$current_directory" ]; then
+    cd "$META/$current_directory"
+  else
+    cd $META
+  fi
+}
+
 # Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
