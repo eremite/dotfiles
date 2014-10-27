@@ -1,60 +1,51 @@
-" https://github.com/Shougo/neobundle.vim
-" Install: curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-" :NeoBundleUpdatesLog - list recent changes.
-if has('vim_starting')
-  set nocompatible
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-call neobundle#rc(expand('~/.vim/bundle/'))
-
-" Configure NeoBundle
-let g:neobundle#types#git#default_protocol = 'git'
-
-NeoBundleFetch 'Shougo/neobundle.vim'
+" https://github.com/junegunn/vim-plug
+call plug#begin('~/.vim/plugged')
 
 " General
-NeoBundle 'Shougo/vimproc.vim', { 'build' : { 'unix' : 'make -f make_unix.mak' } }
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'matchit.zip'
-NeoBundle 'ntpeters/vim-better-whitespace'
-NeoBundle 'tommcdo/vim-exchange'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'tpope/vim-bundler'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-sensible'
-NeoBundle 'tpope/vim-speeddating'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'tpope/vim-vinegar'
-NeoBundle 'tpope/vim-projectionist'
-NeoBundle 'bogado/file-line'
-NeoBundle 'jeetsukumaran/vim-buffergator'
+" Plug 'Shougo/vimproc.vim', { 'do': 'make -f make_unix.mak' }
+Plug 'altercation/vim-colors-solarized'
+Plug 'matchit.zip'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-projectionist'
+Plug 'bogado/file-line'
+Plug 'jeetsukumaran/vim-buffergator'
 
 " Text objects
-NeoBundle 'Julian/vim-textobj-variable-segment'
-NeoBundle 'glts/vim-textobj-comment'
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'sgur/vim-textobj-parameter'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
+Plug 'Julian/vim-textobj-variable-segment'
+Plug 'glts/vim-textobj-comment'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-user'
+Plug 'sgur/vim-textobj-parameter'
+Plug 'nelstrom/vim-textobj-rubyblock'
 
 " Languages/frameworks
-NeoBundle 'kchmck/vim-coffee-script'
-" NeoBundle 'php.vim'
-" NeoBundle 'php.vim-html-enhanced'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'ekalinin/Dockerfile.vim'
+Plug 'kchmck/vim-coffee-script'
+" Plug 'php.vim'
+" Plug 'php.vim-html-enhanced'
+Plug 'othree/html5.vim'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+Plug 'ekalinin/Dockerfile.vim'
 
 " Unite
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/unite.vim'
+Plug 'Shougo/unite-outline'
+Plug 'Shougo/unite.vim'
+
+call plug#end()
 
 " Linux never crashes. :)
 set noswapfile
@@ -266,5 +257,3 @@ endif
 
 " Turn on syntax completion.
 set completefunc=syntaxcomplete#Complete
-
-NeoBundleCheck
