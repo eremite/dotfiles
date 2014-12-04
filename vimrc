@@ -41,10 +41,6 @@ Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'ekalinin/Dockerfile.vim'
 
-" Unite
-Plug 'Shougo/unite-outline'
-Plug 'Shougo/unite.vim'
-
 call plug#end()
 
 " Linux never crashes. :)
@@ -156,8 +152,6 @@ imap <S-Tab> <C-N>
 ab pa params
 
 " Open [a]ny file with Unite
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>a :<C-u>Unite -buffer-name=files -start-insert file_rec<CR>
 " [b]uffergator
 nnoremap <leader>b :BuffergatorOpen<CR>
 " Close all but current [B]uffer
@@ -190,14 +184,6 @@ noremap <Leader>q :quit<CR>
 noremap <Leader>R ma:%s/[“”]/"/eg<CR>:%s/’/'/eg<CR>`a
 " [S]ave
 noremap <Leader>s :write<CR>
-" Show ou[t]line
-nnoremap <leader>t :<C-u>Unite -buffer-name=outline -start-insert outline<CR>
-" Open most recently [u]sed files.
-call unite#custom#source('file_mru', 'matchers', ['matcher_project_files', 'matcher_fuzzy'])
-noremap <leader>u :<C-u>Unite file_mru<CR>
-" [y]ank history
-let g:unite_source_history_yank_enable = 1
-nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<CR>
 " E[x]it current Buffer
 noremap <Leader>x :bd<CR>
 
@@ -214,7 +200,6 @@ autocmd FileType markdown let b:surround_99 = "```ruby\n\r\n```"
 " d - debug
 autocmd FileType ruby let b:surround_100 = "logger.debug(\"### #{\r}\") #TODO: remove debug code"
 autocmd FileType javascript let g:surround_100 = "console.log(\r); // TODO Remove debug code"
-autocmd FileType unite DisableWhitespace
 " t - try
 let g:surround_116 = "try(:\r)"
 " v - variable
@@ -235,20 +220,6 @@ let g:buffergator_display_regime = 'bufname'
 
 " Extend fugitive
 cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
-
-" Configure unite
-" http://www.codeography.com/2013/06/17/replacing-all-the-things-with-unite-vim.html
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j> <Plug>(unite_select_next_line)
-  imap <buffer> <C-k> <Plug>(unite_select_previous_line)
-endfunction
-
-" Unite <3 Rails
-command Umodel Unite -start-insert file_rec:app/models
-command Uview Unite -start-insert file_rec:app/views
-command Ucontroller Unite -start-insert file_rec:app/controllers
 
 " Load customizations for local machine.
 if filereadable(expand("$HOME/.vimrc_local"))
