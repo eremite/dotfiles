@@ -210,7 +210,7 @@ let g:surround_118 = "\"#{\r}\""
 let g:ruby_hanging_indent = 0
 
 " Configure vim-markdown
-let g:markdown_fenced_languages = ['ruby', 'javascript']
+let g:markdown_fenced_languages = ['sh', 'ruby', 'javascript']
 
 " Configure vim-buffergator
 let g:buffergator_suppress_keymaps = 1
