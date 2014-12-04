@@ -19,7 +19,8 @@ docker build --force-rm -t eremite/devbox .
 ### Create a data container
 
 ```bash
-docker run -v /data --name data busybox true
+docker run -v /data --name data busybox true # old way
+docker run -v /data --name=data eremite/devbox sudo chown -R dev:dev /data
 ```
 
 ### Upgrade boot2docker
