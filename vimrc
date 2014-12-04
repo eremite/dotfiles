@@ -19,6 +19,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-tbone'
 Plug 'bogado/file-line'
 Plug 'jeetsukumaran/vim-buffergator'
 
@@ -151,6 +153,8 @@ imap <S-Tab> <C-N>
 " Abbreviations
 ab pa params
 
+" Run [A]ll tests
+nnoremap <leader>a :Rake test<CR>
 " Open [a]ny file with Unite
 " [b]uffergator
 nnoremap <leader>b :BuffergatorOpen<CR>
@@ -181,7 +185,11 @@ noremap <Leader>o :sort<CR>
 " [Q]uit
 noremap <Leader>q :quit<CR>
 " [R]emove smart quotes (and friends).
-noremap <Leader>R ma:%s/[“”]/"/eg<CR>:%s/’/'/eg<CR>`a
+" noremap <Leader>R ma:%s/[“”]/"/eg<CR>:%s/’/'/eg<CR>`a
+" Run [r]ake on this line
+nnoremap <leader>r :.Rake<CR>
+" Run [R]ake on this file
+nnoremap <leader>R :Rake<CR>
 " [S]ave
 noremap <Leader>s :write<CR>
 " E[x]it current Buffer
