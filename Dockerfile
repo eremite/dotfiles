@@ -26,6 +26,3 @@ RUN mkdir bin; mkdir .ssh
 RUN echo "StrictHostKeyChecking no" >> .ssh/config
 
 ADD devbox_init.sh /home/dev/init.sh
-
-RUN git clone https://github.com/eremite/dotfiles
-RUN ln -s dotfiles/rcrc .rcrc; rcup
