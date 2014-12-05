@@ -9,10 +9,12 @@ if [ ! -d "$DATA/dotfiles" ]; then
 fi
 cd; ln -s $DATA/dotfiles/rcrc .rcrc; rcup
 
-# Set up ssh config
+# Set up ssh
 cd ~/.ssh; ~/.git_template/hooks/create_symlinks
+eval `ssh-agent -s`
+ssh-add id_rsa
 
-# Trigger checkout callbacks
+# Set up and trigger hooks on checkout
 cd $DATA/dotfiles; git init; git checkout master
 
 # Start tmux
