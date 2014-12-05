@@ -12,7 +12,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install libterm-readkey-perl exube
 RUN cd /tmp; curl -s https://get.docker.io/ubuntu/ | sh
 RUN cd /tmp; wget https://thoughtbot.github.io/rcm/debs/rcm_1.2.3-1_all.deb; dpkg -i rcm_1.2.3-1_all.deb
 RUN wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-RUN curl -L https://github.com/docker/fig/releases/download/0.5.2/linux > /usr/local/bin/fig; chmod +x /usr/local/bin/fig
+RUN curl -L https://github.com/docker/fig/releases/download/1.0.1/fig-`uname -s`-`uname -m` > /usr/local/bin/fig; chmod +x /usr/local/bin/fig
 RUN DEBIAN_FRONTEND=noninteractive apt-get clean; rm /tmp/*
 RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
