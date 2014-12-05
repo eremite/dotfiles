@@ -1,4 +1,3 @@
 #!/bin/sh
 # http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
 .git/hooks/ctags >/dev/null 2>&1 &
-done.thor githublog &

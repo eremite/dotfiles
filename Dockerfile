@@ -14,7 +14,6 @@ RUN cd /tmp; wget https://thoughtbot.github.io/rcm/debs/rcm_1.2.3-1_all.deb; dpk
 RUN wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 RUN curl -L https://github.com/docker/fig/releases/download/0.5.2/linux > /usr/local/bin/fig; chmod +x /usr/local/bin/fig
 RUN DEBIAN_FRONTEND=noninteractive apt-get clean; rm /tmp/*
-RUN gem install bundler;
 RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 RUN useradd --create-home --groups sudo,docker -p $(openssl passwd -1 dev) dev
@@ -32,5 +31,3 @@ RUN git clone https://github.com/eremite/dotfiles
 RUN ln -s dotfiles/rcrc .rcrc; rcup
 RUN curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 RUN /home/dev/.vim/bundle/neobundle.vim/bin/neoinstall
-
-RUN git clone https://github.com/eremite/done; cd done; bundle install --path vendor/bundle
