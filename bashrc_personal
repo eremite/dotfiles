@@ -1,3 +1,6 @@
+export DATA='/data'
+export META="$DATA/meta"
+
 HISTSIZE=100000
 HISTFILESIZE=20000
 
