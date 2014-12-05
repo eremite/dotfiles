@@ -22,7 +22,5 @@ USER dev
 ENV USER dev
 ENV HOME /home/dev
 WORKDIR /home/dev
-RUN mkdir bin; mkdir .ssh
-RUN echo "StrictHostKeyChecking no" >> .ssh/config
 
 ADD devbox_init.sh /home/dev/init.sh
