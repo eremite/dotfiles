@@ -12,7 +12,7 @@ fi
 cd; ln -s $DATA/dotfiles/rcrc .rcrc; rcup
 
 # Set up ssh
-cd ~/.ssh; ~/.git_template/hooks/create_symlinks
+mkdir -p ~/.ssh; cd ~/.ssh; ~/.git_template/hooks/create_symlinks
 eval `ssh-agent -s`
 ssh-add id_rsa
 
