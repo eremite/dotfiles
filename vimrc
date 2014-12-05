@@ -94,7 +94,7 @@ set expandtab
 " Colors
 syntax enable
 set background=dark
-colorscheme solarized
+silent! colorscheme solarized
 set t_Co=256
 
 " Color Customizations
