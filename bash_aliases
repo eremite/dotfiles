@@ -23,7 +23,9 @@ alias v='vim'
 alias x='exit'
 
 # rails
-alias a='docker_rails_app.sh'
+if [ -f "$DATA/docker_rails_app/docker_rails_app.sh" ]; then
+  alias a="$DATA/docker_rails_app/docker_rails_app.sh"
+fi
 
 # git
 alias g='git'
