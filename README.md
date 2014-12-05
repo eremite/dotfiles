@@ -44,5 +44,5 @@ curl -L https://raw.githubusercontent.com/eremite/dotfiles/master/bashrc_devbox_
 ### Run the devbox!
 
 ```bash
-docker run -it --rm --name=devbox -v /Users/daniel:/data -v /var/run/docker.sock:/var/run/docker.sock eremite/devbox /bin/bash --login
+docker run -it --rm --name=devbox --volumes-from=data -v /var/run/docker.sock:/var/run/docker.sock eremite/devbox /bin/bash --login
 ```
