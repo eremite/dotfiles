@@ -19,6 +19,9 @@ ssh-add id_rsa
 # Set up and trigger hooks on checkout
 cd $DATA/dotfiles; git init; git checkout master
 
+# Patch app_rake_command in vim-rails to support running rake with fig.
+cd /home/dev/.vim/plugged/vim-rails; patch -p1 < $DATA/meta/dotfiles/rails_app_rake_command.patch
+
 # Start tmux
 cd $DATA
 tmux
