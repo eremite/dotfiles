@@ -29,7 +29,6 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-tbone'
-Plug 'bogado/file-line'
 Plug 'jeetsukumaran/vim-buffergator'
 
 " Text objects
