@@ -235,6 +235,15 @@ let g:buffergator_display_regime = 'bufname'
 " Extend fugitive
 cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
 
+" Configure projectionist
+let g:projectionist_heuristics = {
+\   "js/components/": {
+\     "js/components/*.js": { "type": "component" },
+\     "js/stores/*.js": { "type": "store" },
+\     "js/utils/*.js": { "type": "utils" }
+\   }
+\ }
+
 " Load customizations for local machine.
 if filereadable(expand("$HOME/.vimrc_local"))
   source $HOME/.vimrc_local
