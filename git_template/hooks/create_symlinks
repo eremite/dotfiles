@@ -5,7 +5,7 @@ fi
 app=${PWD##*/}
 copies_path="$META/$app/copies"
 if [ -d "$copies_path" ]; then
-  cp $copies_path/* .
+  cp -r $copies_path/. .
 fi
 symlinks_path="$META/$app/symlinks"
 if [ -d "$symlinks_path" ]; then
