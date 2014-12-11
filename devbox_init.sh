@@ -16,8 +16,6 @@ cd /home/dev/.vim/plugged/vim-rails; patch -p1 < $DATA/meta/dotfiles/rails_app_r
 
 # Set up ssh
 mkdir -p ~/.ssh; cd ~/.ssh; ~/.git_template/hooks/create_symlinks
-eval `ssh-agent -s`
-ssh-add id_rsa
 
 # Set up and trigger hooks on checkout
 cd $DATA/dotfiles; git init; git checkout master
