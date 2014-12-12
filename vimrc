@@ -235,12 +235,18 @@ let g:buffergator_display_regime = 'bufname'
 " Extend fugitive
 cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
 
-" Configure projectionist
+" Configure projections
 let g:projectionist_heuristics = {
 \   "js/components/": {
 \     "js/components/*.js": { "type": "component" },
 \     "js/stores/*.js": { "type": "store" },
 \     "js/utils/*.js": { "type": "utils" }
+\   }
+\ }
+let g:rails_projections = {
+\   "app/policies/*_policy.rb": {
+\     "command": "policy",
+\     "affinity": "model"
 \   }
 \ }
 
