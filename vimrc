@@ -244,9 +244,24 @@ let g:projectionist_heuristics = {
 \   }
 \ }
 let g:rails_projections = {
-\   "app/policies/*_policy.rb": {
-\     "command": "policy",
+\   "app/models/concerns/*.rb": {
+\     "command": "mconcern",
 \     "affinity": "model"
+\   },
+\   "app/controllers/concerns/*.rb": {
+\     "command": "cconcern",
+\     "affinity": "ccontroller"
+\   }
+\ }
+let g:rails_gem_projections = {
+\   "pundit": {
+\     "app/policies/*_policy.rb": {
+\       "command": "policy",
+\       "affinity": "model"
+\     },
+\     "app/policies/application_policy.rb": {
+\       "command": "policy",
+\     }
 \   }
 \ }
 
