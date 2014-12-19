@@ -258,9 +258,6 @@ let g:rails_gem_projections = {
 \     "app/policies/*_policy.rb": {
 \       "command": "policy",
 \       "affinity": "model"
-\     },
-\     "app/policies/application_policy.rb": {
-\       "command": "policy",
 \     }
 \   }
 \ }
