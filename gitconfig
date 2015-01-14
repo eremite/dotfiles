@@ -36,6 +36,7 @@
 	rs = reset
 	s = status --short
 	sh = show
+	t = stash
 	uncommit = reset --soft HEAD^
 [init]
 	templatedir = ~/.git_template
