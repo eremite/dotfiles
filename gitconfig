@@ -27,6 +27,7 @@
 	d = diff --ignore-submodules
 	dc = diff --ignore-submodules --cached
 	g = log
+	h = log --graph --date=short --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit
 	l = pull
 	m = merge --no-ff
 	p = push
@@ -36,7 +37,6 @@
 	s = status --short
 	sh = show
 	uncommit = reset --soft HEAD^
-	h = log --graph --date=short --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit
 [init]
 	templatedir = ~/.git_template
 [push]
