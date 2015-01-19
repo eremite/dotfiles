@@ -251,6 +251,9 @@ let g:rails_projections = {
 \   "app/controllers/concerns/*.rb": {
 \     "command": "cconcern",
 \     "affinity": "ccontroller"
+\   },
+\   "app/mailers/notifier.rb": {
+\     "command": "mailer"
 \   }
 \ }
 let g:rails_gem_projections = {
