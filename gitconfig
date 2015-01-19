@@ -36,8 +36,9 @@
 	rs = reset
 	s = status --short
 	sh = show
-	t = stash
 	uncommit = reset --soft HEAD^
+	z = stash
+	zp = stash pop
 [init]
 	templatedir = ~/.git_template
 [push]
