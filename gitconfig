@@ -18,6 +18,7 @@
 	user = eremite
 [alias]
 	a = add
+	an = add --intent-to-add .
 	ap = add --patch
 	b = branch
 	c = commit --verbose
