@@ -1,6 +1,0 @@
-vim/view/*
-vim/.VimballRecord
-vim/.netrwhist
-vim/doc/tags
-vim/bundle/*
-!vim/bundle/neobundle.vim
