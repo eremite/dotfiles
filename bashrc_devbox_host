@@ -1,9 +1,21 @@
-export DOCKER_HOST=tcp://192.168.59.103:2375
+# Starts a new devbox container or attaches to the running one if it exists
 
-alias v='vim'
-alias ll='ls -alh'
+# Hat tip: https://gist.github.com/ekristen/11254304
 
-alias devbox='docker run -it --rm --volumes-from data -v /var/run/docker.sock:/var/run/docker.sock eremite/devbox /bin/bash --login'
+function run_container {
+  docker pull eremite/devbox
+  docker run -it --rm --name devbox --volumes-from data -v /var/run/docker.sock:/var/run/docker.sock eremite/devbox ./init.sh
+}
 
-alias on='boot2docker up; sleep 2; devbox'
-alias off='docker stop $(docker ps -q); boot2docker halt'
+CONTAINER=devbox
+
+RUNNING=$(docker inspect --format="{{ .State.Running }}" $CONTAINER 2> /dev/null)
+
+if [ $? -eq 1 ]; then # doesn't exist
+  run_container
+elif [ "$RUNNING" == "false" ]; then
+  docker rm -v devbox
+  run_container
+else
+  docker attach $CONTAINER
+fi
