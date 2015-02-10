@@ -214,6 +214,7 @@ autocmd FileType markdown let b:surround_99 = "```ruby\n\r\n```"
 " d - debug
 autocmd FileType ruby let b:surround_100 = "logger.debug(\"### #{\r}\") #TODO: remove debug code"
 autocmd FileType javascript let g:surround_100 = "console.log(\r); // TODO Remove debug code"
+autocmd FileType coffee let g:surround_100 = "console.log(\r) # TODO: Remove debug code"
 " t - try
 let g:surround_116 = "try(:\r)"
 " v - variable
