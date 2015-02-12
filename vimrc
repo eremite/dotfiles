@@ -263,6 +263,11 @@ let g:rails_gem_projections = {
 \       "command": "policy",
 \       "affinity": "model"
 \     }
+\   },
+\   "carrierwave": {
+\     "app/uploaders/*_uploader.rb": {
+\       "command": "uploader"
+\     }
 \   }
 \ }
 
