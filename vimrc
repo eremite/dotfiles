@@ -29,6 +29,7 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-tbone'
 Plug 'jeetsukumaran/vim-buffergator'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Text objects
 Plug 'Julian/vim-textobj-variable-segment'
