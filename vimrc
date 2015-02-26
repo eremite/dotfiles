@@ -160,6 +160,7 @@ imap <S-Tab> <C-N>
 
 " Abbreviations
 ab pa params
+cabbrev EMo Emodel
 
 " Run [A]ll tests
 nnoremap <leader>a :Rake test<CR>
