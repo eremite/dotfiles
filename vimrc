@@ -30,6 +30,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-tbone'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'sjl/gundo.vim'
 
 " Text objects
 Plug 'Julian/vim-textobj-variable-segment'
