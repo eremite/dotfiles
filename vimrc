@@ -31,6 +31,7 @@ Plug 'tpope/vim-tbone'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'sjl/gundo.vim'
+Plug 'jeetsukumaran/vim-indentwise'
 
 " Text objects
 Plug 'Julian/vim-textobj-variable-segment'
