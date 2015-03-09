@@ -10,10 +10,10 @@ Use [rcm](https://github.com/thoughtbot/rcm)
 docker build --force-rm -t eremite/devbox .
 ```
 
-### Create a data container
+### Initialize Docker data containers
 
 ```bash
-docker run -v /data --name data busybox true # old way
+# docker run -v /data --name data busybox true # old way
 docker run -v /data --name=data eremite/devbox sudo chown -R dev:dev /data
 ```
 
@@ -44,5 +44,10 @@ sudo service docker start
 curl -L https://raw.githubusercontent.com/eremite/dotfiles/master/devbox > devbox
 echo '. ./bashrc_devbox_host' >> .bashrc
 sudo docker run -v /data --name=data eremite/devbox sudo chown -R dev:dev /data
+sudo docker run -v /var/lib/mysql -v /var/lib/postgresql/data -v /var/lib/elasticsearch --name db_data eremite/devbox true
+sudo docker run --volumes-from=db_data --rm -i -t eremite/devbox bash --login
+sudo chown -R dev:dev /var/lib/mysql /var/lib/postgresql/data /var/lib/elasticsearch
+printf "path:\n  logs: /var/lib/elasticsearch/log\n  data: /var/lib/elasticsearch/data\n" > /var/lib/elasticsearch/config.yml
+exit
 source devbox
 ```
