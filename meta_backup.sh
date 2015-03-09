@@ -18,9 +18,11 @@ gpg -c $filename
 aws s3 cp ${filename}.gpg s3://$s3_bucket/
 
 # Restore
-cd /data
+cd
 mkdir meta
 cd meta
+sudo chown -R dev:dev .
 aws s3 cp s3://$s3_bucket/${filename}.gpg .
 gpg -d ${filename}.gpg > $filename
 tar -xzf $filename
+rm meta*
