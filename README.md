@@ -23,10 +23,10 @@ docker run -v /data --name=data eremite/devbox sudo chown -R dev:dev /data
 docker run --rm --volumes-from data -v $(pwd):/backup busybox tar -C /data/meta --exclude='**/tmp' -c -f - . | gzip > meta.tar.gz
 ```
 
-### Update bashrc on host
+### Update devbox runner script
 
 ```bash
-curl -L https://raw.githubusercontent.com/eremite/dotfiles/master/bashrc_devbox_host > bashrc_devbox_host
+curl -L https://raw.githubusercontent.com/eremite/dotfiles/master/devbox > devbox
 ```
 
 ### Run the devbox!
@@ -41,8 +41,8 @@ docker run -it --rm --name=devbox --volumes-from=data -v /var/run/docker.sock:/v
 sudo yum update
 sudo yum install -y docker
 sudo service docker start
-curl -L https://raw.githubusercontent.com/eremite/dotfiles/master/bashrc_devbox_host > bashrc_devbox_host
+curl -L https://raw.githubusercontent.com/eremite/dotfiles/master/devbox > devbox
 echo '. ./bashrc_devbox_host' >> .bashrc
 sudo docker run -v /data --name=data eremite/devbox sudo chown -R dev:dev /data
-source bashrc_devbox_host
+source devbox
 ```
