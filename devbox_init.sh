@@ -15,7 +15,11 @@ if [ -d "$DATA/meta/secure" ]; then
 fi
 cd; RCRC=$DATA/dotfiles/rcrc rcup
 rm $DATA/dotfiles/netrc $DATA/dotfiles/ssh/id_rsa*
-vim +PlugInstall +qall # Install vim plugins
+if [ -d "$DATA/meta/dotfiles/plugged" ]; then
+  cd $HOME/.vim
+  ln -s $DATA/meta/dotfiles/plugged
+  cd -
+fi
 # Patch app_rake_command in vim-rails to support running rake with fig.
 cd /home/dev/.vim/plugged/vim-rails; patch -p1 < $DATA/meta/dotfiles/rails_app_rake_command.patch
 
