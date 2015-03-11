@@ -16,6 +16,7 @@ fi
 cd; RCRC=$DATA/dotfiles/rcrc rcup
 rm $DATA/dotfiles/netrc $DATA/dotfiles/ssh/id_rsa*
 if [ -d "$DATA/meta/dotfiles/plugged" ]; then
+  mkdir -p $HOME/.vim
   cd $HOME/.vim
   ln -s $DATA/meta/dotfiles/plugged
   cd -
