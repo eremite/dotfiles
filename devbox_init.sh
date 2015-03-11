@@ -21,8 +21,6 @@ if [ -d "$DATA/meta/dotfiles/plugged" ]; then
   ln -s $DATA/meta/dotfiles/plugged
   cd -
 fi
-# Patch app_rake_command in vim-rails to support running rake with fig.
-cd /home/dev/.vim/plugged/vim-rails; patch -p1 < $DATA/meta/dotfiles/rails_app_rake_command.patch
 
 # Start tmux
 cd $DATA
