@@ -44,3 +44,5 @@
 	templatedir = ~/.git_template
 [push]
 	default = simple
+[diff]
+	algorithm = patience
