@@ -175,6 +175,8 @@ nnoremap <leader>B :1,999bd<CR><C-^>
 map <leader>d :e %:p:h/
 " [E]dit
 noremap <Leader>e :e<Space>
+" [E]dit!
+noremap <Leader>E :e!<CR>
 " [F]lip to alternate buffers
 noremap <Leader>f :e #<CR>
 " Git Grep (G[g]rep) the selection
