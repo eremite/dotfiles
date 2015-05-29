@@ -1,4 +1,4 @@
 *.swp
 /notes.md
 /.projections.json
-/local-docker-compose.yml
+/.docker.local.env
