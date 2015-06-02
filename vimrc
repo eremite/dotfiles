@@ -156,8 +156,8 @@ imap kk <esc>k
 
 " Map autocomplete to tab
 " https://github.com/ryanb/dotfiles/blob/master/vimrc
-imap <Tab> <C-P>
-imap <S-Tab> <C-N>
+imap <Tab> <C-N>
+imap <S-Tab> <C-P>
 
 " Abbreviations
 ab pa params
