@@ -1,0 +1,13 @@
+#!/bin/bash
+# Append issue url to git commit message.
+branch_name=$(git symbolic-ref -q --short HEAD)
+issue_number="${branch_name%%[-._]*}"
+issue_number=$(echo $issue_number | tr -cd [:digit:])
+if [ -z "$1" ] && [ $issue_number ]; then
+  origin=$(git config --get remote.origin.url)
+  regex="git@github.com:(\w+/\w+)"
+  [[ $origin =~ $regex ]]
+  repo=${BASH_REMATCH[1]}
+  url="https://github.com/$repo/issues/$issue_number"
+  sed -i.bak -e "1s|^|\n\n$url|" $1
+fi
