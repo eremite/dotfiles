@@ -3,7 +3,8 @@
 branch_name=$(git symbolic-ref -q --short HEAD)
 issue_number="${branch_name%%[-._]*}"
 issue_number=$(echo $issue_number | tr -cd [:digit:])
-if [ -z "$1" ] && [ $issue_number ]; then
+first_line=$(head -n1 $1)
+if [[ -z "$first_line" ]] && [[ $issue_number ]]; then
   origin=$(git config --get remote.origin.url)
   regex="git@github.com:(\w+/\w+)"
   [[ $origin =~ $regex ]]
