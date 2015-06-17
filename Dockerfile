@@ -16,6 +16,7 @@ RUN dockerfile_scripts/install_docker_compose.sh
 RUN dockerfile_scripts/install_git_lfs.sh
 RUN dockerfile_scripts/install_heroku.sh
 RUN dockerfile_scripts/install_rcm.sh
+RUN dockerfile_scripts/install_github_hub.sh
 RUN rm -rf dockerfile_scripts
 RUN DEBIAN_FRONTEND=noninteractive apt-get clean
 RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
