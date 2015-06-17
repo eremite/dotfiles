@@ -33,6 +33,7 @@
 	m = merge --no-ff
 	p = push
 	pb = !git push --set-upstream origin `git symbolic-ref --short HEAD`
+	pr = !hub pull-request -b staging
 	rb = rebase --interactive --autosquash
 	rs = reset
 	s = status --short
