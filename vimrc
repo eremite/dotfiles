@@ -32,6 +32,7 @@ Plug 'jeetsukumaran/vim-buffergator'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'sjl/gundo.vim'
 Plug 'jeetsukumaran/vim-indentwise'
+Plug 'justinmk/vim-sneak'
 
 " Text objects
 Plug 'Julian/vim-textobj-variable-segment'
@@ -241,6 +242,9 @@ let g:buffergator_suppress_keymaps = 1
 let g:buffergator_sort_regime = 'mru'
 let g:buffergator_viewport_split_policy = 'T'
 let g:buffergator_display_regime = 'bufname'
+
+" Configure vim-sneak to streak
+let g:sneak#streak = 1
 
 " Extend fugitive
 cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
