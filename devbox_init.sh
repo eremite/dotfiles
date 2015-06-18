@@ -12,10 +12,10 @@ fi
 if [ -d "$DATA/meta/secure" ]; then
   cp $DATA/meta/secure/netrc $DATA/dotfiles
   cp $DATA/meta/secure/id_rsa* $DATA/dotfiles/ssh
-  cp $DATA/meta/secure/hub $DATA/dotfiles/config
 fi
 cd; RCRC=$DATA/dotfiles/rcrc rcup
-rm $DATA/dotfiles/netrc $DATA/dotfiles/ssh/id_rsa* $DATA/dotfiles/config/hub
+mkdir -p ~/.config; ln -sf $DATA/meta/secure/hub ~/.config
+rm $DATA/dotfiles/netrc $DATA/dotfiles/ssh/id_rsa*
 if [ -d "$DATA/meta/dotfiles/plugged" ]; then
   mkdir -p $HOME/.vim
   cd $HOME/.vim
