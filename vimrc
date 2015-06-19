@@ -28,6 +28,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-tbone'
+Plug 'tpope/vim-flagship'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'sjl/gundo.vim'
@@ -245,6 +246,10 @@ let g:buffergator_display_regime = 'bufname'
 
 " Configure vim-sneak to streak
 let g:sneak#streak = 1
+
+" Configure vim-flagship
+set laststatus=2
+set showtabline=0 " I don't use tabs
 
 " Extend fugitive
 cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
