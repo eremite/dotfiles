@@ -6,6 +6,7 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y; DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -q
+RUN mkdir -p /tmp/scripts
 COPY dockerfile_scripts /tmp/scripts
 RUN /tmp/scripts/install_packages.sh
 RUN /tmp/scripts/install_docker.sh
