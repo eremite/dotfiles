@@ -14,7 +14,7 @@ if [ -d "$DATA/meta/secure" ]; then
   cp $DATA/meta/secure/id_rsa* $DATA/dotfiles/ssh
 fi
 cd; RCRC=$DATA/dotfiles/rcrc rcup
-mkdir -p ~/.config; ln -sf $DATA/meta/secure/hub ~/.config
+mkdir -p ~/.config; ln -sf $DATA/meta/secure/hub ~/.config/hub
 rm $DATA/dotfiles/netrc $DATA/dotfiles/ssh/id_rsa*
 if [ -d "$DATA/meta/dotfiles/plugged" ]; then
   mkdir -p $HOME/.vim
