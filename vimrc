@@ -84,8 +84,8 @@ autocmd FileType php set sw=2
 " Remove fugitive buffers (from browsing git objects)
 " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database
 autocmd BufReadPost fugitive://* set bufhidden=delete
-" When opening a commit message, go to first line in insert mode.
-autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0]) | startinsert
+" When opening a commit message, go to the first line.
+autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 
 " Tabs and indentation
