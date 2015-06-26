@@ -1,3 +1,4 @@
+DEBIAN_FRONTEND=noninteractive apt-get update -y
 DEBIAN_FRONTEND=noninteractive apt-get -y install \
   apt-transport-https `# docker requirement` \
   build-essential `# compile from source` \

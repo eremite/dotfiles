@@ -5,17 +5,15 @@ RUN DEBIAN_FRONTEND=noninteractive locale-gen en_US en_US.UTF-8; DEBIAN_FRONTEND
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update -y; DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -q
-RUN mkdir -p /tmp/scripts
-COPY dockerfile_scripts /tmp/scripts
-RUN /tmp/scripts/install_packages.sh
-RUN /tmp/scripts/install_docker.sh
-RUN /tmp/scripts/install_docker_compose.sh
-RUN /tmp/scripts/install_git_lfs.sh
-RUN /tmp/scripts/install_heroku.sh
-RUN /tmp/scripts/install_rcm.sh
-RUN /tmp/scripts/install_github_hub.sh
-RUN rm -rf /tmps/scripts
+COPY dockerfile_scripts dockerfile_scripts
+RUN dockerfile_scripts/install_packages.sh
+RUN dockerfile_scripts/install_docker.sh
+RUN dockerfile_scripts/install_docker_compose.sh
+RUN dockerfile_scripts/install_git_lfs.sh
+RUN dockerfile_scripts/install_heroku.sh
+RUN dockerfile_scripts/install_rcm.sh
+RUN dockerfile_scripts/install_github_hub.sh
+RUN rm -rf dockerfile_scripts
 RUN DEBIAN_FRONTEND=noninteractive apt-get clean
 RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 

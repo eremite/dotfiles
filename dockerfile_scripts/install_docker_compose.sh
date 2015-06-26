@@ -1,4 +1,4 @@
-VERSION=1.2.0
+VERSION=1.3.1
 curl -L https://github.com/docker/compose/releases/download/$VERSION/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
