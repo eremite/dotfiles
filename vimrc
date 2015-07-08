@@ -9,7 +9,6 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " General
-" Plug 'Shougo/vimproc.vim', { 'do': 'make -f make_unix.mak' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'matchit.zip'
 Plug 'ntpeters/vim-better-whitespace'
