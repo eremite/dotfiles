@@ -177,7 +177,7 @@ nnoremap <leader>b :BuffergatorOpen<CR>
 nnoremap <leader>B :1,999bd<CR><C-^>
 " Open file in current [d]irectory
 " http://vimcasts.org/episodes/the-edit-command
-map <leader>d :e %:p:h/
+map <leader>d :e %:.:h/
 " [E]dit
 noremap <Leader>e :e<Space>
 " [E]dit!
