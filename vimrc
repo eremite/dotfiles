@@ -291,10 +291,5 @@ let g:rails_gem_projections = {
 \   }
 \ }
 
-" Load customizations for local machine.
-if filereadable(expand("$HOME/.vimrc_local"))
-  source $HOME/.vimrc_local
-endif
-
 " Turn on syntax completion.
 set completefunc=syntaxcomplete#Complete
