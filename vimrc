@@ -60,6 +60,12 @@ call plug#end()
 set noswapfile
 " Autosave when changing buffers (the warnings get annoying)
 set autowriteall
+" Enable persistent undo
+if isdirectory($HOME.'/.vim/tmp/undo') == 0
+  call system('mkdir -p '.$HOME.'/.vim/tmp/undo')
+endif
+set undofile
+set undodir=$HOME/.vim/tmp/undo
 
 " Set Leader
 " \ is too far away!
