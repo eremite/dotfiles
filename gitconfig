@@ -21,6 +21,7 @@
 	an = add --all --intent-to-add .
 	ap = add --patch
 	b = branch
+	bclean = !git branch --merged master | grep -v "master" | grep -v "staging" | xargs -n 1 git branch -d
 	c = commit --verbose
 	cm = commit --verbose --amend
 	co = checkout
