@@ -161,6 +161,8 @@ inoremap <c-w> <c-g>u<c-w>
 " Use motion commands to leave insert mode
 " http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim
 imap jk <esc>
+imap Jk <esc>
+imap JK <esc>
 imap jj <esc>j
 imap kk <esc>k
 
