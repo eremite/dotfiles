@@ -1,3 +1,3 @@
 DOTFILES_DIRS="/data/dotfiles"
-COPY_ALWAYS="netrc ssh/id_rsa*"
+COPY_ALWAYS="netrc dockercfg ssh/id_rsa*"
 EXCLUDES="chrome_secure_shell_settings.js git-prompt.sh git-completion.bash Dockerfile README.md server whyvim.rb devbox_init.sh bashrc_devbox_host rcrc meta_backup.sh meta_setup.sh dockerfile_scripts"
