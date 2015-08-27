@@ -34,13 +34,13 @@ Plug 'jeetsukumaran/vim-buffergator'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'sjl/gundo.vim'
 Plug 'jeetsukumaran/vim-indentwise'
+Plug 'PeterRincker/vim-argumentative'
 
 " Text objects
 Plug 'Julian/vim-textobj-variable-segment'
 Plug 'glts/vim-textobj-comment'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-user'
-Plug 'sgur/vim-textobj-parameter'
 Plug 'nelstrom/vim-textobj-rubyblock'
 
 " Languages/frameworks
