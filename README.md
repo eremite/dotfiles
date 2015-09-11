@@ -17,10 +17,15 @@ docker build --force-rm -t eremite/devbox .
 docker run -v /data --name=data eremite/devbox sudo chown -R dev:dev /data
 ```
 
-### Back up meta
+### Back up meta from devbox
 
-```bash
-docker run --rm --volumes-from data -v $(pwd):/backup busybox tar -C /data/meta --exclude='**/tmp' -c -f - . | gzip > meta.tar.gz
+```sh
+cd /data
+filename=meta.$(date +"%F").tar.gz
+tar -C /data/meta --exclude='**/tmp' -c -f - . | gzip > $filename
+gpg -c $filename
+docker run --rm -it --volumes-from data -e AWS_ACCESS_KEY_ID=AWS_KEY -e AWS_SECRET_ACCESS_KEY=AWS_SECRET anigeo/awscli s3 cp /data/$filename.gpg s3://daniel-devbox/$filename.gpg --acl bucket-owner-full-control
+rm $filename*
 ```
 
 ### Update devbox runner script
