@@ -1,8 +1,8 @@
-VERSION=1.6.2
-echo deb https://get.docker.com/ubuntu docker main > /etc/apt/sources.list.d/docker.list
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+VERSION=1.7.1
+echo deb https://apt.dockerproject.org/repo ubuntu-trusty main > /etc/apt/sources.list.d/docker.list
+apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 DEBIAN_FRONTEND=noninteractive apt-get update -y
-DEBIAN_FRONTEND=noninteractive apt-get install -y lxc-docker-$VERSION
+DEBIAN_FRONTEND=noninteractive apt-get install -y docker-engine
 
 echo -n "checking docker..."
 docker --version | grep $VERSION > /dev/null
