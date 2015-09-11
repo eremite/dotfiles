@@ -45,8 +45,8 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 
 " Languages/frameworks
 Plug 'kchmck/vim-coffee-script'
-" Plug 'php.vim'
-" Plug 'php.vim-html-enhanced'
+Plug 'php.vim'
+Plug 'php.vim-html-enhanced'
 Plug 'othree/html5.vim'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
@@ -87,6 +87,7 @@ autocmd FileType yaml setlocal formatoptions-=cro
 " 4 spaces for python indentation
 autocmd BufRead *.py set ts=4 et sw=4 sts=4
 autocmd FileType php set sw=2
+autocmd FileType php set list
 " Remove fugitive buffers (from browsing git objects)
 " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database
 autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -225,7 +226,8 @@ noremap <Leader>x :bd<CR>
 " Re-indent (=) after surrounding
 let b:surround_indent = 1
 " -
-autocmd FileType php,html let b:surround_45 = "<?php \r ?>"
+autocmd FileType php,html let b:surround_45 = "<? \r ?>"
+autocmd FileType php,html let b:surround_61 = "<?= \r ?>"
 " # - #{}
 autocmd FileType ruby,eruby,haml let g:surround_35 = "#{\r}"
 " c - code block
