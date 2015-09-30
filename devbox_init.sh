@@ -24,6 +24,8 @@ if [ -d "$DATA/meta/dotfiles/plugged" ]; then
   cd -
 fi
 
+# Symlink everyhing in $DATA to home
+cd; ln -s $DATA/* ~
+
 # Start tmux
-cd $DATA
 tmux
