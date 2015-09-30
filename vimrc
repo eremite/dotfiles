@@ -179,13 +179,10 @@ cabbrev EMo Emodel
 cabbrev ECo Econtroller
 cabbrev Cope cope
 
-" Run [A]ll tests
+" Run [a]ll tests
 nnoremap <leader>a :Rake test<CR>
-" Open [a]ny file with Unite
 " [b]uffergator
 nnoremap <leader>b :BuffergatorOpen<CR>
-" Close all but current [B]uffer
-nnoremap <leader>B :1,999bd<CR><C-^>
 " Open file in current [d]irectory
 " http://vimcasts.org/episodes/the-edit-command
 map <leader>d :e %:.:h/
