@@ -144,6 +144,7 @@ command Q q
 command W w
 command WQ wq
 command Wq wq
+command Cnf cnf
 
 " Copy to the end of the line (https://github.com/tpope/tpope/blob/master/.vimrc)
 nnoremap Y y$
