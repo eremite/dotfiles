@@ -55,6 +55,7 @@ Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'slim-template/vim-slim'
 
 call plug#end()
 
