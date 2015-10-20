@@ -194,8 +194,10 @@ map <leader>d :e %:.:h/
 noremap <Leader>e :e<Space>
 " [E]dit!
 noremap <Leader>E :e!<CR>
-" [F]lip to alternate buffers
-noremap <Leader>f :e #<CR>
+" [f]lip to alternate buffer
+noremap <Leader>f :b #<CR>
+" [F]lip to 2nd most recently used buffer
+nnoremap <leader>F :BuffergatorMruCyclePrev<CR>:BuffergatorMruCyclePrev<CR>
 " Git Grep (G[g]rep) the selection
 vnoremap <Leader>g y:Ggrep '<C-r>"'<CR>
 " Git Grep (G[g]rep) the word under the cursor
