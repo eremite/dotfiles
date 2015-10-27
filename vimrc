@@ -292,15 +292,22 @@ let g:rails_projections = {
 \   }
 \ }
 let g:rails_gem_projections = {
+\   "carrierwave": {
+\     "app/uploaders/*_uploader.rb": {
+\       "command": "uploader"
+\     }
+\   },
+\   "activeadmin": {
+\     "app/admin/*.rb": {
+\       "command": "admin",
+\       "affinity": "model",
+\       "alternate": "app/models/%s.rb"
+\     }
+\   },
 \   "pundit": {
 \     "app/policies/*_policy.rb": {
 \       "command": "policy",
 \       "affinity": "model"
-\     }
-\   },
-\   "carrierwave": {
-\     "app/uploaders/*_uploader.rb": {
-\       "command": "uploader"
 \     }
 \   }
 \ }
