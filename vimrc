@@ -285,16 +285,33 @@ let g:rails_projections = {
 \   },
 \   "app/controllers/concerns/*.rb": {
 \     "command": "cconcern",
-\     "affinity": "ccontroller"
+\     "affinity": "controller"
+\   },
+\   "app/presenters/*_presenter.rb": {
+\     "command": "presenter",
+\     "affinity": "model"
+\   },
+\   "app/classes/*.rb": {
+\     "command": "class"
+\   },
+\   "app/controllers/api/*_controller.rb": {
+\     "alternate": "test/integration/api/%s_test.rb"
+\   },
+\   "test/integration/api/*_test.rb": {
+\     "related": "app/controllers/api/%s_controller.rb"
 \   },
 \   "app/mailers/notifier.rb": {
 \     "command": "mailer"
 \   }
 \ }
 let g:rails_gem_projections = {
-\   "carrierwave": {
-\     "app/uploaders/*_uploader.rb": {
-\       "command": "uploader"
+\  "active_model_serializers": {
+\    "app/serializers/*_serializer.rb": {
+\       "command": "serializer",
+\       "affinity": "model",
+\       "test": "spec/serializers/%s_spec.rb",
+\       "related": "app/models/%s.rb",
+\       "template": "class %SSerializer < ActiveModel::Serializer\nend"
 \     }
 \   },
 \   "activeadmin": {
@@ -302,6 +319,11 @@ let g:rails_gem_projections = {
 \       "command": "admin",
 \       "affinity": "model",
 \       "alternate": "app/models/%s.rb"
+\     }
+\   },
+\   "carrierwave": {
+\     "app/uploaders/*_uploader.rb": {
+\       "command": "uploader"
 \     }
 \   },
 \   "pundit": {
