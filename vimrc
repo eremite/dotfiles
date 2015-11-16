@@ -266,6 +266,15 @@ let g:projectionist_heuristics = {
 \     "js/components/*.js": { "type": "component" },
 \     "js/stores/*.js": { "type": "store" },
 \     "js/utils/*.js": { "type": "utils" }
+\   },
+\   "app/assets/javascripts/models/": {
+\     "app/assets/javascripts/models/*": { "type": "jmodel" }
+\   },
+\   "app/assets/javascripts/views/": {
+\     "app/assets/javascripts/views/*": { "type": "jview" }
+\   },
+\   "app/assets/javascripts/templates/": {
+\     "app/assets/javascripts/templates/*": { "type": "jtemplate" }
 \   }
 \ }
 let g:rails_projections = {
