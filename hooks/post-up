@@ -2,10 +2,10 @@
 
 if ! grep -qe ".bashrc_personal" "$HOME/.bashrc"; then
   echo 'Sourcing .bashrc_personal in .bashrc'
-  echo "\nfile=\$HOME/.bashrc_personal && test -f \$file && source \$file" >> $HOME/.bashrc
+  echo "file=\$HOME/.bashrc_personal && test -f \$file && source \$file" >> $HOME/.bashrc
 fi
 
-if ! grep -qe ".profile_personal" "$HOME/.profile"; then
-  echo 'Sourcing .profile_personal in .profile'
-  echo "\nfile=\$HOME/.profile_personal && test -f \$file && source \$file" >> $HOME/.profile
+if ! grep -qe ".profile_personal" "$HOME/.bash_profile"; then
+  echo 'Sourcing .profile_personal in .bash_profile'
+  echo "file=\$HOME/.profile_personal && test -f \$file && source \$file" >> $HOME/.bash_profile
 fi

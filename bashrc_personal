@@ -1,4 +1,4 @@
-export DATA='/data'
+export DATA="$HOME/data"
 export META="$DATA/meta"
 
 HISTSIZE=100000
@@ -45,6 +45,9 @@ else
    start_agent;
 fi
 
+# Bash Aliases
+
+file=$HOME/.bash_aliases && test -f $file && source $file
 
 # Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
