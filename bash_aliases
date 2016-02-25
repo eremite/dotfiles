@@ -12,6 +12,7 @@ alias .....='cd ../../../..'
 
 # grep
 alias grep='grep --color=auto'
+alias rgrep='grep -r'
 
 # less
 alias less='less -R'
@@ -23,7 +24,7 @@ alias v='vim'
 alias x='exit'
 
 # rails
-alias a="/data/docker_rails_app/docker_rails_app.sh"
+alias a="$DATA/docker_rails_app/docker_rails_app.sh"
 
 # git
 alias g='git'

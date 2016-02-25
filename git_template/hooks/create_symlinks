@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ -z "$META" ]; then
-  META="/data/meta"
+  META="$DATA/meta"
 fi
 app=${PWD##*/}
 copies_path="$META/$app/copies"
