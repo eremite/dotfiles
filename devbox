@@ -1,10 +1,12 @@
+#!/bin/bash
+
 # Starts a new devbox container or attaches to the running one if it exists
 
 # Hat tip: https://gist.github.com/ekristen/11254304
 
 function run_container {
-  sudo docker pull eremite/devbox
-  sudo docker run -it --rm --name devbox --volumes-from data -v $HOME/meta:/data/meta -v /var/run/docker.sock:/var/run/docker.sock eremite/devbox ./init.sh
+  docker pull eremite/devbox
+  docker run -it --rm --name devbox --privileged=true -v $HOME/data:/data eremite/devbox ./init.sh
 }
 
 CONTAINER=devbox

@@ -8,7 +8,8 @@ DEBIAN_FRONTEND=noninteractive apt-get -y install \
   libterm-readkey-perl `# git singlekey interactive` \
   tmux `# terminal multiplexer` \
   vim-nox `# editor` \
-  wget `# downloading`
+  wget `# downloading` \
+  iptables apt-transport-https ca-certificates ssh `#docker`
 
 echo -n "checking vim..."
 vim --version | grep vim > /dev/null

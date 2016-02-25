@@ -2,8 +2,10 @@
 
 DATA='/data'
 
-# So I can docker without sudo
-sudo chmod o+rw /var/run/docker.sock
+sudo docker daemon --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=vfs &
+
+# So I can create files in the /data directory
+sudo chown -R dev:dev /data
 
 # Install dotfiles
 if [ ! -d "$DATA/dotfiles" ]; then
@@ -23,6 +25,10 @@ if [ -d "$DATA/meta/dotfiles/plugged" ]; then
   ln -s $DATA/meta/dotfiles/plugged
   cd -
 fi
+
+# So I can docker without sudo
+sudo chmod o+rw /var/run/docker.sock
+sudo chmod a+rx /usr/local/bin/docker-compose
 
 # Symlink everyhing in $DATA to home
 cd; ln -s $DATA/* ~
