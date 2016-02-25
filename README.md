@@ -57,6 +57,7 @@ docker run -it --rm --name=devbox --volumes-from=data -v /var/run/docker.sock:/v
 sudo yum update
 sudo yum install -y docker
 sudo service docker start
+sudo usermod -aG docker ec2-user
 curl -L https://raw.githubusercontent.com/eremite/dotfiles/master/devbox > devbox
 echo '. ./bashrc_devbox_host' >> .bashrc
 mkdir $HOME/data
