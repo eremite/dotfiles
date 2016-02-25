@@ -24,8 +24,19 @@ cd /data
 filename=meta.$(date +"%F").tar.gz
 tar -C /data/meta --exclude='**/tmp' -c -f - . | gzip > $filename
 gpg -c $filename
-docker run --rm -it --volumes-from data -e AWS_ACCESS_KEY_ID=AWS_KEY -e AWS_SECRET_ACCESS_KEY=AWS_SECRET anigeo/awscli s3 cp /data/$filename.gpg s3://daniel-devbox/$filename.gpg --acl bucket-owner-full-control
+docker run --rm -it --volumes-from data -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY anigeo/awscli s3 cp /data/$filename.gpg s3://daniel-devbox/$filename.gpg --acl bucket-owner-full-control
 rm $filename*
+```
+
+### Restore meta directory
+
+```sh
+filename=meta.$(date +"%F").tar.gz
+mkdir -p data/meta
+cd data/meta
+docker run --rm -it -v $(pwd):/tt -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY anigeo/awscli s3 cp s3://daniel-devbox/$filename.gpg /tt/$filename.gpg
+gpg -d $filename.gpg > $filename
+tar -zxf $filename
 ```
 
 ### Update devbox runner script
@@ -48,11 +59,6 @@ sudo yum install -y docker
 sudo service docker start
 curl -L https://raw.githubusercontent.com/eremite/dotfiles/master/devbox > devbox
 echo '. ./bashrc_devbox_host' >> .bashrc
-sudo docker run -v /data --name=data eremite/devbox sudo chown -R dev:dev /data
-sudo docker run -v /var/lib/mysql -v /var/lib/postgresql/data -v /var/lib/elasticsearch --name db_data eremite/devbox true
-sudo docker run --volumes-from=db_data --rm -i -t eremite/devbox bash --login
-sudo su
-printf "path:\n  logs: /var/lib/elasticsearch/log\n  data: /var/lib/elasticsearch/data\n" > /var/lib/elasticsearch/config.yml
-exit
+mkdir $HOME/data
 source devbox
 ```
