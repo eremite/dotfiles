@@ -3,6 +3,9 @@ if [ -z "$META" ]; then
   META="$DATA/meta"
 fi
 app=${PWD##*/}
+if [ ! -e $HOME/$app ]; then
+  ln -s $(pwd) $HOME/$app
+fi
 copies_path="$META/$app/copies"
 if [ -d "$copies_path" ]; then
   cp -r $copies_path/. .
