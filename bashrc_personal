@@ -49,5 +49,8 @@ fi
 
 file=$HOME/.bash_aliases && test -f $file && source $file
 
+# https://github.com/junegunn/fzf
+export FZF_DEFAULT_OPTS="--reverse --inline-info"
+
 # Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"

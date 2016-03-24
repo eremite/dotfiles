@@ -14,8 +14,8 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'altercation/vim-colors-solarized'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'jeetsukumaran/vim-buffergator'
 Plug 'jeetsukumaran/vim-indentwise'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'matchit.zip'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sheerun/vim-polyglot'
@@ -176,8 +176,12 @@ cabbrev Cope cope
 
 " Run [a]ll tests
 nnoremap <leader>a :Rake test<CR>
-" [b]uffergator
-nnoremap <leader>b :BuffergatorOpen<CR>
+nnoremap <silent> <Leader>b :call fzf#run({
+\   'source': reverse(<sid>buflist()),
+\   'sink': function('<sid>bufopen'),
+\   'options': '+m',
+\   'up': len(<sid>buflist()) + 2
+\ })<CR>
 " Open file in current [d]irectory
 " http://vimcasts.org/episodes/the-edit-command
 map <leader>d :e %:.:h/
@@ -187,8 +191,6 @@ noremap <Leader>e :e<Space>
 noremap <Leader>E :e!<CR>
 " [f]lip to alternate buffer
 noremap <Leader>f :b #<CR>
-" [F]lip to 2nd most recently used buffer
-nnoremap <leader>F :BuffergatorMruCyclePrev<CR>:BuffergatorMruCyclePrev<CR>
 " Git Grep (G[g]rep) the selection
 vnoremap <Leader>g y:Ggrep '<C-r>"'<CR>
 " Git Grep (G[g]rep) the word under the cursor
@@ -214,8 +216,12 @@ nnoremap <leader>r :.Rake<CR>
 nnoremap <leader>R :Rake<CR>
 " [S]ave
 noremap <Leader>s :write<CR>
+" Open [t]ag
+noremap <Leader>t :BTags<CR>
 " E[x]it current Buffer
 noremap <Leader>x :bd<CR>
+" f[z]f Fuzzy Finder
+noremap <Leader>z :FZF!<CR>
 
 " Configure surround
 " https://github.com/tpope/vim-surround
@@ -248,11 +254,59 @@ let g:splitjoin_ruby_hanging_args = 0
 " Configure vim-markdown
 let g:markdown_fenced_languages = ['sh', 'ruby', 'javascript', 'sql']
 
-" Configure vim-buffergator
-let g:buffergator_suppress_keymaps = 1
-let g:buffergator_sort_regime = 'mru'
-let g:buffergator_viewport_split_policy = 'T'
-let g:buffergator_display_regime = 'bufname'
+" Configure fzf
+" https://github.com/junegunn/fzf/wiki/Examples-(vim)
+" Select buffer
+function! s:buflist()
+  redir => ls
+  silent ls
+  redir END
+  return split(ls, '\n')
+endfunction
+function! s:bufopen(e)
+  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+endfunction
+" Jump to tag in current buffer
+function! s:align_lists(lists)
+  let maxes = {}
+  for list in a:lists
+    let i = 0
+    while i < len(list)
+      let maxes[i] = max([get(maxes, i, 0), len(list[i])])
+      let i += 1
+    endwhile
+  endfor
+  for list in a:lists
+    call map(list, "printf('%-'.maxes[v:key].'s', v:val)")
+  endfor
+  return a:lists
+endfunction
+function! s:btags_source()
+  let lines = map(split(system(printf(
+    \ 'ctags -f - --sort=no --excmd=number --language-force=%s %s',
+    \ &filetype, expand('%:S'))), "\n"), 'split(v:val, "\t")')
+  if v:shell_error
+    throw 'failed to extract tags'
+  endif
+  return map(s:align_lists(lines), 'join(v:val, "\t")')
+endfunction
+function! s:btags_sink(line)
+  execute split(a:line, "\t")[2]
+endfunction
+function! s:btags()
+  try
+    call fzf#run({
+    \ 'source':  s:btags_source(),
+    \ 'options': '+m -d "\t" --with-nth 1,4.. -n 1 --tiebreak=index',
+    \ 'down':    '40%',
+    \ 'sink':    function('s:btags_sink')})
+  catch
+    echohl WarningMsg
+    echom v:exception
+    echohl None
+  endtry
+endfunction
+command! BTags call s:btags()
 
 " Configure vim-flagship
 set laststatus=2
