@@ -18,6 +18,7 @@ Plug 'jeetsukumaran/vim-indentwise'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'matchit.zip'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
 Plug 'sjl/gundo.vim'
 Plug 'tommcdo/vim-exchange'
@@ -46,6 +47,7 @@ Plug 'glts/vim-textobj-comment'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
+
 
 call plug#end()
 
@@ -182,6 +184,7 @@ nnoremap <silent> <Leader>b :call fzf#run({
 \   'options': '+m',
 \   'up': len(<sid>buflist()) + 2
 \ })<CR>
+map <leader>c :SyntasticCheck<CR>
 " Open file in current [d]irectory
 " http://vimcasts.org/episodes/the-edit-command
 map <leader>d :e %:.:h/
@@ -387,6 +390,21 @@ let g:rails_gem_projections = {
 \     }
 \   }
 \ }
+
+" Configure Syntastic
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_jump = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_balloons = 0
+let g:syntastic_enable_signs = 0
+let g:syntastic_mode_map = { "mode": "passive" }
+let g:syntastic_sh_checkers = ['shellcheck']
+let g:syntastic_sh_shellcheck_exec = $DATA . '/dotfiles/bin/shellcheck'
+autocmd User Flags call Hoist("window", "SyntasticStatuslineFlag")
 
 " Turn on syntax completion.
 set completefunc=syntaxcomplete#Complete
