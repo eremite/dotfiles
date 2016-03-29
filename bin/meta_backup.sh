@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# let g:syntastic_sh_sh_exe = 'docker run --rm -v $(pwd):/source cromo/shellcheck shellcheck'
+# let g:syntastic_sh_sh_args = ''
+# let g:syntastic_sh_sh_fname = ''
+# let g:syntastic_sh_sh_post_args = ''
+# let g:syntastic_sh_sh_tail = ''
+
 # Install awscli with apt-get
 # sudo apt-get -y install python
 # curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
