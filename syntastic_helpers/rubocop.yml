@@ -1,0 +1,38 @@
+# http://www.rubydoc.info/gems/rubocop/RuboCop/Cop/
+
+AllCops:
+  DisplayStyleGuide: true
+  DisplayCopNames: true
+
+Rails:
+  Enabled: true
+
+Style/BracesAroundHashParameters:
+  EnforcedStyle: context_dependent
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+Metrics/ClassLength:
+  Max: 300
+
+Metrics/ModuleLength:
+  Max: 300
+
+Style/Documentation:
+  Enabled: false
+
+Style/SpaceBeforeFirstArg:
+  AllowForAlignment: false
+
+Style/ExtraSpacing:
+  AllowForAlignment: false
+
+Style/EmptyLines:
+  Enabled: false
+
+Style/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines
+
+Style/EmptyLinesAroundModuleBody:
+  EnforcedStyle: empty_lines

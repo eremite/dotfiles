@@ -184,7 +184,7 @@ nnoremap <silent> <Leader>b :call fzf#run({
 \   'options': '+m',
 \   'up': len(<sid>buflist()) + 2
 \ })<CR>
-map <leader>c :SyntasticCheck<CR>
+nnoremap <leader>c :SyntasticCheck<Bar>Errors<Bar>echo('Done!')<CR>
 " Open file in current [d]irectory
 " http://vimcasts.org/episodes/the-edit-command
 map <leader>d :e %:.:h/
@@ -395,15 +395,21 @@ let g:rails_gem_projections = {
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_jump = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_debug = 0 "33
+let g:syntastic_echo_current_error = 0
 let g:syntastic_enable_balloons = 0
 let g:syntastic_enable_signs = 0
+let g:syntastic_id_checkers = 0
 let g:syntastic_mode_map = { "mode": "passive" }
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_ruby_rubocop_exec = $DATA . '/dotfiles/syntastic_helpers/rubocop'
 let g:syntastic_sh_checkers = ['shellcheck']
-let g:syntastic_sh_shellcheck_exec = $DATA . '/dotfiles/bin/shellcheck'
+let g:syntastic_sh_shellcheck_exec = $DATA . '/dotfiles/syntastic_helpers/shellcheck'
+let g:syntastic_haml_checkers = ['haml_lint']
+let g:syntastic_haml_haml_lint_exec = $DATA . '/dotfiles/syntastic_helpers/haml_lint'
 autocmd User Flags call Hoist("window", "SyntasticStatuslineFlag")
 
 " Turn on syntax completion.
