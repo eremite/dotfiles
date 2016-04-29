@@ -104,19 +104,6 @@ rcup -V | grep rcup
 if [ ! -d "$DATA/dotfiles" ]; then
   git clone https://github.com/eremite/dotfiles.git $DATA/dotfiles
 fi
-if [ -d "$DATA/meta/secure" ]; then
-  cp $DATA/meta/secure/netrc $DATA/dotfiles
-  cp $DATA/meta/secure/dockercfg $DATA/dotfiles
-  cp $DATA/meta/secure/id_rsa* $DATA/dotfiles/ssh
-fi
 cd; RCRC=$DATA/dotfiles/rcrc rcup -f
-mkdir -p ~/.config; ln -sf $DATA/meta/secure/hub ~/.config/hub
-rm $DATA/dotfiles/netrc $DATA/dotfiles/dockercfg $DATA/dotfiles/ssh/id_rsa*
-if [ ! -d "$HOME/.vim/plugged" ] && [ -d "$DATA/meta/dotfiles/plugged" ]; then
-  mkdir -p $HOME/.vim
-  cd $HOME/.vim
-  ln -s $DATA/meta/dotfiles/plugged
-  cd -
-fi
 
 echo "Ready to go!"

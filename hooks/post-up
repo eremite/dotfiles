@@ -1,11 +1,30 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 if ! grep -qe ".bashrc_personal" "$HOME/.bashrc"; then
   echo 'Sourcing .bashrc_personal in .bashrc'
-  echo "file=\$HOME/.bashrc_personal && test -f \$file && source \$file" >> $HOME/.bashrc
+  echo "file=\$HOME/.bashrc_personal && test -f \$file && source \$file" >> "$HOME/.bashrc"
 fi
 
 if ! grep -qe ".profile_personal" "$HOME/.bash_profile"; then
   echo 'Sourcing .profile_personal in .bash_profile'
-  echo "file=\$HOME/.profile_personal && test -f \$file && source \$file" >> $HOME/.bash_profile
+  echo "file=\$HOME/.profile_personal && test -f \$file && source \$file" >> "$HOME/.bash_profile"
 fi
+
+echo "Removing secure credentials"
+rm "$DATA/dotfiles/netrc" "$DATA/dotfiles/dockercfg" "$DATA/dotfiles/ssh/id_rsa"*
+
+echo "Linking hub credentials"
+ln -sf "$DATA/meta/secure/hub" "$HOME/.config/hub"
+
+if [ ! -d "$HOME/.vim/plugged" ] && [ -d "$DATA/meta/dotfiles/plugged" ]; then
+  echo "Installing vim plugins"
+  mkdir -p "$HOME/.vim"
+  cd "$HOME/.vim"
+  ln -s "$DATA/meta/dotfiles/plugged"
+  cd -
+fi
+
+echo "Linking nvim config"
+XDG_CONFIG_HOME="$HOME/.config"
+ln -sf "$HOME/.vim" "$XDG_CONFIG_HOME/nvim"
+ln -sf "$HOME/.vimrc" "$XDG_CONFIG_HOME/nvim/init.vim"
