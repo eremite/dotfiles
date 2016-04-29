@@ -28,6 +28,16 @@ echo -n "checking curl..."
 curl --version | grep curl
 [ "$?" -ne 0 ] && echo "ERROR: no curl" && exit 1
 
+# neovim
+sudo yum -y install libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip
+cd $DATA
+git clone git@github.com:neovim/neovim.git
+cd neovim
+make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX:PATH=$DATA/neovim"
+make install
+vim --version | grep NVIM
+[ "$?" -ne 0 ] && echo "ERROR: no neovim" && exit 1
+
 # Docker
 
 sudo yum install -y docker
