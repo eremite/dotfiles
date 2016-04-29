@@ -337,6 +337,21 @@ let g:projectionist_heuristics = {
 \   },
 \   "app/assets/javascripts/templates/": {
 \     "app/assets/javascripts/templates/*": { "type": "jtemplate" }
+\   },
+\   "Dockerfile": {
+\     "Dockerfile": { "type": "dfile" }
+\   },
+\   "docker-compose.yml": {
+\     "docker-compose.yml": { "type": "dcompose" }
+\   },
+\   ".dockerignore": {
+\     ".dockerignore": { "type": "dignore" }
+\   },
+\   ".docker.env": {
+\     ".docker.env": { "type": "denv" }
+\   },
+\   ".docker_overrides.env": {
+\     ".docker_overrides.env": { "type": "doveerrides" }
 \   }
 \ }
 let g:rails_projections = {
