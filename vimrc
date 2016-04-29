@@ -62,6 +62,9 @@ endif
 set undofile
 set undodir=$HOME/.vim/tmp/undo
 
+" Turn off mouse
+set mouse=
+
 " Set Leader
 " \ is too far away!
 let mapleader = "'"
