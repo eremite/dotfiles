@@ -13,12 +13,12 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'altercation/vim-colors-solarized'
+Plug 'benekastah/neomake'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'matchit.zip'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
 Plug 'sjl/gundo.vim'
 Plug 'tommcdo/vim-exchange'
@@ -185,7 +185,7 @@ nnoremap <silent> <Leader>b :call fzf#run({
 \   'options': '+m',
 \   'up': len(<sid>buflist()) + 2
 \ })<CR>
-nnoremap <leader>c :SyntasticCheck<Bar>Errors<Bar>echo('Done!')<CR>
+nnoremap <leader>c :Neomake<CR>
 " Open file in current [d]irectory
 " http://vimcasts.org/episodes/the-edit-command
 map <leader>d :e %:.:h/
@@ -392,26 +392,50 @@ let g:rails_gem_projections = {
 \   }
 \ }
 
-" Configure Syntastic
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_jump = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_debug = 0 "33
-let g:syntastic_echo_current_error = 0
-let g:syntastic_enable_balloons = 0
-let g:syntastic_enable_signs = 0
-let g:syntastic_id_checkers = 0
-let g:syntastic_mode_map = { "mode": "passive" }
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_ruby_rubocop_exec = $DATA . '/dotfiles/syntastic_helpers/rubocop'
-let g:syntastic_sh_checkers = ['shellcheck']
-let g:syntastic_sh_shellcheck_exec = $DATA . '/dotfiles/syntastic_helpers/shellcheck'
-let g:syntastic_haml_checkers = ['haml_lint']
-let g:syntastic_haml_haml_lint_exec = $DATA . '/dotfiles/syntastic_helpers/haml_lint'
-autocmd User Flags call Hoist("window", "SyntasticStatuslineFlag")
+" Configure Neomake
+let g:neomake_open_list = 2
+" let g:neomake_logfile = '/tmp/neomake.log'
+
+" rubocop
+function! RubocopEntryProcess(entry)
+	if a:entry.type ==# 'F'
+		let a:entry.type = 'E'
+	elseif a:entry.type !=# 'W' && a:entry.type !=# 'E'
+		let a:entry.type = 'W'
+	endif
+endfunction
+let g:neomake_ruby_rubocop_maker = {
+  \ 'append_file': 0,
+  \ 'args': ['--format', 'emacs', '%:.'],
+  \ 'errorformat': '%f:%l:%c: %t: %m',
+  \ 'exe': 'rubocop',
+  \ 'mapexpr': "substitute(v:val, '/source/', '', '')",
+  \ 'postprocess': function('RubocopEntryProcess'),
+\ }
+let g:neomake_ruby_enabled_makers = ['rubocop']
+
+" haml
+let g:neomake_haml_haml_lint_maker = {
+  \ 'append_file': 0,
+  \ 'args': ['--no-color', '%:.'],
+  \ 'errorformat': '%f:%l %m',
+  \ 'exe': 'haml_lint',
+  \ 'mapexpr': "substitute(v:val, '/source/', '', '')",
+\ }
+let g:neomake_haml_enabled_makers = ['haml_lint']
+
+" sh
+let g:neomake_sh_shellcheck_maker = {
+  \ 'append_file': 0,
+  \ 'args': ['-fgcc', '%:.'],
+  \ 'errorformat':
+    \ '%f:%l:%c: %trror: %m,' .
+    \ '%f:%l:%c: %tarning: %m,' .
+    \ '%f:%l:%c: %tote: %m',
+  \ 'exe': 'shellcheck',
+  \ 'mapexpr': "substitute(v:val, '/source/', '', '')",
+\ }
+let g:neomake_sh_enabled_makers = ['shellcheck']
 
 " Turn on syntax completion.
 set completefunc=syntaxcomplete#Complete

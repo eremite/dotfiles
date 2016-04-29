@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+docker run --rm -v "$(pwd):/source" -v "$HOME/.config:/config" ruby_2.3_checker haml-lint --config /config/haml_lint.yml "$@"
