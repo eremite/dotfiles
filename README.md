@@ -1,21 +1,6 @@
 ## Installation
 
-Use [rcm](https://github.com/thoughtbot/rcm)
-
-## Notes on using the devbox
-
-### Build the Dockerfile
-
-```bash
-docker build --force-rm -t eremite/devbox .
-```
-
-### Initialize Docker data containers
-
-```bash
-# docker run -v /data --name data busybox true # old way
-docker run -v /data --name=data eremite/devbox sudo chown -R dev:dev /data
-```
+`bin/devbox_install.sh` will boostrap a new Amazon Linux instance.
 
 ### Back up meta from devbox
 
@@ -37,29 +22,4 @@ cd data/meta
 docker run --rm -it -v $(pwd):/tt -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY anigeo/awscli s3 cp s3://daniel-devbox/$filename.gpg /tt/$filename.gpg
 gpg -d $filename.gpg > $filename
 tar -zxf $filename
-```
-
-### Update devbox runner script
-
-```bash
-curl -L https://raw.githubusercontent.com/eremite/dotfiles/master/devbox > devbox
-```
-
-### Run the devbox!
-
-```bash
-docker run -it --rm --name=devbox --volumes-from=data -v /var/run/docker.sock:/var/run/docker.sock eremite/devbox /bin/bash --login
-```
-
-### Set up a devbox on a new Amazon Linux instance
-
-```bash
-sudo yum update
-sudo yum install -y docker
-sudo service docker start
-sudo usermod -aG docker ec2-user
-curl -L https://raw.githubusercontent.com/eremite/dotfiles/master/devbox > devbox
-echo '. ./bashrc_devbox_host' >> .bashrc
-mkdir $HOME/data
-source devbox
 ```
