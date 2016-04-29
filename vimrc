@@ -174,6 +174,7 @@ imap <S-Tab> <C-P>
 ab pa params
 cabbrev EMo Emodel
 cabbrev ECo Econtroller
+cabbrev ECon Econtroller
 cabbrev Cope cope
 
 " Run [a]ll tests
