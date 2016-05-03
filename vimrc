@@ -412,6 +412,7 @@ let g:rails_gem_projections = {
 
 " Configure Neomake
 let g:neomake_open_list = 2
+let g:neomake_place_signs = 0
 " let g:neomake_logfile = '/tmp/neomake.log'
 
 " rubocop
