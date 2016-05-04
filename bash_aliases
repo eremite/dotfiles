@@ -18,7 +18,7 @@ alias rgrep='grep -r'
 alias less='less -R'
 
 # vim
-alias v="$DATA/neovim/bin/nvim"
+alias v="TERM=xterm-256color $DATA/neovim/bin/nvim"
 
 # bash
 alias x='exit'
