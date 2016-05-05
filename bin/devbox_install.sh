@@ -35,7 +35,7 @@ git clone git@github.com:neovim/neovim.git
 cd neovim
 make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX:PATH=$DATA/neovim"
 make install
-vim --version | grep NVIM
+bin/nvim --version | grep NVIM
 [ "$?" -ne 0 ] && echo "ERROR: no neovim" && exit 1
 
 # Docker
