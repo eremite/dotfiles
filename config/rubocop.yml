@@ -7,8 +7,11 @@ AllCops:
 Rails:
   Enabled: true
 
+# Because I like to use braces when I pass in multiline hashes.
 Style/BracesAroundHashParameters:
-  EnforcedStyle: context_dependent
+  Enabled: false
+Style/IndentHash:
+  Enabled: false
 
 Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma

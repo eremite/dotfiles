@@ -369,6 +369,9 @@ let g:rails_projections = {
 \   "app/classes/*.rb": {
 \     "command": "class"
 \   },
+\   "app/forms/*.rb": {
+\     "command": "form"
+\   },
 \   "app/controllers/api/*_controller.rb": {
 \     "alternate": "test/integration/api/%s_test.rb"
 \   },
