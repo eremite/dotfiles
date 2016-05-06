@@ -40,18 +40,19 @@ bin/nvim --version | grep NVIM
 
 # Docker
 
-sudo yum install -y docker
-
-sudo service docker start
+wget https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz
+sudo tar zxf docker-latest.tgz
+sudo mv docker/* /usr/bin/
+rmdir docker
+sudo docker daemon -s overlay &
 sudo usermod -aG docker $(whoami)
-
 echo -n "checking docker..."
 docker --version | grep Docker
 [ "$?" -ne 0 ] && echo "ERROR: no docker" && exit 1
 
 # Docker Compose
 
-VERSION=1.6.2
+VERSION=1.7.1
 curl -L https://github.com/docker/compose/releases/download/$VERSION/docker-compose-`uname -s`-`uname -m` > docker-compose
 chmod +x docker-compose
 sudo mv docker-compose /usr/local/bin/docker-compose
