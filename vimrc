@@ -381,15 +381,6 @@ let g:rails_projections = {
 \   }
 \ }
 let g:rails_gem_projections = {
-\  "active_model_serializers": {
-\    "app/serializers/*_serializer.rb": {
-\       "command": "serializer",
-\       "affinity": "model",
-\       "test": "spec/serializers/%s_spec.rb",
-\       "related": "app/models/%s.rb",
-\       "template": "class %SSerializer < ActiveModel::Serializer\nend"
-\     }
-\   },
 \   "activeadmin": {
 \     "app/admin/*.rb": {
 \       "command": "admin",
