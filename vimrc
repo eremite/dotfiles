@@ -102,6 +102,8 @@ set softtabstop=2
 set shiftwidth=2
 retab
 set expandtab
+set textwidth=100
+set formatoptions-=t
 
 " Colors
 syntax enable
@@ -129,7 +131,7 @@ highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
 " Highlight 81st column to discourage long lines.
-set colorcolumn=81
+set colorcolumn=81,101
 
 " Remember last location in file
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
