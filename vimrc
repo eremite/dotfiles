@@ -406,8 +406,8 @@ let g:rails_gem_projections = {
 \ }
 
 " Configure Neomake
-let g:neomake_open_list = 2
-let g:neomake_place_signs = 0
+" let g:neomake_open_list = 2
+" let g:neomake_place_signs = 0
 " let g:neomake_logfile = '/tmp/neomake.log'
 
 " rubocop
@@ -420,23 +420,41 @@ function! RubocopEntryProcess(entry)
 endfunction
 let g:neomake_ruby_rubocop_maker = {
   \ 'append_file': 0,
-  \ 'args': ['--format', 'emacs', '%:.'],
+  \ 'args': ['run', '--rm', 'web', 'rubocop', '--format', 'emacs', '%:.'],
   \ 'errorformat': '%f:%l:%c: %t: %m',
-  \ 'exe': 'rubocop',
-  \ 'mapexpr': "substitute(v:val, '/source/', '', '')",
+  \ 'exe': 'docker-compose',
+  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
   \ 'postprocess': function('RubocopEntryProcess'),
 \ }
+
 let g:neomake_ruby_enabled_makers = ['rubocop']
+let g:neomake_rubocop_maker = {
+  \ 'args': ['run', '--rm', 'web', 'rubocop', '--format', 'emacs', '--force-exclusion'],
+  \ 'errorformat': '%f:%l:%c: %t: %m',
+  \ 'exe': 'docker-compose',
+  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+  \ 'postprocess': function('RubocopEntryProcess'),
+\ }
 
 " haml
 let g:neomake_haml_haml_lint_maker = {
   \ 'append_file': 0,
-  \ 'args': ['--no-color', '%:.'],
+  \ 'args': ['run', '--rm', 'web', 'haml_lint', '--no-color', '%:.'],
   \ 'errorformat': '%f:%l %m',
-  \ 'exe': 'haml_lint',
-  \ 'mapexpr': "substitute(v:val, '/source/', '', '')",
+  \ 'exe': 'docker-compose',
+  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
 \ }
 let g:neomake_haml_enabled_makers = ['haml_lint']
+
+" slim
+let g:neomake_slim_slim_lint_maker = {
+  \ 'append_file': 0,
+  \ 'args': ['run', '--rm', 'web', 'slim-lint', '--no-color', '%:.'],
+  \ 'errorformat': '%f:%l %m',
+  \ 'exe': 'docker-compose',
+  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+\ }
+let g:neomake_slim_enabled_makers = ['slim_lint']
 
 " sh
 let g:neomake_sh_shellcheck_maker = {
