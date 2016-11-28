@@ -52,7 +52,7 @@ docker --version | grep Docker
 
 # Docker Compose
 
-VERSION=1.7.1
+VERSION=1.8.0
 curl -L https://github.com/docker/compose/releases/download/$VERSION/docker-compose-`uname -s`-`uname -m` > docker-compose
 chmod +x docker-compose
 sudo mv docker-compose /usr/local/bin/docker-compose
