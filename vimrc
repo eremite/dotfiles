@@ -193,8 +193,12 @@ nnoremap <silent> <Leader>b :call fzf#run({
 " Toggle Quickfix list
 nnoremap <silent> <leader>c :call ToggleQuickfixList()<CR>
 " Open file in current [d]irectory
-" http://vimcasts.org/episodes/the-edit-command
-map <leader>d :e %:.:h/
+nnoremap <silent> <Leader>d :call fzf#run({
+\   'dir': expand("%:p:h"),
+\   'options': '+m',
+\   'sink': 'edit',
+\   'source': 'find . -maxdepth 1 -type f -printf "%f\n"'
+\ })<CR>
 " [E]dit
 noremap <Leader>e :e<Space>
 " [E]dit!
