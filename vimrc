@@ -479,5 +479,16 @@ let g:neomake_sh_shellcheck_maker = {
 \ }
 let g:neomake_sh_enabled_makers = ['shellcheck']
 
+" javascript
+let g:neomake_javascript_eslint_maker = {
+  \ 'append_file': 0,
+  \ 'args': ['run', '--rm', 'web', 'node', 'node_modules/eslint/bin/eslint.js', '-f', 'compact', '%:.'],
+  \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
+    \ '%W%f: line %l\, col %c\, Warning - %m',
+  \ 'exe': 'docker-compose',
+  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+\ }
+let g:neomake_javascript_enabled_makers = ['eslint']
+
 " Turn on syntax completion.
 set completefunc=syntaxcomplete#Complete
