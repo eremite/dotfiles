@@ -255,6 +255,9 @@ let g:surround_118 = "\"#{\r}\""
 " https://github.com/vim-ruby/vim-ruby
 let g:ruby_hanging_indent = 0
 
+" Configure switch
+autocmd FileType ruby let b:switch_custom_definitions = [['assert', 'refute']]
+
 " Configure splitjoin.vim
 let g:splitjoin_ruby_trailing_comma = 1
 let g:splitjoin_ruby_hanging_args = 0
