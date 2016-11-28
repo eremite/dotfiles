@@ -18,6 +18,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'matchit.zip'
+Plug 'milkypostman/vim-togglelist'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sheerun/vim-polyglot'
 Plug 'sjl/gundo.vim'
@@ -189,7 +190,8 @@ nnoremap <silent> <Leader>b :call fzf#run({
 \   'options': '+m',
 \   'up': len(<sid>buflist()) + 2
 \ })<CR>
-nnoremap <leader>c :Neomake<CR>
+" Toggle Quickfix list
+nnoremap <silent> <leader>c :call ToggleQuickfixList()<CR>
 " Open file in current [d]irectory
 " http://vimcasts.org/episodes/the-edit-command
 map <leader>d :e %:.:h/
@@ -208,6 +210,8 @@ nnoremap <Leader>i 2f'xF'xi:<ESC>
 nnoremap <Leader>I 2f"xF"xi:<ESC>
 " Convert a three line tag or block to one line. (an overpowered [J])
 noremap <Leader>j maJxJx`a
+" Toggle Location list
+nnoremap <silent> <leader>l :call ToggleLocationList()<CR>
 " [M]ulti-line an array or hash
 noremap <Leader>m ma:s/, \?/,<c-v><CR>/g<CR>j=`a
 " Edit [N]otes file
@@ -257,6 +261,9 @@ let g:ruby_hanging_indent = 0
 
 " Configure switch
 autocmd FileType ruby let b:switch_custom_definitions = [['assert', 'refute']]
+
+" Configure togglelist
+let g:toggle_list_no_mappings = 1
 
 " Configure splitjoin.vim
 let g:splitjoin_ruby_trailing_comma = 1
