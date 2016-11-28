@@ -44,7 +44,10 @@ wget https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz
 sudo tar zxf docker-latest.tgz
 sudo mv docker/* /usr/bin/
 rmdir docker
-sudo docker daemon -s overlay &
+echo "Requires manual install:"
+echo "sudo vim /etc/sysconfig/docker # add '--storage-driver overlay2' to OPTIONS"
+exit 1
+sudo service docker start
 sudo usermod -aG docker $(whoami)
 echo -n "checking docker..."
 docker --version | grep Docker
