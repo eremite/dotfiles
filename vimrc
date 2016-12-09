@@ -17,6 +17,7 @@ Plug 'benekastah/neomake'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'machakann/vim-highlightedyank'
 Plug 'matchit.zip'
 Plug 'milkypostman/vim-togglelist'
 Plug 'ntpeters/vim-better-whitespace'
