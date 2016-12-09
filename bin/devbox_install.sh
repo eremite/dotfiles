@@ -33,7 +33,8 @@ sudo yum -y install libtool autoconf automake cmake gcc gcc-c++ make pkgconfig u
 cd $DATA
 git clone git@github.com:neovim/neovim.git
 cd neovim
-make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX:PATH=$DATA/neovim"
+git checkout v0.1.7
+make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$DATA/neovim"
 make install
 bin/nvim --version | grep NVIM
 [ "$?" -ne 0 ] && echo "ERROR: no neovim" && exit 1
