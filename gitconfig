@@ -41,6 +41,7 @@
 	s = status --short
 	sh = show
 	uncommit = reset --soft HEAD^
+	unmerge = reset --hard origin/master
 	z = stash
 	zp = stash pop
 [init]
