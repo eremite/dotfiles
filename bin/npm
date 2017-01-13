@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+commands="cd /usr/src/app; npm $@"
+docker run --rm -v "$(pwd):/usr/src/app" -it node:4.6.2-alpine sh -c "$commands"
+EXIT_STATUS=$?
+user=$(whoami)
+find . \! -user $user -print0 | xargs -0 -I % sh -c "sudo chmod g+w \"%\"; sudo chown $user:$user \"%\""
+exit $EXIT_STATUS
