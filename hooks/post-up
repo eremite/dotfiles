@@ -11,7 +11,10 @@ if ! grep -qe ".profile_personal" "$HOME/.bash_profile"; then
 fi
 
 echo "Removing secure credentials"
-rm "$DATA/dotfiles/netrc" "$DATA/dotfiles/dockercfg" "$DATA/dotfiles/ssh/id_rsa"*
+rm "$DATA/dotfiles/netrc"
+rm "$DATA/dotfiles/dockercfg"
+rm "$DATA/dotfiles/ssh/id_rsa"*
+rm -r "$DATA/dotfiles/aws"
 
 echo "Linking hub credentials"
 ln -sf "$DATA/meta/secure/hub" "$HOME/.config/hub"
