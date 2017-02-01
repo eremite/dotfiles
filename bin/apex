@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+docker run --rm -it -v "$(pwd):/app" -v ~/.aws:/root/.aws apex apex "$@"
+user=$(whoami)
+find . \! -user $user -print0 | xargs -0 -I % sh -c "sudo chmod g+w \"%\"; sudo chown $user:$user \"%\""
