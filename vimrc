@@ -224,7 +224,7 @@ noremap <Leader>n :e notes.md<CR>
 " [O]rganize alphabetically (sort)
 noremap <Leader>o :sort<CR>
 " [Q]uit
-noremap <Leader>q :quit<CR>
+noremap <Leader>q :quitall!<CR>
 " [R]emove smart quotes (and friends).
 " noremap <Leader>R ma:%s/[“”]/"/eg<CR>:%s/’/'/eg<CR>`a
 " Run [r]ake on this line
