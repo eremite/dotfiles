@@ -21,7 +21,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'machakann/vim-highlightedyank'
 Plug 'milkypostman/vim-togglelist'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'sheerun/vim-polyglot'
 Plug 'sjl/gundo.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
@@ -49,7 +48,6 @@ Plug 'glts/vim-textobj-comment'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
-
 
 call plug#end()
 
@@ -250,7 +248,7 @@ autocmd FileType php,html let b:surround_61 = "<?= \r ?>"
 " # - #{}
 autocmd FileType ruby,eruby,haml let g:surround_35 = "#{\r}"
 " c - code block
-autocmd FileType markdown let b:surround_99 = "```ruby\n\r\n```"
+autocmd FileType markdown let b:surround_99 = "```\n\r\n```"
 " d - debug
 autocmd FileType ruby let b:surround_100 = "logger.debug(\"### #{\r}\") #TODO: remove debug code"
 autocmd FileType javascript let g:surround_100 = "console.log(\r); // TODO Remove debug code"
@@ -274,8 +272,9 @@ let g:toggle_list_no_mappings = 1
 let g:splitjoin_ruby_trailing_comma = 1
 let g:splitjoin_ruby_hanging_args = 0
 
-" Configure vim-markdown
-let g:markdown_fenced_languages = ['sh', 'ruby', 'javascript', 'sql']
+" Configure markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+let g:markdown_fenced_languages = ['ruby', 'sh', 'bash=sh', 'javascript', 'sql']
 
 " Configure fzf
 " https://github.com/junegunn/fzf/wiki/Examples-(vim)
