@@ -62,6 +62,11 @@ endif
 set undofile
 set undodir=$HOME/.vim/tmp/undo
 
+" Live substitution
+if exists('&inccommand')
+  set inccommand=nosplit
+endif
+
 " Turn off mouse
 set mouse=
 
