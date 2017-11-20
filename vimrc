@@ -237,7 +237,9 @@ nnoremap <leader>r :.Rake<CR>
 " Run [R]ake on this file
 nnoremap <leader>R :Rake<CR>
 " [S]ave
-noremap <Leader>s :write<CR>
+nnoremap <Leader>s :write<CR>
+" Insert [s]aved register 0
+inoremap <C-S> <C-R>0
 " Open [t]ag
 noremap <Leader>t :BTags<CR>
 " E[x]it current Buffer
