@@ -280,6 +280,8 @@ let g:toggle_list_no_mappings = 1
 " Configure splitjoin.vim
 let g:splitjoin_ruby_trailing_comma = 1
 let g:splitjoin_ruby_hanging_args = 0
+nnoremap sj :SplitjoinSplit<CR>
+nnoremap sk :SplitjoinJoin<CR>
 
 " Configure miniyank
 if has('nvim')
