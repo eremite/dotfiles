@@ -290,6 +290,9 @@ if has('nvim')
   map <leader>p <Plug>(miniyank-cycle)
 end
 
+" Configure dispatch
+let g:dispatch_quickfix_height=20
+
 " Configure markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 let g:markdown_fenced_languages = ['ruby', 'sh', 'bash=sh', 'javascript', 'sql']
