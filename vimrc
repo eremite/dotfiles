@@ -14,10 +14,10 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'altercation/vim-colors-solarized'
 Plug 'benjifisher/matchit.zip'
+Plug 'bfredl/nvim-miniyank'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'machakann/vim-highlightedyank'
 Plug 'milkypostman/vim-togglelist'
 Plug 'neomake/neomake'
 Plug 'ntpeters/vim-better-whitespace'
@@ -277,6 +277,13 @@ let g:toggle_list_no_mappings = 1
 " Configure splitjoin.vim
 let g:splitjoin_ruby_trailing_comma = 1
 let g:splitjoin_ruby_hanging_args = 0
+
+" Configure miniyank
+if has('nvim')
+  map p <Plug>(miniyank-autoput)
+  map P <Plug>(miniyank-autoPut)
+  map <leader>p <Plug>(miniyank-cycle)
+end
 
 " Configure markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
