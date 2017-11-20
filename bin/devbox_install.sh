@@ -56,11 +56,10 @@ docker --version | grep Docker
 
 # Docker Compose
 
-VERSION=1.8.0
+VERSION=1.11.1
 curl -L https://github.com/docker/compose/releases/download/$VERSION/docker-compose-`uname -s`-`uname -m` > docker-compose
 chmod +x docker-compose
 sudo mv docker-compose /usr/local/bin/docker-compose
-
 docker-compose --version | grep $VERSION
 [ "$?" -ne 0 ] && echo "ERROR: no docker-compose" && exit 1
 
@@ -73,7 +72,7 @@ tmux -V | grep tmux
 
 # Github hub
 
-VERSION=2.2.3
+VERSION=2.2.9
 wget https://github.com/github/hub/releases/download/v$VERSION/hub-linux-amd64-$VERSION.tgz
 tar -zxf hub-linux-amd64-$VERSION.tgz
 sudo cp hub-linux-amd64-$VERSION/bin/hub /usr/local/bin
@@ -93,7 +92,6 @@ git lfs version | grep lfs
 # Heroku Toolbelt
 
 wget -qO- https://toolbelt.heroku.com/install.sh | sh
-
 /usr/local/heroku/bin/heroku --version | grep heroku
 [ "$?" -ne 0 ] && echo "ERROR: no heroku" && exit 1
 
