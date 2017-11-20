@@ -11,9 +11,8 @@ gpg -c "$filename"
 aws s3 cp "${filename}.gpg" "s3://$s3_bucket/"
 
 # Restore
-cd
-mkdir "meta"
-cd "meta"
+mkdir -p "~/data/meta"
+cd "~/data/meta"
 sudo chown -R dev:dev .
 aws s3 cp "s3://$s3_bucket/${filename}.gpg" .
 gpg -d "${filename}.gpg" > "$filename"
