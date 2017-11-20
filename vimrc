@@ -409,14 +409,18 @@ let g:rails_projections = {
 \   "app/forms/*.rb": {
 \     "command": "form"
 \   },
+\   "app/assets/javascripts/components/*": {
+\     "command": "component",
+\   },
 \   "app/controllers/api/*_controller.rb": {
-\     "alternate": "test/integration/api/%s_test.rb"
+\     "alternate": "test/integration/api/{}_test.rb"
 \   },
 \   "test/integration/api/*_test.rb": {
-\     "related": "app/controllers/api/%s_controller.rb"
+\     "related": "app/controllers/api/{}_controller.rb"
 \   },
-\   "app/mailers/notifier.rb": {
-\     "command": "mailer"
+\   "test/mailers/previews/*_preview.rb": {
+\     "command": "mpreview",
+\     "related": "app/mailers/{}.rb"
 \   }
 \ }
 let g:rails_gem_projections = {
