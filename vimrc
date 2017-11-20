@@ -13,13 +13,13 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'altercation/vim-colors-solarized'
-Plug 'benekastah/neomake'
 Plug 'benjifisher/matchit.zip'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'machakann/vim-highlightedyank'
 Plug 'milkypostman/vim-togglelist'
+Plug 'neomake/neomake'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sjl/gundo.vim'
 Plug 'tommcdo/vim-exchange'
@@ -97,7 +97,8 @@ autocmd FileType php set list
 autocmd BufReadPost fugitive://* set bufhidden=delete
 " When opening a commit message, go to the first line.
 autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
-
+" Check syntax on file save
+autocmd BufWritePost *.rb,*.slim,*.jsx,*.html.haml Neomake
 
 " Tabs and indentation
 " Default to 2 spaces (ruby FTW)
@@ -425,9 +426,9 @@ let g:rails_gem_projections = {
 \ }
 
 " Configure Neomake
-" let g:neomake_open_list = 2
+" let g:neomake_open_list = 3
 " let g:neomake_place_signs = 0
-" let g:neomake_logfile = '/tmp/neomake.log'
+let g:neomake_logfile = '/tmp/neomake.log'
 
 " rubocop
 function! RubocopEntryProcess(entry)
@@ -439,13 +440,12 @@ function! RubocopEntryProcess(entry)
 endfunction
 let g:neomake_ruby_rubocop_maker = {
   \ 'append_file': 0,
-  \ 'args': ['run', '--rm', 'web', 'rubocop', '--format', 'emacs', '%:.'],
+  \ 'args': ['run', '--rm', 'web', 'rubocop', '--format', 'emacs', '%'],
   \ 'errorformat': '%f:%l:%c: %t: %m',
   \ 'exe': 'docker-compose',
   \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
   \ 'postprocess': function('RubocopEntryProcess'),
 \ }
-
 let g:neomake_ruby_enabled_makers = ['rubocop']
 let g:neomake_rubocop_maker = {
   \ 'args': ['run', '--rm', 'web', 'rubocop', '--format', 'emacs', '--force-exclusion'],
@@ -458,7 +458,7 @@ let g:neomake_rubocop_maker = {
 " haml
 let g:neomake_haml_haml_lint_maker = {
   \ 'append_file': 0,
-  \ 'args': ['run', '--rm', 'web', 'haml_lint', '--no-color', '%:.'],
+  \ 'args': ['run', '--rm', 'web', 'haml_lint', '--no-color', '%'],
   \ 'errorformat': '%f:%l %m',
   \ 'exe': 'docker-compose',
   \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
@@ -468,12 +468,18 @@ let g:neomake_haml_enabled_makers = ['haml_lint']
 " slim
 let g:neomake_slim_slim_lint_maker = {
   \ 'append_file': 0,
-  \ 'args': ['run', '--rm', 'web', 'slim-lint', '--no-color', '%:.'],
+  \ 'args': ['run', '--rm', 'web', 'slim-lint', '--no-color', '%'],
   \ 'errorformat': '%f:%l %m',
   \ 'exe': 'docker-compose',
   \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
 \ }
 let g:neomake_slim_enabled_makers = ['slim_lint']
+let g:neomake_slim_lint_maker = {
+  \ 'args': ['run', '--rm', 'web', 'slim-lint', '--no-color', 'app/views'],
+  \ 'errorformat': '%f:%l %m',
+  \ 'exe': 'docker-compose',
+  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+\ }
 
 " sh
 let g:neomake_sh_shellcheck_maker = {
@@ -489,15 +495,13 @@ let g:neomake_sh_shellcheck_maker = {
 let g:neomake_sh_enabled_makers = ['shellcheck']
 
 " javascript
-let g:neomake_javascript_eslint_maker = {
+let g:neomake_javascript_standard_maker = {
   \ 'append_file': 0,
-  \ 'args': ['run', '--rm', 'web', 'node', 'node_modules/eslint/bin/eslint.js', '-f', 'compact', '%:.'],
-  \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
-    \ '%W%f: line %l\, col %c\, Warning - %m',
-  \ 'exe': 'docker-compose',
+  \ 'args': ['%'],
+  \ 'exe': './bin/standard',
   \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
 \ }
-let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_javascript_enabled_makers = ['standard']
 
 " Turn on syntax completion.
 set completefunc=syntaxcomplete#Complete
