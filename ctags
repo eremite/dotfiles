@@ -4,5 +4,5 @@
 --langmap=ruby:+.rake
 --languages=-sql
 
---regex-ruby=/^[ ]*test[ ('"]*([A-Za-z0-9_]+)[ )'"]*do/\1/f,function/
---regex-ruby=/^[ ]*task[ '":]*([A-Za-z0-9_]+)/\1/f,function/
+--regex-ruby=/^[ ]*test[ ('"]*([A-Za-z0-9_ ]+)[ )'"]*do$/\1/f,function/
+--regex-ruby=/^[ ]*task ([A-Za-z0-9_ ]+):.* do$/\1/f,function/
