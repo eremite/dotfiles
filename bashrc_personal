@@ -52,5 +52,8 @@ file=$HOME/.bash_aliases && test -f $file && source $file
 # https://github.com/junegunn/fzf
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 
+# Set github.token
+git config --global github.token "$(cat $META/secure/github.token)"
+
 # Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
