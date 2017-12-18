@@ -40,11 +40,11 @@ bin/nvim --version | grep NVIM
 [ "$?" -ne 0 ] && echo "ERROR: no neovim" && exit 1
 
 # Docker
-
+cd $DATA
 wget https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz
 sudo tar zxf docker-latest.tgz
-sudo mv docker/* /usr/bin/
-rmdir docker
+# sudo mv docker/* /usr/bin/
+# rmdir docker
 echo "Requires manual install:"
 echo "sudo vim /etc/sysconfig/docker # add '--storage-driver overlay2' to OPTIONS"
 exit 1
