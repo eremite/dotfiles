@@ -396,22 +396,9 @@ let g:rails_projections = {
 \   }
 \ }
 let g:rails_gem_projections = {
-\   "activeadmin": {
-\     "app/admin/*.rb": {
-\       "command": "admin",
-\       "affinity": "model",
-\       "alternate": "app/models/%s.rb"
-\     }
-\   },
 \   "carrierwave": {
 \     "app/uploaders/*_uploader.rb": {
 \       "command": "uploader"
-\     }
-\   },
-\   "pundit": {
-\     "app/policies/*_policy.rb": {
-\       "command": "policy",
-\       "affinity": "model"
 \     }
 \   }
 \ }
