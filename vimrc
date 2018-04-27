@@ -99,7 +99,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " When opening a commit message, go to the first line.
 autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " Check syntax on file save
-autocmd BufWritePost *.rb,*.slim,*.jsx,*.html.haml Neomake
+autocmd BufWritePost *.rb,*.slim,*.js,*.html.haml Neomake
 
 " Tabs and indentation
 " Default to 2 spaces (ruby FTW)
