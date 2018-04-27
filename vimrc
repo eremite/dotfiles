@@ -360,11 +360,6 @@ cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
 
 " Configure projections
 let g:projectionist_heuristics = {
-\   "js/components/": {
-\     "js/components/*.js": { "type": "component" },
-\     "js/stores/*.js": { "type": "store" },
-\     "js/utils/*.js": { "type": "utils" }
-\   },
 \   "app/assets/javascripts/models/": {
 \     "app/assets/javascripts/models/*": { "type": "jmodel" }
 \   },
@@ -409,7 +404,10 @@ let g:rails_projections = {
 \   "app/forms/*.rb": {
 \     "command": "form"
 \   },
-\   "app/assets/javascripts/components/*": {
+\   "app/reports/*.rb": {
+\     "command": "report"
+\   },
+\   "app/webpack/components/*": {
 \     "command": "component",
 \   },
 \   "app/controllers/api/*_controller.rb": {
