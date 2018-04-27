@@ -6,4 +6,8 @@ tmux new-session \; \
   send-keys 'cd ess' C-m \; \
   new-window \; \
   send-keys 'cd ess' C-m \; \
+  new-window \; \
+  send-keys 'cd ess' C-m \; \
+  new-window \; \
+  send-keys 'cd ess' C-m \; \
   select-window -t 0
