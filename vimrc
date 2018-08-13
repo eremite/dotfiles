@@ -16,6 +16,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'benjifisher/matchit.zip'
 Plug 'bfredl/nvim-miniyank'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'janko-m/vim-test'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'milkypostman/vim-togglelist'
@@ -189,8 +190,10 @@ cabbrev ECo Econtroller
 cabbrev ECon Econtroller
 cabbrev Cope cope
 
+" Run the last test
+nnoremap <leader>a :TestLast<CR>
 " Run [a]ll tests
-nnoremap <leader>a :Rake test<CR>
+nnoremap <leader>A :TestSuite<CR>
 nnoremap <silent> <Leader>b :call fzf#run({
 \   'source': reverse(<sid>buflist()),
 \   'sink': function('<sid>bufopen'),
@@ -231,18 +234,18 @@ noremap <Leader>n :e notes.md<CR>
 noremap <Leader>o :sort<CR>
 " [Q]uit
 noremap <Leader>q :quitall!<CR>
-" [R]emove smart quotes (and friends).
-" noremap <Leader>R ma:%s/[“”]/"/eg<CR>:%s/’/'/eg<CR>`a
-" Run [r]ake on this line
-nnoremap <leader>r :.Rake<CR>
-" Run [R]ake on this file
-nnoremap <leader>R :Rake<CR>
+" run the nearest test
+nnoremap <leader>r :TestNearest<CR>
+" Run the tests on this file
+nnoremap <leader>R :TestFile<CR>
 " [S]ave
 nnoremap <Leader>s :write<CR>
 " Insert [s]aved register 0
 inoremap <C-S> <C-R>0
 " Open [t]ag
 noremap <Leader>t :BTags<CR>
+" Vest the last run test
+noremap <Leader>v :TestVisit<CR>
 " E[x]it current Buffer
 noremap <Leader>x :bd<CR>
 " f[z]f Fuzzy Finder
@@ -481,6 +484,11 @@ let g:neomake_javascript_standard_maker = {
   \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
 \ }
 let g:neomake_javascript_enabled_makers = ['standard']
+
+" Configure test-vim
+let test#ruby#rails#executable = 'docker-compose exec -T web rails test'
+let test#strategy = 'neomake'
+let test#enabled_runners = ["ruby#rails"]
 
 " Turn on syntax completion.
 set completefunc=syntaxcomplete#Complete
