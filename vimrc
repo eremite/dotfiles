@@ -42,6 +42,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
+Plug 'wsdjeg/vim-fetch'
 
 " Text objects
 Plug 'Julian/vim-textobj-variable-segment'
