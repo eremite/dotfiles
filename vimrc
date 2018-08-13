@@ -463,6 +463,15 @@ let g:neomake_slim_lint_maker = {
   \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
 \ }
 
+" javascript
+let g:neomake_javascript_yarn_maker = {
+  \ 'args': ['exec', 'web', 'yarn', 'test', '--format', 'unix'],
+  \ 'errorformat': '%f:%l:%c: %m',
+  \ 'exe': 'docker-compose',
+  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+\ }
+let g:neomake_javascript_enabled_makers = ['yarn']
+
 " sh
 let g:neomake_sh_shellcheck_maker = {
   \ 'append_file': 0,
@@ -475,15 +484,6 @@ let g:neomake_sh_shellcheck_maker = {
   \ 'mapexpr': "substitute(v:val, '/source/', '', '')",
 \ }
 let g:neomake_sh_enabled_makers = ['shellcheck']
-
-" javascript
-let g:neomake_javascript_standard_maker = {
-  \ 'append_file': 0,
-  \ 'args': ['%'],
-  \ 'exe': './bin/standard',
-  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
-\ }
-let g:neomake_javascript_enabled_makers = ['standard']
 
 " Configure test-vim
 let test#ruby#rails#executable = 'docker-compose exec -T web rails test'
