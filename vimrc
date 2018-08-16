@@ -188,12 +188,11 @@ ab pa params
 cabbrev EMo Emodel
 cabbrev ECo Econtroller
 cabbrev ECon Econtroller
-cabbrev Cope cope
 
 " Run the last test
-nnoremap <leader>a :TestLast<CR>
+nnoremap <leader>a :TestLast<CR>:cexpr []<CR>:copen<CR>:wincmd k<CR>
 " Run [a]ll tests
-nnoremap <leader>A :TestSuite<CR>
+nnoremap <leader>A :TestSuite<CR>:cexpr []<CR>:copen<CR>:wincmd k<CR>
 nnoremap <silent> <Leader>b :call fzf#run({
 \   'source': reverse(<sid>buflist()),
 \   'sink': function('<sid>bufopen'),
@@ -235,9 +234,9 @@ noremap <Leader>o :sort<CR>
 " [Q]uit
 noremap <Leader>q :quitall!<CR>
 " run the nearest test
-nnoremap <leader>r :TestNearest<CR>
+nnoremap <leader>r :TestNearest<CR>:cexpr []<CR>:copen<CR>:wincmd k<CR>
 " Run the tests on this file
-nnoremap <leader>R :TestFile<CR>
+nnoremap <leader>R :TestFile<CR>:cexpr []<CR>:copen<CR>:wincmd k<CR>
 " [S]ave
 nnoremap <Leader>s :write<CR>
 " Insert [s]aved register 0
