@@ -101,7 +101,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " When opening a commit message, go to the first line.
 autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " Check syntax on file save
-autocmd BufWritePost *.rb,*.slim,*.js,*.html.haml Neomake
+autocmd BufWritePost *.rb,*.slim,*.js,*.scss,*.html.haml Neomake
 
 " Tabs and indentation
 " Default to 2 spaces (ruby FTW)
@@ -470,6 +470,16 @@ let g:neomake_javascript_yarn_maker = {
   \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
 \ }
 let g:neomake_javascript_enabled_makers = ['yarn']
+
+" scss
+let g:neomake_scss_stylelint_maker = {
+  \ 'args': ['exec', '-T', 'web', '/usr/src/app/node_modules/.bin/stylelint', '%', '--formatter', 'unix'],
+  \ 'errorformat': '%f:%l:%c: %m',
+  \ 'exe': 'docker-compose',
+  \ 'append_file': 0,
+  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+\ }
+let g:neomake_scss_enabled_makers = ['stylelint']
 
 " sh
 let g:neomake_sh_shellcheck_maker = {
