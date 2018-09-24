@@ -498,6 +498,7 @@ let g:neomake_sh_enabled_makers = ['shellcheck']
 let test#ruby#rails#executable = 'docker-compose exec -T web rails test'
 let test#strategy = 'neomake'
 let test#enabled_runners = ["ruby#rails"]
+let test#preserve_screen = 0
 
 " Turn on syntax completion.
 set completefunc=syntaxcomplete#Complete
