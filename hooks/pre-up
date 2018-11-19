@@ -1,9 +1,1 @@
 #!/usr/bin/env bash
-
-if [ -d "$DATA/meta/secure" ]; then
-  echo "Copying over secure credentials from meta"
-  cp "$DATA/meta/secure/netrc" "$DATA/dotfiles"
-  cp "$DATA/meta/secure/dockercfg" "$DATA/dotfiles"
-  cp "$DATA/meta/secure/id_rsa"* "$DATA/dotfiles/ssh"
-  cp -r "$DATA/meta/secure/aws" "$DATA/dotfiles/aws"
-fi

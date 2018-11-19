@@ -1,4 +1,4 @@
-export DATA="$HOME/data"
+export DATA="$HOME"
 export META="$DATA/meta"
 
 HISTSIZE=100000
@@ -51,9 +51,6 @@ file=$HOME/.bash_aliases && test -f $file && source $file
 
 # https://github.com/junegunn/fzf
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
-
-# Set github.token
-git config --global github.token "$(cat $META/secure/github.token)"
 
 # Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
