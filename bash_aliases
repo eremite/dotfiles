@@ -1,5 +1,19 @@
+# Set language env variables.
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US:en
+export LC_MESSAGES=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LC_COLLATE=en_US.UTF-8
+export TZ='America/Denver'
+
+# https://github.com/junegunn/fzf
+export FZF_DEFAULT_OPTS="--reverse --inline-info"
+
 export DATA="$HOME"
-export META="$DATA/meta"
+
+# Add ./bin to PATH
+PATH="$PATH:./bin"
 
 HISTSIZE=100000
 HISTFILESIZE=20000
@@ -15,16 +29,6 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM="verbose"
 PROMPT_COMMAND='__git_ps1 "\w" "\\\$ "'
-
-# Shortcut for getting to meta
-meta() {
-  current_directory=`basename $(pwd)`
-  if [ -d "$META/$current_directory" ]; then
-    cd "$META/$current_directory"
-  else
-    cd $META
-  fi
-}
 
 # Start ssh-agent http://mah.everybody.org/docs/ssh#run-ssh-agent
 SSH_ENV="$HOME/.ssh/environment"
@@ -45,12 +49,35 @@ else
    start_agent;
 fi
 
-# Bash Aliases
+# ls
+alias ls='ls --color=auto -GFh'
+alias ll='ls -al'
+alias la='ls -A'
+alias l='ls -1'
 
-file=$HOME/.bash_aliases && test -f $file && source $file
+# cd
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
-# https://github.com/junegunn/fzf
-export FZF_DEFAULT_OPTS="--reverse --inline-info"
+# grep
+alias grep='grep --color=auto'
+alias rgrep='grep -r'
 
-# Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# less
+alias less='less -R'
+
+# vim
+alias v="TERM=xterm-256color nvim"
+
+# bash
+alias x='exit'
+
+# rails
+alias a="docker-compose exec web"
+alias r="docker-compose exec web rails"
+alias z="docker-compose exec web bash -c 'rails test && rubocop && yarn test stylelint'"
+
+# git
+alias g='git'

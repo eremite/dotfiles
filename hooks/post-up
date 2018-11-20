@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 
-echo "Installing bashrc and profiles in /etc/profile.d"
-sudo cp $HOME/dotfiles/profile.d/*.sh /etc/profile.d/
-sudo chown root:root /etc/profile.d/*.sh
-
-echo "Linking hub credentials"
-ln -sf "$DATA/meta/secure/hub" "$HOME/.config/hub"
-
 echo "Linking nvim config"
 XDG_CONFIG_HOME="$HOME/.config"
 ln -sf "$HOME/.vim" "$XDG_CONFIG_HOME/nvim"
