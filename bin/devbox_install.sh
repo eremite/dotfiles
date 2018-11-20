@@ -14,6 +14,7 @@ sudo apt-get install -y \
   curl \
   git \
   gnupg2 \
+  libterm-readkey-perl \
   neovim \
   software-properties-common \
   tmux \
