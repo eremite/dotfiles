@@ -421,7 +421,7 @@ function! RubocopEntryProcess(entry)
 endfunction
 let g:neomake_ruby_rubocop_maker = {
   \ 'append_file': 0,
-  \ 'args': ['exec', 'web', 'rubocop', '--format', 'emacs', '%'],
+  \ 'args': ['exec', '-T', 'web', 'rubocop', '--format', 'emacs', '%'],
   \ 'errorformat': '%f:%l:%c: %t: %m',
   \ 'exe': 'docker-compose',
   \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
@@ -429,7 +429,7 @@ let g:neomake_ruby_rubocop_maker = {
 \ }
 let g:neomake_ruby_enabled_makers = ['rubocop']
 let g:neomake_rubocop_maker = {
-  \ 'args': ['exec', 'web', 'rubocop', '--format', 'emacs', '--force-exclusion'],
+  \ 'args': ['exec', '-T', 'web', 'rubocop', '--format', 'emacs', '--force-exclusion'],
   \ 'errorformat': '%f:%l:%c: %t: %m',
   \ 'exe': 'docker-compose',
   \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
@@ -439,7 +439,7 @@ let g:neomake_rubocop_maker = {
 " haml
 let g:neomake_haml_haml_lint_maker = {
   \ 'append_file': 0,
-  \ 'args': ['exec', 'web', 'haml_lint', '--no-color', '%'],
+  \ 'args': ['exec', '-T', 'web', 'haml_lint', '--no-color', '%'],
   \ 'errorformat': '%f:%l %m',
   \ 'exe': 'docker-compose',
   \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
@@ -449,14 +449,14 @@ let g:neomake_haml_enabled_makers = ['haml_lint']
 " slim
 let g:neomake_slim_slim_lint_maker = {
   \ 'append_file': 0,
-  \ 'args': ['exec', 'web', 'slim-lint', '--no-color', '%'],
+  \ 'args': ['exec', '-T', 'web', 'slim-lint', '--no-color', '%'],
   \ 'errorformat': '%f:%l %m',
   \ 'exe': 'docker-compose',
   \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
 \ }
 let g:neomake_slim_enabled_makers = ['slim_lint']
 let g:neomake_slim_lint_maker = {
-  \ 'args': ['exec', 'web', 'slim-lint', '--no-color', 'app/views'],
+  \ 'args': ['exec', '-T', 'web', 'slim-lint', '--no-color', 'app/views'],
   \ 'errorformat': '%f:%l %m',
   \ 'exe': 'docker-compose',
   \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
@@ -464,7 +464,7 @@ let g:neomake_slim_lint_maker = {
 
 " javascript
 let g:neomake_javascript_yarn_maker = {
-  \ 'args': ['exec', 'web', 'yarn', 'test', '--format', 'unix'],
+  \ 'args': ['exec', '-T', 'web', 'yarn', 'test', '--format', 'unix'],
   \ 'errorformat': '%f:%l:%c: %m',
   \ 'exe': 'docker-compose',
   \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
