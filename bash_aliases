@@ -62,22 +62,20 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 # grep
+alias g='git'
 alias grep='grep --color=auto'
-alias rgrep='grep -r'
-
-# less
 alias less='less -R'
-
-# vim
+alias rgrep='grep -r'
 alias v="TERM=xterm-256color nvim"
-
-# bash
 alias x='exit'
 
-# rails
-alias a="docker-compose exec web"
+# docker rails app
+alias d='docker ps --all --quiet --no-trunc | xargs --no-run-if-empty docker rm -fv'
+alias dc="docker-compose"
+alias log='tail -f log/development.log'
+lias logg='tail -f log/development.log | grep "##"'
 alias r="docker-compose exec web rails"
-alias z="docker-compose exec web bash -c 'rails test && rubocop && yarn test stylelint'"
-
-# git
-alias g='git'
+alias rails="docker-compose exec web rails"
+alias run="docker-compose exec web"
+alias t="docker-compose exec web bash -c 'rails test && rubocop && yarn test stylelint'"
+alias up="docker-compose up"
