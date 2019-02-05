@@ -46,7 +46,7 @@ if [ -f "${SSH_ENV}" ]; then
     start_agent;
   }
 else
-   start_agent;
+  start_agent;
 fi
 
 # ls
@@ -73,9 +73,9 @@ alias x='exit'
 alias d='docker ps --all --quiet --no-trunc | xargs --no-run-if-empty docker rm -fv'
 alias dc="docker-compose"
 alias log='tail -f log/development.log'
-lias logg='tail -f log/development.log | grep "##"'
+alias logg='tail -f log/development.log | grep "##"'
 alias r="docker-compose exec web rails"
 alias rails="docker-compose exec web rails"
 alias run="docker-compose exec web"
-alias t="docker-compose exec web bash -c 'rails test && rubocop && yarn test stylelint'"
+alias t="docker-compose exec web bash -c 'rails test && rubocop && yarn test && yarn stylelint'"
 alias up="docker-compose up"
