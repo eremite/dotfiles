@@ -10,8 +10,6 @@ export TZ='America/Denver'
 # https://github.com/junegunn/fzf
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 
-export DATA="$HOME"
-
 # Add ./bin to PATH
 PATH="$PATH:./bin"
 
@@ -19,11 +17,11 @@ HISTSIZE=100000
 HISTFILESIZE=20000
 
 # Git tab completion
-file=$DATA/dotfiles/git-completion.bash && test -f $file && source $file
+file=$HOME/dotfiles/git-completion.bash && test -f $file && source $file
 __git_complete g __git_main # Enable it for `g` alias
 
 # Git prompt
-file=$DATA/dotfiles/git-prompt.sh && test -f $file && source $file
+file=$HOME/dotfiles/git-prompt.sh && test -f $file && source $file
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
