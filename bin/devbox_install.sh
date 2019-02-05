@@ -18,9 +18,11 @@ sudo apt-get install -y \
   tmux \
   wget
 
-# https://github.com/thoughtbot/rcm
+# Install SSH key
+nvim ~/.ssh/id_rsa
 
-git clone https://github.com/eremite/dotfiles.git
+# Install rcup: https://github.com/thoughtbot/rcm
+git clone git://github.com:eremite/dotfiles.git
 cd; RCRC=/home/eremite/dotfiles/rcrc rcup -f
 
 # https://docs.docker.com/install/linux/docker-ce/debian/
@@ -32,3 +34,7 @@ reboot
 # https://docs.docker.com/compose/install/
 
 # https://ngrok.com/download
+
+# ctrl-shift-p Restore Shell defaults
+
+# $HOME/neovim/bin/nvim -c 'PlugInstall'
