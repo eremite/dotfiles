@@ -2,14 +2,12 @@
 set -x
 
 echo "Updating OS packages"
-sudo yum -y update
-
-echo "Update heroku"
-heroku update
+sudo apt-get update
+sudo apt-get upgrade -y
 
 echo "Update vim plugins"
 cd "$HOME/.vim/plugged/vim-rails"
 git stash
-$DATA/neovim/bin/nvim -c 'PlugUpgrade|PlugUpdate'
+nvim -c 'PlugUpgrade|PlugUpdate'
 git stash pop
 cd
