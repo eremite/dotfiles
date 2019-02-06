@@ -9,6 +9,7 @@ sudo apt-get dist-upgrade -y
 sudo apt-get install -y \
   apt-transport-https \
   ca-certificates \
+  ctags \
   curl \
   git \
   gnupg2 \
