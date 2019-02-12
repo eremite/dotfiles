@@ -12,6 +12,7 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
+	hooksPath = ~/.githooks
 [credential]
 	helper = cache --timeout=86400
 [github]
@@ -44,8 +45,6 @@
 	unmerge = reset --hard origin/master
 	z = stash
 	zp = stash pop
-[init]
-	templatedir = ~/.git_template
 [push]
 	default = simple
 [diff]
