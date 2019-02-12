@@ -485,7 +485,7 @@ let g:neomake_javascript_enabled_makers = ['yarn']
 
 " scss
 let g:neomake_scss_stylelint_maker = {
-  \ 'args': ['exec', '-T', 'web', '/usr/src/app/node_modules/.bin/stylelint', '%', '--formatter', 'unix'],
+  \ 'args': ['exec', '-T', 'web', 'yarn', 'stylelint', '%', '--formatter', 'unix'],
   \ 'errorformat': '%f:%l:%c: %m',
   \ 'exe': 'docker-compose',
   \ 'append_file': 0,
