@@ -275,7 +275,17 @@ let g:surround_118 = "\"#{\r}\""
 let g:ruby_hanging_indent = 0
 
 " Configure switch
-autocmd FileType ruby let b:switch_custom_definitions = [['assert', 'refute']]
+autocmd FileType ruby let b:switch_custom_definitions =
+\ [
+\   {
+\     'assert_not': 'assert',
+\     'assert\%(_not\)\@!': 'assert_not',
+\   },
+\   {
+\     'assert_not_nil': 'assert_nil',
+\     'assert\%(_not\)\@!_nil': 'assert_not_nil',
+\   }
+\ ]
 
 " Configure togglelist
 let g:toggle_list_no_mappings = 1
