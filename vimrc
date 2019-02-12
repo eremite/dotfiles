@@ -420,6 +420,8 @@ let g:rails_gem_projections = {
 " let g:neomake_open_list = 3
 " let g:neomake_place_signs = 0
 let g:neomake_logfile = '/tmp/neomake.log'
+let g:neomake_warning_sign = { 'text': '>>', 'texthl': 'ErrorMsg' }
+let g:neomake_error_sign = { 'text': '>>', 'texthl': 'ErrorMsg' }
 
 " rubocop
 function! RubocopEntryProcess(entry)
