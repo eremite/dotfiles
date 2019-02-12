@@ -35,6 +35,9 @@ reboot
 # https://docs.docker.com/compose/install/
 
 # https://ngrok.com/download
+# wget $FILE
+# unzip $FILE
+# sudo mv ngrok /usr/local/bin
 
 # ctrl-shift-p Restore Shell defaults
 
