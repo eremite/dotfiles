@@ -12,7 +12,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
 Plug 'PeterRincker/vim-argumentative'
-Plug 'altercation/vim-colors-solarized'
 Plug 'benjifisher/matchit.zip'
 Plug 'bfredl/nvim-miniyank'
 Plug 'christoomey/vim-tmux-navigator'
@@ -20,6 +19,7 @@ Plug 'janko-m/vim-test'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'milkypostman/vim-togglelist'
+Plug 'morhetz/gruvbox'
 Plug 'neomake/neomake'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sjl/gundo.vim'
@@ -117,7 +117,7 @@ set formatoptions-=t
 " Colors
 syntax enable
 set background=dark
-silent! colorscheme solarized
+colorscheme gruvbox
 
 " Color Customizations
 syntax on
@@ -139,7 +139,7 @@ highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
-" Highlight 81st column to discourage long lines.
+" Highlight 81st and 101st column to discourage long lines.
 set colorcolumn=81,101
 
 " Remember last location in file
