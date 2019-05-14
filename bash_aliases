@@ -68,7 +68,7 @@ alias v="TERM=xterm-256color nvim"
 alias x='exit'
 
 # docker rails app
-alias d='docker ps --all --quiet --no-trunc | xargs --no-run-if-empty docker rm -fv'
+alias d='docker system prune --volumes --force'
 alias dc="docker-compose"
 alias log='tail -f log/development.log'
 alias logg='tail -f log/development.log | grep "##"'
