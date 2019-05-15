@@ -251,7 +251,7 @@ noremap <Leader>x :bd<CR>
 noremap <Leader>z :FZF!<CR>
 
 function OpenDirectoryNotes()
-  execute ':e /mnt/chromeos/GoogleDrive/MyDrive/Nutritional\ Bites/Notes/' . fnamemodify(getcwd(), ':t') . '/notes.md'
+  execute ':e ' . $META_DIRECTORY . fnamemodify(getcwd(), ':t') . '.md'
 endfunction
 
 " Configure surround
