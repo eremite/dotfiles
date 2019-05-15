@@ -228,7 +228,7 @@ nnoremap <silent> <leader>l :call ToggleLocationList()<CR>
 " [M]ulti-line an array or hash
 noremap <Leader>m ma:s/, \?/,<c-v><CR>/g<CR>j=`a
 " Edit [N]otes file
-noremap <Leader>n :e notes.md<CR>
+noremap <Leader>n :call OpenDirectoryNotes()<CR>
 " [O]rganize alphabetically (sort)
 noremap <Leader>o :sort<CR>
 " [Q]uit
@@ -249,6 +249,10 @@ noremap <Leader>v :TestVisit<CR>
 noremap <Leader>x :bd<CR>
 " f[z]f Fuzzy Finder
 noremap <Leader>z :FZF!<CR>
+
+function OpenDirectoryNotes()
+  execute ':e /mnt/chromeos/GoogleDrive/MyDrive/Nutritional\ Bites/Notes/' . fnamemodify(getcwd(), ':t') . '/notes.md'
+endfunction
 
 " Configure surround
 " https://github.com/tpope/vim-surround
