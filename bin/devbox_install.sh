@@ -14,7 +14,6 @@ sudo apt-get install -y \
   git \
   gnupg2 \
   libterm-readkey-perl \
-  neovim \
   software-properties-common \
   tmux \
   wget
@@ -39,6 +38,4 @@ reboot
 # unzip $FILE
 # sudo mv ngrok /usr/local/bin
 
-# ctrl-shift-p Restore Shell defaults
-
-# $HOME/neovim/bin/nvim -c 'PlugInstall'
+vim -c 'PlugInstall'

@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-echo "Linking nvim config"
-XDG_CONFIG_HOME="$HOME/.config"
-ln -sf "$HOME/.vim" "$XDG_CONFIG_HOME/nvim"
-ln -sf "$HOME/.vimrc" "$XDG_CONFIG_HOME/nvim/init.vim"

@@ -64,7 +64,7 @@ alias g='git'
 alias grep='grep --color=auto'
 alias less='less -R'
 alias rgrep='grep -r'
-alias v="TERM=xterm-256color nvim"
+alias v="TERM=xterm-256color vim"
 alias x='exit'
 
 # docker rails app

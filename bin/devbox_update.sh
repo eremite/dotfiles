@@ -8,6 +8,6 @@ sudo apt-get upgrade -y
 echo "Update vim plugins"
 cd "$HOME/.vim/plugged/vim-rails"
 git stash
-nvim -c 'PlugUpgrade|PlugUpdate'
+vim -c 'PlugUpgrade|PlugUpdate'
 git stash pop
 cd
