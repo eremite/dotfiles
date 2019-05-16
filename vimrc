@@ -457,7 +457,7 @@ let g:neomake_rubocop_maker = {
 " haml
 let g:neomake_haml_haml_lint_maker = {
   \ 'append_file': 0,
-  \ 'args': ['exec', '-T', 'web', 'haml_lint', '--no-color', '%'],
+  \ 'args': ['exec', '-T', 'web', 'haml-lint', '--no-color', '--no-summary', '%'],
   \ 'errorformat': '%f:%l %m',
   \ 'exe': 'docker-compose',
   \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
