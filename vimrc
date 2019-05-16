@@ -102,6 +102,8 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " Check syntax on file save
 autocmd BufWritePost *.rb,*.slim,*.js,*.scss,*.html.haml Neomake
+" Use yaml style comments instead of erb
+autocmd FileType eruby.yaml setlocal commentstring=#\ %s
 
 " Tabs and indentation
 " Default to 2 spaces (ruby FTW)
