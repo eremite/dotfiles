@@ -41,4 +41,7 @@ reboot
 # unzip $FILE
 # sudo mv ngrok /usr/local/bin
 
+# Set github token
+# git config --system github.token $GITHUB_TOKEN
+
 vim -c 'PlugInstall'
