@@ -253,7 +253,7 @@ noremap <Leader>x :bd<CR>
 noremap <Leader>z :FZF!<CR>
 
 function OpenDirectoryNotes()
-  execute ':e ' . $META_DIRECTORY . fnamemodify(getcwd(), ':t') . '.md'
+  execute ':e ' . fnameescape($META_DIRECTORY) . fnamemodify(getcwd(), ':t') . '.md'
 endfunction
 
 " Configure surround

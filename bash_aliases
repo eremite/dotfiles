@@ -47,7 +47,11 @@ else
   start_agent;
 fi
 
-export META_DIRECTORY="/mnt/chromeos/GoogleDrive/MyDrive/Nutritional\ Bites/Notes/"
+export META_DIRECTORY="/mnt/chromeos/GoogleDrive/MyDrive/Nutritional Bites/Notes/"
+
+function n {
+  cat "${META_DIRECTORY}${PWD##*/}.md"
+}
 
 # ls
 alias ls='ls --color=auto -GFh'
@@ -79,4 +83,3 @@ alias rails="docker-compose exec web rails"
 alias run="docker-compose exec web"
 alias t="docker-compose exec web bash -c 'rails test && rubocop -P && haml-lint && yarn test && yarn stylelint'"
 alias up="docker-compose up"
-alias n="cat ${META_DIRECTORY}/${PWD##*/}.md"
