@@ -35,6 +35,8 @@ sudo sh get-docker.sh
 sudo usermod -aG docker $USER
 reboot
 
+docker login
+
 # https://docs.docker.com/compose/install/
 
 # https://ngrok.com/download
