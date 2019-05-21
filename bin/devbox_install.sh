@@ -11,6 +11,7 @@ sudo apt-get install -y \
   ca-certificates \
   ctags \
   curl \
+  dnsutils \
   git \
   gnupg2 \
   libterm-readkey-perl \
