@@ -210,6 +210,8 @@ nnoremap <silent> <Leader>d :call fzf#run({
 \   'sink': 'edit',
 \   'source': 'find . -maxdepth 1 -type f -printf "%f\n"'
 \ })<CR>
+" Edit file in current [d]irectory
+nnoremap <Leader>D :saveas %:h/
 " [E]dit
 noremap <Leader>e :e<Space>
 " [E]dit!
