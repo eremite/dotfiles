@@ -101,7 +101,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " When opening a commit message, go to the first line.
 autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " Check syntax on file save
-autocmd BufWritePost *.rb,*.slim,*.js,*.scss,*.html.haml Neomake
+autocmd BufWritePost *.rb,*.slim,*.js,*.scss,*.haml Neomake
 " Use yaml style comments instead of erb
 autocmd FileType eruby.yaml setlocal commentstring=#\ %s
 
@@ -463,6 +463,12 @@ let g:neomake_haml_haml_lint_maker = {
   \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
 \ }
 let g:neomake_haml_enabled_makers = ['haml_lint']
+let g:neomake_haml_maker = {
+  \ 'args': ['exec', '-T', 'web', 'haml-lint', '--no-color', '--no-summary'],
+  \ 'errorformat': '%f:%l %m',
+  \ 'exe': 'docker-compose',
+  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+\ }
 
 " slim
 let g:neomake_slim_slim_lint_maker = {
