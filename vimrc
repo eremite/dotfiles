@@ -242,7 +242,7 @@ nnoremap <leader>r :TestNearest<CR>:cexpr []<CR>:copen<CR>:wincmd k<CR>
 " Run the tests on this file
 nnoremap <leader>R :TestFile<CR>:cexpr []<CR>:copen<CR>:wincmd k<CR>
 " [S]ave
-nnoremap <Leader>s :write<CR>
+nnoremap <Leader>s :update<CR>
 " Insert [s]aved register 0
 inoremap <C-S> <C-R>0
 " Open [t]ag
