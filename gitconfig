@@ -24,11 +24,11 @@
 	b = branch
 	bc = !git branch --merged master | grep -v "master" | grep -v "staging" | xargs --no-run-if-empty -n 1 git branch -d
 	c = commit --verbose
+	chown = !git status --porcelain=v2 | grep ? | cut -d ' ' -f 2 | xargs --no-run-if-empty sudo chown $USER:$USER
 	cm = commit --verbose --amend
 	co = checkout
 	ctags = !.git/hooks/ctags
 	d = diff --ignore-submodules
-	chown = !git status --porcelain=v2 | grep ? | cut -d ' ' -f 2 | xargs --no-run-if-empty sudo chown $USER:$USER
 	dc = diff --ignore-submodules --cached
 	g = log
 	h = log --graph --date=short --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -42,6 +42,7 @@
 	sh = show
 	uncommit = reset --soft HEAD^
 	unmerge = reset --hard origin/master
+	wc = whatchanged -p --abbrev-commit --pretty=medium
 	z = stash
 	zp = stash pop
 [push]
