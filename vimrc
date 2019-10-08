@@ -378,6 +378,7 @@ set showtabline=0 " I don't use tabs
 
 " Extend fugitive
 cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
+set tags^=./.git/tags;
 
 " Configure projections
 let g:rails_projections = {
