@@ -81,5 +81,6 @@ alias logg='tail -f log/development.log | grep "##"'
 alias r="docker-compose exec web rails"
 alias rails="docker-compose exec web rails"
 alias run="docker-compose exec web"
-alias t="docker-compose exec web bash -c 'rails test && rubocop -P && haml-lint && yarn test && yarn stylelint'"
+alias t="docker-compose exec web bash -c 'rubocop -P && haml-lint && rails test && yarn test && yarn stylelint'"
 alias up="docker-compose up"
+alias penguin="ngrok http 80 --subdomain=penguin"
