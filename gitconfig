@@ -33,7 +33,7 @@
 	g = log
 	h = log --graph --date=short --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit
 	l = pull
-	m = merge --no-ff
+	m = merge --no-ff --no-edit
 	p = push
 	pb = !git push --set-upstream origin `git symbolic-ref --short HEAD`
 	rb = rebase --interactive --autosquash
