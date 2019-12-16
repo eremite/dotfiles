@@ -1,3 +1,4 @@
 *.swp
-notes.md
+/notes.md
+/notes.rb
 /.projections.json

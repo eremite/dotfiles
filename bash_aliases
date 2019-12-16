@@ -52,6 +52,9 @@ export META_DIRECTORY="/mnt/chromeos/GoogleDrive/MyDrive/Nutritional Bites/Notes
 function n {
   cat "${META_DIRECTORY}${PWD##*/}.md"
 }
+function N {
+  cat "${META_DIRECTORY}${PWD##*/}.rb"
+}
 
 # ls
 alias ls='ls --color=auto -GFh'
