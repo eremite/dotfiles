@@ -101,7 +101,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " When opening a commit message, go to the first line.
 autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " Check syntax on file save
-autocmd BufWritePost *.rb,*.slim,*.js,*.scss,*.haml Neomake
+autocmd BufWritePost *.rb,*.rake,*.prawn*.slim,*.js,*.scss,*.haml Neomake
 " Use yaml style comments instead of erb
 autocmd FileType eruby.yaml setlocal commentstring=#\ %s
 " Back up notes to the cloud
