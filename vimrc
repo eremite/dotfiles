@@ -282,16 +282,44 @@ let g:surround_118 = "\"#{\r}\""
 let g:ruby_hanging_indent = 0
 
 " Configure switch
-autocmd FileType ruby let b:switch_custom_definitions =
-\ [
-\   {
+let g:switch_custom_builtins =
+\ {
+\   'ruby_array_shorthand_with_brackets_and_double_quotes': {
+\     '\[\%(\k\|[''", ]\)\+\]': {
+\       '\[':                    '%w[',
+\       '[''"]\(\k\+\)[''"],\=': '\1',
+\       ']':                     ']',
+\     },
+\     '%w\[\%(\k\|\s\)\+\]': {
+\       '%w\[':      '[',
+\       '\(\k\+\) ': '"\1", ',
+\       '\(\k\+\)\]': '"\1"]',
+\     },
+\     '\[\%(\k\|[:, ]\)\+\]': {
+\       '\[':           '%i[',
+\       ':\(\k\+\),\=': '\1',
+\       ']':            ']',
+\     },
+\     '%i\[\%(\k\|\s\)\+\]': {
+\       '%i\[':      '[',
+\       '\(\k\+\) ': ':\1, ',
+\       '\(\k\+\)\]': ':\1]',
+\     },
+\   },
+\   'ruby_assert_not': {
 \     'assert_not': 'assert',
 \     'assert\%(_not\)\@!': 'assert_not',
 \   },
-\   {
+\   'ruby_assert_not_nil': {
 \     'assert_not_nil': 'assert_nil',
 \     'assert\%(_not\)\@!_nil': 'assert_not_nil',
-\   }
+\   },
+\ }
+autocmd FileType ruby let b:switch_custom_definitions =
+\ [
+\   g:switch_custom_builtins.ruby_array_shorthand_with_brackets_and_double_quotes,
+\   g:switch_custom_builtins.ruby_assert_not,
+\   g:switch_custom_builtins.ruby_assert_not_nil,
 \ ]
 
 " Configure togglelist
