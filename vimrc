@@ -145,8 +145,8 @@ highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
-" Highlight 81st and 101st column to discourage long lines.
-set colorcolumn=81,101
+" Highlight 81st and 121st column to discourage long lines.
+set colorcolumn=81,121
 
 " Remember last location in file
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
