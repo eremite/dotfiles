@@ -104,6 +104,8 @@ autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1
 call neomake#configure#automake('rw')
 " Use yaml style comments instead of erb
 autocmd FileType eruby.yaml setlocal commentstring=#\ %s
+" Turn off auto wrapping of text in markdown files
+autocmd FileType markdown set textwidth=0
 " Back up notes to the cloud
 autocmd BufWritePost notes.* execute ':keepalt write! '.fnameescape($META_DIRECTORY).fnamemodify(getcwd(), ':t').'.'.expand('%:e')
 
