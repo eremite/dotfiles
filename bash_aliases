@@ -47,13 +47,26 @@ else
   start_agent;
 fi
 
-export META_DIRECTORY="/mnt/chromeos/GoogleDrive/MyDrive/Nutritional Bites/Notes/"
+export AWS_DEFAULT_REGION=us-east-1
+export AWS_ACCESS_KEY_ID=AWS_ACCESS_KEY_ID
+export AWS_SECRET_ACCESS_KEY=AWS_SECRET_ACCESS_KEY
+
+curl --max-time 0.1 http://169.254.169.254/latest/meta-data/instance-id
+if "$?" == "0"
+  export META_BUCKET=daniel-devbox
+  alias v="vim"
+else
+  export META_DIRECTORY="/mnt/chromeos/GoogleDrive/MyDrive/Nutritional Bites/Notes/"
+  export DEVBOX=35.169.173.185
+  alias c='ssh ec2-user@$DEVBOX'
+  alias v="TERM=xterm-256color nvim"
+fi
 
 function n {
-  cat "${META_DIRECTORY}${PWD##*/}.md"
+  cat notes.md
 }
 function N {
-  cat "${META_DIRECTORY}${PWD##*/}.rb"
+  cat notes.rb
 }
 
 # ls
@@ -68,12 +81,10 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-# grep
 alias g='git'
 alias grep='grep --color=auto'
 alias less='less -R'
 alias rgrep='grep -r'
-alias v="TERM=xterm-256color nvim"
 alias x='exit'
 
 # docker rails app
@@ -84,6 +95,6 @@ alias logg='tail -f log/development.log | grep "##"'
 alias r="docker-compose exec web rails"
 alias rails="docker-compose exec web rails"
 alias run="docker-compose exec web"
-alias t="docker-compose exec web bash -c 'rubocop -P && haml-lint && rails test && yarn test && yarn stylelint'"
+alias t="docker-compose exec web bash -c 'rubocop -P && haml-lint && yarn lint && rails test'"
 alias up="docker-compose up"
 alias penguin="ngrok http 80 --subdomain=penguin"
