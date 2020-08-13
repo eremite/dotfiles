@@ -530,17 +530,17 @@ let g:neomake_slim_lint_maker = {
 \ }
 
 " javascript
-let g:neomake_javascript_yarn_maker = {
-  \ 'args': ['exec', '-T', 'web', 'yarn', 'test', '--format', 'unix'],
+let g:neomake_javascript_eslint_maker = {
+  \ 'args': ['exec', '-T', 'web', 'yarn', 'lint_js', '--format', 'unix'],
   \ 'errorformat': '%f:%l:%c: %m',
   \ 'exe': 'docker-compose',
   \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
 \ }
-let g:neomake_javascript_enabled_makers = ['yarn']
+let g:neomake_javascript_enabled_makers = ['eslint']
 
 " scss
 let g:neomake_scss_stylelint_maker = {
-  \ 'args': ['exec', '-T', 'web', 'yarn', 'stylelint', '%', '--formatter', 'unix'],
+  \ 'args': ['exec', '-T', 'web', 'yarn', 'lint_scss', '%', '--formatter', 'unix'],
   \ 'errorformat': '%f:%l:%c: %m',
   \ 'exe': 'docker-compose',
   \ 'append_file': 0,
@@ -562,7 +562,7 @@ let g:neomake_sh_shellcheck_maker = {
 let g:neomake_sh_enabled_makers = ['shellcheck']
 
 " Configure test-vim
-let test#ruby#rails#executable = 'docker-compose exec -T web rails test'
+let g:test#ruby#rails#executable = 'docker-compose exec -T web rails test'
 let test#strategy = 'neomake'
 let test#enabled_runners = ["ruby#rails"]
 let test#preserve_screen = 0
