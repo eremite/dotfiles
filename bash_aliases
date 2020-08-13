@@ -51,8 +51,8 @@ export AWS_DEFAULT_REGION=us-east-1
 export AWS_ACCESS_KEY_ID=AWS_ACCESS_KEY_ID
 export AWS_SECRET_ACCESS_KEY=AWS_SECRET_ACCESS_KEY
 
-curl --max-time 0.1 http://169.254.169.254/latest/meta-data/instance-id
-if "$?" == "0"
+curl --silent --max-time 0.01 http://169.254.169.254/latest/meta-data/instance-id > /dev/null
+if [ $? -eq 0 ]; then
   export META_BUCKET=daniel-devbox
   alias v="vim"
 else
