@@ -110,7 +110,7 @@ if $META_DIRECTORY != ""
   autocmd BufWritePost notes.* execute ':keepalt write! '.fnameescape($META_DIRECTORY).fnamemodify(getcwd(), ':t').'.'.expand('%:e')
 endif
 if $META_BUCKET != ""
-  autocmd BufWritePost notes.* execute 'terminal ++hidden bash -c "aws s3 cp %:p s3://$META_BUCKET/$(basename $PWD).%:e"'
+  autocmd BufWritePost notes.* execute 'terminal ++hidden ++close ++norestore bash -c "aws s3 cp %:p s3://$META_BUCKET/$(basename $PWD).%:e"'
   " project=$(basename $PWD)
   " aws s3 cp s3://$META_BUCKET/$project.md notes.md
   " aws s3 cp s3://$META_BUCKET/$project.rb notes.rb
