@@ -353,13 +353,6 @@ let g:splitjoin_ruby_curly_braces = 0
 nnoremap sj :SplitjoinSplit<CR>
 nnoremap sk :SplitjoinJoin<CR>
 
-" Configure miniyank
-if has('nvim')
-  map p <Plug>(miniyank-autoput)
-  map P <Plug>(miniyank-autoPut)
-  map <leader>p <Plug>(miniyank-cycle)
-end
-
 " Configure dispatch
 let g:dispatch_quickfix_height=30
 
