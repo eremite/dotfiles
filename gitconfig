@@ -24,6 +24,8 @@
 	b = branch
 	bc = !git branch --merged master | grep -v "master" | grep -v "staging" | xargs --no-run-if-empty -n 1 git branch -d
 	c = commit --verbose
+	chfix = !git chown && git chmod
+	chmod = !git status --porcelain=v2 | grep ? | cut -d ' ' -f 2 | xargs --no-run-if-empty sudo chmod g+w
 	chown = !git status --porcelain=v2 | grep ? | cut -d ' ' -f 2 | xargs --no-run-if-empty sudo chown $USER:$USER
 	cm = commit --verbose --amend
 	co = checkout
