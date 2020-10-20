@@ -51,6 +51,7 @@ curl --silent --max-time 0.01 http://169.254.169.254/latest/meta-data/instance-i
 if [ $? -eq 0 ]; then
   export META_BUCKET=daniel-devbox
   alias v="vim"
+  cd ~/storageunitsoftware
 else
   export META_DIRECTORY="/mnt/chromeos/GoogleDrive/MyDrive/Nutritional Bites/Notes/"
   export DEVBOX=35.169.173.185
