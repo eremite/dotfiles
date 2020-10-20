@@ -32,7 +32,7 @@ cd; RCRC=/home/eremite/dotfiles/rcrc rcup -f
 # Install Docker (https://docs.docker.com/install/linux/docker-ce/debian/)
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
-sudo usermod -aG docker $USER
+sudo usermod -aG docker "$USER"
 reboot
 
 docker login
@@ -44,12 +44,6 @@ docker login
 # unzip $FILE
 # sudo mv ngrok /usr/local/bin
 
-# Set github token
-# git config --system github.token $GITHUB_TOKEN
-
-# Install neovim
-sudo add-apt-repository ppa:neovim-ppa/unstable
-sudo apt-get update
-sudo apt-get install neovim
+aws configure
 
 vim -c 'PlugInstall'
