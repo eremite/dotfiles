@@ -422,51 +422,6 @@ set showtabline=0 " I don't use tabs
 cmap Gwc Git -p whatchanged --abbrev-commit --pretty=medium .
 set tags^=./.git/tags;
 
-" Configure projections
-let g:rails_projections = {
-\   "app/models/concerns/*.rb": {
-\     "command": "mconcern",
-\     "affinity": "model"
-\   },
-\   "app/controllers/concerns/*.rb": {
-\     "command": "cconcern",
-\     "affinity": "controller"
-\   },
-\   "app/presenters/*_presenter.rb": {
-\     "command": "presenter",
-\     "affinity": "model"
-\   },
-\   "app/classes/*.rb": {
-\     "command": "class"
-\   },
-\   "app/forms/*.rb": {
-\     "command": "form"
-\   },
-\   "app/reports/*.rb": {
-\     "command": "report"
-\   },
-\   "app/webpack/components/*": {
-\     "command": "component",
-\   },
-\   "app/controllers/api/*_controller.rb": {
-\     "alternate": "test/integration/api/{}_test.rb"
-\   },
-\   "test/integration/api/*_test.rb": {
-\     "related": "app/controllers/api/{}_controller.rb"
-\   },
-\   "test/mailers/previews/*_preview.rb": {
-\     "command": "mpreview",
-\     "related": "app/mailers/{}.rb"
-\   }
-\ }
-let g:rails_gem_projections = {
-\   "carrierwave": {
-\     "app/uploaders/*_uploader.rb": {
-\       "command": "uploader"
-\     }
-\   }
-\ }
-
 " Configure Neomake
 " let g:neomake_open_list = 3
 " let g:neomake_place_signs = 0
