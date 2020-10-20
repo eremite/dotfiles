@@ -124,7 +124,7 @@ set softtabstop=2
 set shiftwidth=2
 retab
 set expandtab
-set textwidth=100
+set textwidth=120
 set formatoptions-=t
 
 " Colors
