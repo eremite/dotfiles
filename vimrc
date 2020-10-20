@@ -203,9 +203,9 @@ cabbrev ECo Econtroller
 cabbrev ECon Econtroller
 
 " Run the last test
-nnoremap <leader>a :TestLast<CR>:cexpr []<CR>:copen<CR>:wincmd k<CR>
+nnoremap <leader>a :TestLast<CR>:call OpenQuickfix()<CR>
 " Run [a]ll tests
-nnoremap <leader>A :TestSuite<CR>:cexpr []<CR>:copen<CR>:wincmd k<CR>
+nnoremap <leader>A :TestSuite<CR>:call OpenQuickfix()<CR>
 nnoremap <silent> <Leader>b :call fzf#run({
 \   'source': reverse(<sid>buflist()),
 \   'sink': function('<sid>bufopen'),
@@ -250,9 +250,9 @@ noremap <Leader>o :sort<CR>
 " [Q]uit
 noremap <Leader>q :quitall!<CR>
 " run the nearest test
-nnoremap <leader>r :TestNearest<CR>:cexpr []<CR>:copen<CR>:wincmd k<CR>
+nnoremap <leader>r :TestNearest<CR>:call OpenQuickfix()<CR>
 " Run the tests on this file
-nnoremap <leader>R :TestFile<CR>:cexpr []<CR>:copen<CR>:wincmd k<CR>
+nnoremap <leader>R :TestFile<CR>:call OpenQuickfix()<CR>
 " [S]ave
 nnoremap <Leader>s :update<CR>
 " Insert [s]aved register 0
@@ -267,6 +267,16 @@ noremap <Leader>x :bd<CR>
 noremap <Leader>z :FZF!<CR>
 " Open a terminal
 noremap <Leader>' :terminal<CR>
+
+function! OpenQuickfix()
+  cexpr []
+  copen
+  wincmd w
+endfunction
+
+" Put quickfix on the right
+au FileType qf wincmd L
+au FileType qf vertical resize 64
 
 " Configure surround
 " https://github.com/tpope/vim-surround
@@ -351,7 +361,7 @@ if has('nvim')
 end
 
 " Configure dispatch
-let g:dispatch_quickfix_height=20
+let g:dispatch_quickfix_height=30
 
 " Configure markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
