@@ -247,6 +247,8 @@ noremap <Leader>n :edit notes.md<CR>
 noremap <Leader>N :edit notes.rb<CR>
 " [O]rganize alphabetically (sort)
 noremap <Leader>o :sort<CR>
+" Edit [p]ull request notes
+noremap <Leader>p :edit pull.md<CR>
 " [Q]uit
 noremap <Leader>q :quitall!<CR>
 " run the nearest test

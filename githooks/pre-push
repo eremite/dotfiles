@@ -2,17 +2,27 @@
 # Suggest a pull request
 branch_name=$(git symbolic-ref -q --short HEAD)
 issue_number="${branch_name%%-*}" # Keep everything to first -
-issue_number=$(echo $issue_number | tr -cd [:digit:]) # Make sure issue_number is numeric
-issue_summary="${branch_name#*-}" # Keep everything after first -
-issue_summary="${issue_summary^}" # Capitalize first letter
-issue_summary="${issue_summary//-/+}" # Replace - with +
+issue_number=$(echo "$issue_number" | tr -cd "[:digit:]") # Make sure issue_number is numeric
+pull_request_file="pull.md"
+if [ -f "$pull_request_file" ]; then
+  cat $pull_request_file
+  echo
+  issue_summary=$(head -n1 "$pull_request_file")
+  issue_summary="${issue_summary// /+}" # Replace space with +
+  body=$(tail -n +3 "$pull_request_file")
+  body=$(printf %s "$body" | jq -sRr @uri)
+else
+  issue_summary="${branch_name#*-}" # Keep everything after first -
+  issue_summary="${issue_summary^}" # Capitalize first letter
+  issue_summary="${issue_summary//-/+}" # Replace - with +
+  issue_summary="Deploy+to+Staging:${issue_summary}"
+  body="#$issue_number"
+fi
 origin=$(git config --get remote.origin.url)
 regex="git@github.com:(.+).git"
 [[ $origin =~ $regex ]]
 repo=${BASH_REMATCH[1]}
 url="https://github.com/$repo"
-params="quick_pull=1&title=Deploy+to+Staging+-+${issue_summary//-/+}&body=#${issue_number}"
-echo
-echo "Create a pull request to staging for this branch:"
+params="quick_pull=1&title=${issue_summary//-/+}&body=${body}"
 echo "${url}/compare/staging...${branch_name}?${params}"
 echo

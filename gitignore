@@ -1,4 +1,5 @@
 *.swp
+/pull.md
 /notes.md
 /notes.rb
 /.projections.json
