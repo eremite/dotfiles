@@ -44,6 +44,7 @@
 	sh = show
 	uncommit = reset --soft HEAD^
 	unmerge = reset --hard origin/master
+	w = switch
 	wc = whatchanged -p --abbrev-commit --pretty=medium
 	z = stash
 	zp = stash pop
