@@ -16,7 +16,6 @@ sudo apt-get install -y \
   gnupg2 \
   libterm-readkey-perl \
   software-properties-common \
-  tmux \
   wget
 
 # Install private SSH key
@@ -26,16 +25,15 @@ chmod 400 ~/.ssh/id_rsa
 
 # Install rcup: https://github.com/thoughtbot/rcm
 
-git clone git://github.com:eremite/dotfiles.git
-cd; RCRC=/home/eremite/dotfiles/rcrc rcup -f
+git clone git@github.com:eremite/dotfiles.git
+cd; RCRC=$HOME/dotfiles/rcrc rcup -f
 
 # Install Docker (https://docs.docker.com/install/linux/docker-ce/debian/)
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 sudo usermod -aG docker "$USER"
 reboot
-
-docker login
+# docker login
 
 # https://docs.docker.com/compose/install/
 

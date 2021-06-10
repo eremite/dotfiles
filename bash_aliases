@@ -53,10 +53,10 @@ if [ $? -eq 0 ]; then
   alias v="vim"
   cd ~/storageunitsoftware
 else
-  export META_DIRECTORY="/mnt/chromeos/GoogleDrive/MyDrive/Nutritional Bites/Notes/"
+  export META_DIRECTORY="/mnt/chromeos/GoogleDrive/MyDrive/project_notes/"
   export DEVBOX=35.169.173.185
   alias c='ssh ec2-user@$DEVBOX'
-  alias v="TERM=xterm-256color nvim"
+  alias v="vim"
 fi
 
 function n {
