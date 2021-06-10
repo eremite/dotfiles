@@ -88,6 +88,7 @@ autocmd BufRead,BufNewFile *.rabl set filetype=ruby
 autocmd BufRead,BufNewFile *.prawn set filetype=ruby
 autocmd BufRead,BufNewFile *.ruby set filetype=ruby
 " Don't assume the line after a comment is still a comment
+autocmd FileType haml setlocal textwidth=120
 autocmd FileType ruby setlocal formatoptions-=cro
 autocmd FileType yaml setlocal formatoptions-=cro
 " 4 spaces for python indentation
@@ -292,9 +293,7 @@ autocmd FileType ruby,eruby,haml let g:surround_35 = "#{\r}"
 " c - code block
 autocmd FileType markdown let b:surround_99 = "```\n\r\n```"
 " d - debug
-autocmd FileType ruby let b:surround_100 = "logger.debug(\"### #{\r}\") #TODO: remove debug code"
-autocmd FileType javascript let g:surround_100 = "console.log(\r); // TODO Remove debug code"
-autocmd FileType coffee let g:surround_100 = "console.log(\r) # TODO: Remove debug code"
+autocmd FileType ruby let b:surround_100 = "Rails.logger.debug(\"### #{\r}\")"
 " t - try
 let g:surround_116 = "try(:\r)"
 " v - variable
