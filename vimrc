@@ -521,7 +521,7 @@ let g:neomake_sh_shellcheck_maker = {
 let g:neomake_sh_enabled_makers = ['shellcheck']
 
 " Configure test-vim
-let g:test#ruby#rails#executable = 'docker-compose exec -T web rails test'
+let g:test#ruby#rails#executable = 'docker-compose exec -T -e PARALLEL_WORKERS=1 web rails test'
 let test#strategy = 'neomake'
 let test#enabled_runners = ["ruby#rails"]
 let test#preserve_screen = 0
