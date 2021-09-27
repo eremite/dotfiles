@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-commands="cd /app; node $@"
-docker run --rm -v "$(pwd):/app" -it node:latest sh -c "$commands"
-EXIT_STATUS=$?
-user=$(whoami)
-find . \! -user $user -print0 | xargs -0 -I % sh -c "sudo chmod g+w \"%\"; sudo chown $user:$user \"%\""
-exit $EXIT_STATUS

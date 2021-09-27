@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-docker run --rm -v "$(pwd):/source" -v "$HOME/.config:/config" ruby_2.3_checker rubocop --config /config/rubocop.yml "$@"
