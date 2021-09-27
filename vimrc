@@ -109,6 +109,7 @@ autocmd FileType markdown set textwidth=0
 " Back up notes to the cloud
 if $META_DIRECTORY != ""
   autocmd BufWritePost notes.* execute ':keepalt write! '.fnameescape($META_DIRECTORY).fnamemodify(getcwd(), ':t').'.'.expand('%:e')
+  autocmd BufWritePost docker-compose.yml execute ':keepalt write! '.fnameescape($META_DIRECTORY).fnamemodify(getcwd(), ':t').'.'.expand('%:e')
 endif
 if $META_BUCKET != ""
   autocmd BufWritePost notes.* execute 'terminal ++hidden ++close ++norestore bash -c "aws s3 cp %:p s3://$META_BUCKET/$(basename $PWD).%:e"'
