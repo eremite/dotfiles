@@ -86,16 +86,16 @@ alias x='exit'
 
 # docker rails app
 alias d='docker system prune --volumes --force'
-alias dc="docker-compose"
+alias dc="docker compose"
 alias log='dc logs -f --tail=100'
 alias logg='dc logs -f --tail=100 | grep "##"'
-alias r="docker-compose exec web rails"
-alias rails="docker-compose exec web rails"
-alias reup="docker-compose down; docker system prune --volumes --force; docker-compose build; docker-compose up --detach; bin/setup"
-alias rs="docker-compose stop web webpacker sidekiq; docker-compose rm -f web webpacker sidekiq; docker-compose up --detach"
-alias run="docker-compose exec web"
-alias t="docker-compose exec web bash -c 'rubocop -P && haml-lint && yarn lint && rails test && brakeman -A'"
-alias up="docker-compose up --detach"
-alias down="docker-compose stop; docker-compose rm --force"
+alias r="docker compose exec web rails"
+alias rails="docker compose exec web rails"
+alias reup="docker compose down; docker system prune --volumes --force; docker compose build; docker compose up --detach; bin/setup"
+alias rs="docker compose stop web webpacker sidekiq; docker compose rm -f web webpacker sidekiq; docker compose up --detach"
+alias run="docker compose exec web"
+alias t="docker compose exec web bash -c 'rubocop -P && haml-lint && yarn lint && rails test && brakeman -A'"
+alias up="docker compose up --detach"
+alias down="docker compose stop; docker compose rm --force"
 alias penguin="ngrok http 80 --subdomain=penguin"
 alias aws='docker run --rm -ti -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
