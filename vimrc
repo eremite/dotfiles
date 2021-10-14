@@ -251,7 +251,7 @@ noremap <Leader>N :edit notes.rb<CR>
 " [O]rganize alphabetically (sort)
 noremap <Leader>o :sort<CR>
 " Edit [p]ull request notes
-noremap <Leader>p :edit pull.md<CR>
+noremap <Leader>p :edit pr.md<CR>
 " [Q]uit
 noremap <Leader>q :quitall!<CR>
 " run the nearest test
@@ -266,8 +266,10 @@ inoremap <C-S> <C-R>0
 noremap <Leader>t :BTags<CR>
 " Vest the last run test
 noremap <Leader>v :TestVisit<CR>
-" E[x]it current Buffer
+" E[x]it current buffer
 noremap <Leader>x :bd<CR>
+" E[x]it all but the current buffer
+noremap <leader>X :silent! execute "%bd\|e#\|bd#"<CR>
 " f[z]f Fuzzy Finder
 noremap <Leader>z :FZF!<CR>
 " Open a terminal
