@@ -18,6 +18,10 @@ sudo apt-get install -y \
   software-properties-common \
   wget
 
+# Install Chrome Extensions
+# LastPass: https://chrome.google.com/webstore/detail/lastpass-free-password-ma/hdokiejnpimakedhajhdlcegeplioahd?hl=en
+# Vimium: https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en
+
 # Install private SSH key
 mkdir ~/.ssh
 vim ~/.ssh/id_rsa
@@ -36,10 +40,10 @@ sudo sh get-docker.sh
 sudo usermod -aG docker "$USER"
 sudo reboot
 
-# https://docs.docker.com/compose/install/
-DOCKER_COMPOSE_VERSION=v2.0.0
-curl -SL "https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-linux-amd64" -o "$HOME/.docker/cli-plugins/docker-compose"
-chmod +x !$
+# Install Docker Compose (https://docs.docker.com/compose/cli-command/#install-on-linux)
+mkdir -p ~/.docker/cli-plugins/
+curl -SL https://github.com/docker/compose/releases/download/v2.0.1/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+chmod +x ~/.docker/cli-plugins/docker-compose
 
 # Navigate to project_notes in the Files app and "Share with Linux"
 PROJECT=project
@@ -49,4 +53,6 @@ cp "/mnt/chromeos/GoogleDrive/MyDrive/project_notes/$PROJECT.md" "$HOME/$PROJECT
 cp "/mnt/chromeos/GoogleDrive/MyDrive/project_notes/$PROJECT.rb" "$HOME/$PROJECT/notes.rb"
 cp "/mnt/chromeos/GoogleDrive/MyDrive/project_notes/$PROJECT.yml" "$HOME/$PROJECT/docker-compose.yml"
 
-aws configure
+# Configure AWS (Copy/paste credentials or use `aws configure`)
+mkdir ~/.aws
+vim ~/.aws/credentials
