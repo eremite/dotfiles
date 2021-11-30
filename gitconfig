@@ -19,7 +19,7 @@
 	an = add --all --intent-to-add .
 	ap = add --patch
 	b = branch
-	bc = !git branch --merged master | grep -v "master" | grep -v "staging" | xargs --no-run-if-empty -n 1 git branch -d
+	bc = !git branch --merged main | grep -v "main" | grep -v "staging" | xargs --no-run-if-empty -n 1 git branch -d
 	c = commit --verbose
 	chfix = !git chown && git chmod
 	chmod = !git status --porcelain=v2 | grep ? | cut -d ' ' -f 2 | xargs --no-run-if-empty sudo chmod g+w
@@ -40,7 +40,7 @@
 	s = status --short
 	sh = show
 	uncommit = reset --soft HEAD^
-	unmerge = reset --hard origin/master
+	unmerge = reset --hard origin/main
 	w = switch
 	wc = whatchanged -p --abbrev-commit --pretty=medium
 	z = stash
