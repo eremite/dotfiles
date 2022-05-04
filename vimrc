@@ -102,8 +102,8 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " Check syntax on file save
 call neomake#configure#automake('rw')
-" Use yaml style comments instead of erb
-autocmd FileType eruby.yaml setlocal commentstring=#\ %s
+" Use ruby comments in markdown
+autocmd FileType markdown setlocal commentstring=#\ %s
 " Turn off auto wrapping of text in markdown files
 autocmd FileType markdown set textwidth=0
 " Back up notes to the cloud
