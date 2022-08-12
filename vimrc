@@ -88,6 +88,7 @@ autocmd BufRead,BufNewFile *.jbuilder set filetype=ruby
 autocmd BufRead,BufNewFile *.rabl set filetype=ruby
 autocmd BufRead,BufNewFile *.prawn set filetype=ruby
 autocmd BufRead,BufNewFile *.ruby set filetype=ruby
+autocmd BufRead,BufNewFile *.config set filetype=yaml
 " Don't assume the line after a comment is still a comment
 autocmd FileType haml setlocal textwidth=120
 autocmd FileType ruby setlocal formatoptions-=cro
