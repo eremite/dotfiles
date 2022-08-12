@@ -158,6 +158,10 @@ highlight SpellLocal term=underline cterm=underline
 " Highlight 81st and 121st column to discourage long lines.
 set colorcolumn=81,121
 
+" Close netrw buffers automatically
+let g:netrw_fastbrowse=0
+autocmd FileType netrw setl bufhidden=delete
+
 " Remember last location in file
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
