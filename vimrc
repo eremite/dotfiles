@@ -532,6 +532,22 @@ let g:neomake_sh_shellcheck_maker = {
 \ }
 let g:neomake_sh_enabled_makers = ['shellcheck']
 
+" haml
+let g:neomake_yaml_yamllint_maker = {
+  \ 'append_file': 0,
+  \ 'args': ['compose', 'exec', '-T', 'web', 'yamllint', '--format', 'parsable', '%'],
+  \ 'errorformat': '%E%f:%l:%c: [error] %m,%W%f:%l:%c: [warning] %m',
+  \ 'exe': 'docker',
+  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+\ }
+let g:neomake_yaml_enabled_makers = ['yamllint']
+let g:neomake_yaml_maker = {
+  \ 'args': ['compose', 'exec', '-T', 'web', 'yamllint', '--format', 'parsable', '.'],
+  \ 'errorformat': '%E%f:%l:%c: [error] %m,%W%f:%l:%c: [warning] %m',
+  \ 'exe': 'docker',
+  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+\ }
+
 " Configure test-vim
 let g:test#ruby#rails#executable = 'docker compose exec -T -e PARALLEL_WORKERS=1 web rails test'
 let test#strategy = 'neomake'
