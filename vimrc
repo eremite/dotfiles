@@ -361,9 +361,10 @@ autocmd FileType haml let b:switch_custom_definitions = [g:switch_custom_builtin
 let g:toggle_list_no_mappings = 1
 
 " Configure splitjoin.vim
-let g:splitjoin_ruby_trailing_comma = 1
+let g:splitjoin_trailing_comma = 1
 let g:splitjoin_ruby_hanging_args = 0
 let g:splitjoin_ruby_curly_braces = 0
+let g:splitjoin_ruby_options_as_arguments = 1
 nnoremap sj :SplitjoinSplit<CR>
 nnoremap sk :SplitjoinJoin<CR>
 
