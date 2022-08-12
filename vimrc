@@ -344,6 +344,10 @@ let g:switch_custom_builtins =
 \     'assert_not_nil': 'assert_nil',
 \     'assert\%(_not\)\@!_nil': 'assert_not_nil',
 \   },
+\   'haml_interpolation': {
+\     '#{\(.*\)}$': '= \1',
+\     '= \(.*\)$': '#{\1}',
+\   },
 \ }
 autocmd FileType ruby let b:switch_custom_definitions =
 \ [
@@ -351,6 +355,7 @@ autocmd FileType ruby let b:switch_custom_definitions =
 \   g:switch_custom_builtins.ruby_assert_not,
 \   g:switch_custom_builtins.ruby_assert_not_nil,
 \ ]
+autocmd FileType haml let b:switch_custom_definitions = [g:switch_custom_builtins.haml_interpolation]
 
 " Configure togglelist
 let g:toggle_list_no_mappings = 1
