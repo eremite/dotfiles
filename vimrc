@@ -42,6 +42,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
+Plug 'romainl/flattened'
 Plug 'wsdjeg/vim-fetch'
 
 " Text objects
@@ -131,8 +132,7 @@ set formatoptions-=t
 
 " Colors
 syntax enable
-set background=dark
-colorscheme gruvbox
+colorscheme flattened_dark
 
 " Color Customizations
 syntax on
