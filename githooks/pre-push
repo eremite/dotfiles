@@ -4,22 +4,22 @@ branch_name=$(git symbolic-ref -q --short HEAD)
 if [ "$branch_name" == "master" -o "$branch_name" == "staging" -o "$branch_name" == "demo" ]; then
   exit
 fi
-issue_number="${branch_name%%-*}" # Keep everything to first -
-issue_number=$(echo "$issue_number" | tr -cd "[:digit:]") # Make sure issue_number is numeric
+if [[ $branch_name =~ ([A-Z][A-Z0-9]+-[0-9]+) ]]; then
+  issue_number=${BASH_REMATCH[1]}
+fi
 pull_request_file="pr.md"
 if [ -f "$pull_request_file" ]; then
   cat $pull_request_file
   echo
   issue_summary=$(head -n1 "$pull_request_file")
   issue_summary="${issue_summary// /+}" # Replace space with +
-  body="#$issue_number"
 else
   issue_summary="${branch_name#*-}" # Keep everything after first -
   issue_summary="${issue_summary^}" # Capitalize first letter
   issue_summary="${issue_summary//-/+}" # Replace - with +
   issue_summary="Deploy+to+Staging:${issue_summary}"
-  body="#$issue_number"
 fi
+body="$issue_number+https://sparefoot.atlassian.net/browse/$issue_number"
 origin=$(git config --get remote.origin.url)
 regex="git@github.com:(.+).git"
 [[ $origin =~ $regex ]]
