@@ -105,3 +105,4 @@ alias up="docker compose up --detach"
 alias down="docker compose stop; docker compose rm --force"
 alias penguin="ngrok http 80 --subdomain=penguin"
 alias aws='docker run --rm -ti -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
+alias tunnel='ngrok start core test demo --log=stdout > log/ngrok.log &'
