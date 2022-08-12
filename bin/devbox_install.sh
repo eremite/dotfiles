@@ -42,7 +42,7 @@ sudo reboot
 
 # Install Docker Compose (https://docs.docker.com/compose/cli-command/#install-on-linux)
 mkdir -p ~/.docker/cli-plugins/
-curl -SL https://github.com/docker/compose/releases/download/v2.0.1/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+curl -SL https://github.com/docker/compose/releases/download/v2.9.0/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
 chmod +x ~/.docker/cli-plugins/docker-compose
 
 # Navigate to project_notes in the Files app and "Share with Linux"
