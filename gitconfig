@@ -35,6 +35,7 @@
 	m = merge --no-ff --no-edit
 	p = push
 	pb = !git push --set-upstream origin `git symbolic-ref --short HEAD`
+	pf = push --force-with-lease
 	rb = rebase --interactive --autosquash
 	rs = reset
 	s = status --short
@@ -47,6 +48,8 @@
 	zp = stash pop
 [push]
 	default = simple
+[pull]
+	rebase = true
 [diff]
 	algorithm = patience
 [filter "lfs"]
