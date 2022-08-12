@@ -204,7 +204,6 @@ imap <Tab> <C-P>
 imap <S-Tab> <C-N>
 
 " Abbreviations
-ab pa params
 cabbrev EMo Emodel
 cabbrev ECo Econtroller
 cabbrev ECon Econtroller
