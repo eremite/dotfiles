@@ -78,11 +78,17 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
+
+# misc
 alias g='git'
 alias grep='grep --color=auto'
 alias less='less -R'
 alias rgrep='grep -r'
 alias x='exit'
+alias v="vim"
+alias V="vim notes.md"
+alias n="cat notes.md"
+alias N="cat notes.rb"
 
 # docker rails app
 alias d='docker system prune --volumes --force'
