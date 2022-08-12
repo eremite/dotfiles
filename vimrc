@@ -549,7 +549,7 @@ let g:neomake_yaml_maker = {
 \ }
 
 " Configure test-vim
-let g:test#ruby#rails#executable = 'docker compose exec -T -e PARALLEL_WORKERS=1 web rails test'
+let g:test#ruby#rails#executable = '~/dotfiles/bin/dcrtest'
 let test#strategy = 'neomake'
 let test#enabled_runners = ["ruby#rails"]
 let test#preserve_screen = 0

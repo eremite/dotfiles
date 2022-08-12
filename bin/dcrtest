@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker compose exec -T -e PARALLEL_WORKERS=1 web rails test $@ | sed 's/\/usr\/src\/app\///g'
