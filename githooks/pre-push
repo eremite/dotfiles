@@ -21,10 +21,7 @@ else
 fi
 body="$issue_number+https://sparefoot.atlassian.net/browse/$issue_number"
 origin=$(git config --get remote.origin.url)
-regex="git@github.com:(.+).git"
-[[ $origin =~ $regex ]]
-repo=${BASH_REMATCH[1]}
-url="https://github.com/$repo"
+url="https://github.com/${origin#*:}"
 params="quick_pull=1&title=${issue_summary//-/+}&body=${body}"
 echo "${url}/compare/staging...${branch_name}?${params}"
 echo
