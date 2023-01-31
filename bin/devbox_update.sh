@@ -6,4 +6,4 @@ sudo apt-get update
 sudo apt-get upgrade -y
 
 echo "Update vim plugins"
-nvim -c 'PlugUpgrade|PlugUpdate'
+vim -c 'PlugUpgrade|PlugUpdate'
