@@ -13,16 +13,13 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'benjifisher/matchit.zip'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'janko-m/vim-test'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'milkypostman/vim-togglelist'
-Plug 'morhetz/gruvbox'
 Plug 'neomake/neomake'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sjl/gundo.vim'
-Plug 'slim-template/vim-slim'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-bundler'
@@ -39,7 +36,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'romainl/flattened'
@@ -474,22 +470,6 @@ let g:neomake_haml_haml_lint_maker = {
 let g:neomake_haml_enabled_makers = ['haml_lint']
 let g:neomake_haml_maker = {
   \ 'args': ['compose', 'exec', '-T', 'web', 'haml-lint', '--no-color', '--no-summary'],
-  \ 'errorformat': '%f:%l %m',
-  \ 'exe': 'docker',
-  \ 'mapexpr': "substitute(v:val, '/var/app/current/', '', '')",
-\ }
-
-" slim
-let g:neomake_slim_slim_lint_maker = {
-  \ 'append_file': 0,
-  \ 'args': ['compose', 'exec', '-T', 'web', 'slim-lint', '--no-color', '%'],
-  \ 'errorformat': '%f:%l %m',
-  \ 'exe': 'docker',
-  \ 'mapexpr': "substitute(v:val, '/var/app/current/', '', '')",
-\ }
-let g:neomake_slim_enabled_makers = ['slim_lint']
-let g:neomake_slim_lint_maker = {
-  \ 'args': ['compose', 'exec', '-T', 'web', 'slim-lint', '--no-color', 'app/views'],
   \ 'errorformat': '%f:%l %m',
   \ 'exe': 'docker',
   \ 'mapexpr': "substitute(v:val, '/var/app/current/', '', '')",
