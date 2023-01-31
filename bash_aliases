@@ -6,6 +6,7 @@ export LC_MESSAGES=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export LC_COLLATE=en_US.UTF-8
 export TZ='America/Denver'
+export DOCKER_SCAN_SUGGEST=false
 
 # https://github.com/junegunn/fzf
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
