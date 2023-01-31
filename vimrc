@@ -451,7 +451,7 @@ let g:neomake_ruby_rubocop_maker = {
   \ 'args': ['compose', 'exec', '-T', 'web', 'rubocop', '-P', '--format', 'emacs', '%'],
   \ 'errorformat': '%f:%l:%c: %t: %m',
   \ 'exe': 'docker',
-  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+  \ 'mapexpr': "substitute(v:val, '/var/app/current/', '', '')",
   \ 'postprocess': function('RubocopEntryProcess'),
 \ }
 let g:neomake_ruby_enabled_makers = ['rubocop']
@@ -459,7 +459,7 @@ let g:neomake_rubocop_maker = {
   \ 'args': ['compose', 'exec', '-T', 'web', 'rubocop', '-P', '--format', 'emacs', '--force-exclusion'],
   \ 'errorformat': '%f:%l:%c: %t: %m',
   \ 'exe': 'docker',
-  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+  \ 'mapexpr': "substitute(v:val, '/var/app/current/', '', '')",
   \ 'postprocess': function('RubocopEntryProcess'),
 \ }
 
@@ -469,14 +469,14 @@ let g:neomake_haml_haml_lint_maker = {
   \ 'args': ['compose', 'exec', '-T', 'web', 'haml-lint', '--no-color', '--no-summary', '%'],
   \ 'errorformat': '%f:%l %m',
   \ 'exe': 'docker',
-  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+  \ 'mapexpr': "substitute(v:val, '/var/app/current/', '', '')",
 \ }
 let g:neomake_haml_enabled_makers = ['haml_lint']
 let g:neomake_haml_maker = {
   \ 'args': ['compose', 'exec', '-T', 'web', 'haml-lint', '--no-color', '--no-summary'],
   \ 'errorformat': '%f:%l %m',
   \ 'exe': 'docker',
-  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+  \ 'mapexpr': "substitute(v:val, '/var/app/current/', '', '')",
 \ }
 
 " slim
@@ -485,14 +485,14 @@ let g:neomake_slim_slim_lint_maker = {
   \ 'args': ['compose', 'exec', '-T', 'web', 'slim-lint', '--no-color', '%'],
   \ 'errorformat': '%f:%l %m',
   \ 'exe': 'docker',
-  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+  \ 'mapexpr': "substitute(v:val, '/var/app/current/', '', '')",
 \ }
 let g:neomake_slim_enabled_makers = ['slim_lint']
 let g:neomake_slim_lint_maker = {
   \ 'args': ['compose', 'exec', '-T', 'web', 'slim-lint', '--no-color', 'app/views'],
   \ 'errorformat': '%f:%l %m',
   \ 'exe': 'docker',
-  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+  \ 'mapexpr': "substitute(v:val, '/var/app/current/', '', '')",
 \ }
 
 " javascript
@@ -500,7 +500,7 @@ let g:neomake_javascript_eslint_maker = {
   \ 'args': ['compose', 'exec', '-T', 'web', 'yarn', 'lint_js', '--format', 'unix'],
   \ 'errorformat': '%f:%l:%c: %m',
   \ 'exe': 'docker',
-  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+  \ 'mapexpr': "substitute(v:val, '/var/app/current/', '', '')",
 \ }
 let g:neomake_javascript_enabled_makers = ['eslint']
 
@@ -510,7 +510,7 @@ let g:neomake_scss_stylelint_maker = {
   \ 'errorformat': '%f:%l:%c: %m',
   \ 'exe': 'docker',
   \ 'append_file': 0,
-  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+  \ 'mapexpr': "substitute(v:val, '/var/app/current/', '', '')",
 \ }
 let g:neomake_scss_enabled_makers = ['stylelint']
 
@@ -533,14 +533,14 @@ let g:neomake_yaml_yamllint_maker = {
   \ 'args': ['compose', 'exec', '-T', 'web', 'yamllint', '--format', 'parsable', '%'],
   \ 'errorformat': '%E%f:%l:%c: [error] %m,%W%f:%l:%c: [warning] %m',
   \ 'exe': 'docker',
-  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+  \ 'mapexpr': "substitute(v:val, '/var/app/current/', '', '')",
 \ }
 let g:neomake_yaml_enabled_makers = ['yamllint']
 let g:neomake_yaml_maker = {
   \ 'args': ['compose', 'exec', '-T', 'web', 'yamllint', '--format', 'parsable', '.'],
   \ 'errorformat': '%E%f:%l:%c: [error] %m,%W%f:%l:%c: [warning] %m',
   \ 'exe': 'docker',
-  \ 'mapexpr': "substitute(v:val, '/usr/src/app/', '', '')",
+  \ 'mapexpr': "substitute(v:val, '/var/app/current/', '', '')",
 \ }
 
 " Configure test-vim
