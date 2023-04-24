@@ -11,14 +11,21 @@ call plug#begin('~/.vim/plugged')
 " General
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
+Plug 'Julian/vim-textobj-variable-segment'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'benjifisher/matchit.zip'
+Plug 'github/copilot.vim'
+Plug 'glts/vim-textobj-comment'
 Plug 'janko-m/vim-test'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-user'
 Plug 'milkypostman/vim-togglelist'
+Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'neomake/neomake'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'romainl/flattened'
 Plug 'sjl/gundo.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
@@ -38,15 +45,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
-Plug 'romainl/flattened'
 Plug 'wsdjeg/vim-fetch'
-
-" Text objects
-Plug 'Julian/vim-textobj-variable-segment'
-Plug 'glts/vim-textobj-comment'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-user'
-Plug 'nelstrom/vim-textobj-rubyblock'
 
 call plug#end()
 
