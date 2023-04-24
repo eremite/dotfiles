@@ -19,7 +19,7 @@ else
   issue_summary="${issue_summary//-/+}" # Replace - with +
   issue_summary="Deploy+to+Staging:${issue_summary}"
 fi
-body="$issue_number+https://sparefoot.atlassian.net/browse/$issue_number"
+body="$issue_number"
 origin=$(git config --get remote.origin.url)
 url="https://github.com/${origin#*:}"
 params="quick_pull=1&title=${issue_summary//-/+}&body=${body}"
