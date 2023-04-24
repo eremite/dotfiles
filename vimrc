@@ -204,6 +204,9 @@ imap kk <esc>k
 imap <Tab> <C-P>
 imap <S-Tab> <C-N>
 
+" Toggle signcolumn: https://stackoverflow.com/a/71966533
+nnoremap yoe :execute "set signcolumn=" .. (&signcolumn == "auto" ? "no" : "auto")<CR>
+
 " Abbreviations
 cabbrev EMo Emodel
 cabbrev ECo Econtroller
