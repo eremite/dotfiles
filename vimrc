@@ -51,8 +51,20 @@ call plug#end()
 
 " Linux never crashes. :)
 set noswapfile
-" Autosave when changing buffers (the warnings get annoying)
-set autowriteall
+" Autosave whenever text changes
+" autocmd TextChanged,InsertLeave * silent write
+
+" https://stackoverflow.com/questions/17365324/auto-save-in-vim-as-you-type#comment114062094_55761306
+" autocmd TextChanged,InsertLeave <buffer> if &readonly == 0 && filereadable(bufname('%')) | silent write | endif
+
+" https://stackoverflow.com/a/60095826
+augroup autosave
+    autocmd!
+    autocmd BufRead * if &filetype == "" | setlocal ft=text | endif
+    autocmd FileType * autocmd TextChanged,InsertLeave <buffer> if &readonly == 0 && filereadable(bufname('%')) | silent write | endif
+augroup END
+
+" set autowriteall
 " Enable persistent undo
 if isdirectory($HOME.'/.vim/tmp/undo') == 0
   call system('mkdir -p '.$HOME.'/.vim/tmp/undo')
@@ -98,7 +110,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " When opening a commit message, go to the first line.
 autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " Check syntax on file save
-call neomake#configure#automake('rw')
+call neomake#configure#automake('rn', 1000)
 " Use ruby comments in markdown
 autocmd FileType markdown setlocal commentstring=#\ %s
 " Turn off auto wrapping of text in markdown files
