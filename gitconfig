@@ -4,6 +4,8 @@
 	diff = auto
 	interactive = auto
 	status = auto
+[init]
+	defaultBranch = main
 [interactive]
 	singlekey = true
 [core]
