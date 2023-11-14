@@ -1,7 +1,7 @@
 #!/bin/bash
 # Suggest a pull request
 branch_name=$(git symbolic-ref -q --short HEAD)
-if [ "$branch_name" == "master" -o "$branch_name" == "staging" -o "$branch_name" == "demo" ]; then
+if [ "$branch_name" == "main" -o "$branch_name" == "staging" -o "$branch_name" == "demo" ]; then
   exit
 fi
 if [[ $branch_name =~ ([A-Z][A-Z0-9]+-[0-9]+) ]]; then
@@ -22,6 +22,7 @@ fi
 body="$issue_number"
 origin=$(git config --get remote.origin.url)
 url="https://github.com/${origin#*:}"
+url="${url%.git}"
 params="quick_pull=1&title=${issue_summary//-/+}&body=${body}"
 echo "${url}/compare/staging...${branch_name}?${params}"
 echo
