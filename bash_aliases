@@ -11,8 +11,9 @@ export DOCKER_SCAN_SUGGEST=false
 # https://github.com/junegunn/fzf
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 
-# Add ./bin to PATH
+# Add ./bin and ~/.local/bin to PATH
 PATH="$PATH:./bin"
+PATH="$PATH:$HOME/.local/bin"
 
 HISTSIZE=100000
 HISTFILESIZE=20000
