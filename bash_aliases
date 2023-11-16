@@ -84,9 +84,9 @@ alias less='less -R'
 alias rgrep='grep -r'
 alias x='exit'
 alias v="vim"
-alias V="vim notes.md"
-alias n="cat notes.md"
-alias N="cat notes.rb"
+alias V="vim tmp/notes.md"
+alias n="cat tmp/notes.md"
+alias N="cat tmp/notes.rb"
 
 # docker rails app
 alias d='docker system prune --volumes --force'

@@ -254,8 +254,8 @@ nnoremap <silent> <leader>l :call ToggleLocationList()<CR>
 " [M]ulti-line an array or hash
 noremap <Leader>m ma:s/, \?/,<c-v><CR>/g<CR>j=`a
 " Edit [N]otes file
-noremap <Leader>n :edit notes.md<CR>
-noremap <Leader>N :edit notes.rb<CR>
+noremap <Leader>n :edit tmp/notes.md<CR>
+noremap <Leader>N :edit tmp/notes.rb<CR>
 " [O]rganize alphabetically (sort)
 noremap <Leader>o :sort<CR>
 " Edit [p]ull request notes
