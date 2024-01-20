@@ -27,7 +27,7 @@ mkdir ~/.ssh
 vim ~/.ssh/id_rsa
 chmod 400 ~/.ssh/id_rsa
 
-# Install rcup: https://github.com/thoughtbot/rcm
+sudo apt install rcm # Install rcup: https://github.com/thoughtbot/rcm
 
 git clone git@github.com:eremite/dotfiles.git
 cd; RCRC=$HOME/dotfiles/rcrc rcup -f
