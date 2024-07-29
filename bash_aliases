@@ -49,6 +49,9 @@ else
   start_agent;
 fi
 
+# https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key#telling-git-about-your-gpg-key
+export GPG_TTY=$(tty)
+
 curl --silent --max-time 0.01 http://169.254.169.254/latest/meta-data/instance-id > /dev/null
 if [ $? -eq 0 ]; then
   export META_DIRECTORY="/tmp/meta/"
