@@ -98,7 +98,7 @@ alias log='dc logs -f --tail=100'
 alias logg='dc logs -f --tail=100 | grep "##"'
 alias r="docker compose exec web rails"
 alias reup="docker compose down; docker system prune --volumes --force; docker compose build; docker compose up --detach; bin/setup"
-alias rs="docker compose stop web; docker compose rm -f web; docker compose up --detach"
+alias rs="docker compose rm --stop --force web; docker compose up --detach"
 alias t="docker compose exec web rails sut_fail_fast"
 alias up="docker compose up --detach"
 alias down="docker compose stop; docker compose rm --force"
