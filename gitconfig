@@ -14,8 +14,6 @@
 	hooksPath = ~/.githooks
 [credential]
 	helper = cache --timeout=86400
-[github]
-	user = eremite
 [alias]
 	a = add
 	an = add --all --intent-to-add .
