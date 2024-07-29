@@ -23,6 +23,6 @@ body="$issue_number"
 origin=$(git config --get remote.origin.url)
 url="https://github.com/${origin#*:}"
 url="${url%.git}"
-params="quick_pull=1&title=${issue_summary//-/+}&body=${body}"
+params="quick_pull=1&title=${issue_summary//-/+}"
 echo "${url}/compare/staging...${branch_name}?${params}"
 echo
