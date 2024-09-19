@@ -545,3 +545,6 @@ let test#preserve_screen = 0
 
 " Turn on syntax completion.
 set completefunc=syntaxcomplete#Complete
+
+" Disable Copilot in markdown files
+let g:copilot_filetypes = { 'markdown': v:false }
