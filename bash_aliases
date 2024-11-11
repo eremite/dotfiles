@@ -98,10 +98,11 @@ alias log='dc logs -f --tail=100'
 alias logg='dc logs -f --tail=100 | grep "##"'
 alias r="docker compose exec web rails"
 alias reup="docker compose down; docker system prune --volumes --force; docker compose build; docker compose up --detach; bin/setup"
+alias rebuild="docker compose rm --stop --force web; docker compose build; docker compose up --detach"
 alias rs="docker compose rm --stop --force web; docker compose up --detach"
 alias t="docker compose exec web rails sut_fail_fast"
 alias up="docker compose up --detach"
-alias down="docker compose stop; docker compose rm --force"
+alias down="docker compose rm --stop --force"
 alias penguin="ngrok http 80 --subdomain=penguin"
 alias aws='docker run --rm -ti -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
 alias tunnel='ngrok start core test demo'
