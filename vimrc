@@ -46,6 +46,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'wsdjeg/vim-fetch'
+" Copilot chat
+Plug 'zbirenbaum/copilot.lua'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
 
 call plug#end()
 
@@ -244,6 +248,9 @@ vnoremap <Leader>g y:Ggrep '<C-r>"'<CR>
 " Git Grep (G[g]rep) the word under the cursor
 nnoremap <Leader>g :Ggrep <C-r><C-w><CR>
 nnoremap <Leader>G :Git<CR>
+" Get [h]elp from Copilot
+nnoremap <leader>h :lua require('CopilotChat').ask(vim.fn.input('Quick Chat: '), { selection = require('CopilotChat.select').buffer })<CR>
+nnoremap <leader>H :CopilotChatOpen<CR>
 " Change string to a symbol (like ruby's [i]ntern method)
 nnoremap <Leader>i 2f'xF'xi:<ESC>
 nnoremap <Leader>I 2f"xF"xi:<ESC>
@@ -548,3 +555,8 @@ set completefunc=syntaxcomplete#Complete
 
 " Disable Copilot in markdown files
 let g:copilot_filetypes = { 'markdown': v:false }
+
+" Setup Copilot chat
+lua << EOF
+require("CopilotChat").setup {}
+EOF
