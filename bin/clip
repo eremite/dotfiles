@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+  >&2 echo "clip in.mp4 1 3 # Saves seconds 1-3 to in_clipped.mp4"
+  exit 1
+fi
+
+infile=$1
+outfile="${infile%.*}_clipped.${infile##*.}"
+start_time=$2
+end_time=$3
+
+ffmpeg -i "$infile" -ss "$start_time" -to "$end_time" -c copy "$outfile"

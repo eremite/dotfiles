@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+if [ $# -eq 0 ]; then
+  >&2 echo "convert in.mp4 # Converts from Google Photos to a playable in_converted.mp4"
+  exit 1
+fi
+
+infile=$1
+outfile="${infile%.*}_converted.mp4"
+
+ffmpeg -i "$infile" "$outfile"

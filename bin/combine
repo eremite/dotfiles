@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+  >&2 echo "combine in1.mp4 in2.mp4 # Combines all files into combined.mp4"
+  exit 1
+fi
+
+# https://stackoverflow.com/a/11175851
+infiles=$(for file in "$@"; do echo "file '$PWD/$file'"; done)
+(for file in "$@"; do echo "file '$PWD/$file'"; done) > list.txt
+outfile="combined.mp4"
+
+ffmpeg -safe 0 -f concat -i <(echo "$infiles") -c copy "$outfile"
