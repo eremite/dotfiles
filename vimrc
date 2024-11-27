@@ -245,9 +245,10 @@ noremap <Leader>E :e!<CR>
 noremap <Leader>f :b #<CR>
 " Git Grep (G[g]rep) the selection
 vnoremap <Leader>g y:Ggrep '<C-r>"'<CR>
-" Git Grep (G[g]rep) the word under the cursor
+" Git [g]rep the word under the cursor
 nnoremap <Leader>g :Ggrep <C-r><C-w><CR>
-nnoremap <Leader>G :Git<CR>
+" Open a Git [G]rep prompt
+noremap <Leader>G :Ggrep 
 " Get [h]elp from Copilot
 nnoremap <leader>h :lua require('CopilotChat').ask(vim.fn.input('Quick Chat: '), { selection = require('CopilotChat.select').buffer })<CR>
 nnoremap <leader>H :CopilotChatOpen<CR>
