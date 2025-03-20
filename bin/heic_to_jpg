@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+  >&2 echo "heic_to_jpg in.heic # Creates a playable in.jpg"
+  exit 1
+fi
+
+infile="$1"
+outfile="${infile%.*}.jpg"
+
+docker run --rm -v $(pwd):/app/files maestroerror/heif-converter heic "/app/files/$infile" "/app/files/$outfile"
