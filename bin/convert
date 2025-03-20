@@ -1,11 +1,13 @@
 #!/usr/bin/env sh
 
 if [ $# -eq 0 ]; then
-  >&2 echo "convert in.mp4 # Converts from Google Photos to a playable in_converted.mp4"
+  >&2 echo "convert in.mp4 # Creates a playable in.mp4, backing up to in_old.mp4"
   exit 1
 fi
 
-infile=$1
-outfile="${infile%.*}_converted.mp4"
+infile="$1"
+outfile="$infile"
+backupfile="${infile%.*}_old.mp4"
+mv "$infile" "$backupfile"
 
-ffmpeg -i "$infile" "$outfile"
+ffmpeg -i "$backupfile" "$outfile"
