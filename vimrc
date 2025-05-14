@@ -250,11 +250,13 @@ nnoremap <Leader>g :Ggrep <C-r><C-w><CR>
 " Open a Git [G]rep prompt
 noremap <Leader>G :Ggrep 
 " Get [h]elp from Copilot
-nnoremap <leader>h :lua require('CopilotChat').ask(vim.fn.input('Quick Chat: '), { selection = require('CopilotChat.select').buffer })<CR>
-nnoremap <leader>H :CopilotChatOpen<CR>
-" Change string to a symbol (like ruby's [i]ntern method)
-nnoremap <Leader>i 2f'xF'xi:<ESC>
-nnoremap <Leader>I 2f"xF"xi:<ESC>
+" nnoremap <leader>h :lua require('CopilotChat').ask(vim.fn.input('Quick Chat: '), { selection = require('CopilotChat.select').buffer })<CR>
+nnoremap <leader>h :CopilotChat
+vnoremap <leader>h :CopilotChat
+" vnoremap <leader>h :CopilotChatToggle<CR>
+" nnoremap <leader>H :CopilotChatOpen<CR>
+" Open [i]ssue file
+nnoremap <Leader>i :edit tmp/issue.md<ESC>
 " Convert a three line tag or block to one line. (an overpowered [J])
 noremap <Leader>j maJxJx`a
 " Toggle Location list
@@ -466,7 +468,7 @@ function! RubocopEntryProcess(entry)
 endfunction
 let g:neomake_ruby_rubocop_maker = {
   \ 'append_file': 0,
-  \ 'args': ['compose', 'exec', '-T', 'web', 'rubocop', '-P', '--format', 'emacs', '%'],
+  \ 'args': ['compose', 'exec', '-T', 'web', 'rubocop', '--format', 'emacs', '%'],
   \ 'errorformat': '%f:%l:%c: %t: %m',
   \ 'exe': 'docker',
   \ 'mapexpr': "substitute(v:val, '/var/app/current/', '', '')",
@@ -474,7 +476,7 @@ let g:neomake_ruby_rubocop_maker = {
 \ }
 let g:neomake_ruby_enabled_makers = ['rubocop']
 let g:neomake_rubocop_maker = {
-  \ 'args': ['compose', 'exec', '-T', 'web', 'rubocop', '-P', '--format', 'emacs', '--force-exclusion'],
+  \ 'args': ['compose', 'exec', '-T', 'web', 'rubocop', '--format', 'emacs', '--force-exclusion'],
   \ 'errorformat': '%f:%l:%c: %t: %m',
   \ 'exe': 'docker',
   \ 'mapexpr': "substitute(v:val, '/var/app/current/', '', '')",
@@ -559,5 +561,7 @@ let g:copilot_filetypes = { 'markdown': v:false }
 
 " Setup Copilot chat
 lua << EOF
-require("CopilotChat").setup {}
+require("CopilotChat").setup {
+  chat_autocomplete = true
+}
 EOF
