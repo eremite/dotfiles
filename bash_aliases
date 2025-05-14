@@ -90,6 +90,7 @@ alias v="vim"
 alias V="vim tmp/notes.md"
 alias n="cat tmp/notes.md"
 alias N="cat tmp/notes.rb"
+alias i='cat tmp/issue.md'
 
 # docker rails app
 alias d='docker system prune --volumes --force'
@@ -97,7 +98,7 @@ alias dc="docker compose"
 alias log='dc logs -f --tail=100'
 alias logg='dc logs -f --tail=100 | grep "##"'
 alias r="docker compose exec web rails"
-alias reup="docker compose down; docker system prune --volumes --force; docker compose build; docker compose up --detach; bin/setup"
+alias reup="docker compose rm --stop --force; docker system prune --volumes --force; docker compose build; docker compose up --detach; bin/setup"
 alias rebuild="docker compose rm --stop --force web; docker compose build; docker compose up --detach"
 alias rs="docker compose rm --stop --force web; docker compose up --detach"
 alias t="docker compose exec web rails sut_fail_fast"
