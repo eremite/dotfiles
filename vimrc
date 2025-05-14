@@ -122,7 +122,6 @@ autocmd FileType markdown set textwidth=0
 " Back up notes to the cloud
 if $META_DIRECTORY != ""
   autocmd BufWritePost notes.*,docker-compose.yml execute ':keepalt write! '.fnameescape($META_DIRECTORY).fnamemodify(getcwd(), ':t').'.'.expand('%:e')
-  autocmd BufWritePost notes.*,docker-compose.yml execute 'terminal ++hidden ++close ++norestore bash -c "update_meta_file.sh '.fnameescape($META_DIRECTORY).fnamemodify(getcwd(), ':t').'.'.expand('%:e').'"'
 endif
 
 " Tabs and indentation
