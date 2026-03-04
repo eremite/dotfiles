@@ -222,7 +222,7 @@ nnoremap <leader>A :TestSuite<CR>:call OpenQuickfix()<CR>
 nnoremap <silent> <Leader>b :call fzf#run({
 \   'source': reverse(<sid>buflist()),
 \   'sink': function('<sid>bufopen'),
-\   'options': '+m',
+\   'options': '--prompt "" +m',
 \   'up': len(<sid>buflist()) + 2
 \ })<CR>
 " Toggle Quickfix list
@@ -230,7 +230,7 @@ nnoremap <silent> <leader>c :call ToggleQuickfixList()<CR>
 " Open file in current [d]irectory
 nnoremap <silent> <Leader>d :call fzf#run({
 \   'dir': expand("%:p:h"),
-\   'options': '+m',
+\   'options': '--prompt "" +m',
 \   'sink': 'edit',
 \   'source': 'find . -maxdepth 1 -type f -printf "%f\n"'
 \ })<CR>
