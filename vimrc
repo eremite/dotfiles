@@ -14,7 +14,7 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'Julian/vim-textobj-variable-segment'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'benjifisher/matchit.zip'
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 Plug 'glts/vim-textobj-comment'
 Plug 'janko-m/vim-test'
 Plug 'jeetsukumaran/vim-indentwise'
@@ -47,9 +47,9 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'wsdjeg/vim-fetch'
 " Copilot chat
-Plug 'zbirenbaum/copilot.lua'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
+" Plug 'zbirenbaum/copilot.lua'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
 
 call plug#end()
 
@@ -556,11 +556,11 @@ let test#preserve_screen = 0
 set completefunc=syntaxcomplete#Complete
 
 " Disable Copilot in markdown files
-let g:copilot_filetypes = { 'markdown': v:false }
+" let g:copilot_filetypes = { 'markdown': v:false }
 
 " Setup Copilot chat
-lua << EOF
-require("CopilotChat").setup {
-  chat_autocomplete = true
-}
-EOF
+" lua << EOF
+" require("CopilotChat").setup {
+"   chat_autocomplete = true
+" }
+" EOF
