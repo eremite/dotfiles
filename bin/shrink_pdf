@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Check if an argument is provided
+if [ $# -ne 1 ]; then
+    echo "Usage: shrinkpdf [filename.pdf]"
+    echo ""
+    echo "Example: shrinkpdf sonata.pdf"
+    echo "Result: sonata_original.pdf (backup) and sonata.pdf (compressed)"
+    exit 1
+fi
+
+INPUT="$1"
+# Get filename without extension
+BASENAME="${INPUT%.*}"
+BACKUP="${BASENAME}_original.pdf"
+
+# Rename the original file to act as the backup
+mv "$INPUT" "$BACKUP"
+
+# Run Ghostscript to create the compressed file with the original name
+gs -sDEVICE=pdfwrite \
+   -dCompatibilityLevel=1.4 \
+   -dPDFSETTINGS=/ebook \
+   -dAutoRotatePages=/None \
+   -dNOPAUSE \
+   -dQUIET \
+   -dBATCH \
+   -sOutputFile="$INPUT" "$BACKUP"
+
+echo "Success!"
+echo "Original saved as: $BACKUP"
+echo "Compressed file:   $INPUT"
