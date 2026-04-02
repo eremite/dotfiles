@@ -5,9 +5,9 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
-infile="$1"
-outfile="$infile"
-backupfile="${infile%.*}_old.mp4"
-mv "$infile" "$backupfile"
-
-ffmpeg -i "$backupfile" "$outfile"
+for infile in "$@"; do
+  outfile="$infile"
+  backupfile="${infile%%.*}_old.mp4"
+  mv "$infile" "$backupfile"
+  ffmpeg -i "$backupfile" -c:v libx264 -preset superfast -crf 20 -vf "fps=30,format=yuv420p" -c:a aac -ar 44100 -movflags +faststart "$outfile"
+done

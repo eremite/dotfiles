@@ -7,7 +7,6 @@ fi
 
 # https://stackoverflow.com/a/11175851
 infiles=$(for file in "$@"; do echo "file '$PWD/$file'"; done)
-(for file in "$@"; do echo "file '$PWD/$file'"; done) > list.txt
-outfile="combined.mp4"
+outfile="${1%%.*}_combined.mp4"
 
 ffmpeg -safe 0 -f concat -i <(echo "$infiles") -c copy "$outfile"
