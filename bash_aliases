@@ -101,9 +101,9 @@ alias r="docker compose exec web rails"
 alias reup="docker compose rm --stop --force; docker system prune --volumes --force; docker compose build; docker compose up --detach; bin/setup"
 alias rebuild="docker compose rm --stop --force web; docker compose build; docker compose up --detach"
 alias rs="docker compose rm --stop --force web; docker compose up --detach"
-alias t="docker compose exec web rails test; docker compose exec web brakeman --no-pager --run-all-checks --except UnscopedFind"
+alias t="docker compose exec web rubocop; docker compose exec web rails test; docker compose exec web brakeman --no-pager --run-all-checks --except UnscopedFind"
 alias up="docker compose up --detach"
 alias down="docker compose rm --stop --force"
-alias penguin="ngrok http 80 --subdomain=penguin"
+alias run="docker compose exec web"
 alias aws='docker run --rm -ti -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
 alias tunnel='ngrok start core test demo'
