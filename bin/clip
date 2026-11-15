@@ -10,4 +10,6 @@ outfile="${infile%.*}_clipped.${infile##*.}"
 start_time=$2
 end_time=$3
 
-ffmpeg -i "$infile" -ss "$start_time" -to "$end_time" -c copy "$outfile"
+# ffmpeg -i "$infile" -ss "$start_time" -to "$end_time" -c copy "$outfile"
+# re-encode for precise cutting
+ffmpeg -ss "$start_time" -i "$infile" -to "$end_time" -c:v libx264 -crf 18 -c:a copy "$outfile"
