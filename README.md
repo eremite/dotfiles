@@ -1,25 +1,46 @@
-## Installation
-
-`bin/devbox_install.sh` will boostrap a new Amazon Linux instance.
-
-### Back up meta from devbox
+## Boostrap new instance
 
 ```sh
-cd /data
-filename=meta.$(date +"%F").tar.gz
-tar -C $META --exclude='**/tmp' -c -f - . | gzip > $filename
-gpg -c $filename
-docker run --rm -it --volumes-from data -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY anigeo/awscli s3 cp /data/$filename.gpg s3://daniel-devbox/$filename.gpg --acl bucket-owner-full-control
-rm $filename*
-```
+#!/bin/bash
 
-### Restore meta directory
+set -x
 
-```sh
-filename=meta.$(date +"%F").tar.gz
-mkdir -p data/meta
-cd data/meta
-docker run --rm -it -v $(pwd):/tt -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY anigeo/awscli s3 cp s3://daniel-devbox/$filename.gpg /tt/$filename.gpg
-gpg -d $filename.gpg > $filename
-tar -zxf $filename
-```
+sudo apt update
+sudo apt upgrade -y
+sudo apt dist-upgrade -y
+
+sudo apt install -y \
+  apt-transport-https \
+  ca-certificates \
+  universal-ctags \
+  curl \
+  dnsutils \
+  git \
+  gnupg2 \
+  libterm-readkey-perl \
+  rcm \
+  wget
+
+# Install private SSH key
+mkdir ~/.ssh
+vim ~/.ssh/id_rsa
+chmod 400 ~/.ssh/id_rsa
+
+git clone git@github.com:eremite/dotfiles.git
+cd; RCRC=$HOME/dotfiles/rcrc rcup -f
+cd $HOME/dotfiles
+git config user.email "you@example.com"
+git config user.name "eremite"
+cd
+
+vim -c 'PlugInstall'
+
+# Install Docker (https://docs.docker.com/install/linux/docker-ce/debian/)
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo usermod -aG docker "$USER"
+sudo reboot
+
+# Configure AWS (Copy/paste credentials or use `aws configure`)
+mkdir ~/.aws
+vim ~/.aws/credentials
